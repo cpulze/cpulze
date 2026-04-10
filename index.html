@@ -328,6 +328,7 @@ footer { background: var(--stone-900); border-top: 1px solid rgba(255,255,255,0.
           <div class="form-step-2" id="formStep2">
             <input type="text" id="hotel-location" placeholder="City, country">
             <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
+            <input type="text" id="website-url" style="display: none;" tabindex="-1" autocomplete="off">
           </div>
           <button class="btn-scan" id="scanBtn">Run free scan →</button>
         </div>
@@ -673,6 +674,11 @@ footer { background: var(--stone-900); border-top: 1px solid rgba(255,255,255,0.
     const n = document.getElementById('hotel-name').value.trim();
     const l = document.getElementById('hotel-location').value.trim();
     const em = document.getElementById('hotel-email').value.trim();
+
+    const trap = document.getElementById('website-url').value;
+if (trap !== "") {
+  return; // Instantly stops the script if the hidden field is filled
+}
     
     // Basic validation
     if (!n || !l || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
