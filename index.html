@@ -690,7 +690,7 @@ footer { background: var(--stone-900); border-top: 1px solid rgba(255,255,255,0.
       const response = await fetch('/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ hotelName: n, location: l, email: em, theme: "cleanliness", model: "perplexity", tier: "free" })
+        body: JSON.stringify({ hotel_name: n, location: l, email: em, theme: "cleanliness", model: "perplexity", tier: "free" })
       });
       
       if (response.ok) {
