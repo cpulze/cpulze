@@ -666,13 +666,44 @@ footer { background: var(--stone-900); border-top: 1px solid rgba(255,255,255,0.
   // Progressive Form Logic
   document.getElementById('hotel-name').addEventListener('input', function() { if (this.value.trim().length >= 2) document.getElementById('formStep2').classList.add('visible'); });
   
-  // Fake Scan Submission
-  document.getElementById('scanBtn').addEventListener('click', function(e) {
+    // REAL Scan Submission (Calling Vercel Serverless Function)
+  document.getElementById('scanBtn').addEventListener('click', async function(e) {
     e.preventDefault();
-    const n = document.getElementById('hotel-name').value.trim(), l = document.getElementById('hotel-location').value.trim(), em = document.getElementById('hotel-email').value.trim();
-    if (!n || !l || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) return;
-    this.textContent = 'Submitting…'; this.disabled = true;
-    setTimeout(() => { this.textContent = '✓ Report on its way!'; }, 1500);
+    
+    const n = document.getElementById('hotel-name').value.trim();
+    const l = document.getElementById('hotel-location').value.trim();
+    const em = document.getElementById('hotel-email').value.trim();
+    
+    // Basic validation
+    if (!n || !l || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+    
+    // Loading state
+    const originalText = this.textContent;
+    this.textContent = 'Submitting…'; 
+    this.disabled = true;
+    
+    try {
+      // Send data to our secure Vercel middleman
+      const response = await fetch('/api/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ hotelName: n, location: l, email: em })
+      });
+      
+      if (response.ok) {
+        this.textContent = '✓ Report on its way!';
+        this.style.backgroundColor = 'var(--sage-500)'; // Turns green on success
+      } else {
+        throw new Error('Server rejected request');
+      }
+    } catch (error) {
+      console.error('Scan Error:', error);
+      this.textContent = 'Error. Try again.';
+      this.disabled = false; // Re-enable so they can try again
+    }
   });
 
   // Blind Spots Tabs
