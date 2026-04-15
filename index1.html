@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cpulze — What is AI saying about your hotel?</title>
+<meta name="description" content="AI engines like Perplexity, ChatGPT and Gemini are shaping hotel bookings by citing old reviews. cpulze scans what AI says about your property and helps you fix the narrative.">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">cpulze</a>
+    <div class="nav-right" id="navRight">
+      <a href="#how" class="nav-link">How it works</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#scan" class="btn-nav">Free scan</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="scan">
+  <div class="container">
+    <div class="hero-eyebrow"><div class="eyebrow-dot"></div> AI search is shaping hotel bookings right now</div>
+    <h1 class="hero-headline">What is AI telling guests about <em>your hotel?</em></h1>
+    <p class="hero-sub">Perplexity, ChatGPT and Gemini answer booking questions by citing your reviews. Run a free scan and see exactly what they find — before your next guest decides where to stay.</p>
+    <div class="hero-form-wrapper">
+      <div class="scan-form">
+        <span class="form-label">Run your free AI narrative scan</span>
+        <div class="form-fields">
+          <input type="text" id="hotel-name" placeholder="Enter your hotel name" autocomplete="off">
+          <div class="form-step-2" id="formStep2">
+            <input type="text" id="hotel-location" placeholder="City, country">
+            <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
+            <input type="text" id="website-url" style="display: none;" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAC8M6t3_D7YZ3740" data-theme="light" data-appearance="interaction-only"></div>
+          <button class="btn-scan" id="scanBtn">Run free scan →</button>
+          </div>
+        <div class="form-trust"><span>Free forever</span><span>No credit card</span><span>Report in 15 mins</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="report-preview-section">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">Your scan report</div>
+      <h2 class="section-title">This lands in your inbox <em>within 15 minutes.</em></h2>
+      <p class="section-desc">A real AI narrative scan for a typical property. Every finding includes the exact query we ran, the verbatim quote AI cited, the source it pulled from, and what it means for your bookings.</p>
+    </div>
+  </div>
+  <div class="container" style="max-width:880px;">
+    <div class="report-mockup-wrapper">
+      <div class="report-mockup">
+        <div class="rpt-header">
+          <div class="rpt-brand">CPULZE <span class="rpt-brand-sep">|</span> <span class="rpt-brand-label">AI Narrative Scan</span></div>
+          <div class="rpt-date">Sun Apr 05 2026</div>
+        </div>
+
+        <div class="rpt-hotel-block">
+          <div class="rpt-hotel-name">Ocean Valley Palace</div>
+          <div class="rpt-hotel-meta">Cactus Glacier Springs, NV, USA · Perplexity scan</div>
+        </div>
+        <div class="rpt-intro">
+          Your future guests aren't Googling "Cactus Glacier Springs boutique hotel" anymore — they're asking <strong>Perplexity, ChatGPT and Claude</strong> to recommend where to stay. While you've been focused on running the Ocean Valley Palace, AI search engines have been learning what to say about your property from your most critical online reviews.
+        </div>
+        <div class="rpt-finding">
+          <div class="rpt-finding-label">Critical Finding 1 — Room Quality</div>
+          <div class="rpt-finding-query">When a guest searches: <span>"problems with rooms at Ocean Valley Palace"</span></div>
+          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: Review details unavailable</div>
+          <div class="rpt-finding-body">When guests ask AI about room quality concerns, it immediately surfaces language about your Ocean Suite specifically. Guests researching your property see this before they see your beautiful photos or recent improvements.</div>
+          <div class="rpt-quote-block">
+            <div class="rpt-quote-text">"The Ocean Suite was very poorly maintained and did not meet basic cleanliness standards."</div>
+          </div>
+          <div class="rpt-finding-consequence">A guest comparing Cactus Glacier Springs hotels sees this quote and immediately eliminates the Empire Sphere Ocean View Valley Hill Resort from consideration.</div>
+          <div class="rpt-finding-source">Travel Forum · <a href="#">View review</a></div>
+        </div>
+        <div class="rpt-finding">
+          <div class="rpt-finding-label">Critical Finding 2 — Luxury Positioning</div>
+          <div class="rpt-finding-query">When a guest searches: <span>"Is Empire Sphere Ocean View Valley Hill actually luxury?"</span></div>
+          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: Review details unavailable</div>
+          <div class="rpt-finding-body">AI specifically questions your luxury positioning when guests ask about value for money. This directly undermines your ability to command premium rates in the competitive Cactus Glacier Springs market.</div>
+          <div class="rpt-quote-block">
+            <div class="rpt-quote-text">"Marketed as a premium experience, but the amenities and room quality fell far short of luxury expectations."</div>
+          </div>
+          <div class="rpt-finding-consequence">Guests expecting a luxury experience book elsewhere, and price-sensitive guests question whether you're overpriced.</div>
+          <div class="rpt-finding-source">Travel Forum · <a href="#">View review</a></div>
+        </div>
+
+        <div class="rpt-callout">
+          <strong>AI doesn't average your review scores</strong> — it surfaces your most quotable language, especially when guests ask skeptical questions. This is why one guest's exact words about your "poorly maintained" Ocean Suite carry more weight than dozens of positive reviews.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blind-spots section alt">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">AI blind spots</div>
+      <h2 class="section-title">Three ways AI is costing independent hotels bookings.</h2>
+    </div>
+    <div class="tab-container">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab1">1. Zero-Click Threat</button>
+        <button class="tab-btn" data-tab="tab2">2. Dealbreaker Queries</button>
+        <button class="tab-btn" data-tab="tab3">3. The 2-Star Hijack</button>
+      </div>
+      <div class="tab-content-wrap">
+        <div class="tab-pane active" id="tab1">
+          <div class="tab-tag-box"><span class="tab-tag">Google AI Shift Report</span><div class="tab-stat-num">60%</div></div>
+          <h3 class="tab-threat-title">of modern travel searches now end <em>without a single click</em> to a hotel website.</h3>
+          <p class="section-desc">Guests make their final booking decisions directly inside ChatGPT and Perplexity. They read the AI summary, judge your property on cited reviews, and choose — without ever visiting your site.</p>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <div class="tab-tag-box"><span class="tab-tag">AI Overviews Study</span><div class="tab-stat-num">+14%</div></div>
+          <h3 class="tab-threat-title">surge in AI answering <em>dealbreaker, bottom-of-funnel queries</em> right before booking.</h3>
+          <p class="section-desc">Guests aren't asking "what are nice hotels near Ocean Valley Palace?" anymore. They're asking skeptical questions like <em>"Are the rooms noisy at Ocean Valley Palace?"</em> — actively hunting for reasons not to book.</p>
+        </div>
+        <div class="tab-pane" id="tab3">
+          <div class="tab-tag-box"><span class="tab-tag">GEO Industry Analysis</span><div class="tab-stat-num">#1</div></div>
+          <h3 class="tab-threat-title">AI engines <em>completely ignore your average star rating.</em> Verbatim quotes are #1.</h3>
+          <p class="section-desc">You could have a hundred glowing five-star reviews, but if a guest asks AI about your bathrooms, it will dig up a brutal two-star review from 2023. One vivid negative quote outweighs a hundred generic positives.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">The cpulze Ledger</div>
+      <h2 class="section-title">Log fixes. Track whether <em>AI notices.</em></h2>
+      <p class="section-desc">When you fix an operational issue, log it in your private cpulze Ledger. We structure your record of renovations and changes so AI engines can see the current reality of your property — and we monitor until the narrative shifts.</p>
+    </div>
+  </div>
+  <div class="container" style="max-width:880px;">
+    <div class="ledger-mockup-wrapper">
+      <div class="ledger-mockup">
+        
+        <div class="ldg-topbar">
+          <div class="ldg-topbar-left">
+            <div class="ldg-topbar-brand">cpulze</div>
+            <div class="ldg-topbar-sep"></div>
+            <div class="ldg-topbar-hotel">Ocean Valley Palace</div>
+          </div>
+          <button class="ldg-topbar-btn">+ Log fix</button>
+        </div>
+        
+        <div class="ldg-tabs">
+          <button class="ldg-tab-btn active" onclick="switchLdgTab('ledger', this)">Owner Voice</button>
+          <button class="ldg-tab-btn" onclick="switchLdgTab('history', this)">Scan History</button>
+        </div>
+
+        <div id="pane-ledger" class="ldg-ui-pane active">
+          <div class="ldg-view-toggle">
+            <button class="ldg-toggle-btn active" onclick="toggleEditMode(false, this)">Published View</button>
+            <button class="ldg-toggle-btn" onclick="toggleEditMode(true, this)">Edit Mode</button>
+          </div>
+
+          <div class="ldg-stats">
+            <div class="ldg-stat-card"><div class="ldg-stat-label">Total fixes</div><div class="ldg-stat-value">7</div></div>
+            <div class="ldg-stat-card"><div class="ldg-stat-label">Resolved</div><div class="ldg-stat-value green">4</div></div>
+            <div class="ldg-stat-card"><div class="ldg-stat-label">Monitoring</div><div class="ldg-stat-value amber">2</div></div>
+          </div>
+          
+          <div class="ldg-entries" id="ldg-entries-container">
+            <div class="ldg-entry-row">
+              <div class="ldg-entry-theme green">Room quality</div>
+              <div>
+                <div class="read-element ldg-entry-desc">Ocean Suite fully renovated. New flooring, repainted walls, replaced all soft furnishings and added AC unit.</div>
+                <textarea class="edit-element ldg-edit-input">Ocean Suite fully renovated. New flooring, repainted walls, replaced all soft furnishings and added AC unit.</textarea>
+              </div>
+              <div>
+                <div class="read-element ldg-status-pill resolved">Resolved</div>
+                <select class="edit-element ldg-edit-select">
+                  <option selected>Resolved</option>
+                  <option>Monitoring</option>
+                  <option>Flagged</option>
+                </select>
+              </div>
+              <div class="ldg-entry-date">Mar 12 2026</div>
+              <div class="read-element ldg-ai-track"><div class="ldg-ai-track-label">AI shift</div><div class="ldg-ai-track-bar"><div class="ldg-ai-track-fill green" style="width:92%;"></div></div><div class="ldg-ai-track-pct">92%</div></div>
+            </div>
+
+            <div class="ldg-entry-row">
+              <div class="ldg-entry-theme amber">Food & dining</div>
+              <div>
+                <div class="read-element ldg-entry-desc">New head chef hired. Full menu redesign with locally sourced ingredients. Portion sizes increased.</div>
+                <textarea class="edit-element ldg-edit-input">New head chef hired. Full menu redesign with locally sourced ingredients. Portion sizes increased.</textarea>
+              </div>
+              <div>
+                <div class="read-element ldg-status-pill monitoring">Monitoring</div>
+                <select class="edit-element ldg-edit-select">
+                  <option>Resolved</option>
+                  <option selected>Monitoring</option>
+                  <option>Flagged</option>
+                </select>
+              </div>
+              <div class="ldg-entry-date">Mar 15 2026</div>
+              <div class="read-element ldg-ai-track"><div class="ldg-ai-track-label">AI shift</div><div class="ldg-ai-track-bar"><div class="ldg-ai-track-fill amber" style="width:45%;"></div></div><div class="ldg-ai-track-pct">45%</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pane-history" class="ldg-ui-pane">
+          <div class="ldg-stats" style="margin-top: 24px;">
+            <div class="ldg-stat-card"><div class="ldg-stat-label">Total Scans</div><div class="ldg-stat-value">14</div></div>
+            <div class="ldg-stat-card"><div class="ldg-stat-label">New Findings</div><div class="ldg-stat-value" style="color:#f87171;">1</div></div>
+            <div class="ldg-stat-card"><div class="ldg-stat-label">Dropped Themes</div><div class="ldg-stat-value green">5</div></div>
+          </div>
+          
+          <div class="ldg-entries">
+            <div class="ldg-entry-row" style="grid-template-columns: 100px 130px 1fr 80px;">
+              <div class="ldg-entry-date" style="text-align:left; margin-top:0;">Apr 05, 2026</div>
+              <div class="ldg-entry-theme">Perplexity</div>
+              <div class="ldg-entry-desc">5 critical themes identified. <span style="color:#f87171; font-weight:500;">+1 new finding</span> (Luxury Positioning).</div>
+              <button class="ldg-topbar-btn" style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); width:100%;">View</button>
+            </div>
+            
+            <div class="ldg-entry-row" style="grid-template-columns: 100px 130px 1fr 80px;">
+              <div class="ldg-entry-date" style="text-align:left; margin-top:0;">Mar 22, 2026</div>
+              <div class="ldg-entry-theme">ChatGPT (GPT-4)</div>
+              <div class="ldg-entry-desc">4 critical themes identified. <span style="color:#4ade80; font-weight:500;">-1 resolved</span> (Front desk wait times).</div>
+              <button class="ldg-topbar-btn" style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); width:100%;">View</button>
+            </div>
+
+            <div class="ldg-entry-row" style="grid-template-columns: 100px 130px 1fr 80px;">
+              <div class="ldg-entry-date" style="text-align:left; margin-top:0;">Mar 08, 2026</div>
+              <div class="ldg-entry-theme">Google Gemini</div>
+              <div class="ldg-entry-desc">5 critical themes identified. No change from previous scan.</div>
+              <button class="ldg-topbar-btn" style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); width:100%;">View</button>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="how">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">How it works</div>
+      <h2 class="section-title">See your AI narrative.<br>Document fixes.<br>Track the shift.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">The AI Audit</div><div class="step-desc">We query Perplexity, Gemini, and ChatGPT with skeptical, guest-like questions about your property.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Verbatim Quotes</div><div class="step-desc">We extract the exact operational issues and direct quotes the AI cited in its response.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Fix &amp; Log</div><div class="step-desc">You fix the issue — retrain staff, renovate a room — then log the fix in your cpulze Ledger.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Track the Shift</div><div class="step-desc">We continually monitor AI engines until your updated narrative is reflected in their responses.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-strip">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">Early feedback</div>
+      <h2 class="section-title" style="font-size:34px;">What hoteliers are discovering.</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"We had no idea Perplexity was citing an outdated 2022 review about our old breakfast buffet. We changed caterers two years ago. cpulze showed us the problem in ten minutes."</div>
+        <div class="testimonial-author">Maria E.</div>
+        <div class="testimonial-role">Owner · Seaside Boutique</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"The Ledger changed everything. We logged our renovation, and within six weeks the AI responses about our rooms shifted completely. Worth every penny."</div>
+        <div class="testimonial-author">James H.</div>
+        <div class="testimonial-role">GM · Oakwood Inn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header-left" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Pricing</div>
+      <h2 class="section-title">Simple. One paid tier. <em>No lock-in.</em></h2>
+      <p class="section-desc" style="text-align:center; margin:0 auto;">Free to start. $99/month when you're ready to take control of your narrative.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <span class="price-tier-badge free-badge">Free forever</span>
+        <div class="price-amount">$0</div>
+        <div class="price-desc">See your top 2 critical AI findings.</div>
+        <ul class="price-features">
+          <li><div class="feat-dot"></div>5 lifetime scans</li>
+          <li><div class="feat-dot"></div>Top 2 critical themes shown</li>
+          <li><div class="feat-dot"></div>Email report delivery</li>
+          <li class="dim"><div class="feat-dot dim"></div>3 themes gated</li>
+          <li class="dim"><div class="feat-dot dim"></div>Owner Ledger access</li>
+        </ul>
+        <a href="#scan" class="btn-price outline">Run free scan</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tier-badge pro-badge">Most popular</span>
+        <div class="price-amount pro">$99<span>/mo</span></div>
+        <div class="price-desc">Full monitoring and Ledger tracking.</div>
+        <ul class="price-features">
+          <li><div class="feat-dot"></div>Unlimited scans · all themes shown</li>
+          <li><div class="feat-dot"></div>Fortnightly automated scans</li>
+          <li><div class="feat-dot"></div>Full owner Ledger · log actions</li>
+          <li><div class="feat-dot"></div>Continuous narrative tracking</li>
+          <li><div class="feat-dot"></div>All 3 engines (Perplexity, ChatGPT, Gemini)</li>
+        </ul>
+        <a href="#scan" class="btn-price solid">Start monitoring</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container-narrow">
+    <h2 class="cta-headline">AI has a guest voice.<br>Now independent hotels have <em>one too.</em></h2>
+    <p class="cta-sub">Run a free scan and see exactly what AI is telling your potential guests right now.</p>
+    <a href="#scan" class="btn-scan" style="max-width:240px; margin: 0 auto; display:block; text-align:center; text-decoration:none; line-height:52px;">Get free scan</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 cpulze. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:pulse@cpulze.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
