@@ -231,7 +231,7 @@ input:focus { border-color: var(--copper); box-shadow: 0 0 0 3px rgba(181,114,10
 .cta-sub { font-size: 18px; color: var(--stone-300); max-width: 480px; margin: 0 auto 32px; }
 footer { background: var(--stone-900); border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0; }
 .footer-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-.footer-left { font-size: 13px; color: var(--stone-500); font-family: var(--font-mono); }
+.footer-left, .footer-text { font-size: 13px; color: var(--stone-500); font-family: var(--font-mono); }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { font-size: 13px; color: var(--stone-500); text-decoration: none; font-family: var(--font-mono); transition: color 0.2s; }
 .footer-links a:hover { color: var(--stone-300); }
