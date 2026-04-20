@@ -87,6 +87,10 @@
     dashTierBadge.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' plan';
     dashTierBadge.className = `dash-tier-badge dash-tier-badge--${tier}`;
 
+    if (location.hostname === 'app.cpulze.com') {
+      history.replaceState(null, '', '/');
+    }
+
     dashLoading.hidden = true;
     dashMain.hidden = false;
   }
