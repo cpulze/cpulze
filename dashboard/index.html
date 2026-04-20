@@ -73,7 +73,7 @@
     const { data: { session } } = await supabase.auth.getSession();
 
     if (!session) {
-      window.location.replace('https://cpulze.com/login.html');
+      window.location.replace('https://app.cpulze.com/login/');
       return;
     }
 
@@ -97,13 +97,13 @@
 
   supabase.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
-      window.location.replace('https://cpulze.com/login.html');
+      window.location.replace('https://app.cpulze.com/login/');
     }
   });
 
   signOutBtn.addEventListener('click', async () => {
     await supabase.auth.signOut();
-    window.location.replace('https://cpulze.com/login.html');
+    window.location.replace('https://app.cpulze.com/login/');
   });
 
   init();
