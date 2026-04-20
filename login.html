@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — cpulze</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">cpulze</a>
+  </div>
+</nav>
+
+<section class="auth-page">
+  <div class="auth-card" id="loginCard">
+    <div class="auth-eyebrow">
+      <div class="eyebrow-dot"></div> Secure sign in
+    </div>
+    <h1 class="auth-title">Sign in to <em>cpulze</em></h1>
+    <p class="auth-desc">Enter your email and we'll send a login link — no password needed.</p>
+
+    <form class="auth-form" id="loginForm">
+      <label class="auth-label" for="loginEmail">Email address</label>
+      <input
+        type="email"
+        id="loginEmail"
+        name="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+      >
+      <button type="submit" class="btn-auth" id="loginBtn">
+        Send login link
+      </button>
+      <p class="auth-error" id="loginError" hidden></p>
+    </form>
+  </div>
+
+  <div class="auth-card auth-card--success" id="successCard" hidden>
+    <div class="auth-success-icon">✉</div>
+    <h2 class="auth-title">Check your inbox</h2>
+    <p class="auth-desc">We sent a login link to <strong id="sentEmail"></strong>. Click the link in the email to sign in.</p>
+    <p class="auth-hint">Didn't receive it? Check your spam folder, or <button class="auth-link-btn" id="tryAgainBtn">try a different email</button>.</p>
+  </div>
+</section>
+
+<script type="module">
+  import { supabase } from './supabase-client.js';
+
+  const loginCard = document.getElementById('loginCard');
+  const successCard = document.getElementById('successCard');
+  const loginForm = document.getElementById('loginForm');
+  const loginBtn = document.getElementById('loginBtn');
+  const loginError = document.getElementById('loginError');
+  const sentEmail = document.getElementById('sentEmail');
+  const tryAgainBtn = document.getElementById('tryAgainBtn');
+
+  // Redirect if already signed in
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (session) window.location.replace('/dashboard/');
+  });
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    if (!email) return;
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Sending…';
+    loginError.hidden = true;
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: 'https://app.cpulze.com/',
+        shouldCreateUser: true,
+      }
+    });
+
+    if (error) {
+      loginError.textContent = error.message;
+      loginError.hidden = false;
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Send login link';
+      return;
+    }
+
+    sentEmail.textContent = email;
+    loginCard.hidden = true;
+    successCard.hidden = false;
+  });
+
+  tryAgainBtn.addEventListener('click', () => {
+    successCard.hidden = true;
+    loginCard.hidden = false;
+    loginBtn.disabled = false;
+    loginBtn.textContent = 'Send login link';
+    document.getElementById('loginEmail').value = '';
+  });
+</script>
+</body>
+</html>

@@ -282,3 +282,45 @@ body.legal-page main { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px
   .legal-page main { padding: 40px 20px 60px; }
   body.legal-page footer .footer-inner { flex-direction: column; text-align: center; }
 }
+
+/* AUTH PAGES */
+.auth-page { min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
+.auth-card { background: var(--white); border: 1px solid var(--stone-200); border-radius: 16px; padding: 48px 40px; max-width: 440px; width: 100%; box-shadow: 0 12px 40px rgba(0,0,0,0.04); }
+.auth-card--success { text-align: center; }
+.auth-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--sage-50); border: 0.5px solid var(--sage-100); border-radius: 20px; padding: 5px 14px; font-size: 12px; color: var(--sage-600); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 24px; }
+.auth-title { font-family: var(--font-display); font-size: 36px; font-weight: 500; color: var(--stone-900); line-height: 1.1; margin-bottom: 12px; }
+.auth-title em { font-style: italic; color: var(--sage-600); }
+.auth-desc { font-size: 15px; color: var(--stone-700); line-height: 1.6; margin-bottom: 28px; }
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+.auth-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--stone-700); letter-spacing: 1px; text-transform: uppercase; }
+.btn-auth { font-family: var(--font-body); font-size: 15px; font-weight: 600; background: var(--sage-600); color: var(--white); border: none; border-radius: 6px; height: 50px; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
+.btn-auth:hover:not(:disabled) { background: var(--sage-800); }
+.btn-auth:disabled { opacity: 0.6; cursor: not-allowed; }
+.auth-error { font-size: 13px; color: #c0392b; background: #fdf0ef; border: 0.5px solid #f5c6c2; border-radius: 6px; padding: 10px 14px; margin-top: 4px; }
+.auth-success-icon { font-size: 40px; margin-bottom: 20px; color: var(--sage-500); }
+.auth-hint { font-size: 13px; color: var(--stone-500); margin-top: 20px; line-height: 1.6; }
+.auth-link-btn { background: none; border: none; color: var(--sage-600); font-size: 13px; font-family: var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; padding: 0; }
+
+/* DASHBOARD */
+.nav-user { font-size: 13px; color: var(--stone-500); font-family: var(--font-mono); }
+.btn-nav--ghost { background: transparent; color: var(--stone-700); border: 1px solid var(--stone-200); }
+.btn-nav--ghost:hover { background: var(--stone-100); color: var(--stone-900); }
+.dash-loading { min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center; }
+.dash-spinner { width: 28px; height: 28px; border: 2px solid var(--stone-200); border-top-color: var(--sage-500); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.dash-main { padding: 56px 0 80px; }
+.dash-header { margin-bottom: 32px; }
+.dash-title { font-family: var(--font-display); font-size: 42px; font-weight: 500; color: var(--stone-900); margin-bottom: 8px; }
+.dash-subtitle { font-size: 16px; color: var(--stone-700); }
+.dash-tier-badge { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 40px; }
+.dash-tier-badge--free { background: var(--stone-100); color: var(--stone-700); border: 0.5px solid var(--stone-200); }
+.dash-tier-badge--pro { background: var(--sage-50); color: var(--sage-600); border: 0.5px solid var(--sage-100); }
+.dash-empty { border: 1px dashed var(--stone-200); border-radius: 12px; padding: 64px 32px; text-align: center; }
+.dash-empty-icon { font-size: 32px; color: var(--stone-300); margin-bottom: 16px; }
+.dash-empty-text { font-size: 16px; color: var(--stone-500); margin-bottom: 24px; }
+
+@media (max-width: 600px) {
+  .auth-card { padding: 36px 24px; }
+  .auth-title { font-size: 30px; }
+  .dash-title { font-size: 32px; }
+}

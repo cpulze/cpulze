@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — cpulze</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">cpulze</a>
+    <div class="nav-right" id="navRight">
+      <span class="nav-user" id="navUserEmail"></span>
+      <button class="btn-nav btn-nav--ghost" id="signOutBtn">Sign out</button>
+    </div>
+  </div>
+</nav>
+
+<div class="dash-loading" id="dashLoading">
+  <div class="dash-spinner"></div>
+</div>
+
+<main class="dash-main" id="dashMain" hidden>
+  <div class="container">
+    <header class="dash-header">
+      <div class="section-tag">Dashboard</div>
+      <h1 class="dash-title">Welcome back<span id="dashGreeting"></span></h1>
+      <p class="dash-subtitle">Your AI narrative monitoring is active.</p>
+    </header>
+
+    <div class="dash-tier-badge" id="dashTierBadge"></div>
+
+    <div class="dash-empty">
+      <div class="dash-empty-icon">◎</div>
+      <p class="dash-empty-text">Your scan reports will appear here.</p>
+      <a href="/" class="btn-scan" style="display:inline-block;width:auto;padding:0 28px;">Run a scan →</a>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  import { supabase } from '../supabase-client.js';
+
+  const dashLoading = document.getElementById('dashLoading');
+  const dashMain = document.getElementById('dashMain');
+  const navUserEmail = document.getElementById('navUserEmail');
+  const dashGreeting = document.getElementById('dashGreeting');
+  const dashTierBadge = document.getElementById('dashTierBadge');
+  const signOutBtn = document.getElementById('signOutBtn');
+
+  async function ensureScanUser(user) {
+    const { data: existing } = await supabase
+      .from('scan_users')
+      .select('id, tier')
+      .eq('email', user.email)
+      .maybeSingle();
+
+    if (!existing) {
+      await supabase.from('scan_users').insert({
+        email: user.email,
+        user_id: user.id,
+        tier: 'free',
+      });
+      return 'free';
+    }
+    return existing.tier;
+  }
+
+  async function init() {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      window.location.replace('https://cpulze.com/login.html');
+      return;
+    }
+
+    const user = session.user;
+    const tier = await ensureScanUser(user);
+
+    // Populate UI
+    navUserEmail.textContent = user.email;
+    const name = user.email.split('@')[0];
+    dashGreeting.textContent = `, ${name}`;
+    dashTierBadge.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' plan';
+    dashTierBadge.className = `dash-tier-badge dash-tier-badge--${tier}`;
+
+    dashLoading.hidden = true;
+    dashMain.hidden = false;
+  }
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
+      window.location.replace('https://cpulze.com/login.html');
+    }
+  });
+
+  signOutBtn.addEventListener('click', async () => {
+    await supabase.auth.signOut();
+    window.location.replace('https://cpulze.com/login.html');
+  });
+
+  init();
+</script>
+</body>
+</html>
