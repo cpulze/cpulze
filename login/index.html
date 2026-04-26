@@ -65,7 +65,7 @@
   const tryAgainBtn = document.getElementById('tryAgainBtn');
 
   supabase.auth.getSession().then(({ data: { session } }) => {
-    if (session) window.location.replace('https://app.cpulze.com/');
+    if (session) window.location.replace('https://app.cpulze.com/dashboard/');
   });
 
   loginForm.addEventListener('submit', async (e) => {
@@ -80,7 +80,7 @@
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'https://app.cpulze.com/',
+        emailRedirectTo: 'https://app.cpulze.com/dashboard/',
         shouldCreateUser: true,
       }
     });
