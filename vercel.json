@@ -4,6 +4,11 @@
       "source": "/",
       "has": [{ "type": "host", "value": "app.cpulze.com" }],
       "destination": "/dashboard/index.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "dev-nuwayz-y3s9.app.cpulze.com" }],
+      "destination": "/dashboard/index.html"
     }
   ]
 }
