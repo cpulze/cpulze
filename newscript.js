@@ -34,19 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
 
       try {
-        const response = await fetch('/api/scan', {
+        const response = await fetch('/api/request-scan', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            hotel_name: n, location: l, email: em,
-            theme: 'cleanliness', model: 'perplexity', tier: 'free',
-            turnstileToken
-          })
+          body: JSON.stringify({ hotel_name: n, location: l, email: em, turnstileToken })
         });
         const data = await response.json();
         if (response.ok) {
-          this.textContent = '✓ Report on its way!';
+          this.textContent = '✓ Check your inbox to confirm';
           this.style.backgroundColor = '#2a7a50';
+        } else if (data.error === 'scan_limit_reached') {
+          throw new Error('You\'ve used all 5 free scans. Sign in to continue.');
+        } else if (data.error === 'confirmation_pending') {
+          throw new Error('A confirmation email is already on its way — check your inbox.');
         } else {
           throw new Error(data.error || 'Server rejected request');
         }
