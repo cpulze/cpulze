@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan confirmed — cpulze</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="newstyle.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://cpulze.com" class="logo">cpulze</a>
+  </div>
+</nav>
+
+<section class="auth-page">
+  <div class="auth-card auth-card--success">
+    <div class="auth-success-icon">✓</div>
+    <h2 class="auth-title" id="heading">Scan confirmed</h2>
+    <p class="auth-desc" id="message">Your AI narrative scan is running. Your report will arrive in your inbox within a few minutes.</p>
+    <p class="auth-hint"><a href="https://cpulze.com" style="color:#6366f1;">Back to cpulze.com</a></p>
+  </div>
+</section>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  if (params.get('already') === 'true') {
+    document.getElementById('heading').textContent = 'Already confirmed';
+    document.getElementById('message').textContent = 'This scan link has already been used. Check your inbox for your report.';
+  }
+</script>
+</body>
+</html>
