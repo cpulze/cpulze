@@ -5,108 +5,833 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — cpulze</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../newstyle.css">
+<style>
+/* LOADING */
+.d-loading{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 64px)}
+.d-spinner{width:30px;height:30px;border:2.5px solid var(--border);border-top-color:var(--gold-500);border-radius:50%;animation:spin .8s linear infinite}
+
+/* NAV EXTRAS */
+.nav-email{font-size:13px;color:rgba(255,255,255,.45);font-family:var(--font-mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
+.nav-signout{font-size:13px;color:rgba(255,255,255,.5);background:none;border:0.5px solid rgba(255,255,255,.2);padding:7px 14px;border-radius:6px;cursor:pointer;font-family:var(--font-body);transition:all .2s;white-space:nowrap}
+.nav-signout:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
+
+/* ONBOARDING */
+.d-onboard{position:fixed;inset:0;background:var(--cream-50);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+.d-onboard-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:48px 40px;max-width:520px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,.08)}
+.d-onboard-tag{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-500);margin-bottom:14px}
+.d-onboard-title{font-family:var(--font-display);font-size:36px;font-weight:500;color:var(--text);line-height:1.15;margin-bottom:8px}
+.d-onboard-desc{font-size:15px;color:var(--text-muted);margin-bottom:32px;line-height:1.6}
+.d-form-group{margin-bottom:14px}
+.d-label{display:block;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:6px}
+.d-label-opt{font-weight:400;color:var(--text-muted)}
+.d-input,.d-select{width:100%;font-family:var(--font-body);font-size:15px;color:var(--text);background:var(--cream-50);border:1px solid var(--border);border-radius:8px;height:48px;padding:0 16px;outline:none;transition:all .2s}
+.d-input::placeholder{color:var(--text-muted)}
+.d-input:focus,.d-select:focus{border-color:var(--gold-500);box-shadow:0 0 0 3px rgba(196,144,58,.1);background:var(--white)}
+.d-select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a6e60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.d-btn-primary{width:100%;font-family:var(--font-body);font-size:16px;font-weight:600;background:var(--gold-500);color:var(--white);border:none;border-radius:8px;padding:15px 24px;cursor:pointer;transition:background .2s;margin-top:8px}
+.d-btn-primary:hover{background:var(--gold-600)}
+.d-btn-primary:disabled{opacity:.6;cursor:not-allowed}
+.d-form-error{font-size:13px;color:#c0392b;margin-top:10px}
+
+/* DASHBOARD HEADER */
+.d-header{background:var(--navy-900);padding:28px 0}
+.d-header-inner{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.d-hotel-name{font-family:var(--font-display);font-size:26px;font-weight:500;color:var(--white);line-height:1.2}
+.d-hotel-meta{font-size:13px;color:rgba(255,255,255,.45);font-family:var(--font-mono);margin-top:4px}
+.d-trial-pill{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.5px;padding:6px 12px;border-radius:20px;white-space:nowrap}
+.d-trial-pill.active{background:rgba(196,144,58,.15);color:var(--gold-300);border:0.5px solid rgba(196,144,58,.3)}
+.d-trial-pill.expired{background:rgba(192,57,43,.12);color:#e57368;border:0.5px solid rgba(192,57,43,.25)}
+
+/* TABS */
+.d-tabs{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:50}
+.d-tabs-inner{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;overflow-x:auto}
+.d-tab-btn{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-muted);background:none;border:none;border-bottom:2px solid transparent;padding:15px 20px;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.d-tab-btn:hover{color:var(--text)}
+.d-tab-btn.active{color:var(--navy-800);border-bottom-color:var(--gold-500);font-weight:600}
+
+/* CONTENT */
+.d-content{max-width:1080px;margin:0 auto;padding:36px 28px 60px}
+.d-pane{display:none}
+.d-pane.active{display:block;animation:fadeUp .25s ease}
+
+/* SCAN TAB */
+.d-scan-prop-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.d-prop-chip{font-family:var(--font-mono);font-size:12px;color:var(--text-mid);background:var(--cream-100);border:0.5px solid var(--border);border-radius:20px;padding:5px 12px}
+.d-scan-meter{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.d-scan-bar-bg{flex:1;height:5px;background:var(--cream-200);border-radius:3px;max-width:160px}
+.d-scan-bar-fill{height:100%;background:var(--gold-500);border-radius:3px;transition:width .4s}
+.d-scan-meter-text{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+.d-run-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:15px;font-weight:600;background:var(--navy-900);color:var(--white);border:none;border-radius:8px;padding:14px 28px;cursor:pointer;transition:background .2s}
+.d-run-btn:hover:not(:disabled){background:var(--navy-700)}
+.d-run-btn:disabled{opacity:.55;cursor:not-allowed}
+.d-scan-note{font-size:13px;color:var(--text-muted);margin-top:14px;font-family:var(--font-mono)}
+.d-scan-ok{background:rgba(42,122,80,.07);border:1px solid rgba(42,122,80,.2);border-radius:8px;padding:14px 18px;margin-top:16px;font-size:14px;color:#2a7a50;font-weight:500}
+.d-upgrade-note{font-size:14px;color:var(--text-muted);background:var(--cream-100);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-top:16px}
+
+/* CARDS (findings, history, voice) */
+.d-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:12px}
+.d-theme-tag{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:10px;display:inline-block}
+.d-theme-tag.cleanliness{background:rgba(99,102,241,.1);color:#5856d6}
+.d-theme-tag.service{background:rgba(42,122,80,.1);color:#2a7a50}
+.d-theme-tag.location{background:rgba(255,149,0,.1);color:#c0600a}
+.d-theme-tag.value{background:rgba(196,144,58,.12);color:var(--gold-600)}
+.d-theme-tag.atmosphere{background:rgba(175,82,222,.1);color:#7a2eaa}
+.d-finding-title{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
+.d-finding-body{font-size:14px;color:var(--text-muted);line-height:1.65;margin-bottom:14px}
+.d-btn-sm{font-family:var(--font-body);font-size:13px;font-weight:500;background:none;border:1px solid var(--border);border-radius:6px;padding:7px 14px;color:var(--text-mid);cursor:pointer;transition:all .2s}
+.d-btn-sm:hover{border-color:var(--navy-800);color:var(--navy-800)}
+.d-btn-sm.accent{background:var(--navy-900);color:var(--white);border-color:var(--navy-900)}
+.d-btn-sm.accent:hover{background:var(--navy-700)}
+
+/* HISTORY */
+.d-history-item{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:10px;flex-wrap:wrap}
+.d-history-hotel{font-size:15px;font-weight:600;color:var(--text)}
+.d-history-date{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-top:2px}
+.d-status-pill{font-family:var(--font-mono);font-size:10px;font-weight:700;padding:4px 8px;border-radius:4px;text-transform:uppercase}
+.d-status-pill.sent{background:rgba(42,122,80,.1);color:#2a7a50}
+.d-status-pill.confirmed{background:rgba(99,102,241,.1);color:#5856d6}
+.d-status-pill.pending{background:rgba(255,149,0,.1);color:#c0600a}
+.d-status-pill.running{background:rgba(99,102,241,.1);color:#5856d6}
+
+/* PROPERTYVOICE */
+.d-compose{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:28px}
+.d-compose-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.d-compose-desc{font-size:13px;color:var(--text-muted);margin-bottom:14px}
+.d-compose-hint{font-size:12px;color:var(--gold-600);background:var(--gold-bg);border:0.5px solid rgba(196,144,58,.25);border-radius:6px;padding:8px 12px;margin-bottom:10px;font-family:var(--font-mono)}
+.d-textarea{width:100%;font-family:var(--font-body);font-size:15px;color:var(--text);background:var(--cream-50);border:1px solid var(--border);border-radius:8px;padding:14px 16px;outline:none;resize:vertical;min-height:96px;line-height:1.6;transition:all .2s}
+.d-textarea:focus{border-color:var(--gold-500);box-shadow:0 0 0 3px rgba(196,144,58,.1);background:var(--white)}
+.d-textarea::placeholder{color:var(--text-muted)}
+.d-compose-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.d-btn-publish{font-family:var(--font-body);font-size:14px;font-weight:600;background:var(--navy-900);color:var(--white);border:none;border-radius:7px;padding:10px 20px;cursor:pointer;transition:background .2s}
+.d-btn-publish:hover{background:var(--navy-700)}
+.d-btn-publish:disabled{opacity:.6;cursor:not-allowed}
+.d-btn-draft{font-family:var(--font-body);font-size:14px;font-weight:500;background:none;color:var(--text-muted);border:1px solid var(--border);border-radius:7px;padding:10px 20px;cursor:pointer;transition:all .2s}
+.d-btn-draft:hover{color:var(--text);border-color:var(--text-mid)}
+.d-btn-draft:disabled{opacity:.6;cursor:not-allowed}
+.d-section-label{font-size:12px;font-weight:700;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.8px;text-transform:uppercase;margin:24px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.d-voice-entry{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:10px}
+.d-voice-entry-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.d-voice-date{font-family:var(--font-mono);font-size:11px;color:var(--text-muted)}
+.d-voice-status{font-family:var(--font-mono);font-size:10px;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.d-voice-status.draft{background:var(--cream-100);color:var(--text-muted)}
+.d-voice-status.published{background:rgba(42,122,80,.1);color:#2a7a50}
+.d-voice-text{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:12px}
+.d-voice-entry-actions{display:flex;gap:8px}
+
+/* EMPTY STATE */
+.d-empty{text-align:center;padding:60px 24px}
+.d-empty-icon{font-size:28px;color:var(--cream-300);margin-bottom:14px}
+.d-empty-title{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
+.d-empty-desc{font-size:14px;color:var(--text-muted);line-height:1.6;max-width:360px;margin:0 auto}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .d-onboard-card{padding:32px 22px}
+  .d-onboard-title{font-size:28px}
+  .d-header-inner{flex-direction:column;align-items:flex-start}
+  .d-content{padding:28px 20px 48px}
+  .d-tab-btn{padding:13px 14px;font-size:13px}
+}
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo">cpulze</a>
-    <div class="nav-right" id="navRight">
-      <span class="nav-user" id="navUserEmail"></span>
-      <button class="btn-nav btn-nav--ghost" id="signOutBtn">Sign out</button>
+    <a href="https://cpulze.com" class="logo">cpulze</a>
+    <div class="nav-right">
+      <span class="nav-email" id="nav-email"></span>
+      <button class="nav-signout" id="sign-out-btn">Sign out</button>
     </div>
   </div>
 </nav>
 
-<div class="dash-loading" id="dashLoading">
-  <div class="dash-spinner"></div>
+<!-- Loading -->
+<div class="d-loading" id="d-loading">
+  <div class="d-spinner"></div>
 </div>
 
-<main class="dash-main" id="dashMain" hidden>
-  <div class="container">
-    <header class="dash-header">
-      <div class="section-tag">Dashboard</div>
-      <h1 class="dash-title">Welcome back<span id="dashGreeting"></span></h1>
-      <p class="dash-subtitle">Your AI narrative monitoring is active.</p>
-    </header>
+<!-- Onboarding overlay -->
+<div class="d-onboard" id="d-onboard" hidden>
+  <div class="d-onboard-card">
+    <div class="d-onboard-tag">Getting started</div>
+    <h1 class="d-onboard-title">Tell us about your property</h1>
+    <p class="d-onboard-desc">We'll use this to personalise your AI narrative reports and set up your PropertyVoice page.</p>
 
-    <div class="dash-tier-badge" id="dashTierBadge"></div>
+    <form id="onboard-form" novalidate>
+      <div class="d-form-group">
+        <label class="d-label" for="ob-hotel">Property name</label>
+        <input class="d-input" type="text" id="ob-hotel" placeholder="e.g. The Harbour Inn" required autocomplete="organization">
+      </div>
+      <div class="d-form-group">
+        <label class="d-label" for="ob-location">City &amp; country</label>
+        <input class="d-input" type="text" id="ob-location" placeholder="e.g. Edinburgh, Scotland" required>
+      </div>
+      <div class="d-form-group">
+        <label class="d-label" for="ob-type">Property type</label>
+        <select class="d-select" id="ob-type">
+          <option value="Boutique Hotel">Boutique Hotel</option>
+          <option value="Inn">Inn</option>
+          <option value="B&B">B&amp;B</option>
+          <option value="Resort">Resort</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="d-form-group">
+        <label class="d-label" for="ob-website">Website <span class="d-label-opt">(optional)</span></label>
+        <input class="d-input" type="text" id="ob-website" placeholder="e.g. www.harbourinn.co.uk" autocomplete="url">
+      </div>
+      <button type="submit" class="d-btn-primary" id="onboard-btn">Let's go →</button>
+      <div class="d-form-error" id="onboard-error" hidden></div>
+    </form>
+  </div>
+</div>
 
-    <div class="dash-empty">
-      <div class="dash-empty-icon">◎</div>
-      <p class="dash-empty-text">Your scan reports will appear here.</p>
-      <a href="/" class="btn-scan" style="display:inline-block;width:auto;padding:0 28px;">Run a scan →</a>
+<!-- Main dashboard -->
+<div id="d-main" hidden>
+
+  <!-- Hotel header -->
+  <div class="d-header">
+    <div class="d-header-inner">
+      <div>
+        <div class="d-hotel-name" id="d-hotel-name"></div>
+        <div class="d-hotel-meta" id="d-hotel-meta"></div>
+      </div>
+      <div class="d-trial-pill active" id="d-trial-pill"></div>
     </div>
   </div>
-</main>
+
+  <!-- Tab nav -->
+  <div class="d-tabs">
+    <div class="d-tabs-inner">
+      <button class="d-tab-btn active" data-tab="scan">Scan</button>
+      <button class="d-tab-btn" data-tab="findings">Findings</button>
+      <button class="d-tab-btn" data-tab="history">History</button>
+      <button class="d-tab-btn" data-tab="voice">PropertyVoice</button>
+    </div>
+  </div>
+
+  <!-- Tab panes -->
+  <div class="d-content">
+
+    <!-- SCAN -->
+    <div class="d-pane active" id="d-pane-scan">
+      <div class="d-card" style="margin-bottom:0">
+        <div style="font-size:13px;font-weight:600;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px">Your property</div>
+        <div class="d-scan-prop-row" id="d-scan-chips"></div>
+        <div class="d-scan-meter">
+          <div class="d-scan-bar-bg"><div class="d-scan-bar-fill" id="d-scan-bar-fill" style="width:0%"></div></div>
+          <div class="d-scan-meter-text" id="d-scan-meter-text">0 of 5 scans used</div>
+        </div>
+        <button class="d-run-btn" id="d-run-btn">
+          <span>Run comprehensive scan</span>
+        </button>
+        <div class="d-scan-note" id="d-scan-note">Analyses 5 narrative themes: cleanliness, service, location, value &amp; atmosphere. Report arrives by email.</div>
+        <div class="d-scan-ok" id="d-scan-ok" hidden>
+          Scan is running — your full report will arrive in your inbox within a few minutes.
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDINGS -->
+    <div class="d-pane" id="d-pane-findings">
+      <div id="d-findings-container">
+        <div class="d-empty">
+          <div class="d-empty-icon">◎</div>
+          <div class="d-empty-title">No findings yet</div>
+          <div class="d-empty-desc">Run your first scan to see AI-powered insights about your property's narrative online.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="d-pane" id="d-pane-history">
+      <div id="d-history-container">
+        <div class="d-empty">
+          <div class="d-empty-icon">◉</div>
+          <div class="d-empty-title">No scans yet</div>
+          <div class="d-empty-desc">Your scan history will appear here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROPERTYVOICE -->
+    <div class="d-pane" id="d-pane-voice">
+      <!-- Compose -->
+      <div class="d-compose" id="d-compose">
+        <div class="d-compose-title">Add your voice</div>
+        <div class="d-compose-desc">Write a response, correction, or update about your property. Published responses appear on your public PropertyVoice page.</div>
+        <div class="d-compose-hint" id="d-compose-hint" hidden></div>
+        <textarea class="d-textarea" id="d-voice-textarea" placeholder="What would you like guests to know about your property?"></textarea>
+        <div class="d-compose-actions">
+          <button class="d-btn-publish" id="d-voice-publish-btn">Publish</button>
+          <button class="d-btn-draft" id="d-voice-draft-btn">Save as draft</button>
+        </div>
+      </div>
+
+      <!-- Entries list -->
+      <div id="d-voice-entries">
+        <div class="d-empty" style="padding:32px 0">
+          <div class="d-empty-icon">◌</div>
+          <div class="d-empty-title">No entries yet</div>
+          <div class="d-empty-desc">Write your first response above.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /d-content -->
+</div><!-- /d-main -->
 
 <script type="module">
-  import { supabase } from '../supabase-client.js';
+import { supabase } from '../supabase-client.js';
 
-  const dashLoading = document.getElementById('dashLoading');
-  const dashMain = document.getElementById('dashMain');
-  const navUserEmail = document.getElementById('navUserEmail');
-  const dashGreeting = document.getElementById('dashGreeting');
-  const dashTierBadge = document.getElementById('dashTierBadge');
-  const signOutBtn = document.getElementById('signOutBtn');
+// DOM
+const dLoading   = document.getElementById('d-loading');
+const dOnboard   = document.getElementById('d-onboard');
+const dMain      = document.getElementById('d-main');
+const navEmail   = document.getElementById('nav-email');
+const signOutBtn = document.getElementById('sign-out-btn');
 
-  async function ensureScanUser(user) {
-    const { data: existing } = await supabase
-      .from('scan_users')
-      .select('id, tier')
-      .eq('email', user.email)
-      .maybeSingle();
+let currentUser    = null;
+let currentProfile = null;
+let trialActive    = true;
+let scanCount      = 0;
+let findingsLoaded = false;
+let historyLoaded  = false;
+let voiceLoaded    = false;
+let voiceFindingId = null;
 
-    if (!existing) {
-      await supabase.from('scan_users').insert({
-        email: user.email,
-        user_id: user.id,
-        tier: 'free',
-      });
-      return 'free';
-    }
-    return existing.tier;
+// ─── INIT ────────────────────────────────────────────────────────────────────
+async function init() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) { window.location.replace('https://app.cpulze.com/login/'); return; }
+
+  currentUser = session.user;
+  navEmail.textContent = currentUser.email;
+
+  if (location.hostname === 'app.cpulze.com') {
+    history.replaceState(null, '', '/');
   }
 
-  async function init() {
-    const { data: { session } } = await supabase.auth.getSession();
+  await ensureScanUser(currentUser);
 
-    if (!session) {
-      window.location.replace('https://app.cpulze.com/login/');
+  const { data: profile } = await supabase
+    .from('hotel_profiles')
+    .select('*')
+    .eq('user_id', currentUser.id)
+    .maybeSingle();
+
+  dLoading.hidden = true;
+
+  if (!profile) {
+    dOnboard.hidden = false;
+    setupOnboarding();
+  } else {
+    currentProfile = profile;
+    dMain.hidden = false;
+    await setupDashboard();
+  }
+}
+
+async function ensureScanUser(user) {
+  const { data: existing } = await supabase
+    .from('scan_users')
+    .select('id')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  if (!existing) {
+    await supabase.from('scan_users').insert({
+      email: user.email,
+      user_id: user.id,
+      tier: 'free',
+    });
+  }
+}
+
+// ─── ONBOARDING ──────────────────────────────────────────────────────────────
+function setupOnboarding() {
+  const form     = document.getElementById('onboard-form');
+  const btn      = document.getElementById('onboard-btn');
+  const errorEl  = document.getElementById('onboard-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const hotelName    = document.getElementById('ob-hotel').value.trim();
+    const location     = document.getElementById('ob-location').value.trim();
+    const website      = document.getElementById('ob-website').value.trim();
+    const propertyType = document.getElementById('ob-type').value;
+
+    if (!hotelName || !location) {
+      errorEl.textContent = 'Please fill in your property name and location.';
+      errorEl.hidden = false;
       return;
     }
 
-    const user = session.user;
-    const tier = await ensureScanUser(user);
+    btn.disabled = true;
+    btn.textContent = 'Setting up…';
+    errorEl.hidden = true;
 
-    // Populate UI
-    navUserEmail.textContent = user.email;
-    const name = user.email.split('@')[0];
-    dashGreeting.textContent = `, ${name}`;
-    dashTierBadge.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' plan';
-    dashTierBadge.className = `dash-tier-badge dash-tier-badge--${tier}`;
-
-    if (location.hostname === 'app.cpulze.com') {
-      history.replaceState(null, '', '/');
+    const profile = await createProfile({ hotelName, location, website, propertyType });
+    if (!profile) {
+      errorEl.textContent = 'Something went wrong. Please try again.';
+      errorEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = "Let's go →";
+      return;
     }
 
-    dashLoading.hidden = true;
-    dashMain.hidden = false;
+    currentProfile = profile;
+    dOnboard.hidden = true;
+    dMain.hidden = false;
+    await setupDashboard();
+  });
+}
+
+async function createProfile({ hotelName, location, website, propertyType }) {
+  const slug = generateSlug(hotelName, location);
+
+  const tryInsert = async (s) => {
+    const { data, error } = await supabase
+      .from('hotel_profiles')
+      .insert({
+        user_id: currentUser.id,
+        email: currentUser.email,
+        hotel_name: hotelName,
+        location: location,
+        website: website || null,
+        property_type: propertyType,
+        property_voice_slug: s,
+      })
+      .select()
+      .single();
+    return { data, error };
+  };
+
+  let { data, error } = await tryInsert(slug);
+
+  if (error?.code === '23505') {
+    const result = await tryInsert(slug + '-' + Math.floor(1000 + Math.random() * 9000));
+    data = result.data;
+    error = result.error;
   }
 
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
-      window.location.replace('https://app.cpulze.com/login/');
+  return error ? null : data;
+}
+
+function generateSlug(name, location) {
+  const city = location.split(',')[0];
+  return (name + ' ' + city)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+// ─── DASHBOARD SETUP ─────────────────────────────────────────────────────────
+async function setupDashboard() {
+  document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
+  document.getElementById('d-hotel-meta').textContent =
+    currentProfile.location + ' · ' + currentProfile.property_type;
+
+  // Trial info
+  const { data: scanUser } = await supabase
+    .from('scan_users')
+    .select('created_at')
+    .eq('user_id', currentUser.id)
+    .maybeSingle();
+
+  const trialPill = document.getElementById('d-trial-pill');
+
+  if (scanUser) {
+    const createdAt = new Date(scanUser.created_at);
+    const msLeft = (createdAt.getTime() + 30 * 24 * 60 * 60 * 1000) - Date.now();
+    const daysLeft = Math.max(0, Math.ceil(msLeft / (24 * 60 * 60 * 1000)));
+    trialActive = daysLeft > 0;
+
+    const { data: scans } = await supabase
+      .from('scans')
+      .select('scan_id')
+      .eq('email', currentUser.email)
+      .gte('created_at', scanUser.created_at);
+
+    scanCount = scans?.length || 0;
+
+    if (trialActive) {
+      trialPill.textContent = `${scanCount}/5 scans · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left`;
+      trialPill.className = 'd-trial-pill active';
+    } else {
+      trialPill.textContent = 'Trial ended · Read only';
+      trialPill.className = 'd-trial-pill expired';
     }
-  });
+  }
 
-  signOutBtn.addEventListener('click', async () => {
-    await supabase.auth.signOut();
+  setupTabs();
+  loadScanTab();
+  setupVoiceCompose();
+}
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+function setupTabs() {
+  document.querySelectorAll('.d-tab-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.d-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.d-pane').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('d-pane-' + this.dataset.tab).classList.add('active');
+
+      if (this.dataset.tab === 'findings') loadFindingsTab();
+      if (this.dataset.tab === 'history')  loadHistoryTab();
+      if (this.dataset.tab === 'voice')    loadVoiceEntries();
+    });
+  });
+}
+
+// ─── SCAN TAB ────────────────────────────────────────────────────────────────
+function loadScanTab() {
+  // Property chips
+  document.getElementById('d-scan-chips').innerHTML = [
+    currentProfile.hotel_name,
+    currentProfile.location,
+    currentProfile.property_type,
+  ].map(t => `<span class="d-prop-chip">${escHtml(t)}</span>`).join('');
+
+  // Meter
+  const pct = Math.min(100, (scanCount / 5) * 100);
+  document.getElementById('d-scan-bar-fill').style.width = pct + '%';
+  document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+
+  const runBtn  = document.getElementById('d-run-btn');
+  const noteEl  = document.getElementById('d-scan-note');
+
+  if (!trialActive) {
+    runBtn.disabled = true;
+    noteEl.innerHTML = 'Your 30-day trial has ended. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to continue scanning →</a>';
+    return;
+  }
+
+  if (scanCount >= 5) {
+    runBtn.disabled = true;
+    noteEl.innerHTML = 'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
+    return;
+  }
+
+  noteEl.textContent = 'Analyses 5 narrative themes: cleanliness, service, location, value & atmosphere. Report arrives by email.';
+
+  runBtn.addEventListener('click', runScan);
+}
+
+async function runScan() {
+  const runBtn = document.getElementById('d-run-btn');
+  runBtn.disabled = true;
+  runBtn.innerHTML = '<span style="display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px"></span>Scanning…';
+
+  const { data: { session } } = await supabase.auth.getSession();
+
+  try {
+    const res = await fetch('/api/auth-scan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session.access_token}`,
+      },
+    });
+    const json = await res.json();
+
+    if (res.ok) {
+      scanCount++;
+      document.getElementById('d-scan-bar-fill').style.width = Math.min(100, (scanCount / 5) * 100) + '%';
+      document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+      document.getElementById('d-scan-ok').hidden = false;
+      runBtn.innerHTML = '✓ Scan running';
+      runBtn.style.background = '#2a7a50';
+
+      // Update trial pill
+      const trialPill = document.getElementById('d-trial-pill');
+      const current = trialPill.textContent.replace(/^\d+/, String(scanCount));
+      trialPill.textContent = current;
+
+      if (scanCount >= 5) {
+        document.getElementById('d-scan-note').innerHTML =
+          'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
+      }
+    } else if (json.error === 'trial_expired') {
+      showRunError(runBtn, 'Trial has ended — upgrade to continue');
+    } else if (json.error === 'scan_limit_reached') {
+      showRunError(runBtn, 'Scan limit reached — upgrade for more');
+    } else {
+      throw new Error(json.error || 'Something went wrong');
+    }
+  } catch (err) {
+    showRunError(runBtn, err.message);
+  }
+}
+
+function showRunError(btn, msg) {
+  btn.textContent = msg;
+  btn.style.background = '#c0392b';
+  setTimeout(() => {
+    btn.innerHTML = '<span>Run comprehensive scan</span>';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+
+// ─── FINDINGS TAB ────────────────────────────────────────────────────────────
+async function loadFindingsTab() {
+  if (findingsLoaded) return;
+  findingsLoaded = true;
+
+  const container = document.getElementById('d-findings-container');
+  container.innerHTML = loadingHtml();
+
+  const { data: scans } = await supabase
+    .from('scans')
+    .select('scan_id')
+    .eq('email', currentUser.email)
+    .order('created_at', { ascending: false });
+
+  if (!scans?.length) {
+    container.innerHTML = emptyHtml('◎', 'No findings yet', 'Run your first scan to see AI-powered insights about your property.');
+    return;
+  }
+
+  const { data: findings } = await supabase
+    .from('scan_findings')
+    .select('*')
+    .in('scan_id', scans.map(s => s.scan_id))
+    .order('created_at', { ascending: false })
+    .limit(60);
+
+  if (!findings?.length) {
+    container.innerHTML = emptyHtml('◎', 'Findings loading', 'Your scan is running. Findings will appear here once the report is ready.');
+    return;
+  }
+
+  container.innerHTML = findings.map(f => findingCardHtml(f)).join('');
+
+  container.querySelectorAll('.d-btn-add-voice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      openVoiceCompose(btn.dataset.findingId, btn.dataset.snippet);
+    });
+  });
+}
+
+function findingCardHtml(f) {
+  const theme   = (f.theme || 'general').toLowerCase();
+  const title   = f.title || f.finding_title || 'Finding';
+  const body    = f.summary || f.finding_text || f.content || '';
+  const snippet = body.slice(0, 120).replace(/"/g, '&quot;');
+
+  return `<div class="d-card">
+    <span class="d-theme-tag ${theme}">${escHtml(theme)}</span>
+    <div class="d-finding-title">${escHtml(title)}</div>
+    <div class="d-finding-body">${escHtml(body)}</div>
+    <div style="display:flex;gap:8px">
+      <button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(f.id)}" data-snippet="${snippet}">Add your voice →</button>
+    </div>
+  </div>`;
+}
+
+// ─── HISTORY TAB ─────────────────────────────────────────────────────────────
+async function loadHistoryTab() {
+  if (historyLoaded) return;
+  historyLoaded = true;
+
+  const container = document.getElementById('d-history-container');
+  container.innerHTML = loadingHtml();
+
+  const { data: scans } = await supabase
+    .from('scans')
+    .select('scan_id, hotel_name, location, status, theme, created_at')
+    .eq('email', currentUser.email)
+    .order('created_at', { ascending: false });
+
+  if (!scans?.length) {
+    container.innerHTML = emptyHtml('◉', 'No scan history yet', 'Your completed scans will appear here.');
+    return;
+  }
+
+  container.innerHTML = scans.map(s => historyItemHtml(s)).join('');
+}
+
+function historyItemHtml(s) {
+  const date   = new Date(s.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const status = s.status || 'pending';
+  return `<div class="d-history-item">
+    <div>
+      <div class="d-history-hotel">${escHtml(s.hotel_name || currentProfile.hotel_name)}</div>
+      <div class="d-history-date">${date} · ${escHtml(s.location || currentProfile.location)}</div>
+    </div>
+    <span class="d-status-pill ${status}">${status}</span>
+  </div>`;
+}
+
+// ─── PROPERTYVOICE ───────────────────────────────────────────────────────────
+function setupVoiceCompose() {
+  document.getElementById('d-voice-publish-btn').addEventListener('click', () => saveVoiceEntry('published'));
+  document.getElementById('d-voice-draft-btn').addEventListener('click', () => saveVoiceEntry('draft'));
+}
+
+function openVoiceCompose(findingId, snippet) {
+  // Switch to voice tab
+  document.querySelectorAll('.d-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.d-pane').forEach(p => p.classList.remove('active'));
+  document.querySelector('[data-tab="voice"]').classList.add('active');
+  document.getElementById('d-pane-voice').classList.add('active');
+
+  voiceFindingId = findingId;
+  const hintEl = document.getElementById('d-compose-hint');
+  hintEl.textContent = 'Responding to: "' + snippet + (snippet.length >= 120 ? '…' : '') + '"';
+  hintEl.hidden = false;
+
+  document.getElementById('d-voice-textarea').focus();
+  loadVoiceEntries();
+}
+
+async function saveVoiceEntry(status) {
+  const textarea   = document.getElementById('d-voice-textarea');
+  const publishBtn = document.getElementById('d-voice-publish-btn');
+  const draftBtn   = document.getElementById('d-voice-draft-btn');
+  const text = textarea.value.trim();
+  if (!text) { textarea.focus(); return; }
+
+  publishBtn.disabled = true;
+  draftBtn.disabled   = true;
+
+  const entry = {
+    user_id: currentUser.id,
+    hotel_profile_id: currentProfile.id,
+    response_text: text,
+    action_type: 'owner_update',
+    status,
+  };
+  if (voiceFindingId) entry.finding_id = voiceFindingId;
+  if (status === 'published') entry.published_at = new Date().toISOString();
+
+  const { error } = await supabase.from('property_voice_entries').insert(entry);
+
+  publishBtn.disabled = false;
+  draftBtn.disabled   = false;
+
+  if (!error) {
+    textarea.value = '';
+    voiceFindingId = null;
+    document.getElementById('d-compose-hint').hidden = true;
+    voiceLoaded = false;
+    await loadVoiceEntries();
+  }
+}
+
+async function loadVoiceEntries() {
+  if (voiceLoaded) return;
+  voiceLoaded = true;
+
+  const { data: entries } = await supabase
+    .from('property_voice_entries')
+    .select('*')
+    .eq('user_id', currentUser.id)
+    .order('created_at', { ascending: false });
+
+  const container = document.getElementById('d-voice-entries');
+
+  if (!entries?.length) {
+    container.innerHTML = `<div class="d-empty" style="padding:32px 0">
+      <div class="d-empty-icon">◌</div>
+      <div class="d-empty-title">No entries yet</div>
+      <div class="d-empty-desc">Write your first response above.</div>
+    </div>`;
+    return;
+  }
+
+  const drafts    = entries.filter(e => e.status === 'draft');
+  const published = entries.filter(e => e.status === 'published');
+  let html = '';
+
+  if (drafts.length) {
+    html += `<div class="d-section-label">Drafts (${drafts.length})</div>`;
+    html += drafts.map(e => voiceEntryHtml(e)).join('');
+  }
+  if (published.length) {
+    html += `<div class="d-section-label" style="margin-top:${drafts.length ? 24 : 0}px">Published (${published.length})</div>`;
+    html += published.map(e => voiceEntryHtml(e)).join('');
+  }
+
+  container.innerHTML = html;
+
+  container.querySelectorAll('[data-voice-action]').forEach(btn => {
+    btn.addEventListener('click', async function () {
+      await handleVoiceAction(this.dataset.voiceAction, this.dataset.id);
+    });
+  });
+}
+
+function voiceEntryHtml(e) {
+  const date  = new Date(e.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const isPub = e.status === 'published';
+  return `<div class="d-voice-entry">
+    <div class="d-voice-entry-meta">
+      <span class="d-voice-date">${date}</span>
+      <span class="d-voice-status ${e.status}">${e.status}</span>
+    </div>
+    <div class="d-voice-text">${escHtml(e.response_text)}</div>
+    <div class="d-voice-entry-actions">
+      ${!isPub ? `<button class="d-btn-sm" data-voice-action="publish" data-id="${e.id}">Publish</button>` : ''}
+      <button class="d-btn-sm" data-voice-action="delete" data-id="${e.id}">Remove</button>
+    </div>
+  </div>`;
+}
+
+async function handleVoiceAction(action, entryId) {
+  if (action === 'publish') {
+    await supabase
+      .from('property_voice_entries')
+      .update({ status: 'published', published_at: new Date().toISOString() })
+      .eq('id', entryId)
+      .eq('user_id', currentUser.id);
+  } else if (action === 'delete') {
+    if (!confirm('Remove this entry?')) return;
+    await supabase
+      .from('property_voice_entries')
+      .delete()
+      .eq('id', entryId)
+      .eq('user_id', currentUser.id);
+  }
+  voiceLoaded = false;
+  await loadVoiceEntries();
+}
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function emptyHtml(icon, title, desc) {
+  return `<div class="d-empty">
+    <div class="d-empty-icon">${icon}</div>
+    <div class="d-empty-title">${title}</div>
+    <div class="d-empty-desc">${desc}</div>
+  </div>`;
+}
+
+function loadingHtml() {
+  return '<div style="padding:48px;text-align:center"><div class="d-spinner" style="margin:0 auto"></div></div>';
+}
+
+// ─── AUTH STATE ───────────────────────────────────────────────────────────────
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
     window.location.replace('https://app.cpulze.com/login/');
-  });
+  }
+});
 
-  init();
+signOutBtn.addEventListener('click', async () => {
+  await supabase.auth.signOut();
+  window.location.replace('https://app.cpulze.com/login/');
+});
+
+init();
 </script>
 </body>
 </html>
