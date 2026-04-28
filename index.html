@@ -73,7 +73,15 @@
           <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
           <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
         </div>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAC8M6t3_D7YZ3740" data-theme="light" data-appearance="interaction-only"></div>
+        <div id="turnstile-widget" class="cf-turnstile" data-theme="light"></div>
+        <script>
+          (function() {
+            const isStaging = location.hostname.includes('stage.cpulze.com');
+            const w = document.getElementById('turnstile-widget');
+            w.setAttribute('data-sitekey', isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740');
+            w.setAttribute('data-appearance', isStaging ? 'invisible' : 'interaction-only');
+          })();
+        </script>
         <button class="btn-scan" id="scanBtn">Run free scan →</button>
       </div>
       <div class="form-trust">
