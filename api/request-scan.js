@@ -86,7 +86,10 @@ export default async function handler(req, res) {
   }
 
   const requestId = insertData[0].request_id;
-  const confirmUrl = `https://cpulze.com/api/confirm-scan?token=${requestId}`;
+  const allowedOrigins = ['https://cpulze.com', 'https://stage.cpulze.com'];
+  const requestOrigin = req.headers['origin'] || req.headers['referer'] || '';
+  const baseUrl = allowedOrigins.find(o => requestOrigin.startsWith(o)) || 'https://cpulze.com';
+  const confirmUrl = `${baseUrl}/api/confirm-scan?token=${requestId}`;
 
   const emailHtml = `
 <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
