@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.textContent = 'Submitting…';
       this.disabled = true;
 
-      const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+      const turnstileToken = window._turnstileToken || document.querySelector('[name="cf-turnstile-response"]')?.value;
 
       try {
         const response = await fetch('/api/request-scan', {

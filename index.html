@@ -73,8 +73,10 @@
           <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
           <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
         </div>
-        <div id="turnstile-widget" class="cf-turnstile" data-theme="light"></div>
+        <div id="turnstile-widget" class="cf-turnstile" data-theme="light" data-callback="cpulzeOnTurnstile"></div>
         <script>
+          window._turnstileToken = null;
+          window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
           (function() {
             const isStaging = location.hostname.includes('stage.cpulze.com');
             const w = document.getElementById('turnstile-widget');
