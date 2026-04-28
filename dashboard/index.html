@@ -209,7 +209,7 @@ async function init() {
 async function ensureScanUser(user) {
   const { data: existing } = await supabase
     .from('scan_users')
-    .select('id')
+    .select('user_id')
     .eq('user_id', user.id)
     .maybeSingle();
 
