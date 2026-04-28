@@ -7,7 +7,7 @@
     },
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "dev-nuwayz-y3s9.app.cpulze.com" }],
+      "has": [{ "type": "host", "value": "app.stage.cpulze.com" }],
       "destination": "/dashboard/index.html"
     }
   ]
