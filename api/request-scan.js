@@ -25,6 +25,7 @@ export default async function handler(req, res) {
   });
   const cfData = await cfVerify.json();
   if (!cfData.success) {
+    console.error('Turnstile failed:', JSON.stringify(cfData));
     return res.status(403).json({ error: 'Failed security challenge' });
   }
 
