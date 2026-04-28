@@ -121,7 +121,7 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      sender: { name: 'cpulze', email: 'pulse@cpulze.com' },
+      sender: { name: 'cpulze', email: 'noreply@cpulze.com' },
       to: [{ email: emailLower }],
       subject: `Confirm your free AI scan for ${hotelName}`,
       htmlContent: emailHtml
