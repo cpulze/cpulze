@@ -700,7 +700,7 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 signOutBtn.addEventListener('click', async () => {
   await supabase.auth.signOut();
-  window.location.replace('https://app.cpulze.com/login/');
+  window.location.replace(APP_BASE + '/login/');
 });
 
 init();
