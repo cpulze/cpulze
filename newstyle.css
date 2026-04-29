@@ -1,4 +1,9 @@
 /* ==========================================
+   GLOBAL
+   ========================================== */
+[hidden] { display: none !important; }
+
+/* ==========================================
    FONTS
    ========================================== */
 @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2'); }
