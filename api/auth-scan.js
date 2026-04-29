@@ -78,9 +78,8 @@ export default async function handler(req, res) {
         email: emailLower,
         hotel_name: profile.hotel_name,
         location: profile.location,
-        tier: 'free_trial',
+        tier: 'free',
         user_id: user.id,
-        themes: ['cleanliness', 'service', 'location', 'value', 'atmosphere'],
       }),
     });
   } catch (err) {
