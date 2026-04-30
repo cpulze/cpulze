@@ -325,7 +325,7 @@ async function setupDashboard() {
     const { data: scans } = await supabase
       .from('scans')
       .select('scan_id')
-      .eq('email', currentUser.email)
+      .eq('user_id', currentUser.id)
       .gte('created_at', scanUser.created_at);
 
     scanCount = scans?.length || 0;
@@ -461,7 +461,7 @@ async function loadFindingsTab() {
   const { data: scans } = await supabase
     .from('scans')
     .select('scan_id')
-    .eq('email', currentUser.email)
+    .eq('user_id', currentUser.id)
     .order('created_at', { ascending: false });
 
   if (!scans?.length) {
@@ -517,7 +517,7 @@ async function loadHistoryTab() {
   const { data: scans } = await supabase
     .from('scans')
     .select('scan_id, hotel_name, location, status, created_at')
-    .eq('email', currentUser.email)
+    .eq('user_id', currentUser.id)
     .order('created_at', { ascending: false });
 
   if (!scans?.length) {
