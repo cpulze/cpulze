@@ -389,7 +389,7 @@ function loadScanTab() {
     return;
   }
 
-  noteEl.textContent = 'Analyses 5 narrative themes: cleanliness, service, location, value & atmosphere. Report arrives by email.';
+  noteEl.textContent = 'Scans TripAdvisor reviews and surfaces complaints AI engines are citing about your property. Report arrives by email.';
 
   runBtn.addEventListener('click', runScan);
 }
@@ -460,50 +460,125 @@ async function loadFindingsTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id')
+    .select('scan_id, created_at, gate_teaser')
     .eq('user_id', currentUser.id)
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: false })
+    .limit(1);
 
   if (!scans?.length) {
     container.innerHTML = emptyHtml('◎', 'No findings yet', 'Run your first scan to see AI-powered insights about your property.');
     return;
   }
 
+  const latestScan = scans[0];
+
   const { data: findings } = await supabase
     .from('scan_findings')
     .select('*')
-    .in('scan_id', scans.map(s => s.scan_id))
-    .order('created_at', { ascending: false })
-    .limit(60);
+    .eq('scan_id', latestScan.scan_id)
+    .order('finding_number', { ascending: true });
 
   if (!findings?.length) {
     container.innerHTML = emptyHtml('◎', 'Findings loading', 'Your scan is running. Findings will appear here once the report is ready.');
     return;
   }
 
-  container.innerHTML = findings.map(f => findingCardHtml(f)).join('');
+  const shown  = findings.filter(f => !f.is_gated);
+  const gated  = findings.filter(f => f.is_gated);
+  const scanDate = new Date(latestScan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  let html = `<div class="d-scan-date-header">Latest scan · ${scanDate}</div>`;
+  html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
+  if (gated.length) html += gatedSectionHtml(gated, latestScan.gate_teaser);
+
+  container.innerHTML = html;
 
   container.querySelectorAll('.d-btn-add-voice').forEach(btn => {
     btn.addEventListener('click', () => {
       openVoiceCompose(btn.dataset.findingId, btn.dataset.snippet);
     });
   });
+
+  container.querySelectorAll('.d-btn-mark-fixed').forEach(btn => {
+    btn.addEventListener('click', () => markFindingFixed(btn));
+  });
 }
 
-function findingCardHtml(f) {
-  const theme   = (f.theme || 'general').toLowerCase();
-  const title   = f.review_title || f.theme || 'Finding';
-  const body    = f.finding_para || f.verbatim_quote || '';
-  const snippet = body.slice(0, 120).replace(/"/g, '&quot;');
+function priorityFromFrequency(freq) {
+  const f = (freq || '').toLowerCase();
+  if (f === 'widespread') return 'HIGH';
+  if (f === 'recurring')  return 'MEDIUM';
+  return 'LOW';
+}
 
-  return `<div class="d-card">
-    <span class="d-theme-tag ${theme}">${escHtml(theme)}</span>
+function findingCardHtml(f, num) {
+  const title    = (f.review_title && f.review_title.toLowerCase() !== 'unknown') ? f.review_title : (f.theme || 'Finding');
+  const body     = f.finding_para || f.verbatim_quote || '';
+  const snippet  = body.slice(0, 120).replace(/"/g, '&quot;');
+  const priority = priorityFromFrequency(f.frequency);
+  const status   = f.user_status || 'open';
+  const isFixed  = status === 'fixed';
+
+  return `<div class="d-card${isFixed ? ' d-card-fixed' : ''}" data-id="${escHtml(String(f.id))}">
+    <div class="d-finding-meta">
+      <span class="d-finding-number">#${num}</span>
+      <span class="d-priority-badge ${priority.toLowerCase()}">${priority}</span>
+      <span class="d-user-status ${status}">${isFixed ? 'Fixed' : 'Open'}</span>
+    </div>
+    <span class="d-theme-tag">${escHtml(f.theme || 'general')}</span>
     <div class="d-finding-title">${escHtml(title)}</div>
     <div class="d-finding-body">${escHtml(body)}</div>
-    <div style="display:flex;gap:8px">
-      <button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(f.id)}" data-snippet="${snippet}">Add your voice →</button>
+    <div class="d-finding-actions">
+      ${!isFixed ? `<button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(String(f.id))}" data-snippet="${snippet}">Add your voice →</button>` : ''}
+      <button class="d-btn-sm d-btn-mark-fixed" data-id="${escHtml(String(f.id))}"${isFixed ? ' disabled' : ''}>${isFixed ? 'Marked as fixed' : 'Mark as fixed'}</button>
     </div>
   </div>`;
+}
+
+function gatedSectionHtml(gated, teaser) {
+  const blurred = gated.map(g => `
+    <div class="d-card d-card-gated">
+      <div class="d-finding-meta">
+        <span class="d-finding-number">–</span>
+        <span class="d-priority-badge low">LOCKED</span>
+      </div>
+      <span class="d-theme-tag">${escHtml(g.theme || '')}</span>
+      <div class="d-finding-title d-blurred-text">████████████████████████</div>
+      <div class="d-finding-body d-blurred-text">████████████ ████████ ████████████████ ████████</div>
+    </div>`).join('');
+
+  return `<div class="d-gated-section">
+    <div class="d-gated-header">
+      <div class="d-gated-lock">🔒</div>
+      <div>
+        <div class="d-gated-title">${gated.length} more finding${gated.length > 1 ? 's' : ''} identified</div>
+        <div class="d-gated-desc">${escHtml(teaser || 'Additional findings surfacing in AI search results right now.')}</div>
+      </div>
+    </div>
+    ${blurred}
+    <a href="https://cpulze.com/#pricing" class="d-btn-upgrade">Upgrade to see all findings →</a>
+  </div>`;
+}
+
+async function markFindingFixed(btn) {
+  const id   = btn.dataset.id;
+  const card = btn.closest('.d-card');
+  if (card.classList.contains('d-card-fixed')) return;
+
+  const { error } = await supabase
+    .from('scan_findings')
+    .update({ user_status: 'fixed' })
+    .eq('id', id);
+
+  if (error) { console.error('mark fixed error:', error); return; }
+
+  card.classList.add('d-card-fixed');
+  btn.textContent = 'Marked as fixed';
+  btn.disabled = true;
+  const voiceBtn = card.querySelector('.d-btn-add-voice');
+  if (voiceBtn) voiceBtn.remove();
+  const statusEl = card.querySelector('.d-user-status');
+  if (statusEl) { statusEl.textContent = 'Fixed'; statusEl.className = 'd-user-status fixed'; }
 }
 
 // ─── HISTORY TAB ─────────────────────────────────────────────────────────────

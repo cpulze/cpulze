@@ -454,17 +454,40 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 .d-scan-note { font-size: 13px; color: var(--text-muted); margin-top: 14px; font-family: var(--font-mono); }
 .d-scan-ok { background: rgba(42,122,80,.07); border: 1px solid rgba(42,122,80,.2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; font-size: 14px; color: #2a7a50; font-weight: 500; }
 
-.d-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 12px; }
-.d-theme-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
-.d-theme-tag.cleanliness { background: rgba(99,102,241,.1); color: #5856d6; }
-.d-theme-tag.service { background: rgba(42,122,80,.1); color: #2a7a50; }
-.d-theme-tag.location { background: rgba(255,149,0,.1); color: #c0600a; }
-.d-theme-tag.value { background: rgba(196,144,58,.12); color: var(--gold-600); }
-.d-theme-tag.atmosphere { background: rgba(175,82,222,.1); color: #7a2eaa; }
+.d-scan-date-header { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+
+.d-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 12px; transition: opacity .2s; }
+.d-card-fixed { opacity: 0.55; }
+.d-card-fixed .d-finding-title { text-decoration: line-through; color: var(--text-muted); }
+.d-card-gated { opacity: 0.35; pointer-events: none; }
+
+.d-finding-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.d-finding-number { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--text-muted); }
+.d-priority-badge { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; }
+.d-priority-badge.high   { background: rgba(220,38,38,.1);  color: #dc2626; }
+.d-priority-badge.medium { background: rgba(255,149,0,.1);  color: #c0600a; }
+.d-priority-badge.low    { background: rgba(99,102,241,.1); color: #5856d6; }
+.d-user-status { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; margin-left: auto; }
+.d-user-status.open  { background: rgba(42,122,80,.08);   color: #2a7a50; }
+.d-user-status.fixed { background: rgba(99,102,241,.1);   color: #5856d6; }
+
+.d-theme-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; display: inline-block; background: rgba(0,0,0,.06); color: var(--text-mid); }
 .d-finding-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 .d-finding-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+.d-finding-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.d-blurred-text { color: transparent; background: rgba(0,0,0,.08); border-radius: 4px; user-select: none; margin-bottom: 8px; }
+
+.d-gated-section { border: 1px dashed var(--border); border-radius: 12px; padding: 24px; margin-top: 8px; }
+.d-gated-header { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+.d-gated-lock { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.d-gated-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.d-gated-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.d-btn-upgrade { display: block; width: 100%; text-align: center; background: var(--navy-900); color: var(--white); font-size: 14px; font-weight: 500; padding: 12px; border-radius: 8px; text-decoration: none; margin-top: 16px; transition: background .2s; }
+.d-btn-upgrade:hover { background: var(--navy-700); }
+
 .d-btn-sm { font-family: var(--font-body); font-size: 13px; font-weight: 500; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 7px 14px; color: var(--text-mid); cursor: pointer; transition: all .2s; }
 .d-btn-sm:hover { border-color: var(--navy-800); color: var(--navy-800); }
+.d-btn-sm:disabled { opacity: 0.5; cursor: default; }
 .d-btn-sm.accent { background: var(--navy-900); color: var(--white); border-color: var(--navy-900); }
 .d-btn-sm.accent:hover { background: var(--navy-700); }
 
