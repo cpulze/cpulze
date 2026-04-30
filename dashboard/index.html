@@ -492,8 +492,8 @@ async function loadFindingsTab() {
 
 function findingCardHtml(f) {
   const theme   = (f.theme || 'general').toLowerCase();
-  const title   = f.title || f.finding_title || 'Finding';
-  const body    = f.summary || f.finding_text || f.content || '';
+  const title   = f.review_title || f.theme || 'Finding';
+  const body    = f.finding_para || f.verbatim_quote || '';
   const snippet = body.slice(0, 120).replace(/"/g, '&quot;');
 
   return `<div class="d-card">
@@ -516,7 +516,7 @@ async function loadHistoryTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id, hotel_name, location, status, theme, created_at')
+    .select('scan_id, hotel_name, location, status, created_at')
     .eq('email', currentUser.email)
     .order('created_at', { ascending: false });
 
