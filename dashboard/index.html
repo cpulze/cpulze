@@ -611,10 +611,11 @@ function findingCardHtml(f, num) {
     isolated:   'Isolated — single review surfaced',
   }[f.frequency?.toLowerCase()] || '';
 
+  const clean = (v) => (!v || v.toLowerCase() === 'unknown' || v.startsWith('[')) ? '' : v;
   const citationParts = [
     'TripAdvisor',
-    f.reviewer    ? escHtml(f.reviewer)    : '',
-    f.review_date ? escHtml(f.review_date) : '',
+    clean(f.reviewer)    ? escHtml(clean(f.reviewer))    : '',
+    clean(f.review_date) ? escHtml(clean(f.review_date)) : '',
   ].filter(Boolean).join(' · ');
 
   const citationHtml = citationParts
