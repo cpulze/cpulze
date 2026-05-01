@@ -25,6 +25,7 @@ export default async function handler(req, res) {
   });
   const cfData = await cfVerify.json();
   if (!cfData.success) {
+    console.error('Turnstile failed:', JSON.stringify(cfData));
     return res.status(403).json({ error: 'Failed security challenge' });
   }
 
@@ -86,29 +87,32 @@ export default async function handler(req, res) {
   }
 
   const requestId = insertData[0].request_id;
-  const confirmUrl = `https://cpulze.com/api/confirm-scan?token=${requestId}`;
+  const allowedOrigins = ['https://cpulze.com', 'https://stage.cpulze.com'];
+  const requestOrigin = req.headers['origin'] || req.headers['referer'] || '';
+  const baseUrl = allowedOrigins.find(o => requestOrigin.startsWith(o)) || 'https://cpulze.com';
+  const confirmUrl = `${baseUrl}/api/confirm-scan?token=${requestId}`;
 
   const emailHtml = `
 <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
-  <div style="padding:24px 0 8px;">
+  <div style="padding:24px 0 16px;">
     <span style="font-size:13px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#6366f1;">cpulze</span>
   </div>
-  <h2 style="font-size:20px;font-weight:700;margin:0 0 16px;">Confirm your scan for ${hotelName}</h2>
-  <p style="font-size:14px;color:#555;line-height:1.7;margin:0 0 24px;">
-    Click below to confirm and run your free AI narrative scan for <strong>${hotelName}</strong> in ${locationTrimmed}.
-    Your report will arrive in this inbox within a few minutes.
+  <p style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1a1a1a;">One tap to find out what AI is saying about ${hotelName}.</p>
+  <p style="font-size:14px;color:#555;line-height:1.7;margin:0 0 28px;">
+    You requested a free AI narrative scan. Click below to confirm —
   </p>
   <a href="${confirmUrl}"
-     style="display:inline-block;background:#6366f1;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;margin-bottom:24px;">
-    Confirm &amp; run scan →
+     style="display:inline-block;background:#1a1a2e;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;margin-bottom:28px;">
+    Confirm &amp; run my scan →
   </a>
+  <p style="font-size:14px;color:#555;line-height:1.7;margin:0 0 24px;">
+    We'll check what AI narratives are telling guests about your property and the report lands in your inbox within 15 minutes.
+  </p>
   <p style="font-size:12px;color:#999;margin:0 0 24px;">
-    Link expires in 24 hours. If you didn't request this scan, ignore this email.
+    Link expires in 24 hours. If this wasn't you, ignore this email.
   </p>
   <hr style="border:none;border-top:1px solid #eee;margin:24px 0;">
-  <p style="font-size:11px;color:#ccc;margin:0;">
-    cpulze · pulse@cpulze.com · cpulze is a trading name of Nuwayz Systems Ltd
-  </p>
+  <p style="font-size:11px;color:#ccc;margin:0;">cpulze · pulse@cpulze.com</p>
 </div>`;
 
   const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -118,9 +122,9 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      sender: { name: 'cpulze', email: 'pulse@cpulze.com' },
+      sender: { name: 'cpulze', email: 'noreply@cpulze.com' },
       to: [{ email: emailLower }],
-      subject: `Confirm your AI scan for ${hotelName}`,
+      subject: `Confirm your free AI scan for ${hotelName}`,
       htmlContent: emailHtml
     })
   });

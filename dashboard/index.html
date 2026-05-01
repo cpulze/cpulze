@@ -29,7 +29,7 @@
   <div class="d-onboard-card">
     <div class="d-onboard-tag">Getting started</div>
     <h1 class="d-onboard-title">Tell us about your property</h1>
-    <p class="d-onboard-desc">We'll use this to personalise your AI narrative reports and set up your PropertyVoice page.</p>
+    <p class="d-onboard-desc">We'll use this to personalise your AI narrative reports and set up your OwnerVoice page.</p>
 
     <form id="onboard-form" novalidate>
       <div class="d-form-group">
@@ -80,7 +80,7 @@
       <button class="d-tab-btn active" data-tab="scan">Scan</button>
       <button class="d-tab-btn" data-tab="findings">Findings</button>
       <button class="d-tab-btn" data-tab="history">History</button>
-      <button class="d-tab-btn" data-tab="voice">PropertyVoice</button>
+      <button class="d-tab-btn" data-tab="voice">OwnerVoice</button>
     </div>
   </div>
 
@@ -130,10 +130,17 @@
 
     <!-- PROPERTYVOICE -->
     <div class="d-pane" id="d-pane-voice">
+
+      <!-- Public page link -->
+      <div class="d-voice-public-bar" id="d-voice-public-bar" hidden>
+        <div class="d-voice-public-label">Your public OwnerVoice page</div>
+        <a class="d-voice-public-url" id="d-voice-public-url" href="#" target="_blank" rel="noopener"></a>
+      </div>
+
       <!-- Compose -->
       <div class="d-compose" id="d-compose">
         <div class="d-compose-title">Add your voice</div>
-        <div class="d-compose-desc">Write a response, correction, or update about your property. Published responses appear on your public PropertyVoice page.</div>
+        <div class="d-compose-desc">Write a response, correction, or update about your property. Published responses appear on your public OwnerVoice page.</div>
         <div class="d-compose-hint" id="d-compose-hint" hidden></div>
         <textarea class="d-textarea" id="d-voice-textarea" placeholder="What would you like guests to know about your property?"></textarea>
         <div class="d-compose-actions">
@@ -155,6 +162,68 @@
   </div><!-- /d-content -->
 </div><!-- /d-main -->
 
+<!-- Voice Modal -->
+<div class="d-modal-overlay" id="d-voice-modal" hidden>
+  <div class="d-modal">
+    <button class="d-modal-close" id="d-modal-close" aria-label="Close">×</button>
+    <div class="d-modal-finding" id="d-modal-finding" hidden>
+      <div class="d-modal-finding-label">Responding to</div>
+      <div class="d-modal-finding-text" id="d-modal-finding-text"></div>
+    </div>
+    <div class="d-modal-title">Add your voice</div>
+
+    <!-- Step 1: Choose path -->
+    <div id="d-modal-step-choose">
+      <div class="d-modal-paths">
+        <button class="d-path-btn" id="d-path-ai">
+          <div class="d-path-icon">✦</div>
+          <div>
+            <div class="d-path-label">Help me draft it</div>
+            <div class="d-path-desc">Tell us what changed — AI writes the post</div>
+          </div>
+        </button>
+        <button class="d-path-btn" id="d-path-direct">
+          <div class="d-path-icon">✎</div>
+          <div>
+            <div class="d-path-label">Write it myself</div>
+            <div class="d-path-desc">Blank editor, publish when ready</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2a: AI path -->
+    <div id="d-modal-step-ai" hidden>
+      <label class="d-label">What has actually changed since this review was written?</label>
+      <textarea class="d-input d-modal-textarea" id="d-ai-context" placeholder="e.g. We retrained all front-of-house staff in March 2026 and added a dedicated welcome host at check-in. Bathroom access is now clearly signposted at every entrance..."></textarea>
+      <div class="d-modal-actions">
+        <button class="d-btn-sm accent" id="d-ai-generate-btn">Generate draft →</button>
+        <button class="d-btn-sm" id="d-ai-back-btn">← Back</button>
+      </div>
+      <div id="d-ai-result" hidden>
+        <label class="d-label" style="margin-top:20px">Review and edit your draft</label>
+        <textarea class="d-input d-modal-textarea" id="d-ai-output"></textarea>
+        <div class="d-modal-actions" style="margin-top:10px">
+          <button class="d-btn-sm accent" id="d-ai-publish-btn">Publish</button>
+          <button class="d-btn-sm" id="d-ai-save-draft-btn">Save as draft</button>
+          <button class="d-btn-sm" id="d-ai-regenerate-btn">Regenerate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2b: Direct path -->
+    <div id="d-modal-step-direct" hidden>
+      <label class="d-label">Your response</label>
+      <textarea class="d-input d-modal-textarea" id="d-direct-textarea" placeholder="Write your response to this finding..."></textarea>
+      <div class="d-modal-actions">
+        <button class="d-btn-sm accent" id="d-direct-publish-btn">Publish</button>
+        <button class="d-btn-sm" id="d-direct-draft-btn">Save as draft</button>
+        <button class="d-btn-sm" id="d-direct-back-btn">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="module">
 import { supabase, APP_BASE } from '../supabase-client.js';
 
@@ -169,10 +238,12 @@ let currentUser    = null;
 let currentProfile = null;
 let trialActive    = true;
 let scanCount      = 0;
-let findingsLoaded = false;
-let historyLoaded  = false;
-let voiceLoaded    = false;
-let voiceFindingId = null;
+let findingsLoaded  = false;
+let historyLoaded   = false;
+let voiceLoaded     = false;
+let voiceFindingId  = null;
+let modalFindingId  = null;
+let modalFindingData = {};
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
 async function init() {
@@ -209,7 +280,7 @@ async function init() {
 async function ensureScanUser(user) {
   const { data: existing } = await supabase
     .from('scan_users')
-    .select('id')
+    .select('user_id')
     .eq('user_id', user.id)
     .maybeSingle();
 
@@ -275,7 +346,7 @@ async function createProfile({ hotelName, location, website, propertyType }) {
         location: location,
         website: website || null,
         property_type: propertyType,
-        property_voice_slug: s,
+        owner_voice_slug: s,
       })
       .select()
       .single();
@@ -294,8 +365,7 @@ async function createProfile({ hotelName, location, website, propertyType }) {
 }
 
 function generateSlug(name, location) {
-  const city = location.split(',')[0];
-  return (name + ' ' + city)
+  return (name + ' ' + location)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
@@ -306,6 +376,16 @@ async function setupDashboard() {
   document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
   document.getElementById('d-hotel-meta').textContent =
     currentProfile.location + ' · ' + currentProfile.property_type;
+
+  if (currentProfile.owner_voice_slug) {
+    const host = (location.hostname === 'app.stage.cpulze.com') ? 'stage.cpulze.com' : 'cpulze.com';
+    const url  = `https://${host}/ownervoice/${currentProfile.owner_voice_slug}`;
+    const bar  = document.getElementById('d-voice-public-bar');
+    const link = document.getElementById('d-voice-public-url');
+    link.href        = url;
+    link.textContent = url;
+    bar.hidden       = false;
+  }
 
   // Trial info
   const { data: scanUser } = await supabase
@@ -325,7 +405,7 @@ async function setupDashboard() {
     const { data: scans } = await supabase
       .from('scans')
       .select('scan_id')
-      .eq('email', currentUser.email)
+      .eq('user_id', currentUser.id)
       .gte('created_at', scanUser.created_at);
 
     scanCount = scans?.length || 0;
@@ -342,6 +422,7 @@ async function setupDashboard() {
   setupTabs();
   loadScanTab();
   setupVoiceCompose();
+  setupVoiceModal();
 }
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
@@ -389,7 +470,7 @@ function loadScanTab() {
     return;
   }
 
-  noteEl.textContent = 'Analyses 5 narrative themes: cleanliness, service, location, value & atmosphere. Report arrives by email.';
+  noteEl.textContent = 'Scans TripAdvisor reviews and surfaces complaints AI engines are citing about your property. Report arrives by email.';
 
   runBtn.addEventListener('click', runScan);
 }
@@ -460,50 +541,149 @@ async function loadFindingsTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id')
-    .eq('email', currentUser.email)
-    .order('created_at', { ascending: false });
+    .select('scan_id, created_at, gate_teaser')
+    .eq('user_id', currentUser.id)
+    .order('created_at', { ascending: false })
+    .limit(1);
 
   if (!scans?.length) {
     container.innerHTML = emptyHtml('◎', 'No findings yet', 'Run your first scan to see AI-powered insights about your property.');
     return;
   }
 
+  const latestScan = scans[0];
+
   const { data: findings } = await supabase
     .from('scan_findings')
     .select('*')
-    .in('scan_id', scans.map(s => s.scan_id))
-    .order('created_at', { ascending: false })
-    .limit(60);
+    .eq('scan_id', latestScan.scan_id)
+    .order('finding_number', { ascending: true });
 
   if (!findings?.length) {
     container.innerHTML = emptyHtml('◎', 'Findings loading', 'Your scan is running. Findings will appear here once the report is ready.');
     return;
   }
 
-  container.innerHTML = findings.map(f => findingCardHtml(f)).join('');
+  const shown  = findings.filter(f => !f.is_gated);
+  const gated  = findings.filter(f => f.is_gated);
+  const scanDate = new Date(latestScan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  let html = `<div class="d-scan-date-header">Latest scan · ${scanDate}</div>`;
+  html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
+  if (gated.length) html += gatedSectionHtml(gated, latestScan.gate_teaser);
+
+  container.innerHTML = html;
 
   container.querySelectorAll('.d-btn-add-voice').forEach(btn => {
     btn.addEventListener('click', () => {
-      openVoiceCompose(btn.dataset.findingId, btn.dataset.snippet);
+      openVoiceModal(btn.dataset.findingId, {
+        snippet: btn.dataset.snippet,
+        theme:   btn.dataset.theme,
+        para:    btn.dataset.para,
+        quote:   btn.dataset.quote,
+      });
     });
+  });
+
+  container.querySelectorAll('.d-btn-mark-fixed').forEach(btn => {
+    btn.addEventListener('click', () => markFindingFixed(btn));
   });
 }
 
-function findingCardHtml(f) {
-  const theme   = (f.theme || 'general').toLowerCase();
-  const title   = f.title || f.finding_title || 'Finding';
-  const body    = f.summary || f.finding_text || f.content || '';
-  const snippet = body.slice(0, 120).replace(/"/g, '&quot;');
+function priorityFromFrequency(freq) {
+  const f = (freq || '').toLowerCase();
+  if (f === 'widespread') return 'HIGH';
+  if (f === 'recurring')  return 'MEDIUM';
+  return 'LOW';
+}
 
-  return `<div class="d-card">
-    <span class="d-theme-tag ${theme}">${escHtml(theme)}</span>
-    <div class="d-finding-title">${escHtml(title)}</div>
-    <div class="d-finding-body">${escHtml(body)}</div>
-    <div style="display:flex;gap:8px">
-      <button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(f.id)}" data-snippet="${snippet}">Add your voice →</button>
+function findingCardHtml(f, num) {
+  const quote    = f.verbatim_quote || f.finding_para || '';
+  const snippet  = quote.slice(0, 120).replace(/"/g, '&quot;');
+  const priority = priorityFromFrequency(f.frequency);
+  const status   = f.user_status || 'open';
+  const isFixed  = status === 'fixed';
+
+  const freqLabel = {
+    widespread: 'Widespread — multiple guests report this',
+    recurring:  'Recurring — seen across several reviews',
+    occasional: 'Occasional — appears in a few reviews',
+    isolated:   'Isolated — single review surfaced',
+  }[f.frequency?.toLowerCase()] || '';
+
+  const citationParts = [
+    'TripAdvisor',
+    f.reviewer    ? escHtml(f.reviewer)    : '',
+    f.review_date ? escHtml(f.review_date) : '',
+  ].filter(Boolean).join(' · ');
+
+  const citationHtml = citationParts
+    ? `<div class="d-finding-citation">
+        ${citationParts}${f.citation_url ? ` · <a href="${escHtml(f.citation_url)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
+       </div>`
+    : '';
+
+  return `<div class="d-card${isFixed ? ' d-card-fixed' : ''}" data-id="${escHtml(String(f.id))}">
+    <div class="d-finding-meta">
+      <span class="d-finding-number">#${num}</span>
+      <span class="d-priority-badge ${priority.toLowerCase()}">${priority}</span>
+      <span class="d-user-status ${status}">${isFixed ? 'Fixed' : 'Open'}</span>
+    </div>
+    <span class="d-theme-tag">${escHtml(f.theme || 'general')}</span>
+    ${quote ? `<div class="d-finding-quote">"${escHtml(quote)}"</div>` : ''}
+    ${citationHtml}
+    ${freqLabel ? `<div class="d-finding-freq">${freqLabel}</div>` : ''}
+    <div class="d-finding-actions">
+      ${!isFixed ? `<button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(String(f.id))}" data-snippet="${snippet}" data-theme="${escHtml(f.theme||'')}" data-para="${escHtml(f.finding_para||'')}" data-quote="${escHtml(f.verbatim_quote||'')}">Add your voice →</button>` : ''}
+      <button class="d-btn-sm d-btn-mark-fixed" data-id="${escHtml(String(f.id))}"${isFixed ? ' disabled' : ''}>${isFixed ? 'Marked as fixed' : 'Mark as fixed'}</button>
     </div>
   </div>`;
+}
+
+function gatedSectionHtml(gated, teaser) {
+  const blurred = gated.map(g => `
+    <div class="d-card d-card-gated">
+      <div class="d-finding-meta">
+        <span class="d-finding-number">–</span>
+        <span class="d-priority-badge low">LOCKED</span>
+      </div>
+      <span class="d-theme-tag">${escHtml(g.theme || '')}</span>
+      <div class="d-finding-title d-blurred-text">████████████████████████</div>
+      <div class="d-finding-body d-blurred-text">████████████ ████████ ████████████████ ████████</div>
+    </div>`).join('');
+
+  return `<div class="d-gated-section">
+    <div class="d-gated-header">
+      <div class="d-gated-lock">🔒</div>
+      <div>
+        <div class="d-gated-title">${gated.length} more finding${gated.length > 1 ? 's' : ''} identified</div>
+        <div class="d-gated-desc">${escHtml(teaser || 'Additional findings surfacing in AI search results right now.')}</div>
+      </div>
+    </div>
+    ${blurred}
+    <a href="https://cpulze.com/#pricing" class="d-btn-upgrade">Upgrade to see all findings →</a>
+  </div>`;
+}
+
+async function markFindingFixed(btn) {
+  const id   = btn.dataset.id;
+  const card = btn.closest('.d-card');
+  if (card.classList.contains('d-card-fixed')) return;
+
+  const { error } = await supabase
+    .from('scan_findings')
+    .update({ user_status: 'fixed' })
+    .eq('id', id);
+
+  if (error) { console.error('mark fixed error:', error); return; }
+
+  card.classList.add('d-card-fixed');
+  btn.textContent = 'Marked as fixed';
+  btn.disabled = true;
+  const voiceBtn = card.querySelector('.d-btn-add-voice');
+  if (voiceBtn) voiceBtn.remove();
+  const statusEl = card.querySelector('.d-user-status');
+  if (statusEl) { statusEl.textContent = 'Fixed'; statusEl.className = 'd-user-status fixed'; }
 }
 
 // ─── HISTORY TAB ─────────────────────────────────────────────────────────────
@@ -516,8 +696,8 @@ async function loadHistoryTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id, hotel_name, location, status, theme, created_at')
-    .eq('email', currentUser.email)
+    .select('scan_id, hotel_name, location, status, created_at')
+    .eq('user_id', currentUser.id)
     .order('created_at', { ascending: false });
 
   if (!scans?.length) {
@@ -546,20 +726,138 @@ function setupVoiceCompose() {
   document.getElementById('d-voice-draft-btn').addEventListener('click', () => saveVoiceEntry('draft'));
 }
 
-function openVoiceCompose(findingId, snippet) {
-  // Switch to voice tab
-  document.querySelectorAll('.d-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.d-pane').forEach(p => p.classList.remove('active'));
-  document.querySelector('[data-tab="voice"]').classList.add('active');
-  document.getElementById('d-pane-voice').classList.add('active');
+// ─── VOICE MODAL ─────────────────────────────────────────────────────────────
+function setupVoiceModal() {
+  document.getElementById('d-modal-close').addEventListener('click', closeVoiceModal);
+  document.getElementById('d-voice-modal').addEventListener('click', e => {
+    if (e.target.id === 'd-voice-modal') closeVoiceModal();
+  });
 
-  voiceFindingId = findingId;
-  const hintEl = document.getElementById('d-compose-hint');
-  hintEl.textContent = 'Responding to: "' + snippet + (snippet.length >= 120 ? '…' : '') + '"';
-  hintEl.hidden = false;
+  document.getElementById('d-path-ai').addEventListener('click', () => {
+    document.getElementById('d-modal-step-choose').hidden = true;
+    document.getElementById('d-modal-step-ai').hidden = false;
+    document.getElementById('d-ai-context').focus();
+  });
 
-  document.getElementById('d-voice-textarea').focus();
-  loadVoiceEntries();
+  document.getElementById('d-path-direct').addEventListener('click', () => {
+    document.getElementById('d-modal-step-choose').hidden = true;
+    document.getElementById('d-modal-step-direct').hidden = false;
+    document.getElementById('d-direct-textarea').focus();
+  });
+
+  document.getElementById('d-ai-back-btn').addEventListener('click', () => {
+    document.getElementById('d-modal-step-ai').hidden = true;
+    document.getElementById('d-modal-step-choose').hidden = false;
+  });
+
+  document.getElementById('d-direct-back-btn').addEventListener('click', () => {
+    document.getElementById('d-modal-step-direct').hidden = true;
+    document.getElementById('d-modal-step-choose').hidden = false;
+  });
+
+  document.getElementById('d-ai-generate-btn').addEventListener('click', generateAIDraft);
+  document.getElementById('d-ai-regenerate-btn').addEventListener('click', generateAIDraft);
+  document.getElementById('d-ai-publish-btn').addEventListener('click', () => saveModalEntry('published', 'ai'));
+  document.getElementById('d-ai-save-draft-btn').addEventListener('click', () => saveModalEntry('draft', 'ai'));
+  document.getElementById('d-direct-publish-btn').addEventListener('click', () => saveModalEntry('published', 'direct'));
+  document.getElementById('d-direct-draft-btn').addEventListener('click', () => saveModalEntry('draft', 'direct'));
+}
+
+function openVoiceModal(findingId, data) {
+  modalFindingId   = findingId;
+  modalFindingData = data || {};
+
+  document.getElementById('d-modal-step-choose').hidden  = false;
+  document.getElementById('d-modal-step-ai').hidden      = true;
+  document.getElementById('d-modal-step-direct').hidden  = true;
+  document.getElementById('d-ai-result').hidden          = true;
+  document.getElementById('d-ai-context').value          = '';
+  document.getElementById('d-ai-output').value           = '';
+  document.getElementById('d-direct-textarea').value     = '';
+
+  const findingEl = document.getElementById('d-modal-finding');
+  if (data?.snippet) {
+    document.getElementById('d-modal-finding-text').textContent = '"' + data.snippet + (data.snippet.length >= 120 ? '…' : '') + '"';
+    findingEl.hidden = false;
+  } else {
+    findingEl.hidden = true;
+  }
+
+  document.getElementById('d-voice-modal').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVoiceModal() {
+  document.getElementById('d-voice-modal').hidden = true;
+  document.body.style.overflow = '';
+  modalFindingId   = null;
+  modalFindingData = {};
+}
+
+async function generateAIDraft() {
+  const ctx = document.getElementById('d-ai-context').value.trim();
+  if (!ctx) { document.getElementById('d-ai-context').focus(); return; }
+
+  const btn = document.getElementById('d-ai-generate-btn');
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
+
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    const res = await fetch('/api/voice-draft', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session.access_token}`,
+      },
+      body: JSON.stringify({
+        hotel_name:     currentProfile.hotel_name,
+        theme:          modalFindingData.theme || '',
+        finding_para:   modalFindingData.para  || '',
+        verbatim_quote: modalFindingData.quote || '',
+        owner_context:  ctx,
+      }),
+    });
+
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error);
+
+    document.getElementById('d-ai-output').value = json.draft;
+    document.getElementById('d-ai-result').hidden = false;
+    document.getElementById('d-ai-output').focus();
+  } catch (err) {
+    console.error('draft error:', err);
+    btn.textContent = 'Failed — try again';
+  } finally {
+    btn.disabled = false;
+    if (btn.textContent === 'Generating…') btn.textContent = 'Generate draft →';
+  }
+}
+
+async function saveModalEntry(status, path) {
+  const text = path === 'ai'
+    ? document.getElementById('d-ai-output').value.trim()
+    : document.getElementById('d-direct-textarea').value.trim();
+  if (!text) return;
+
+  const entry = {
+    user_id:          currentUser.id,
+    hotel_profile_id: currentProfile.id,
+    response_text:    text,
+    action_type:      'owner_update',
+    status,
+  };
+  if (modalFindingId) entry.finding_id = modalFindingId;
+  if (status === 'published') entry.published_at = new Date().toISOString();
+
+  const { error } = await supabase.from('owner_voice_entries').insert(entry);
+  if (error) { console.error('save modal entry:', error); return; }
+
+  closeVoiceModal();
+  voiceLoaded = false;
+  if (document.getElementById('d-pane-voice').classList.contains('active')) {
+    await loadVoiceEntries();
+  }
 }
 
 async function saveVoiceEntry(status) {
@@ -582,7 +880,7 @@ async function saveVoiceEntry(status) {
   if (voiceFindingId) entry.finding_id = voiceFindingId;
   if (status === 'published') entry.published_at = new Date().toISOString();
 
-  const { error } = await supabase.from('property_voice_entries').insert(entry);
+  const { error } = await supabase.from('owner_voice_entries').insert(entry);
 
   publishBtn.disabled = false;
   draftBtn.disabled   = false;
@@ -601,7 +899,7 @@ async function loadVoiceEntries() {
   voiceLoaded = true;
 
   const { data: entries } = await supabase
-    .from('property_voice_entries')
+    .from('owner_voice_entries')
     .select('*')
     .eq('user_id', currentUser.id)
     .order('created_at', { ascending: false });
@@ -658,14 +956,14 @@ function voiceEntryHtml(e) {
 async function handleVoiceAction(action, entryId) {
   if (action === 'publish') {
     await supabase
-      .from('property_voice_entries')
+      .from('owner_voice_entries')
       .update({ status: 'published', published_at: new Date().toISOString() })
       .eq('id', entryId)
       .eq('user_id', currentUser.id);
   } else if (action === 'delete') {
     if (!confirm('Remove this entry?')) return;
     await supabase
-      .from('property_voice_entries')
+      .from('owner_voice_entries')
       .delete()
       .eq('id', entryId)
       .eq('user_id', currentUser.id);
@@ -700,7 +998,7 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 signOutBtn.addEventListener('click', async () => {
   await supabase.auth.signOut();
-  window.location.replace('https://app.cpulze.com/login/');
+  window.location.replace(APP_BASE + '/login/');
 });
 
 init();

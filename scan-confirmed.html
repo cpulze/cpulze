@@ -29,6 +29,8 @@
   if (params.get('already') === 'true') {
     document.getElementById('heading').textContent = 'Already confirmed';
     document.getElementById('message').textContent = 'This scan link has already been used. Check your inbox for your report.';
+  } else {
+    localStorage.setItem('cpulze_scan_confirmed', Date.now());
   }
 </script>
 </body>

@@ -2,9 +2,10 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 export const APP_BASE = (() => {
   const h = location.hostname;
-  if (h === 'dev-nuwayz-y3s9.app.cpulze.com') return 'https://dev-nuwayz-y3s9.app.cpulze.com';
-  if (h === 'app.cpulze.com')                 return 'https://app.cpulze.com';
-  return `http://${location.host}`;
+  if (h === 'app.stage.cpulze.com')   return 'https://app.stage.cpulze.com';
+  if (h === 'app.cpulze.com')         return 'https://app.cpulze.com';
+  if (h === 'localhost' || h === '127.0.0.1') return `http://${location.host}`;
+  return `https://${location.host}`;  // Vercel preview URLs
 })();
 
 const SUPABASE_URL = 'https://buqauvcbsazzrstolsnx.supabase.co';

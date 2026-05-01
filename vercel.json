@@ -7,8 +7,18 @@
     },
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "dev-nuwayz-y3s9.app.cpulze.com" }],
+      "has": [{ "type": "host", "value": "app.stage.cpulze.com" }],
       "destination": "/dashboard/index.html"
+    },
+    {
+      "source": "/ownervoice/:slug",
+      "has": [{ "type": "host", "value": "cpulze.com" }],
+      "destination": "/ownervoice/index.html"
+    },
+    {
+      "source": "/ownervoice/:slug",
+      "has": [{ "type": "host", "value": "stage.cpulze.com" }],
+      "destination": "/ownervoice/index.html"
     }
   ]
 }

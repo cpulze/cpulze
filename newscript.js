@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.textContent = 'Submitting…';
       this.disabled = true;
 
-      const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+      const turnstileToken = window._turnstileToken || document.querySelector('[name="cf-turnstile-response"]')?.value;
 
       try {
         const response = await fetch('/api/request-scan', {
@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           this.textContent = '✓ Check your inbox to confirm';
           this.style.backgroundColor = '#2a7a50';
+
+          const confirmedBtn = this;
+          const onConfirmed = function(e) {
+            if (e.key === 'cpulze_scan_confirmed') {
+              confirmedBtn.textContent = 'Report in your inbox in a few mins';
+              localStorage.removeItem('cpulze_scan_confirmed');
+              window.removeEventListener('storage', onConfirmed);
+            }
+          };
+          window.addEventListener('storage', onConfirmed);
         } else if (data.error === 'scan_limit_reached') {
           throw new Error('You\'ve used all 5 free scans. Sign in to continue.');
         } else if (data.error === 'confirmation_pending') {
