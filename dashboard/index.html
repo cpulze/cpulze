@@ -358,8 +358,7 @@ async function createProfile({ hotelName, location, website, propertyType }) {
 }
 
 function generateSlug(name, location) {
-  const city = location.split(',')[0];
-  return (name + ' ' + city)
+  return (name + ' ' + location)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
