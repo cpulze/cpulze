@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Owner Updates | cpulze OwnerVoice</title>
+  <meta id="page-desc" name="description" content="Official owner updates and verified property narrative from this hotel on cpulze OwnerVoice." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <script type="application/ld+json" id="schema-json"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f9f9f7;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ── */
+    .ov-topbar {
+      background: #0f172a;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ov-topbar-brand {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    .ov-topbar-link {
+      color: #94a3b8;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .ov-topbar-link:hover { color: #fff; }
+
+    /* ── Hero ── */
+    .ov-hero {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+    .ov-hotel-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .ov-hotel-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .ov-hotel-location {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+    .ov-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: #166534;
+      font-weight: 500;
+    }
+    .ov-verified-badge svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Content ── */
+    .ov-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .ov-section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .ov-entry {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .ov-entry-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .ov-entry-theme {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      background: rgba(15,23,42,.07);
+      color: #374151;
+      border-radius: 4px;
+      padding: 3px 9px;
+    }
+
+    .ov-entry-date {
+      font-size: 12px;
+      color: #94a3b8;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .ov-entry-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #374151;
+      white-space: pre-wrap;
+    }
+
+    /* ── Empty ── */
+    .ov-empty {
+      text-align: center;
+      padding: 80px 0;
+    }
+    .ov-empty-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .ov-empty-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+    .ov-empty-desc {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* ── Error / loading ── */
+    .ov-loading {
+      text-align: center;
+      padding: 80px 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .ov-error {
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .ov-error-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .ov-error-desc {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+    .ov-error-link {
+      font-size: 14px;
+      color: #0f172a;
+      text-decoration: underline;
+    }
+
+    /* ── Footer ── */
+    .ov-footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
+    .ov-footer-text {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .ov-footer-link {
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .ov-footer-link:hover { color: #0f172a; }
+  </style>
+</head>
+<body>
+
+<nav class="ov-topbar">
+  <a href="https://cpulze.com" class="ov-topbar-brand">cpulze</a>
+  <a href="https://cpulze.com" class="ov-topbar-link">What is cpulze? →</a>
+</nav>
+
+<div id="ov-hero" class="ov-hero" hidden>
+  <div class="ov-hotel-logo" id="ov-logo-initials"></div>
+  <div class="ov-hotel-name" id="ov-hotel-name"></div>
+  <div class="ov-hotel-location" id="ov-hotel-location"></div>
+  <div class="ov-verified-badge">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 1.167A5.833 5.833 0 1 0 7 12.833 5.833 5.833 0 0 0 7 1.167Z" fill="#16a34a" opacity=".15"/>
+      <path d="M4.667 7l1.75 1.75 3.5-3.5" stroke="#16a34a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Verified by cpulze OwnerVoice
+  </div>
+</div>
+
+<main class="ov-content">
+  <div id="ov-loading" class="ov-loading">Loading…</div>
+  <div id="ov-error" class="ov-error" hidden>
+    <div class="ov-error-title">Page not found</div>
+    <div class="ov-error-desc">This OwnerVoice page doesn't exist or hasn't been set up yet.</div>
+    <a href="https://cpulze.com" class="ov-error-link">Go to cpulze.com</a>
+  </div>
+  <div id="ov-entries" hidden></div>
+</main>
+
+<footer class="ov-footer" id="ov-footer" hidden>
+  <div class="ov-footer-text">
+    This page is managed by the hotel owner via <a href="https://cpulze.com" class="ov-footer-link">cpulze</a> — AI narrative monitoring for independent hotels.
+  </div>
+</footer>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const SUPABASE_URL     = 'https://buqauvcbsazzrstolsnx.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1cWF1dmNic2F6enJzdG9sc254Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3MDc1MDcsImV4cCI6MjA4NTI4MzUwN30.DYhJN9EHxGDFCV2An08pdtHm7ZdsgsbJe8TMnNL1e7Q';
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function slug() {
+    // Path: /ownervoice/<slug>  →  pathname parts [0]='', [1]='ownervoice', [2]=slug
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    return parts[1] || null;
+  }
+
+  function initials(name) {
+    return name.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  }
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  async function load() {
+    const s = slug();
+    if (!s) { showError(); return; }
+
+    // Fetch hotel profile
+    const { data: profiles, error: profErr } = await supabase
+      .from('hotel_profiles')
+      .select('id, hotel_name, location, property_type, owner_voice_slug')
+      .eq('owner_voice_slug', s)
+      .limit(1);
+
+    if (profErr || !profiles?.length) { showError(); return; }
+    const profile = profiles[0];
+
+    // Fetch published entries
+    const { data: entries } = await supabase
+      .from('owner_voice_entries')
+      .select('id, response_text, action_type, published_at, created_at, finding_id')
+      .eq('hotel_profile_id', profile.id)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false });
+
+    renderHero(profile);
+    renderEntries(entries || [], profile);
+    injectSchema(profile, entries || []);
+
+    document.getElementById('ov-loading').hidden = true;
+    document.getElementById('ov-footer').hidden = false;
+  }
+
+  function renderHero(profile) {
+    document.getElementById('ov-logo-initials').textContent = initials(profile.hotel_name);
+    document.getElementById('ov-hotel-name').textContent = profile.hotel_name;
+    document.getElementById('ov-hotel-location').textContent = profile.location || '';
+    document.getElementById('ov-hero').hidden = false;
+
+    document.getElementById('page-title').textContent =
+      `${profile.hotel_name} — Owner Updates | cpulze OwnerVoice`;
+    document.querySelector('#page-desc').setAttribute('content',
+      `Official owner updates and verified property narrative from ${profile.hotel_name}${profile.location ? ', ' + profile.location : ''}.`);
+  }
+
+  function renderEntries(entries, profile) {
+    const container = document.getElementById('ov-entries');
+    container.hidden = false;
+
+    if (!entries.length) {
+      container.innerHTML = `
+        <div class="ov-empty">
+          <div class="ov-empty-icon">◌</div>
+          <div class="ov-empty-title">No published updates yet</div>
+          <div class="ov-empty-desc">${escHtml(profile.hotel_name)} hasn't published any OwnerVoice updates yet.</div>
+        </div>`;
+      return;
+    }
+
+    const label = entries.length === 1 ? '1 owner update' : `${entries.length} owner updates`;
+    let html = `<div class="ov-section-label">${label}</div>`;
+
+    html += entries.map(e => {
+      const date = formatDate(e.published_at || e.created_at);
+      return `
+        <div class="ov-entry">
+          <div class="ov-entry-header">
+            <span class="ov-entry-theme">Owner Update</span>
+            <span class="ov-entry-date">${date}</span>
+          </div>
+          <div class="ov-entry-text">${escHtml(e.response_text)}</div>
+        </div>`;
+    }).join('');
+
+    container.innerHTML = html;
+  }
+
+  function injectSchema(profile, entries) {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'LodgingBusiness',
+      'name': profile.hotel_name,
+      'description': `Official owner updates from ${profile.hotel_name} via cpulze OwnerVoice.`,
+      'url': window.location.href,
+    };
+    if (profile.location) schema['address'] = { '@type': 'PostalAddress', 'addressLocality': profile.location };
+
+    if (entries.length) {
+      schema['review'] = entries.map(e => ({
+        '@type': 'Review',
+        'author': { '@type': 'Organization', 'name': `Owner of ${profile.hotel_name}` },
+        'datePublished': (e.published_at || e.created_at).slice(0, 10),
+        'reviewBody': e.response_text,
+        'publisher': { '@type': 'Organization', 'name': 'cpulze OwnerVoice', 'url': 'https://cpulze.com' },
+      }));
+    }
+
+    document.getElementById('schema-json').textContent = JSON.stringify(schema, null, 2);
+  }
+
+  function showError() {
+    document.getElementById('ov-loading').hidden = true;
+    document.getElementById('ov-error').hidden = false;
+  }
+
+  load();
+</script>
+</body>
+</html>
