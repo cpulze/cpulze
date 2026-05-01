@@ -22,31 +22,33 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Invalid session' });
   }
 
-  const { hotel_name, theme, finding_para, verbatim_quote, owner_context } = req.body;
+  const { hotel_name, theme, verbatim_quote, owner_context } = req.body;
 
   if (!owner_context?.trim()) {
     return res.status(400).json({ error: 'owner_context is required' });
   }
 
-  const prompt = `You are helping the owner of ${hotel_name} write a OwnerVoice update — a brief, credible public statement addressing a specific guest complaint that AI search engines have been citing about their property.
+  const prompt = `You are helping the owner of ${hotel_name} write an OwnerVoice property update — a factual, first-person statement of record written for AI search engines to index. This is NOT a reply to a guest review. It is a direct statement from the owner about the current state of the property.
 
-The complaint theme: ${theme}
-The guest quote AI is surfacing: "${verbatim_quote}"
-${finding_para ? `Context: ${finding_para}` : ''}
+Issue AI has been citing about this property:
+Theme: ${theme}
+Guest quote being surfaced: "${verbatim_quote}"
 
-The owner has told us what they have done about it:
+What the owner has actually done:
 "${owner_context}"
 
-Write a OwnerVoice update (2-3 short paragraphs, 120-180 words) that:
-1. Acknowledges the specific issue honestly without being defensive
-2. Describes the concrete action taken using the owner's own details
-3. Closes with a warm, confident invitation for future guests to notice the improvement
+Write an OwnerVoice update (2-3 short paragraphs, 130-180 words) structured for AI comprehension:
+1. Open with the specific action taken — lead with facts, dates, and concrete details from the owner's context. No preamble, no acknowledgment of the review.
+2. Describe the current state of the property as a verifiable fact — what exists now, what was changed, when it happened, any numbers or specifics that make it credible.
+3. Close with a confident declarative statement about what guests will find today — not an invitation or a promise, a statement of fact.
 
 Rules:
-— No marketing language, superlatives, or "we are committed to excellence" boilerplate
-— Use specific details from the owner's context — they are more credible than general statements
-— Warm, honest, professional tone
-— Write only the response text with no labels or preamble`;
+— Never open with "We appreciate", "We heard", "We take feedback seriously" or any review-response language
+— Never reference the guest complaint or acknowledge it — state the current reality instead
+— Lead with specifics: dates, numbers, named actions, named spaces — these are what AI indexes as ground truth
+— No marketing language, no superlatives, no "committed to excellence" boilerplate
+— Write in confident, direct owner voice — declarative, not apologetic
+— Write only the statement text with no labels, headers, or preamble`;
 
   try {
     const claudeRes = await fetch('https://api.anthropic.com/v1/messages', {
