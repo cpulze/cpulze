@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'owner_context is required' });
   }
 
-  const prompt = `You are helping the owner of ${hotel_name} write a PropertyVoice update — a brief, credible public statement addressing a specific guest complaint that AI search engines have been citing about their property.
+  const prompt = `You are helping the owner of ${hotel_name} write a OwnerVoice update — a brief, credible public statement addressing a specific guest complaint that AI search engines have been citing about their property.
 
 The complaint theme: ${theme}
 The guest quote AI is surfacing: "${verbatim_quote}"
@@ -37,7 +37,7 @@ ${finding_para ? `Context: ${finding_para}` : ''}
 The owner has told us what they have done about it:
 "${owner_context}"
 
-Write a PropertyVoice update (2-3 short paragraphs, 120-180 words) that:
+Write a OwnerVoice update (2-3 short paragraphs, 120-180 words) that:
 1. Acknowledges the specific issue honestly without being defensive
 2. Describes the concrete action taken using the owner's own details
 3. Closes with a warm, confident invitation for future guests to notice the improvement

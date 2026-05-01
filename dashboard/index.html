@@ -29,7 +29,7 @@
   <div class="d-onboard-card">
     <div class="d-onboard-tag">Getting started</div>
     <h1 class="d-onboard-title">Tell us about your property</h1>
-    <p class="d-onboard-desc">We'll use this to personalise your AI narrative reports and set up your PropertyVoice page.</p>
+    <p class="d-onboard-desc">We'll use this to personalise your AI narrative reports and set up your OwnerVoice page.</p>
 
     <form id="onboard-form" novalidate>
       <div class="d-form-group">
@@ -80,7 +80,7 @@
       <button class="d-tab-btn active" data-tab="scan">Scan</button>
       <button class="d-tab-btn" data-tab="findings">Findings</button>
       <button class="d-tab-btn" data-tab="history">History</button>
-      <button class="d-tab-btn" data-tab="voice">PropertyVoice</button>
+      <button class="d-tab-btn" data-tab="voice">OwnerVoice</button>
     </div>
   </div>
 
@@ -133,7 +133,7 @@
       <!-- Compose -->
       <div class="d-compose" id="d-compose">
         <div class="d-compose-title">Add your voice</div>
-        <div class="d-compose-desc">Write a response, correction, or update about your property. Published responses appear on your public PropertyVoice page.</div>
+        <div class="d-compose-desc">Write a response, correction, or update about your property. Published responses appear on your public OwnerVoice page.</div>
         <div class="d-compose-hint" id="d-compose-hint" hidden></div>
         <textarea class="d-textarea" id="d-voice-textarea" placeholder="What would you like guests to know about your property?"></textarea>
         <div class="d-compose-actions">
@@ -339,7 +339,7 @@ async function createProfile({ hotelName, location, website, propertyType }) {
         location: location,
         website: website || null,
         property_type: propertyType,
-        property_voice_slug: s,
+        owner_voice_slug: s,
       })
       .select()
       .single();
@@ -815,7 +815,7 @@ async function saveModalEntry(status, path) {
   if (modalFindingId) entry.finding_id = modalFindingId;
   if (status === 'published') entry.published_at = new Date().toISOString();
 
-  const { error } = await supabase.from('property_voice_entries').insert(entry);
+  const { error } = await supabase.from('owner_voice_entries').insert(entry);
   if (error) { console.error('save modal entry:', error); return; }
 
   closeVoiceModal();
@@ -845,7 +845,7 @@ async function saveVoiceEntry(status) {
   if (voiceFindingId) entry.finding_id = voiceFindingId;
   if (status === 'published') entry.published_at = new Date().toISOString();
 
-  const { error } = await supabase.from('property_voice_entries').insert(entry);
+  const { error } = await supabase.from('owner_voice_entries').insert(entry);
 
   publishBtn.disabled = false;
   draftBtn.disabled   = false;
@@ -864,7 +864,7 @@ async function loadVoiceEntries() {
   voiceLoaded = true;
 
   const { data: entries } = await supabase
-    .from('property_voice_entries')
+    .from('owner_voice_entries')
     .select('*')
     .eq('user_id', currentUser.id)
     .order('created_at', { ascending: false });
@@ -921,14 +921,14 @@ function voiceEntryHtml(e) {
 async function handleVoiceAction(action, entryId) {
   if (action === 'publish') {
     await supabase
-      .from('property_voice_entries')
+      .from('owner_voice_entries')
       .update({ status: 'published', published_at: new Date().toISOString() })
       .eq('id', entryId)
       .eq('user_id', currentUser.id);
   } else if (action === 'delete') {
     if (!confirm('Remove this entry?')) return;
     await supabase
-      .from('property_voice_entries')
+      .from('owner_voice_entries')
       .delete()
       .eq('id', entryId)
       .eq('user_id', currentUser.id);
