@@ -64,6 +64,10 @@ Rules:
     });
 
     const data = await claudeRes.json();
+    if (!claudeRes.ok || data.error) {
+      console.error('Anthropic error:', JSON.stringify(data));
+      return res.status(500).json({ error: data.error?.message || 'Anthropic API error' });
+    }
     const draft = data.content?.[0]?.text || '';
     return res.status(200).json({ draft });
   } catch (err) {
