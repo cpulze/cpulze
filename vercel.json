@@ -12,12 +12,6 @@
     },
     {
       "source": "/ownervoice/:slug",
-      "has": [{ "type": "host", "value": "cpulze.com" }],
-      "destination": "/ownervoice/index.html"
-    },
-    {
-      "source": "/ownervoice/:slug",
-      "has": [{ "type": "host", "value": "stage.cpulze.com" }],
       "destination": "/ownervoice/index.html"
     }
   ]
