@@ -130,6 +130,13 @@
 
     <!-- PROPERTYVOICE -->
     <div class="d-pane" id="d-pane-voice">
+
+      <!-- Public page link -->
+      <div class="d-voice-public-bar" id="d-voice-public-bar" hidden>
+        <div class="d-voice-public-label">Your public OwnerVoice page</div>
+        <a class="d-voice-public-url" id="d-voice-public-url" href="#" target="_blank" rel="noopener"></a>
+      </div>
+
       <!-- Compose -->
       <div class="d-compose" id="d-compose">
         <div class="d-compose-title">Add your voice</div>
@@ -369,6 +376,16 @@ async function setupDashboard() {
   document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
   document.getElementById('d-hotel-meta').textContent =
     currentProfile.location + ' · ' + currentProfile.property_type;
+
+  if (currentProfile.owner_voice_slug) {
+    const host = (location.hostname === 'app.stage.cpulze.com') ? 'stage.cpulze.com' : 'cpulze.com';
+    const url  = `https://${host}/ownervoice/${currentProfile.owner_voice_slug}`;
+    const bar  = document.getElementById('d-voice-public-bar');
+    const link = document.getElementById('d-voice-public-url');
+    link.href        = url;
+    link.textContent = url;
+    bar.hidden       = false;
+  }
 
   // Trial info
   const { data: scanUser } = await supabase
