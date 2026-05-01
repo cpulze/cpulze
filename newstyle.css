@@ -474,6 +474,11 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 .d-theme-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; display: inline-block; background: rgba(0,0,0,.06); color: var(--text-mid); }
 .d-finding-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 .d-finding-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+.d-finding-quote { font-size: 14px; font-style: italic; color: var(--text); line-height: 1.65; margin-bottom: 10px; }
+.d-finding-citation { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+.d-citation-link { color: #6366f1; text-decoration: none; }
+.d-citation-link:hover { text-decoration: underline; }
+.d-finding-freq { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
 .d-finding-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .d-blurred-text { color: transparent; background: rgba(0,0,0,.08); border-radius: 4px; user-select: none; margin-bottom: 8px; }
 

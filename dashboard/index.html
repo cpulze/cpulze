@@ -581,12 +581,30 @@ function priorityFromFrequency(freq) {
 }
 
 function findingCardHtml(f, num) {
-  const title    = (f.review_title && f.review_title.toLowerCase() !== 'unknown') ? f.review_title : (f.theme || 'Finding');
-  const body     = f.finding_para || f.verbatim_quote || '';
-  const snippet  = body.slice(0, 120).replace(/"/g, '&quot;');
+  const quote    = f.verbatim_quote || f.finding_para || '';
+  const snippet  = quote.slice(0, 120).replace(/"/g, '&quot;');
   const priority = priorityFromFrequency(f.frequency);
   const status   = f.user_status || 'open';
   const isFixed  = status === 'fixed';
+
+  const freqLabel = {
+    widespread: 'Widespread — multiple guests report this',
+    recurring:  'Recurring — seen across several reviews',
+    occasional: 'Occasional — appears in a few reviews',
+    isolated:   'Isolated — single review surfaced',
+  }[f.frequency?.toLowerCase()] || '';
+
+  const citationParts = [
+    'TripAdvisor',
+    f.reviewer    ? escHtml(f.reviewer)    : '',
+    f.review_date ? escHtml(f.review_date) : '',
+  ].filter(Boolean).join(' · ');
+
+  const citationHtml = citationParts
+    ? `<div class="d-finding-citation">
+        ${citationParts}${f.citation_url ? ` · <a href="${escHtml(f.citation_url)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
+       </div>`
+    : '';
 
   return `<div class="d-card${isFixed ? ' d-card-fixed' : ''}" data-id="${escHtml(String(f.id))}">
     <div class="d-finding-meta">
@@ -595,8 +613,9 @@ function findingCardHtml(f, num) {
       <span class="d-user-status ${status}">${isFixed ? 'Fixed' : 'Open'}</span>
     </div>
     <span class="d-theme-tag">${escHtml(f.theme || 'general')}</span>
-    <div class="d-finding-title">${escHtml(title)}</div>
-    <div class="d-finding-body">${escHtml(body)}</div>
+    ${quote ? `<div class="d-finding-quote">"${escHtml(quote)}"</div>` : ''}
+    ${citationHtml}
+    ${freqLabel ? `<div class="d-finding-freq">${freqLabel}</div>` : ''}
     <div class="d-finding-actions">
       ${!isFixed ? `<button class="d-btn-sm accent d-btn-add-voice" data-finding-id="${escHtml(String(f.id))}" data-snippet="${snippet}" data-theme="${escHtml(f.theme||'')}" data-para="${escHtml(f.finding_para||'')}" data-quote="${escHtml(f.verbatim_quote||'')}">Add your voice →</button>` : ''}
       <button class="d-btn-sm d-btn-mark-fixed" data-id="${escHtml(String(f.id))}"${isFixed ? ' disabled' : ''}>${isFixed ? 'Marked as fixed' : 'Mark as fixed'}</button>
