@@ -455,6 +455,7 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 .d-scan-ok { background: rgba(42,122,80,.07); border: 1px solid rgba(42,122,80,.2); border-radius: 8px; padding: 14px 18px; margin-top: 16px; font-size: 14px; color: #2a7a50; font-weight: 500; }
 
 .d-scan-date-header { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+.d-ai-disclaimer { font-size: 11px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
 
 .d-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 12px; transition: opacity .2s; }
 .d-card-fixed { opacity: 0.55; }
