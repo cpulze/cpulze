@@ -569,6 +569,7 @@ async function loadFindingsTab() {
   const scanDate = new Date(latestScan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
   let html = `<div class="d-scan-date-header">Latest scan · ${scanDate}</div>`;
+  html += `<p class="d-ai-disclaimer">Findings reflect what AI engines currently surface when queried about your property. cpulze does not independently verify source reviews.</p>`;
   html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
   if (gated.length) html += gatedSectionHtml(gated, latestScan.gate_teaser);
 
