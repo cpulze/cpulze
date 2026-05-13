@@ -46,42 +46,69 @@ export default async function handler(req, res) {
     body: JSON.stringify({ email: emailLower, email_confirm: true })
   });
 
+  let userId, isNewUser;
+
   if (!createUserRes.ok) {
-    if (createUserRes.status === 422) {
-      return res.status(409).json({ error: 'account_exists' });
+    if (createUserRes.status !== 422) {
+      console.error('User creation error:', await createUserRes.text());
+      return res.status(500).json({ error: 'Failed to create account' });
     }
-    console.error('User creation error:', await createUserRes.text());
-    return res.status(500).json({ error: 'Failed to create account' });
+
+    // Existing user — look up their user_id via admin list
+    const listRes = await fetch(
+      `${SUPABASE_URL}/auth/v1/admin/users?page=1&per_page=1000`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+    );
+    const listData = await listRes.json();
+    const existingUser = listData.users?.find(u => u.email === emailLower);
+    if (!existingUser) {
+      return res.status(500).json({ error: 'Could not locate account. Please try signing in.' });
+    }
+    userId = existingUser.id;
+    isNewUser = false;
+
+    // Check scan limit for existing user
+    if (!isVip) {
+      const scansRes = await fetch(
+        `${SUPABASE_URL}/rest/v1/scans?user_id=eq.${userId}&select=scan_id`,
+        { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+      );
+      const existingScans = await scansRes.json();
+      if (Array.isArray(existingScans) && existingScans.length >= 5) {
+        return res.status(429).json({ error: 'scan_limit_reached' });
+      }
+    }
+  } else {
+    const newUser = await createUserRes.json();
+    userId = newUser.id;
+    isNewUser = true;
+
+    // Create scan_users record (trial start)
+    await fetch(`${SUPABASE_URL}/rest/v1/scan_users`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ user_id: userId })
+    });
+
+    // Create hotel_profiles record
+    await fetch(`${SUPABASE_URL}/rest/v1/hotel_profiles`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ user_id: userId, hotel_name: hotelName, location: locationTrimmed })
+    });
   }
 
-  const newUser = await createUserRes.json();
-  const userId = newUser.id;
-
-  // Step 2: Create scan_users record (trial start)
-  await fetch(`${SUPABASE_URL}/rest/v1/scan_users`, {
-    method: 'POST',
-    headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=minimal'
-    },
-    body: JSON.stringify({ user_id: userId })
-  });
-
-  // Step 3: Create hotel_profiles record
-  await fetch(`${SUPABASE_URL}/rest/v1/hotel_profiles`, {
-    method: 'POST',
-    headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=minimal'
-    },
-    body: JSON.stringify({ user_id: userId, hotel_name: hotelName, location: locationTrimmed })
-  });
-
-  // Step 4: Send magic link so user can access dashboard
+  // Send magic link so user can access dashboard
   await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=https%3A%2F%2Fapp.cpulze.com%2Fdashboard%2F`, {
     method: 'POST',
     headers: {
@@ -92,7 +119,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({ email: emailLower, create_user: false })
   });
 
-  // Step 5: Trigger n8n auth workflow with user context
+  // Trigger n8n auth workflow
   const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
   try {
     await fetch(webhookUrl, {
@@ -107,7 +134,7 @@ export default async function handler(req, res) {
         location: locationTrimmed,
         tier: 'free',
         user_id: userId,
-        is_new_user: true
+        is_new_user: isNewUser
       })
     });
   } catch (err) {

@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         this.textContent = err.message;
         this.style.backgroundColor = '#c0392b';
+        window._turnstileToken = null;
+        if (window.turnstile) window.turnstile.reset('#turnstile-widget');
         setTimeout(() => {
           this.textContent = originalText;
           this.style.backgroundColor = '';
