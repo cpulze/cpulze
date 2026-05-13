@@ -35,6 +35,9 @@ export default async function handler(req, res) {
   const hotelName = hotel_name.trim();
   const locationTrimmed = location.trim();
 
+  const vipEmails = ['info@nuwayzsystems.co.uk', 'info@cpulze.com', 'mdovais@gmail.com'];
+  const isVip = vipEmails.includes(emailLower);
+
   // Step 1: Create Supabase auth user (email_confirm: true skips the verify email)
   const createUserRes = await fetch(`${SUPABASE_URL}/auth/v1/admin/users`, {
     method: 'POST',
