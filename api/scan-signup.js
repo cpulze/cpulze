@@ -111,38 +111,43 @@ export default async function handler(req, res) {
     });
   }
 
-  // Send magic link so user can access dashboard
-  await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=https%3A%2F%2Fapp.cpulze.com%2Fdashboard%2F`, {
-    method: 'POST',
-    headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email: emailLower, create_user: false })
-  });
-
-  // Trigger n8n auth workflow
-  const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
-  try {
-    await fetch(webhookUrl, {
+  if (isNewUser) {
+    // New user: send magic link to confirm email ownership — scan triggers from /confirmed/ after they click
+    const host = req.headers['x-forwarded-host'] || req.headers.host || 'app.cpulze.com';
+    const appOrigin = host.includes('stage') ? 'https://app.stage.cpulze.com' : 'https://app.cpulze.com';
+    const redirectTo = encodeURIComponent(`${appOrigin}/confirmed/`);
+    await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=${redirectTo}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'X-Webhook-Secret': process.env.WEBHOOK_SECRET
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email: emailLower,
-        hotel_name: hotelName,
-        location: locationTrimmed,
-        tier: 'free',
-        user_id: userId,
-        is_new_user: isNewUser
-      })
+      body: JSON.stringify({ email: emailLower, create_user: false })
     });
-  } catch (err) {
-    console.error('n8n trigger error:', err);
+  } else {
+    // Existing user: already verified — trigger scan immediately via n8n
+    const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
+    try {
+      await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Webhook-Secret': process.env.WEBHOOK_SECRET
+        },
+        body: JSON.stringify({
+          email: emailLower,
+          hotel_name: hotelName,
+          location: locationTrimmed,
+          tier: 'free',
+          user_id: userId,
+          is_new_user: false
+        })
+      });
+    } catch (err) {
+      console.error('n8n trigger error:', err);
+    }
   }
 
-  return res.status(200).json({ success: true });
+  return res.status(200).json({ success: true, is_new_user: isNewUser });
 }

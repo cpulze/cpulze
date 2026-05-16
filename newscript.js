@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const data = await response.json();
         if (response.ok) {
-          this.textContent = '✓ Scan running — check your inbox';
+          this.textContent = data.is_new_user
+            ? '✓ Check your inbox — click the link to start your scan'
+            : '✓ Scan running — check your inbox';
           this.style.backgroundColor = '#2a7a50';
         } else if (data.error === 'account_exists') {
           throw new Error('You already have an account — sign in to run another scan.');
