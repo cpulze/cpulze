@@ -65,12 +65,16 @@ supabase.auth.onAuthStateChange(async (event, session) => {
   clearTimeout(timeout);
 
   try {
+    const params = new URLSearchParams(window.location.search);
+    const hotelName = params.get('hotel') || '';
+    const hotelLoc = params.get('loc') || '';
     const res = await fetch('/api/auth-scan', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${session.access_token}`,
       },
+      body: JSON.stringify({ hotel_name: hotelName, location: hotelLoc }),
     });
 
     if (res.ok) {

@@ -115,7 +115,8 @@ export default async function handler(req, res) {
     // New user: send magic link to confirm email ownership — scan triggers from /confirmed/ after they click
     const host = req.headers['x-forwarded-host'] || req.headers.host || 'app.cpulze.com';
     const appOrigin = host.includes('stage') ? 'https://app.stage.cpulze.com' : 'https://app.cpulze.com';
-    const redirectTo = encodeURIComponent(`${appOrigin}/confirmed/`);
+    const confirmedUrl = `${appOrigin}/confirmed/?hotel=${encodeURIComponent(hotelName)}&loc=${encodeURIComponent(locationTrimmed)}`;
+    const redirectTo = encodeURIComponent(confirmedUrl);
     await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=${redirectTo}`, {
       method: 'POST',
       headers: {
