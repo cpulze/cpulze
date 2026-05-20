@@ -46,12 +46,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Account not found' });
   }
 
-  // Check 30-day trial
-  const trialEnds = new Date(scanUser.created_at).getTime() + 30 * 24 * 60 * 60 * 1000;
-  if (Date.now() > trialEnds) {
-    return res.status(403).json({ error: 'trial_expired' });
-  }
-
   // Count scans since account creation (by email, since auth scans use the same table)
   const emailLower = user.email.toLowerCase();
   const scansRes = await fetch(

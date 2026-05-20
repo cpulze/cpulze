@@ -236,7 +236,6 @@ const signOutBtn = document.getElementById('sign-out-btn');
 
 let currentUser    = null;
 let currentProfile = null;
-let trialActive    = true;
 let scanCount      = 0;
 let findingsLoaded  = false;
 let historyLoaded   = false;
@@ -373,10 +372,6 @@ function generateSlug(name, location) {
 
 // ─── DASHBOARD SETUP ─────────────────────────────────────────────────────────
 async function setupDashboard() {
-  document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
-  document.getElementById('d-hotel-meta').textContent =
-    currentProfile.location + ' · ' + currentProfile.property_type;
-
   if (currentProfile.owner_voice_slug) {
     const host = (location.hostname === 'app.stage.cpulze.com') ? 'stage.cpulze.com' : 'cpulze.com';
     const url  = `https://${host}/ownervoice/${currentProfile.owner_voice_slug}`;
@@ -390,18 +385,14 @@ async function setupDashboard() {
   // Trial info
   const { data: scanUser } = await supabase
     .from('scan_users')
-    .select('created_at')
+    .select('created_at, tier')
     .eq('user_id', currentUser.id)
     .maybeSingle();
 
   const trialPill = document.getElementById('d-trial-pill');
+  const isPaid = scanUser?.tier && scanUser.tier !== 'free';
 
   if (scanUser) {
-    const createdAt = new Date(scanUser.created_at);
-    const msLeft = (createdAt.getTime() + 30 * 24 * 60 * 60 * 1000) - Date.now();
-    const daysLeft = Math.max(0, Math.ceil(msLeft / (24 * 60 * 60 * 1000)));
-    trialActive = daysLeft > 0;
-
     const { data: scans } = await supabase
       .from('scans')
       .select('scan_id')
@@ -410,13 +401,21 @@ async function setupDashboard() {
 
     scanCount = scans?.length || 0;
 
-    if (trialActive) {
-      trialPill.textContent = `${scanCount}/5 scans · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left`;
-      trialPill.className = 'd-trial-pill active';
+    if (isPaid) {
+      trialPill.hidden = true;
     } else {
-      trialPill.textContent = 'Trial ended · Read only';
-      trialPill.className = 'd-trial-pill expired';
+      trialPill.textContent = `${scanCount}/5 scans`;
+      trialPill.className = 'd-trial-pill active';
     }
+  }
+
+  if (isPaid) {
+    document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
+    document.getElementById('d-hotel-meta').textContent =
+      currentProfile.location + ' · ' + currentProfile.property_type;
+  } else {
+    document.getElementById('d-hotel-name').textContent = 'Your free scans';
+    document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
   }
 
   setupTabs();
@@ -458,12 +457,6 @@ function loadScanTab() {
   const runBtn  = document.getElementById('d-run-btn');
   const noteEl  = document.getElementById('d-scan-note');
 
-  if (!trialActive) {
-    runBtn.disabled = true;
-    noteEl.innerHTML = 'Your 30-day trial has ended. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to continue scanning →</a>';
-    return;
-  }
-
   if (scanCount >= 5) {
     runBtn.disabled = true;
     noteEl.innerHTML = 'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
@@ -502,15 +495,12 @@ async function runScan() {
 
       // Update trial pill
       const trialPill = document.getElementById('d-trial-pill');
-      const current = trialPill.textContent.replace(/^\d+/, String(scanCount));
-      trialPill.textContent = current;
+      trialPill.textContent = `${scanCount}/5 scans`;
 
       if (scanCount >= 5) {
         document.getElementById('d-scan-note').innerHTML =
           'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
       }
-    } else if (json.error === 'trial_expired') {
-      showRunError(runBtn, 'Trial has ended — upgrade to continue');
     } else if (json.error === 'scan_limit_reached') {
       showRunError(runBtn, 'Scan limit reached — upgrade for more');
     } else {
