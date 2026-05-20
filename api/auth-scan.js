@@ -34,9 +34,12 @@ export default async function handler(req, res) {
   const scanUsers = await scanUserRes.json();
   const scanUser = scanUsers[0];
   if (!scanUser) {
-    return res.status(400).json({ error: 'Account not found' });
-  }
-
+  await fetch(`${SUPABASE_URL}/rest/v1/scan_users`, {
+    method: 'POST',
+    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+    body: JSON.stringify({ user_id: user.id, email: user.email.toLowerCase(), tier: 'free' })
+  });
+}
   // Count scans by email since account creation
   const emailLower = user.email.toLowerCase();
   const scansRes = await fetch(

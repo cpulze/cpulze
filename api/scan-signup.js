@@ -95,7 +95,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
         'Prefer': 'return=minimal'
       },
-      body: JSON.stringify({ user_id: userId })
+      body: JSON.stringify({ user_id: userId, email: emailLower, tier: 'free' })
     });
 
     // Create hotel_profiles record
