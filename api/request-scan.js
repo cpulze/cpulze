@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   const hotelName = hotel_name.trim();
   const locationTrimmed = location.trim();
 
-  const vipEmails = ['info@nuwayzsystems.co.uk', 'info@cpulze.com', 'mdovais@gmail.com'];
+  const vipEmails = ['info@nuwayzsystems.co.uk', 'mdovais@gmail.com'];
   const isVip = vipEmails.includes(emailLower);
 
   // Check lifetime scan limit and whether email is verified (has prior scan)
