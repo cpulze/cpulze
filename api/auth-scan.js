@@ -40,10 +40,10 @@ export default async function handler(req, res) {
     body: JSON.stringify({ user_id: user.id, email: user.email.toLowerCase(), tier: 'free' })
   });
 }
-  // Count scans by email since account creation
+  // Count all scans by email (free tier — no date boundary needed)
   const emailLower = user.email.toLowerCase();
   const scansRes = await fetch(
-    `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&created_at=gte.${encodeURIComponent(scanUser.created_at)}&select=scan_id`,
+    `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&select=scan_id`,
     { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
   );
   const existingScans = await scansRes.json();
