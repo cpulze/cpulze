@@ -10,9 +10,6 @@ export default async function handler(req, res) {
   const userToken = authHeader.slice(7);
 
   const { hotel_name, location } = req.body || {};
-  if (!hotel_name || !location) {
-    return res.status(400).json({ error: 'hotel_name and location are required' });
-  }
 
   const SUPABASE_URL = process.env.SUPABASE_URL;
   const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -53,6 +50,27 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'scan_limit_reached' });
   }
 
+  // Resolve hotel details — from request body (dashboard form) or hotel_profiles (/confirmed/ flow)
+  let hotelName = hotel_name?.trim();
+  let hotelLocation = location?.trim();
+
+  if (!hotelName || !hotelLocation) {
+    const profileRes = await fetch(
+      `${SUPABASE_URL}/rest/v1/hotel_profiles?user_id=eq.${user.id}&select=hotel_name,location`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+    );
+    const profiles = await profileRes.json();
+    const profile = profiles[0];
+    if (profile) {
+      hotelName = hotelName || profile.hotel_name;
+      hotelLocation = hotelLocation || profile.location;
+    }
+  }
+
+  if (!hotelName || !hotelLocation) {
+    return res.status(400).json({ error: 'hotel_name and location are required' });
+  }
+
   // Trigger n8n webhook
   const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
   try {
@@ -64,8 +82,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email: emailLower,
-        hotel_name: hotel_name.trim(),
-        location: location.trim(),
+        hotel_name: hotelName,
+        location: hotelLocation,
         tier: 'free',
         user_id: user.id,
       }),

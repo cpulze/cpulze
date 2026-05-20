@@ -383,12 +383,14 @@ async function setupDashboard() {
   const isPaid = scanUser?.tier && scanUser.tier !== 'free';
 
   if (scanUser) {
-    const { data: scans } = await supabase
+    const scanQuery = supabase
       .from('scans')
       .select('scan_id')
-      .eq('email', currentUser.email.toLowerCase())
-      .gte('created_at', scanUser.created_at);
+      .eq('email', currentUser.email.toLowerCase());
 
+    if (isPaid) scanQuery.gte('created_at', scanUser.created_at);
+
+    const { data: scans } = await scanQuery;
     scanCount = scans?.length || 0;
 
     if (isPaid) {
