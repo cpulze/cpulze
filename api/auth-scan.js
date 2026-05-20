@@ -9,6 +9,11 @@ export default async function handler(req, res) {
   }
   const userToken = authHeader.slice(7);
 
+  const { hotel_name, location } = req.body || {};
+  if (!hotel_name || !location) {
+    return res.status(400).json({ error: 'hotel_name and location are required' });
+  }
+
   const SUPABASE_URL = process.env.SUPABASE_URL;
   const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -24,17 +29,6 @@ export default async function handler(req, res) {
   }
   const user = await userRes.json();
 
-  // Get hotel profile
-  const profileRes = await fetch(
-    `${SUPABASE_URL}/rest/v1/hotel_profiles?user_id=eq.${user.id}&select=*`,
-    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
-  );
-  const profiles = await profileRes.json();
-  const profile = profiles[0];
-  if (!profile) {
-    return res.status(400).json({ error: 'No hotel profile found. Complete onboarding first.' });
-  }
-
   // Get account creation date
   const scanUserRes = await fetch(
     `${SUPABASE_URL}/rest/v1/scan_users?user_id=eq.${user.id}&select=created_at`,
@@ -46,7 +40,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Account not found' });
   }
 
-  // Count scans since account creation (by email, since auth scans use the same table)
+  // Count scans by email since account creation
   const emailLower = user.email.toLowerCase();
   const scansRes = await fetch(
     `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&created_at=gte.${encodeURIComponent(scanUser.created_at)}&select=scan_id`,
@@ -59,7 +53,7 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'scan_limit_reached' });
   }
 
-  // Trigger n8n webhook for authenticated scan
+  // Trigger n8n webhook
   const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
   try {
     await fetch(webhookUrl, {
@@ -70,8 +64,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email: emailLower,
-        hotel_name: profile.hotel_name,
-        location: profile.location,
+        hotel_name: hotel_name.trim(),
+        location: location.trim(),
         tier: 'free',
         user_id: user.id,
       }),

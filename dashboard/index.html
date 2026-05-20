@@ -90,8 +90,11 @@
     <!-- SCAN -->
     <div class="d-pane active" id="d-pane-scan">
       <div class="d-card" style="margin-bottom:0">
-        <div style="font-size:13px;font-weight:600;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px">Your property</div>
-        <div class="d-scan-prop-row" id="d-scan-chips"></div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px">Property to scan</div>
+        <div style="display:flex;gap:10px;margin-bottom:16px;" id="d-scan-form">
+          <input class="d-input" id="scan-hotel-name" placeholder="Hotel name" style="flex:2;margin:0">
+          <input class="d-input" id="scan-location" placeholder="City, Country" style="flex:1;margin:0">
+        </div>
         <div class="d-scan-meter">
           <div class="d-scan-bar-bg"><div class="d-scan-bar-fill" id="d-scan-bar-fill" style="width:0%"></div></div>
           <div class="d-scan-meter-text" id="d-scan-meter-text">0 of 5 scans used</div>
@@ -253,27 +256,14 @@ async function init() {
   navEmail.textContent = currentUser.email;
 
   if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-    history.replaceState(null, '', '/');
+    history.replaceState(null, '', '/dashboard');
   }
 
   await ensureScanUser(currentUser);
 
-  const { data: profile } = await supabase
-    .from('hotel_profiles')
-    .select('*')
-    .eq('user_id', currentUser.id)
-    .maybeSingle();
-
   dLoading.hidden = true;
-
-  if (!profile) {
-    dOnboard.hidden = false;
-    setupOnboarding();
-  } else {
-    currentProfile = profile;
-    dMain.hidden = false;
-    await setupDashboard();
-  }
+  dMain.hidden = false;
+  await setupDashboard();
 }
 
 async function ensureScanUser(user) {
@@ -372,7 +362,7 @@ function generateSlug(name, location) {
 
 // ─── DASHBOARD SETUP ─────────────────────────────────────────────────────────
 async function setupDashboard() {
-  if (currentProfile.owner_voice_slug) {
+  if (currentProfile?.owner_voice_slug) {
     const host = (location.hostname === 'app.stage.cpulze.com') ? 'stage.cpulze.com' : 'cpulze.com';
     const url  = `https://${host}/ownervoice/${currentProfile.owner_voice_slug}`;
     const bar  = document.getElementById('d-voice-public-bar');
@@ -396,7 +386,7 @@ async function setupDashboard() {
     const { data: scans } = await supabase
       .from('scans')
       .select('scan_id')
-      .eq('user_id', currentUser.id)
+      .eq('email', currentUser.email.toLowerCase())
       .gte('created_at', scanUser.created_at);
 
     scanCount = scans?.length || 0;
@@ -409,7 +399,7 @@ async function setupDashboard() {
     }
   }
 
-  if (isPaid) {
+  if (isPaid && currentProfile) {
     document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
     document.getElementById('d-hotel-meta').textContent =
       currentProfile.location + ' · ' + currentProfile.property_type;
@@ -442,34 +432,34 @@ function setupTabs() {
 
 // ─── SCAN TAB ────────────────────────────────────────────────────────────────
 function loadScanTab() {
-  // Property chips
-  document.getElementById('d-scan-chips').innerHTML = [
-    currentProfile.hotel_name,
-    currentProfile.location,
-    currentProfile.property_type,
-  ].map(t => `<span class="d-prop-chip">${escHtml(t)}</span>`).join('');
-
-  // Meter
   const pct = Math.min(100, (scanCount / 5) * 100);
   document.getElementById('d-scan-bar-fill').style.width = pct + '%';
   document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
 
-  const runBtn  = document.getElementById('d-run-btn');
-  const noteEl  = document.getElementById('d-scan-note');
+  const runBtn = document.getElementById('d-run-btn');
+  const noteEl = document.getElementById('d-scan-note');
 
   if (scanCount >= 5) {
+    document.getElementById('d-scan-form').hidden = true;
     runBtn.disabled = true;
-    noteEl.innerHTML = 'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
+    noteEl.innerHTML = 'You\'ve used all 5 free scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
     return;
   }
 
   noteEl.textContent = 'Scans TripAdvisor reviews and surfaces complaints AI engines are citing about your property. Report arrives by email.';
-
   runBtn.addEventListener('click', runScan);
 }
 
 async function runScan() {
-  const runBtn = document.getElementById('d-run-btn');
+  const runBtn   = document.getElementById('d-run-btn');
+  const hotelName = document.getElementById('scan-hotel-name').value.trim();
+  const scanLoc   = document.getElementById('scan-location').value.trim();
+
+  if (!hotelName || !scanLoc) {
+    showRunError(runBtn, 'Enter hotel name and location first');
+    return;
+  }
+
   runBtn.disabled = true;
   runBtn.innerHTML = '<span style="display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px"></span>Scanning…';
 
@@ -482,6 +472,7 @@ async function runScan() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${session.access_token}`,
       },
+      body: JSON.stringify({ hotel_name: hotelName, location: scanLoc }),
     });
     const json = await res.json();
 
@@ -532,7 +523,7 @@ async function loadFindingsTab() {
   const { data: scans } = await supabase
     .from('scans')
     .select('scan_id, created_at, gate_teaser')
-    .eq('user_id', currentUser.id)
+    .eq('email', currentUser.email.toLowerCase())
     .order('created_at', { ascending: false })
     .limit(1);
 
@@ -689,7 +680,7 @@ async function loadHistoryTab() {
   const { data: scans } = await supabase
     .from('scans')
     .select('scan_id, hotel_name, location, status, created_at')
-    .eq('user_id', currentUser.id)
+    .eq('email', currentUser.email.toLowerCase())
     .order('created_at', { ascending: false });
 
   if (!scans?.length) {
