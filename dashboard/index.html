@@ -646,9 +646,10 @@ function findingCardHtml(f, num) {
     clean(f.review_date) ? escHtml(clean(f.review_date)) : '',
   ].filter(Boolean).join(' · ');
 
+  const realUrl = f.citation_url && /^https?:\/\//.test(f.citation_url) && !/x{3,}/i.test(f.citation_url) ? f.citation_url : null;
   const citationHtml = citationParts
     ? `<div class="d-finding-citation">
-        ${citationParts}${f.citation_url ? ` · <a href="${escHtml(f.citation_url)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
+        ${citationParts}${realUrl ? ` · <a href="${escHtml(realUrl)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
        </div>`
     : '';
 
