@@ -124,7 +124,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${SUPABASE_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: emailLower, create_user: false })
+      body: JSON.stringify({ email: emailLower, create_user: false, data: { hotel_name: hotelName } })
     });
   } else {
     // Existing user: already verified — trigger scan immediately via n8n
