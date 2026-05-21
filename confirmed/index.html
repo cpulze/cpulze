@@ -68,7 +68,6 @@ supabase.auth.onAuthStateChange(async (event, session) => {
     const params = new URLSearchParams(window.location.search);
     const hotelName = params.get('hotel') || '';
     const hotelLoc = params.get('loc') || '';
-    console.log('[confirmed] hotel:', hotelName, '| loc:', hotelLoc, '| url:', window.location.href);
     const res = await fetch('/api/auth-scan', {
       method: 'POST',
       headers: {
@@ -82,18 +81,16 @@ supabase.auth.onAuthStateChange(async (event, session) => {
       show('state-success');
     } else {
       const data = await res.json();
-      console.error('[confirmed] auth-scan error:', data);
       if (data.error === 'scan_limit_reached') {
         document.getElementById('error-title').textContent = 'Scan limit reached';
         document.getElementById('error-msg').textContent = "You've used all 5 free scans. Sign in to access your dashboard and upgrade.";
       } else {
         document.getElementById('error-title').textContent = 'Something went wrong';
-        document.getElementById('error-msg').textContent = `Debug: ${JSON.stringify(data)} | hotel="${hotelName}" loc="${hotelLoc}"`;
+        document.getElementById('error-msg').textContent = 'We could not start your scan. Sign in to access your dashboard and try again.';
       }
       show('state-error');
     }
-  } catch (err) {
-    console.error('[confirmed] fetch error:', err);
+  } catch {
     show('state-error');
   }
 });
