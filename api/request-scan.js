@@ -35,32 +35,25 @@ export default async function handler(req, res) {
   const hotelName = hotel_name.trim();
   const locationTrimmed = location.trim();
 
-  const vipEmails = ['info@nuwayzsystems.co.uk', 'info@cpulze.com', 'mdovais@gmail.com'];
+  const vipEmails = ['info@nuwayzsystems.co.uk', 'mdovais@gmail.com'];
   const isVip = vipEmails.includes(emailLower);
 
+  // Check lifetime scan limit and whether email is verified (has prior scan)
+  const limitRes = await fetch(
+    `${SUPABASE_URL}/rest/v1/free_scan_leads?email=eq.${encodeURIComponent(emailLower)}&select=id`,
+    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+  );
+  const leads = await limitRes.json();
+
   if (!isVip) {
-    // Check lifetime scan limit
-    const limitRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/free_scan_leads?email=eq.${encodeURIComponent(emailLower)}&select=id`,
-      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
-    );
-    const leads = await limitRes.json();
     if (Array.isArray(leads) && leads.length >= 5) {
       return res.status(429).json({ error: 'scan_limit_reached' });
     }
-
-    // Prevent duplicate pending requests within 10 mins
-    const recentRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/scan_requests?email=eq.${encodeURIComponent(emailLower)}&status=eq.pending&created_at=gte.${new Date(Date.now() - 10 * 60 * 1000).toISOString()}&select=request_id`,
-      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
-    );
-    const recent = await recentRes.json();
-    if (Array.isArray(recent) && recent.length > 0) {
-      return res.status(429).json({ error: 'confirmation_pending' });
-    }
   }
 
-  // Insert scan request
+  const isReturningUser = Array.isArray(leads) && leads.length > 0;
+
+  // Insert scan request record
   const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/scan_requests`, {
     method: 'POST',
     headers: {
@@ -76,7 +69,7 @@ export default async function handler(req, res) {
       tier: 'free',
       model: 'perplexity',
       theme: 'cleanliness',
-      status: 'pending'
+      status: isReturningUser || isVip ? 'confirmed' : 'pending'
     })
   });
 
@@ -84,6 +77,31 @@ export default async function handler(req, res) {
   if (!insertRes.ok || !insertData[0]?.request_id) {
     console.error('Supabase insert error:', insertData);
     return res.status(500).json({ error: 'Failed to create scan request' });
+  }
+
+  // Returning users and VIPs skip confirmation — trigger scan immediately
+  if (isReturningUser || isVip) {
+    try {
+      await fetch(process.env.N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Webhook-Secret': process.env.WEBHOOK_SECRET,
+        },
+        body: JSON.stringify({
+          email: emailLower,
+          hotel_name: hotelName,
+          location: locationTrimmed,
+          tier: 'free',
+          model: 'perplexity',
+          theme: 'cleanliness',
+        }),
+      });
+    } catch (err) {
+      console.error('n8n trigger error:', err);
+      return res.status(500).json({ error: 'Failed to trigger scan. Please try again.' });
+    }
+    return res.status(200).json({ success: true, queued: true });
   }
 
   const requestId = insertData[0].request_id;

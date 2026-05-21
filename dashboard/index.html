@@ -81,6 +81,7 @@
       <button class="d-tab-btn" data-tab="findings">Findings</button>
       <button class="d-tab-btn" data-tab="history">History</button>
       <button class="d-tab-btn" data-tab="voice">OwnerVoice</button>
+      <button id="d-refresh-btn" title="Refresh" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-muted);padding:4px 8px;line-height:1;opacity:.6;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">↻</button>
     </div>
   </div>
 
@@ -90,8 +91,11 @@
     <!-- SCAN -->
     <div class="d-pane active" id="d-pane-scan">
       <div class="d-card" style="margin-bottom:0">
-        <div style="font-size:13px;font-weight:600;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px">Your property</div>
-        <div class="d-scan-prop-row" id="d-scan-chips"></div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px">Property to scan</div>
+        <div style="display:flex;gap:10px;margin-bottom:16px;" id="d-scan-form">
+          <input class="d-input" id="scan-hotel-name" placeholder="Hotel name" style="flex:2;margin:0">
+          <input class="d-input" id="scan-location" placeholder="City, Country" style="flex:1;margin:0">
+        </div>
         <div class="d-scan-meter">
           <div class="d-scan-bar-bg"><div class="d-scan-bar-fill" id="d-scan-bar-fill" style="width:0%"></div></div>
           <div class="d-scan-meter-text" id="d-scan-meter-text">0 of 5 scans used</div>
@@ -236,7 +240,6 @@ const signOutBtn = document.getElementById('sign-out-btn');
 
 let currentUser    = null;
 let currentProfile = null;
-let trialActive    = true;
 let scanCount      = 0;
 let findingsLoaded  = false;
 let historyLoaded   = false;
@@ -254,27 +257,14 @@ async function init() {
   navEmail.textContent = currentUser.email;
 
   if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-    history.replaceState(null, '', '/');
+    history.replaceState(null, '', '/dashboard');
   }
 
   await ensureScanUser(currentUser);
 
-  const { data: profile } = await supabase
-    .from('hotel_profiles')
-    .select('*')
-    .eq('user_id', currentUser.id)
-    .maybeSingle();
-
   dLoading.hidden = true;
-
-  if (!profile) {
-    dOnboard.hidden = false;
-    setupOnboarding();
-  } else {
-    currentProfile = profile;
-    dMain.hidden = false;
-    await setupDashboard();
-  }
+  dMain.hidden = false;
+  await setupDashboard();
 }
 
 async function ensureScanUser(user) {
@@ -373,11 +363,7 @@ function generateSlug(name, location) {
 
 // ─── DASHBOARD SETUP ─────────────────────────────────────────────────────────
 async function setupDashboard() {
-  document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
-  document.getElementById('d-hotel-meta').textContent =
-    currentProfile.location + ' · ' + currentProfile.property_type;
-
-  if (currentProfile.owner_voice_slug) {
+  if (currentProfile?.owner_voice_slug) {
     const host = (location.hostname === 'app.stage.cpulze.com') ? 'stage.cpulze.com' : 'cpulze.com';
     const url  = `https://${host}/ownervoice/${currentProfile.owner_voice_slug}`;
     const bar  = document.getElementById('d-voice-public-bar');
@@ -390,33 +376,41 @@ async function setupDashboard() {
   // Trial info
   const { data: scanUser } = await supabase
     .from('scan_users')
-    .select('created_at')
+    .select('created_at, tier')
     .eq('user_id', currentUser.id)
     .maybeSingle();
 
   const trialPill = document.getElementById('d-trial-pill');
+  const isPaid = scanUser?.tier && scanUser.tier !== 'free';
 
   if (scanUser) {
-    const createdAt = new Date(scanUser.created_at);
-    const msLeft = (createdAt.getTime() + 30 * 24 * 60 * 60 * 1000) - Date.now();
-    const daysLeft = Math.max(0, Math.ceil(msLeft / (24 * 60 * 60 * 1000)));
-    trialActive = daysLeft > 0;
-
-    const { data: scans } = await supabase
+    const scanQuery = supabase
       .from('scans')
       .select('scan_id')
-      .eq('user_id', currentUser.id)
-      .gte('created_at', scanUser.created_at);
+      .eq('email', currentUser.email.toLowerCase());
 
-    scanCount = scans?.length || 0;
+    if (isPaid) scanQuery.gte('created_at', scanUser.created_at);
 
-    if (trialActive) {
-      trialPill.textContent = `${scanCount}/5 scans · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left`;
-      trialPill.className = 'd-trial-pill active';
+    const { data: scans } = await scanQuery;
+    const dbCount = scans?.length || 0;
+    const sessionCount = parseInt(sessionStorage.getItem('scanCount_' + currentUser.id) || '0');
+    scanCount = Math.max(dbCount, sessionCount);
+
+    if (isPaid) {
+      trialPill.hidden = true;
     } else {
-      trialPill.textContent = 'Trial ended · Read only';
-      trialPill.className = 'd-trial-pill expired';
+      trialPill.textContent = `${scanCount}/5 scans`;
+      trialPill.className = 'd-trial-pill active';
     }
+  }
+
+  if (isPaid && currentProfile) {
+    document.getElementById('d-hotel-name').textContent = currentProfile.hotel_name;
+    document.getElementById('d-hotel-meta').textContent =
+      currentProfile.location + ' · ' + currentProfile.property_type;
+  } else {
+    document.getElementById('d-hotel-name').textContent = 'Your free scans';
+    document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
   }
 
   setupTabs();
@@ -427,6 +421,8 @@ async function setupDashboard() {
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function setupTabs() {
+  document.getElementById('d-refresh-btn').addEventListener('click', refreshCurrentTab);
+
   document.querySelectorAll('.d-tab-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.d-tab-btn').forEach(b => b.classList.remove('active'));
@@ -443,40 +439,66 @@ function setupTabs() {
 
 // ─── SCAN TAB ────────────────────────────────────────────────────────────────
 function loadScanTab() {
-  // Property chips
-  document.getElementById('d-scan-chips').innerHTML = [
-    currentProfile.hotel_name,
-    currentProfile.location,
-    currentProfile.property_type,
-  ].map(t => `<span class="d-prop-chip">${escHtml(t)}</span>`).join('');
-
-  // Meter
   const pct = Math.min(100, (scanCount / 5) * 100);
   document.getElementById('d-scan-bar-fill').style.width = pct + '%';
   document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
 
-  const runBtn  = document.getElementById('d-run-btn');
-  const noteEl  = document.getElementById('d-scan-note');
-
-  if (!trialActive) {
-    runBtn.disabled = true;
-    noteEl.innerHTML = 'Your 30-day trial has ended. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to continue scanning →</a>';
-    return;
-  }
+  const runBtn = document.getElementById('d-run-btn');
+  const noteEl = document.getElementById('d-scan-note');
 
   if (scanCount >= 5) {
+    document.getElementById('d-scan-form').hidden = true;
     runBtn.disabled = true;
-    noteEl.innerHTML = 'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
+    noteEl.innerHTML = 'You\'ve used all 5 free scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
     return;
   }
 
   noteEl.textContent = 'Scans TripAdvisor reviews and surfaces complaints AI engines are citing about your property. Report arrives by email.';
-
   runBtn.addEventListener('click', runScan);
 }
 
+async function refreshCurrentTab() {
+  const btn = document.getElementById('d-refresh-btn');
+  btn.style.animation = 'spin .6s linear infinite';
+  btn.disabled = true;
+
+  findingsLoaded = false;
+  historyLoaded  = false;
+  voiceLoaded    = false;
+
+  const { data: scanUser } = await supabase.from('scan_users').select('created_at, tier').eq('user_id', currentUser.id).maybeSingle();
+  const isPaid = scanUser?.tier && scanUser.tier !== 'free';
+  const scanQuery = supabase.from('scans').select('scan_id').eq('email', currentUser.email.toLowerCase());
+  if (isPaid) scanQuery.gte('created_at', scanUser.created_at);
+  const { data: freshScans } = await scanQuery;
+  const dbCount = freshScans?.length || 0;
+  const sessionCount = parseInt(sessionStorage.getItem('scanCount_' + currentUser.id) || '0');
+  scanCount = Math.max(dbCount, sessionCount);
+
+  document.getElementById('d-trial-pill').textContent = `${scanCount}/5 scans`;
+  document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
+  document.getElementById('d-scan-bar-fill').style.width = Math.min(100, (scanCount / 5) * 100) + '%';
+  document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+
+  const activeTab = document.querySelector('.d-tab-btn.active')?.dataset.tab;
+  if (activeTab === 'findings') await loadFindingsTab();
+  else if (activeTab === 'history') await loadHistoryTab();
+  else if (activeTab === 'voice') await loadVoiceEntries();
+
+  btn.style.animation = '';
+  btn.disabled = false;
+}
+
 async function runScan() {
-  const runBtn = document.getElementById('d-run-btn');
+  const runBtn   = document.getElementById('d-run-btn');
+  const hotelName = document.getElementById('scan-hotel-name').value.trim();
+  const scanLoc   = document.getElementById('scan-location').value.trim();
+
+  if (!hotelName || !scanLoc) {
+    showRunError(runBtn, 'Enter hotel name and location first');
+    return;
+  }
+
   runBtn.disabled = true;
   runBtn.innerHTML = '<span style="display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px"></span>Scanning…';
 
@@ -489,28 +511,31 @@ async function runScan() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${session.access_token}`,
       },
+      body: JSON.stringify({ hotel_name: hotelName, location: scanLoc }),
     });
     const json = await res.json();
 
     if (res.ok) {
       scanCount++;
+      sessionStorage.setItem('scanCount_' + currentUser.id, scanCount);
       document.getElementById('d-scan-bar-fill').style.width = Math.min(100, (scanCount / 5) * 100) + '%';
       document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+      document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
       document.getElementById('d-scan-ok').hidden = false;
       runBtn.innerHTML = '✓ Scan running';
       runBtn.style.background = '#2a7a50';
 
-      // Update trial pill
       const trialPill = document.getElementById('d-trial-pill');
-      const current = trialPill.textContent.replace(/^\d+/, String(scanCount));
-      trialPill.textContent = current;
+      trialPill.textContent = `${scanCount}/5 scans`;
 
       if (scanCount >= 5) {
+        document.getElementById('d-scan-form').hidden = true;
         document.getElementById('d-scan-note').innerHTML =
           'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
       }
-    } else if (json.error === 'trial_expired') {
-      showRunError(runBtn, 'Trial has ended — upgrade to continue');
+
+      findingsLoaded = false;
+      historyLoaded = false;
     } else if (json.error === 'scan_limit_reached') {
       showRunError(runBtn, 'Scan limit reached — upgrade for more');
     } else {
@@ -541,37 +566,39 @@ async function loadFindingsTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id, created_at, gate_teaser')
-    .eq('user_id', currentUser.id)
-    .order('created_at', { ascending: false })
-    .limit(1);
+    .select('scan_id, hotel_name, location, created_at, gate_teaser')
+    .eq('email', currentUser.email.toLowerCase())
+    .order('created_at', { ascending: false });
 
   if (!scans?.length) {
     container.innerHTML = emptyHtml('◎', 'No findings yet', 'Run your first scan to see AI-powered insights about your property.');
     return;
   }
 
-  const latestScan = scans[0];
-
-  const { data: findings } = await supabase
+  const scanIds = scans.map(s => s.scan_id);
+  const { data: allFindings } = await supabase
     .from('scan_findings')
     .select('*')
-    .eq('scan_id', latestScan.scan_id)
+    .in('scan_id', scanIds)
     .order('finding_number', { ascending: true });
 
-  if (!findings?.length) {
-    container.innerHTML = emptyHtml('◎', 'Findings loading', 'Your scan is running. Findings will appear here once the report is ready.');
-    return;
+  let html = `<p class="d-ai-disclaimer">Findings reflect what AI engines currently surface when queried about your property. cpulze does not independently verify source reviews.</p>`;
+
+  for (const scan of scans) {
+    const findings = (allFindings || []).filter(f => f.scan_id === scan.scan_id);
+    const scanDate = new Date(scan.created_at).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    html += `<div class="d-scan-date-header">${escHtml(scan.hotel_name || '')} · ${escHtml(scan.location || '')} · ${scanDate}</div>`;
+
+    if (!findings.length) {
+      html += `<div class="d-card"><div class="d-empty-desc" style="padding:8px 0">Findings still loading — check back in a few minutes.</div></div>`;
+      continue;
+    }
+
+    const shown = findings.filter(f => !f.is_gated);
+    const gated = findings.filter(f => f.is_gated);
+    html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
+    if (gated.length) html += gatedSectionHtml(gated, scan.gate_teaser);
   }
-
-  const shown  = findings.filter(f => !f.is_gated);
-  const gated  = findings.filter(f => f.is_gated);
-  const scanDate = new Date(latestScan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-
-  let html = `<div class="d-scan-date-header">Latest scan · ${scanDate}</div>`;
-  html += `<p class="d-ai-disclaimer">Findings reflect what AI engines currently surface when queried about your property. cpulze does not independently verify source reviews.</p>`;
-  html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
-  if (gated.length) html += gatedSectionHtml(gated, latestScan.gate_teaser);
 
   container.innerHTML = html;
 
@@ -619,9 +646,10 @@ function findingCardHtml(f, num) {
     clean(f.review_date) ? escHtml(clean(f.review_date)) : '',
   ].filter(Boolean).join(' · ');
 
+  const realUrl = f.citation_url && /^https?:\/\//.test(f.citation_url) && !/x{3,}/i.test(f.citation_url) ? f.citation_url : null;
   const citationHtml = citationParts
     ? `<div class="d-finding-citation">
-        ${citationParts}${f.citation_url ? ` · <a href="${escHtml(f.citation_url)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
+        ${citationParts}${realUrl ? ` · <a href="${escHtml(realUrl)}" target="_blank" rel="noopener" class="d-citation-link">View review ↗</a>` : ''}
        </div>`
     : '';
 
@@ -699,7 +727,7 @@ async function loadHistoryTab() {
   const { data: scans } = await supabase
     .from('scans')
     .select('scan_id, hotel_name, location, status, created_at')
-    .eq('user_id', currentUser.id)
+    .eq('email', currentUser.email.toLowerCase())
     .order('created_at', { ascending: false });
 
   if (!scans?.length) {
@@ -711,7 +739,7 @@ async function loadHistoryTab() {
 }
 
 function historyItemHtml(s) {
-  const date   = new Date(s.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const date   = new Date(s.created_at).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
   const status = s.status || 'pending';
   return `<div class="d-history-item">
     <div>

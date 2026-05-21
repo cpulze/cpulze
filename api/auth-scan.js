@@ -9,6 +9,8 @@ export default async function handler(req, res) {
   }
   const userToken = authHeader.slice(7);
 
+  const { hotel_name, location } = req.body || {};
+
   const SUPABASE_URL = process.env.SUPABASE_URL;
   const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -24,17 +26,6 @@ export default async function handler(req, res) {
   }
   const user = await userRes.json();
 
-  // Get hotel profile
-  const profileRes = await fetch(
-    `${SUPABASE_URL}/rest/v1/hotel_profiles?user_id=eq.${user.id}&select=*`,
-    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
-  );
-  const profiles = await profileRes.json();
-  const profile = profiles[0];
-  if (!profile) {
-    return res.status(400).json({ error: 'No hotel profile found. Complete onboarding first.' });
-  }
-
   // Get account creation date
   const scanUserRes = await fetch(
     `${SUPABASE_URL}/rest/v1/scan_users?user_id=eq.${user.id}&select=created_at`,
@@ -43,19 +34,16 @@ export default async function handler(req, res) {
   const scanUsers = await scanUserRes.json();
   const scanUser = scanUsers[0];
   if (!scanUser) {
-    return res.status(400).json({ error: 'Account not found' });
-  }
-
-  // Check 30-day trial
-  const trialEnds = new Date(scanUser.created_at).getTime() + 30 * 24 * 60 * 60 * 1000;
-  if (Date.now() > trialEnds) {
-    return res.status(403).json({ error: 'trial_expired' });
-  }
-
-  // Count scans since account creation (by email, since auth scans use the same table)
+  await fetch(`${SUPABASE_URL}/rest/v1/scan_users`, {
+    method: 'POST',
+    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+    body: JSON.stringify({ user_id: user.id, email: user.email.toLowerCase(), tier: 'free' })
+  });
+}
+  // Count all scans by email (free tier — no date boundary needed)
   const emailLower = user.email.toLowerCase();
   const scansRes = await fetch(
-    `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&created_at=gte.${encodeURIComponent(scanUser.created_at)}&select=scan_id`,
+    `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&select=scan_id`,
     { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
   );
   const existingScans = await scansRes.json();
@@ -65,7 +53,28 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'scan_limit_reached' });
   }
 
-  // Trigger n8n webhook for authenticated scan
+  // Resolve hotel details — from request body (dashboard form) or hotel_profiles (/confirmed/ flow)
+  let hotelName = hotel_name?.trim();
+  let hotelLocation = location?.trim();
+
+  if (!hotelName || !hotelLocation) {
+    const profileRes = await fetch(
+      `${SUPABASE_URL}/rest/v1/hotel_profiles?user_id=eq.${user.id}&select=hotel_name,location`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+    );
+    const profiles = await profileRes.json();
+    const profile = profiles[0];
+    if (profile) {
+      hotelName = hotelName || profile.hotel_name;
+      hotelLocation = hotelLocation || profile.location;
+    }
+  }
+
+  if (!hotelName || !hotelLocation) {
+    return res.status(400).json({ error: 'hotel_name and location are required' });
+  }
+
+  // Trigger n8n webhook
   const webhookUrl = process.env.N8N_WEBHOOK_URL_AUTH || process.env.N8N_WEBHOOK_URL;
   try {
     await fetch(webhookUrl, {
@@ -76,8 +85,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email: emailLower,
-        hotel_name: profile.hotel_name,
-        location: profile.location,
+        hotel_name: hotelName,
+        location: hotelLocation,
         tier: 'free',
         user_id: user.id,
       }),

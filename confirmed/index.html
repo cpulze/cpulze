@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starting your scan — cpulze</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../newstyle.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://cpulze.com" class="logo">cpulze</a>
+  </div>
+</nav>
+
+<section class="auth-page">
+
+  <!-- Loading -->
+  <div class="auth-card" id="state-loading">
+    <div class="auth-success-icon" style="animation:spin 1s linear infinite;display:inline-block">◌</div>
+    <h2 class="auth-title">Confirming your email…</h2>
+    <p class="auth-desc">Just a moment while we verify your email and start your scan.</p>
+  </div>
+
+  <!-- Success -->
+  <div class="auth-card auth-card--success" id="state-success" hidden>
+    <div class="auth-success-icon">✓</div>
+    <h2 class="auth-title">Your scan is running</h2>
+    <p class="auth-desc">We're scanning what AI engines are saying about your property. Your findings report will arrive in your inbox within 15 minutes.</p>
+    <p class="auth-hint">You can close this tab. We'll email you when it's ready.</p>
+  </div>
+
+  <!-- Expired / error -->
+  <div class="auth-card" id="state-error" hidden>
+    <div class="auth-success-icon" style="color:#c0392b">✕</div>
+    <h2 class="auth-title" id="error-title">Link expired</h2>
+    <p class="auth-desc" id="error-msg">This confirmation link has expired or already been used. Sign in to access your dashboard and run a scan from there.</p>
+    <p class="auth-hint"><a href="/login/" style="color:#6366f1;font-weight:600;">Sign in →</a></p>
+  </div>
+
+</section>
+
+<script type="module">
+import { supabase } from '../supabase-client.js';
+
+const show = (id) => {
+  ['state-loading', 'state-success', 'state-error'].forEach(s => {
+    document.getElementById(s).hidden = s !== id;
+  });
+};
+
+let triggered = false;
+
+const timeout = setTimeout(() => {
+  if (!triggered) show('state-error');
+}, 10000);
+
+supabase.auth.onAuthStateChange(async (event, session) => {
+  if (triggered) return;
+  if (event !== 'SIGNED_IN' || !session) return;
+
+  triggered = true;
+  clearTimeout(timeout);
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const hotelName = params.get('hotel') || '';
+    const hotelLoc = params.get('loc') || '';
+    const res = await fetch('/api/auth-scan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session.access_token}`,
+      },
+      body: JSON.stringify({ hotel_name: hotelName, location: hotelLoc }),
+    });
+
+    if (res.ok) {
+      show('state-success');
+    } else {
+      const data = await res.json();
+      if (data.error === 'scan_limit_reached') {
+        document.getElementById('error-title').textContent = 'Scan limit reached';
+        document.getElementById('error-msg').textContent = "You've used all 5 free scans. Sign in to access your dashboard and upgrade.";
+      } else {
+        document.getElementById('error-title').textContent = 'Something went wrong';
+        document.getElementById('error-msg').textContent = 'We could not start your scan. Sign in to access your dashboard and try again.';
+      }
+      show('state-error');
+    }
+  } catch {
+    show('state-error');
+  }
+});
+</script>
+</body>
+</html>

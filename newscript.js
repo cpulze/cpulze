@@ -34,35 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const turnstileToken = window._turnstileToken || document.querySelector('[name="cf-turnstile-response"]')?.value;
 
       try {
-        const response = await fetch('/api/request-scan', {
+        const response = await fetch('/api/scan-signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ hotel_name: n, location: l, email: em, turnstileToken })
         });
         const data = await response.json();
         if (response.ok) {
-          this.textContent = '✓ Check your inbox to confirm';
+          this.textContent = data.is_new_user
+            ? '✓ Check your inbox — click the link to start your scan'
+            : '✓ Scan running — check your inbox';
           this.style.backgroundColor = '#2a7a50';
-
-          const confirmedBtn = this;
-          const onConfirmed = function(e) {
-            if (e.key === 'cpulze_scan_confirmed') {
-              confirmedBtn.textContent = 'Report in your inbox in a few mins';
-              localStorage.removeItem('cpulze_scan_confirmed');
-              window.removeEventListener('storage', onConfirmed);
-            }
-          };
-          window.addEventListener('storage', onConfirmed);
+        } else if (data.error === 'account_exists') {
+          throw new Error('You already have an account — sign in to run another scan.');
         } else if (data.error === 'scan_limit_reached') {
           throw new Error('You\'ve used all 5 free scans. Sign in to continue.');
-        } else if (data.error === 'confirmation_pending') {
-          throw new Error('A confirmation email is already on its way — check your inbox.');
         } else {
-          throw new Error(data.error || 'Server rejected request');
+          throw new Error(data.error || 'Something went wrong. Please try again.');
         }
       } catch (err) {
         this.textContent = err.message;
         this.style.backgroundColor = '#c0392b';
+        window._turnstileToken = null;
+        if (window.turnstile) window.turnstile.reset('#turnstile-widget');
         setTimeout(() => {
           this.textContent = originalText;
           this.style.backgroundColor = '';
