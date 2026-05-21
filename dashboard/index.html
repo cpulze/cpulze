@@ -81,6 +81,7 @@
       <button class="d-tab-btn" data-tab="findings">Findings</button>
       <button class="d-tab-btn" data-tab="history">History</button>
       <button class="d-tab-btn" data-tab="voice">OwnerVoice</button>
+      <button id="d-refresh-btn" title="Refresh" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-muted);padding:4px 8px;line-height:1;opacity:.6;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">↻</button>
     </div>
   </div>
 
@@ -420,6 +421,8 @@ async function setupDashboard() {
 
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function setupTabs() {
+  document.getElementById('d-refresh-btn').addEventListener('click', refreshCurrentTab);
+
   document.querySelectorAll('.d-tab-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.d-tab-btn').forEach(b => b.classList.remove('active'));
@@ -452,6 +455,38 @@ function loadScanTab() {
 
   noteEl.textContent = 'Scans TripAdvisor reviews and surfaces complaints AI engines are citing about your property. Report arrives by email.';
   runBtn.addEventListener('click', runScan);
+}
+
+async function refreshCurrentTab() {
+  const btn = document.getElementById('d-refresh-btn');
+  btn.style.animation = 'spin .6s linear infinite';
+  btn.disabled = true;
+
+  findingsLoaded = false;
+  historyLoaded  = false;
+  voiceLoaded    = false;
+
+  const { data: scanUser } = await supabase.from('scan_users').select('created_at, tier').eq('user_id', currentUser.id).maybeSingle();
+  const isPaid = scanUser?.tier && scanUser.tier !== 'free';
+  const scanQuery = supabase.from('scans').select('scan_id').eq('email', currentUser.email.toLowerCase());
+  if (isPaid) scanQuery.gte('created_at', scanUser.created_at);
+  const { data: freshScans } = await scanQuery;
+  const dbCount = freshScans?.length || 0;
+  const sessionCount = parseInt(sessionStorage.getItem('scanCount_' + currentUser.id) || '0');
+  scanCount = Math.max(dbCount, sessionCount);
+
+  document.getElementById('d-trial-pill').textContent = `${scanCount}/5 scans`;
+  document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
+  document.getElementById('d-scan-bar-fill').style.width = Math.min(100, (scanCount / 5) * 100) + '%';
+  document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+
+  const activeTab = document.querySelector('.d-tab-btn.active')?.dataset.tab;
+  if (activeTab === 'findings') await loadFindingsTab();
+  else if (activeTab === 'history') await loadHistoryTab();
+  else if (activeTab === 'voice') await loadVoiceEntries();
+
+  btn.style.animation = '';
+  btn.disabled = false;
 }
 
 async function runScan() {
@@ -551,7 +586,7 @@ async function loadFindingsTab() {
 
   for (const scan of scans) {
     const findings = (allFindings || []).filter(f => f.scan_id === scan.scan_id);
-    const scanDate = new Date(scan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const scanDate = new Date(scan.created_at).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
     html += `<div class="d-scan-date-header">${escHtml(scan.hotel_name || '')} · ${escHtml(scan.location || '')} · ${scanDate}</div>`;
 
     if (!findings.length) {
@@ -703,7 +738,7 @@ async function loadHistoryTab() {
 }
 
 function historyItemHtml(s) {
-  const date   = new Date(s.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const date   = new Date(s.created_at).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
   const status = s.status || 'pending';
   return `<div class="d-history-item">
     <div>
