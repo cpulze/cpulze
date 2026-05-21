@@ -391,7 +391,9 @@ async function setupDashboard() {
     if (isPaid) scanQuery.gte('created_at', scanUser.created_at);
 
     const { data: scans } = await scanQuery;
-    scanCount = scans?.length || 0;
+    const dbCount = scans?.length || 0;
+    const sessionCount = parseInt(sessionStorage.getItem('scanCount_' + currentUser.id) || '0');
+    scanCount = Math.max(dbCount, sessionCount);
 
     if (isPaid) {
       trialPill.hidden = true;
@@ -480,20 +482,25 @@ async function runScan() {
 
     if (res.ok) {
       scanCount++;
+      sessionStorage.setItem('scanCount_' + currentUser.id, scanCount);
       document.getElementById('d-scan-bar-fill').style.width = Math.min(100, (scanCount / 5) * 100) + '%';
       document.getElementById('d-scan-meter-text').textContent = `${scanCount} of 5 scans used`;
+      document.getElementById('d-hotel-meta').textContent = `${scanCount} of 5 used`;
       document.getElementById('d-scan-ok').hidden = false;
       runBtn.innerHTML = '✓ Scan running';
       runBtn.style.background = '#2a7a50';
 
-      // Update trial pill
       const trialPill = document.getElementById('d-trial-pill');
       trialPill.textContent = `${scanCount}/5 scans`;
 
       if (scanCount >= 5) {
+        document.getElementById('d-scan-form').hidden = true;
         document.getElementById('d-scan-note').innerHTML =
           'You\'ve used all 5 trial scans. <a href="https://cpulze.com/#pricing" style="color:var(--gold-600);text-decoration:underline">Upgrade to run more →</a>';
       }
+
+      findingsLoaded = false;
+      historyLoaded = false;
     } else if (json.error === 'scan_limit_reached') {
       showRunError(runBtn, 'Scan limit reached — upgrade for more');
     } else {
@@ -524,37 +531,39 @@ async function loadFindingsTab() {
 
   const { data: scans } = await supabase
     .from('scans')
-    .select('scan_id, created_at, gate_teaser')
+    .select('scan_id, hotel_name, location, created_at, gate_teaser')
     .eq('email', currentUser.email.toLowerCase())
-    .order('created_at', { ascending: false })
-    .limit(1);
+    .order('created_at', { ascending: false });
 
   if (!scans?.length) {
     container.innerHTML = emptyHtml('◎', 'No findings yet', 'Run your first scan to see AI-powered insights about your property.');
     return;
   }
 
-  const latestScan = scans[0];
-
-  const { data: findings } = await supabase
+  const scanIds = scans.map(s => s.scan_id);
+  const { data: allFindings } = await supabase
     .from('scan_findings')
     .select('*')
-    .eq('scan_id', latestScan.scan_id)
+    .in('scan_id', scanIds)
     .order('finding_number', { ascending: true });
 
-  if (!findings?.length) {
-    container.innerHTML = emptyHtml('◎', 'Findings loading', 'Your scan is running. Findings will appear here once the report is ready.');
-    return;
+  let html = `<p class="d-ai-disclaimer">Findings reflect what AI engines currently surface when queried about your property. cpulze does not independently verify source reviews.</p>`;
+
+  for (const scan of scans) {
+    const findings = (allFindings || []).filter(f => f.scan_id === scan.scan_id);
+    const scanDate = new Date(scan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    html += `<div class="d-scan-date-header">${escHtml(scan.hotel_name || '')} · ${escHtml(scan.location || '')} · ${scanDate}</div>`;
+
+    if (!findings.length) {
+      html += `<div class="d-card"><div class="d-empty-desc" style="padding:8px 0">Findings still loading — check back in a few minutes.</div></div>`;
+      continue;
+    }
+
+    const shown = findings.filter(f => !f.is_gated);
+    const gated = findings.filter(f => f.is_gated);
+    html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
+    if (gated.length) html += gatedSectionHtml(gated, scan.gate_teaser);
   }
-
-  const shown  = findings.filter(f => !f.is_gated);
-  const gated  = findings.filter(f => f.is_gated);
-  const scanDate = new Date(latestScan.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-
-  let html = `<div class="d-scan-date-header">Latest scan · ${scanDate}</div>`;
-  html += `<p class="d-ai-disclaimer">Findings reflect what AI engines currently surface when queried about your property. cpulze does not independently verify source reviews.</p>`;
-  html += shown.map((f, i) => findingCardHtml(f, i + 1)).join('');
-  if (gated.length) html += gatedSectionHtml(gated, latestScan.gate_teaser);
 
   container.innerHTML = html;
 

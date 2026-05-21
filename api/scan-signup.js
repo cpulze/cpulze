@@ -46,7 +46,7 @@ export default async function handler(req, res) {
       'Authorization': `Bearer ${SUPABASE_KEY}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ email: emailLower, email_confirm: true })
+    body: JSON.stringify({ email: emailLower, email_confirm: true, user_metadata: { hotel_name: hotelName } })
   });
 
   let userId, isNewUser;
@@ -70,10 +70,10 @@ export default async function handler(req, res) {
     userId = existingUser.id;
     isNewUser = false;
 
-    // Check scan limit for existing user
+    // Check scan limit for existing user — query by email, same as auth-scan.js
     if (!isVip) {
       const scansRes = await fetch(
-        `${SUPABASE_URL}/rest/v1/scans?user_id=eq.${userId}&select=scan_id`,
+        `${SUPABASE_URL}/rest/v1/scans?email=eq.${encodeURIComponent(emailLower)}&select=scan_id`,
         { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
       );
       const existingScans = await scansRes.json();
@@ -124,7 +124,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${SUPABASE_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: emailLower, create_user: false, data: { hotel_name: hotelName } })
+      body: JSON.stringify({ email: emailLower, create_user: false })
     });
   } else {
     // Existing user: already verified — trigger scan immediately via n8n
