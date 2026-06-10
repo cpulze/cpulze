@@ -36,8 +36,8 @@
   <div class="auth-card" id="state-error" hidden>
     <div class="auth-success-icon" style="color:#c0392b">✕</div>
     <h2 class="auth-title" id="error-title">Link expired</h2>
-    <p class="auth-desc" id="error-msg">This confirmation link has expired or already been used. Sign in to access your dashboard and run a scan from there.</p>
-    <p class="auth-hint"><a href="/login/" style="color:#6366f1;font-weight:600;">Sign in →</a></p>
+    <p class="auth-desc" id="error-msg">This confirmation link has expired or already been used. Run a new scan from the homepage to try again.</p>
+    <p class="auth-hint"><a href="https://cpulze.com" style="color:#6366f1;font-weight:600;">Back to cpulze.com →</a></p>
   </div>
 
 </section>
@@ -83,10 +83,10 @@ supabase.auth.onAuthStateChange(async (event, session) => {
       const data = await res.json();
       if (data.error === 'scan_limit_reached') {
         document.getElementById('error-title').textContent = 'Scan limit reached';
-        document.getElementById('error-msg').textContent = "You've used all 5 free scans. Sign in to access your dashboard and upgrade.";
+        document.getElementById('error-msg').textContent = "You've used all 5 free scans. Get in touch at info@cpulze.com to continue.";
       } else {
         document.getElementById('error-title').textContent = 'Something went wrong';
-        document.getElementById('error-msg').textContent = 'We could not start your scan. Sign in to access your dashboard and try again.';
+        document.getElementById('error-msg').textContent = 'We could not start your scan. Try submitting again from the homepage.';
       }
       show('state-error');
     }
