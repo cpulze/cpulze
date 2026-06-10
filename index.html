@@ -40,7 +40,9 @@
       <a href="#pricing" class="nav-link">Pricing</a>
       -->
       <a href="#faq" class="nav-link">FAQ</a>
+      <!-- SIGN IN NAV — hidden; paid clients receive a direct login link
       <a href="https://app.cpulze.com/login/" class="nav-signin">Sign in</a>
+      -->
       <a href="#scan" class="btn-nav">Free scan</a>
     </div>
   </div>
@@ -469,9 +471,6 @@
   const appBase = (h === 'stage.cpulze.com' || h === 'www.stage.cpulze.com' || h === 'app.stage.cpulze.com')
     ? 'https://app.stage.cpulze.com'
     : 'https://app.cpulze.com';
-  document.querySelectorAll('a[href="https://app.cpulze.com/login/"]').forEach(function(a) {
-    a.href = appBase + '/login/';
-  });
 })();
 </script>
 
