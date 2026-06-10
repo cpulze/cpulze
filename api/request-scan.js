@@ -124,7 +124,7 @@ export default async function handler(req, res) {
     Confirm &amp; run my scan →
   </a>
   <p style="font-size:14px;color:#555;line-height:1.7;margin:0 0 24px;">
-    We'll check what AI narratives are telling guests about your property and the report lands in your inbox within 15 minutes.
+    We'll check what AI narratives are telling guests about your property and the report lands in your inbox within a few hours.
   </p>
   <p style="font-size:12px;color:#999;margin:0 0 24px;">
     Link expires in 24 hours. If this wasn't you, ignore this email.
