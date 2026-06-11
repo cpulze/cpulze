@@ -49,8 +49,8 @@
   </div>
 </nav>
 
-<!-- HERO — SPLIT -->
-<section class="hero" id="scan">
+<!-- HERO -->
+<section class="hero">
   <div class="hero-left">
     <div class="hero-for-pill">
       <div class="hero-pill-dot"></div>
@@ -59,39 +59,10 @@
     <h1 class="hero-headline">
       What is AI telling guests<br>about <em>your hotel?</em>
     </h1>
-    <p class="hero-sub">Perplexity, ChatGPT and Gemini now answer guest booking questions before those guests ever open a search bar. Run a free scan and see exactly what they find about your property.</p>
+    <p class="hero-sub">Perplexity, ChatGPT and Gemini now answer guest booking questions before those guests ever open a search bar. Most independent hotels have no idea what those answers say.</p>
+    <a href="#scan" class="btn-hero-cta">See what AI says about your hotel →</a>
     <div class="hero-proof">
       <p class="hero-early-access">Early access — join the first independent hotels monitoring their AI narrative.</p>
-    </div>
-  </div>
-  <div class="hero-right">
-    <span class="hero-form-label">Run your free AI narrative scan</span>
-    <div class="scan-card">
-      <div class="form-fields">
-        <input type="text" id="hotel-name" placeholder="Enter your hotel name" autocomplete="off">
-        <div class="form-step-2" id="formStep2">
-          <input type="text" id="hotel-location" placeholder="City, country">
-          <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
-          <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
-        </div>
-        <div id="turnstile-widget" class="cf-turnstile" data-theme="light" data-callback="cpulzeOnTurnstile"></div>
-        <script>
-          window._turnstileToken = null;
-          window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
-          (function() {
-            const isStaging = location.hostname.includes('stage.cpulze.com');
-            const w = document.getElementById('turnstile-widget');
-            w.setAttribute('data-sitekey', isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740');
-            w.setAttribute('data-appearance', isStaging ? 'execute' : 'interaction-only');
-          })();
-        </script>
-        <button class="btn-scan" id="scanBtn">Run free scan →</button>
-      </div>
-      <div class="form-trust">
-        <span>5 scans free</span>
-        <span>No credit card</span>
-        <span>Report within a few hours</span>
-      </div>
     </div>
   </div>
 </section>
@@ -292,59 +263,6 @@
   </div>
 </section>
 
-<!-- REPORT PREVIEW -->
-<section class="report-preview-section">
-  <div class="container-narrow">
-    <div class="section-header-left">
-      <div class="section-tag">Your scan report</div>
-      <h2 class="section-title">This lands in your inbox <em>within a few hours.</em></h2>
-      <p class="section-desc">A real AI narrative scan for a boutique property. Every finding shows the exact guest query we ran, the verbatim quote AI cited, the source it pulled from, and what it means for how guests find you.</p>
-    </div>
-  </div>
-  <div class="container" style="max-width:880px;">
-    <div class="report-mockup-wrapper">
-      <div class="report-mockup">
-        <div class="rpt-header">
-          <div class="rpt-brand">CPULZE <span class="rpt-brand-sep">|</span> <span class="rpt-brand-label">AI Narrative Scan</span></div>
-          <div class="rpt-date">Tue Apr 22 2026</div>
-        </div>
-        <div class="rpt-hotel-block">
-          <div class="rpt-hotel-name">The Charter Inn Valley</div>
-          <div class="rpt-hotel-meta">Ludlow, Shropshire, UK · Perplexity scan</div>
-        </div>
-        <div class="rpt-intro">
-          Your future guests aren't just Googling "Shropshire boutique hotel" anymore — they're asking <strong>Perplexity, ChatGPT and Gemini</strong> to recommend where to stay. While you've been running The Charter Inn Valley, AI search engines have been learning what to say about your property from your most critical online reviews.
-        </div>
-        <div class="rpt-finding">
-          <div class="rpt-finding-label">Critical Finding 1 — Room Noise</div>
-          <div class="rpt-finding-query">When a guest searches: <span>"are the rooms quiet at The Charter Inn Valley?"</span></div>
-          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: TripAdvisor review · January 2023</div>
-          <div class="rpt-finding-body">When guests ask about room noise, AI immediately surfaces a two-year-old complaint about the top floor. Guests researching your property see this before they see your recent renovations or positive feedback.</div>
-          <div class="rpt-quote-block">
-            <div class="rpt-quote-text">"Thin walls meant we heard every conversation from the corridor all night. Would not book room 14 again."</div>
-          </div>
-          <div class="rpt-finding-consequence">A guest comparing Shropshire hotels reads this and removes The Charter Inn Valley from their shortlist before they've even visited your website.</div>
-          <div class="rpt-finding-source">TripAdvisor · <a href="#">View original review</a></div>
-        </div>
-        <div class="rpt-finding">
-          <div class="rpt-finding-label">Critical Finding 2 — Breakfast Quality</div>
-          <div class="rpt-finding-query">When a guest searches: <span>"is the breakfast good at Charter Inn Valley?"</span></div>
-          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: Booking.com review · March 2023</div>
-          <div class="rpt-finding-body">AI questions your breakfast offering whenever guests ask about food and dining. This directly affects couples and families who rate breakfast quality highly in their booking decision.</div>
-          <div class="rpt-quote-block">
-            <div class="rpt-quote-text">"For a hotel at this price point, the breakfast was disappointing — limited cold options and no hot food until 9am."</div>
-          </div>
-          <div class="rpt-finding-consequence">Guests choosing between properties based on breakfast experience are steered elsewhere by this AI response.</div>
-          <div class="rpt-finding-source">Booking.com · <a href="#">View original review</a></div>
-        </div>
-        <div class="rpt-callout">
-          <strong>AI doesn't average your review scores</strong> — it surfaces your most quotable language, especially when guests ask skeptical questions. This is why one guest's words about "thin walls" carry more weight than dozens of five-star reviews.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- AI SHIFT CALLOUT — hidden until consulting service is introduced
 <section class="shift-callout">
   <div class="container-narrow">
@@ -408,6 +326,59 @@
         <div class="step-num">03</div>
         <div class="step-title">Your report arrives within a few hours</div>
         <div class="step-desc">No jargon. No fluff. What AI is saying, where it came from, and what it means — in plain language a busy GM can act on.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT PREVIEW -->
+<section class="report-preview-section">
+  <div class="container-narrow">
+    <div class="section-header-left">
+      <div class="section-tag">Your scan report</div>
+      <h2 class="section-title">This lands in your inbox <em>within a few hours.</em></h2>
+      <p class="section-desc">A real AI narrative scan for a boutique property. Every finding shows the exact guest query we ran, the verbatim quote AI cited, the source it pulled from, and what it means for how guests find you.</p>
+    </div>
+  </div>
+  <div class="container" style="max-width:880px;">
+    <div class="report-mockup-wrapper">
+      <div class="report-mockup">
+        <div class="rpt-header">
+          <div class="rpt-brand">CPULZE <span class="rpt-brand-sep">|</span> <span class="rpt-brand-label">AI Narrative Scan</span></div>
+          <div class="rpt-date">Tue Apr 22 2026</div>
+        </div>
+        <div class="rpt-hotel-block">
+          <div class="rpt-hotel-name">The Charter Inn Valley</div>
+          <div class="rpt-hotel-meta">Ludlow, Shropshire, UK · Perplexity scan</div>
+        </div>
+        <div class="rpt-intro">
+          Your future guests aren't just Googling "Shropshire boutique hotel" anymore — they're asking <strong>Perplexity, ChatGPT and Gemini</strong> to recommend where to stay. While you've been running The Charter Inn Valley, AI search engines have been learning what to say about your property from your most critical online reviews.
+        </div>
+        <div class="rpt-finding">
+          <div class="rpt-finding-label">Critical Finding 1 — Room Noise</div>
+          <div class="rpt-finding-query">When a guest searches: <span>"are the rooms quiet at The Charter Inn Valley?"</span></div>
+          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: TripAdvisor review · January 2023</div>
+          <div class="rpt-finding-body">When guests ask about room noise, AI immediately surfaces a two-year-old complaint about the top floor. Guests researching your property see this before they see your recent renovations or positive feedback.</div>
+          <div class="rpt-quote-block">
+            <div class="rpt-quote-text">"Thin walls meant we heard every conversation from the corridor all night. Would not book room 14 again."</div>
+          </div>
+          <div class="rpt-finding-consequence">A guest comparing Shropshire hotels reads this and removes The Charter Inn Valley from their shortlist before they've even visited your website.</div>
+          <div class="rpt-finding-source">TripAdvisor · <a href="#">View original review</a></div>
+        </div>
+        <div class="rpt-finding">
+          <div class="rpt-finding-label">Critical Finding 2 — Breakfast Quality</div>
+          <div class="rpt-finding-query">When a guest searches: <span>"is the breakfast good at Charter Inn Valley?"</span></div>
+          <div class="rpt-citing"><div class="rpt-citing-dot"></div> AI is citing: Booking.com review · March 2023</div>
+          <div class="rpt-finding-body">AI questions your breakfast offering whenever guests ask about food and dining. This directly affects couples and families who rate breakfast quality highly in their booking decision.</div>
+          <div class="rpt-quote-block">
+            <div class="rpt-quote-text">"For a hotel at this price point, the breakfast was disappointing — limited cold options and no hot food until 9am."</div>
+          </div>
+          <div class="rpt-finding-consequence">Guests choosing between properties based on breakfast experience are steered elsewhere by this AI response.</div>
+          <div class="rpt-finding-source">Booking.com · <a href="#">View original review</a></div>
+        </div>
+        <div class="rpt-callout">
+          <strong>AI doesn't average your review scores</strong> — it surfaces your most quotable language, especially when guests ask skeptical questions. This is why one guest's words about "thin walls" carry more weight than dozens of five-star reviews.
+        </div>
       </div>
     </div>
   </div>
@@ -572,13 +543,40 @@
 </section>
 -->
 
-<!-- FINAL CTA -->
-<section class="cta-section">
+<!-- SCAN FORM -->
+<section class="cta-section" id="scan">
   <div class="container-narrow">
     <h2 class="cta-headline">Right now, a guest is asking<br>AI about <em>your hotel.</em></h2>
     <p class="cta-sub">You don't know what it's saying. A free scan takes two minutes and shows you exactly what your next guest will see.</p>
-    <a href="#scan" class="btn-cta-gold">Get your free scan →</a>
-    <p class="cta-urgency">No credit card · Report within a few hours · For independent &amp; boutique hotels</p>
+    <div class="cta-scan-wrap">
+      <div class="scan-card">
+        <div class="form-fields">
+          <input type="text" id="hotel-name" placeholder="Enter your hotel name" autocomplete="off">
+          <div class="form-step-2" id="formStep2">
+            <input type="text" id="hotel-location" placeholder="City, country">
+            <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
+            <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
+          </div>
+          <div id="turnstile-widget" class="cf-turnstile" data-theme="light" data-callback="cpulzeOnTurnstile"></div>
+          <script>
+            window._turnstileToken = null;
+            window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
+            (function() {
+              const isStaging = location.hostname.includes('stage.cpulze.com');
+              const w = document.getElementById('turnstile-widget');
+              w.setAttribute('data-sitekey', isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740');
+              w.setAttribute('data-appearance', isStaging ? 'execute' : 'interaction-only');
+            })();
+          </script>
+          <button class="btn-scan" id="scanBtn">Run free scan →</button>
+        </div>
+        <div class="form-trust">
+          <span>5 scans free</span>
+          <span>No credit card</span>
+          <span>Report within a few hours</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
