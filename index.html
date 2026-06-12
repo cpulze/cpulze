@@ -85,7 +85,7 @@
   </div>
 
   <div class="hero-right">
-    <div class="mockup-caption" id="mockup-caption">Your hotel has an AI reputation.<br>You didn't write it.</div>
+    <div class="mockup-caption" id="mockup-caption">Your hotel has an AI reputation. You didn't write it.</div>
     <div class="ai-mockup">
 
       <div class="ai-mockup-chrome">
@@ -806,8 +806,8 @@
 <script>
 (function() {
   const scenes = [
-    { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity', caption: 'Your hotel has an AI reputation.<br>You didn\'t write it.' },
-    { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor', caption: 'One sentence. Three years old.<br>Shaping your AI narrative today.' },
+    { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity', caption: 'Your hotel has an AI reputation. You didn\'t write it.' },
+    { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor', caption: 'One sentence. Three years old. Shaping your AI narrative today.' },
   ];
 
   let current = 0;
@@ -833,7 +833,7 @@
     const capEl = document.getElementById('mockup-caption');
     if (capEl) {
       capEl.style.opacity = '0';
-      setTimeout(() => { capEl.innerHTML = scene.caption; capEl.style.opacity = '1'; }, 250);
+      setTimeout(() => { capEl.textContent = scene.caption; capEl.style.opacity = '1'; }, 250);
     }
 
     clearInterval(timer);

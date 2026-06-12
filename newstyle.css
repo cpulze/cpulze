@@ -91,9 +91,9 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 /* ==========================================
    HERO — SPLIT LAYOUT
    ========================================== */
-.hero { background: #F5F2EE; padding: 100px 64px 100px; display: flex; align-items: center; justify-content: flex-start; gap: 56px; min-height: 680px; }
-.hero-left { flex: 1; min-width: 0; }
-.hero-right { flex: 0 0 500px; align-self: stretch; display: flex; flex-direction: column; padding: 20px 0; }
+.hero { background: #F5F2EE; padding: 100px 64px 100px; display: flex; align-items: center; justify-content: flex-start; gap: 80px; min-height: 680px; }
+.hero-left { flex: 0 0 440px; }
+.hero-right { flex: 1; align-self: stretch; display: flex; flex-direction: column; min-width: 0; padding: 20px 0; }
 .ai-mockup { flex: 1; min-height: 0; background: rgba(8,16,30,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); }
 .ai-mockup-chrome { padding: 12px 16px; border-bottom: 0.5px solid rgba(255,255,255,.08); display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.04); flex-shrink: 0; }
 .ai-mockup-traffic { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
@@ -177,7 +177,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .s2-annotation { flex-shrink: 0; }
 .hero-for-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.12); border: 0.5px solid rgba(196,144,58,.45); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-600); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 28px; width: fit-content; }
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-500); animation: pulse 2.5s ease-in-out infinite; }
-.hero-headline { font-family: var(--font-display); font-size: 52px; font-weight: 500; line-height: 1.1; letter-spacing: -.5px; color: var(--navy-900); margin-bottom: 24px; }
+.hero-headline { font-family: var(--font-display); font-size: 58px; font-weight: 500; line-height: 1.08; letter-spacing: -.5px; color: var(--navy-900); margin-bottom: 24px; }
 .hero-headline em { font-style: italic; color: var(--gold-500); }
 .hero-sub { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.7; margin-bottom: 40px; max-width: 400px; }
 .hero-proof { display: flex; gap: 32px; padding-top: 32px; border-top: 0.5px solid rgba(12,28,48,.12); }
