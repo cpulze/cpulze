@@ -85,6 +85,7 @@
   </div>
 
   <div class="hero-right">
+    <div class="mockup-caption" id="mockup-caption">Your hotel has an AI reputation. You didn't write it.</div>
     <div class="ai-mockup">
 
       <div class="ai-mockup-chrome">
@@ -100,7 +101,6 @@
 
         <!-- Scene 1: Guest searches — competitor wins, your hotel carries a caveat -->
         <div class="ai-frame active" id="frame-1">
-          <div class="scene-caption">Your hotel has an AI reputation.<br>You didn't write it.</div>
           <div class="px-searchbar">
             <span class="px-search-icon">⌕</span>
             <span class="px-search-query">quiet hotels Lake District</span>
@@ -126,7 +126,6 @@
 
         <!-- Scene 2: The source — one old review driving the caveat -->
         <div class="ai-frame" id="frame-2">
-          <div class="scene-caption">One sentence. Three years old.<br>Shaping your AI narrative today.</div>
           <div class="s2-breadcrumb">
             <span class="s2-crumb">AI response</span>
             <span class="s2-crumb-sep">›</span>
@@ -812,8 +811,8 @@
 <script>
 (function() {
   const scenes = [
-    { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity' },
-    { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor' },
+    { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity', caption: 'Your hotel has an AI reputation. You didn\'t write it.' },
+    { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor', caption: 'One sentence. Three years old. Shaping your AI narrative today.' },
   ];
 
   let current = 0;
@@ -836,6 +835,8 @@
     if (urlEl) urlEl.textContent = scene.url;
     if (dotEl) dotEl.style.background = scene.dotColor;
     if (nameEl) nameEl.textContent = scene.engine;
+    const capEl = document.getElementById('mockup-caption');
+    if (capEl) capEl.textContent = scene.caption;
 
     clearInterval(timer);
     timer = setInterval(() => goTo((current + 1) % scenes.length), 5000);
