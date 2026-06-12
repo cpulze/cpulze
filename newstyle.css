@@ -235,7 +235,7 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 .step-card { background: var(--cream-50); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; }
 .step-num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--gold-500); letter-spacing: 1px; margin-bottom: 14px; }
 .step-icon { margin-bottom: 16px; min-height: 32px; }
-.step-icon img { opacity: .75; filter: sepia(1) saturate(2) hue-rotate(5deg) brightness(.7); }
+.step-icon img { display: block; width: 32px; height: 32px; opacity: .7; }
 .step-title { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
 .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
 .steps-timeline { margin-top: 28px; padding: 16px 20px; background: var(--gold-bg); border: 0.5px solid rgba(196,144,58,.3); border-radius: 8px; font-size: 14px; color: var(--text-mid); display: flex; align-items: center; gap: 10px; }
