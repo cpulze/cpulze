@@ -138,7 +138,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-mockup-dots { display: flex; gap: 6px; align-items: center; }
 .ai-mockup-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.2); cursor: pointer; transition: all .35s; }
 .ai-mockup-dot.active { background: var(--gold-400); width: 18px; border-radius: 3px; }
-.ai-mockup-footer-note { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.15); }
+.ai-mockup-footer-note { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.4); }
 
 /* ── Scene 2: Source review ── */
 .s2-breadcrumb { display: flex; align-items: center; gap: 5px; flex-shrink: 0; margin-bottom: -4px; }
