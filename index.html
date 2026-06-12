@@ -37,9 +37,27 @@
     <a href="#" class="logo"><img src="/assets/logo-white.svg" alt="cpulze" style="height:56px;width:auto;display:block;"></a>
     <div class="nav-right">
       <a href="#how" class="nav-link">How it works</a>
-      <!-- PRICING NAV — hidden until SaaS launch
-      <a href="#pricing" class="nav-link">Pricing</a>
-      -->
+      <div class="nav-dropdown">
+        <a href="#services" class="nav-link nav-dropdown-toggle">Services ↓</a>
+        <div class="nav-dropdown-menu">
+          <a href="#scan" class="nav-dropdown-item">
+            <div class="nav-dropdown-item-name">AI Narrative Scan</div>
+            <div class="nav-dropdown-item-price">Free</div>
+          </a>
+          <a href="#services" class="nav-dropdown-item">
+            <div class="nav-dropdown-item-name">Recommendations Report</div>
+            <div class="nav-dropdown-item-price">£799</div>
+          </a>
+          <a href="#services" class="nav-dropdown-item">
+            <div class="nav-dropdown-item-name">Narrative Correction</div>
+            <div class="nav-dropdown-item-price">£1,999 · 3 months</div>
+          </a>
+          <a href="#services" class="nav-dropdown-item">
+            <div class="nav-dropdown-item-name">Competitor Scan</div>
+            <div class="nav-dropdown-item-price">£349</div>
+          </a>
+        </div>
+      </div>
       <a href="#faq" class="nav-link">FAQ</a>
       <!-- SIGN IN NAV — hidden; paid clients receive a direct login link
       <a href="https://app.cpulze.com/login/" class="nav-signin">Sign in</a>
@@ -480,22 +498,22 @@
     </div>
     <div class="steps-grid" style="margin-top:40px;">
       <div class="step-card">
-        <div class="step-num" style="color:var(--gold-500);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-mono);">Free</div>
+        <div class="service-price">Free</div>
         <div class="step-title">AI Narrative Scan</div>
         <div class="step-desc">What is shaping your AI narrative across eight themes — the language, the sources, the gaps. Delivered to your inbox within a few hours.</div>
       </div>
       <div class="step-card">
-        <div class="step-num" style="color:var(--gold-500);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-mono);">£799</div>
+        <div class="service-price">£799</div>
         <div class="step-title">Recommendations Report</div>
         <div class="step-desc">Exactly how to fix it. AEO improvements, OwnerVoice structure, web presence gaps — with a clear priority order so you know where to start.</div>
       </div>
       <div class="step-card">
-        <div class="step-num" style="color:var(--gold-500);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-mono);">£1,999 · 3 months</div>
+        <div class="service-price">£1,999 <span style="font-size:13px;font-weight:500;opacity:.7;">· 3 months</span></div>
         <div class="step-title">Narrative Correction</div>
         <div class="step-desc">Recommendations plus implementation guidance and two rescans — so you can see the narrative shift happen, not just hope it has.</div>
       </div>
       <div class="step-card">
-        <div class="step-num" style="color:var(--gold-500);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-mono);">£349</div>
+        <div class="service-price">£349</div>
         <div class="step-title">Competitor Scan</div>
         <div class="step-desc">How does your AI narrative compare against a named competitor? Same analysis, side by side. Tells you exactly where they are pulling ahead and why.</div>
       </div>

@@ -73,6 +73,15 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .nav-right { display: flex; align-items: center; gap: 24px; }
 .nav-link { font-size: 14px; color: rgba(255,255,255,.6); text-decoration: none; font-weight: 500; transition: color .2s; }
 .nav-link:hover { color: var(--white); }
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { cursor: pointer; }
+.nav-dropdown-menu { position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%); background: var(--navy-800); border: 0.5px solid rgba(255,255,255,.12); border-radius: 12px; padding: 8px; min-width: 260px; display: none; box-shadow: 0 20px 48px rgba(0,0,0,.4); z-index: 200; }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-item { display: block; padding: 12px 14px; border-radius: 8px; text-decoration: none; transition: background .15s; }
+.nav-dropdown-item:hover { background: rgba(255,255,255,.06); }
+.nav-dropdown-item-name { font-size: 14px; color: var(--white); font-weight: 500; }
+.nav-dropdown-item-price { font-size: 12px; color: var(--gold-400); font-family: var(--font-mono); margin-top: 3px; }
+.service-price { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--gold-400); line-height: 1; margin-bottom: 12px; }
 .nav-signin { font-size: 14px; color: rgba(255,255,255,.55); text-decoration: none; font-weight: 500; border: 0.5px solid rgba(255,255,255,.2); padding: 8px 16px; border-radius: 6px; transition: all .2s; }
 .nav-signin:hover { color: var(--white); border-color: rgba(255,255,255,.4); }
 .btn-nav { font-family: var(--font-body); font-size: 14px; font-weight: 600; background: var(--gold-500); color: var(--white); padding: 10px 20px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; transition: background .2s; }
