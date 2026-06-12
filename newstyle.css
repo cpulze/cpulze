@@ -132,7 +132,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-annotation-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--gold-400); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
 .ai-annotation-text { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.65; }
 .ai-annotation-text strong { color: var(--gold-300); font-weight: 700; }
-.px-rank { font-size: 13px; color: rgba(255,255,255,.35); font-family: var(--font-mono); margin-right: 2px; }
+.px-rank { font-size: 9px; color: rgba(255,255,255,.3); font-family: var(--font-mono); vertical-align: super; margin-left: 1px; }
 .ai-mockup-footer-bar { padding: 10px 20px; border-top: 0.5px solid rgba(255,255,255,.07); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .ai-mockup-dots { display: flex; gap: 6px; align-items: center; }
 .ai-mockup-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.2); cursor: pointer; transition: all .35s; }
