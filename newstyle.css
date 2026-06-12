@@ -94,7 +94,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .hero { background: #F5F2EE; padding: 100px 64px 100px; display: flex; align-items: center; justify-content: flex-start; gap: 80px; min-height: 680px; }
 .hero-left { flex: 0 0 440px; }
 .hero-right { flex: 1; align-self: stretch; display: flex; flex-direction: column; min-width: 0; padding: 20px 0; }
-.ai-mockup { flex: 1; background: rgba(8,16,30,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); }
+.ai-mockup { flex: 1; min-height: 0; background: rgba(8,16,30,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); }
 .ai-mockup-chrome { padding: 12px 16px; border-bottom: 0.5px solid rgba(255,255,255,.08); display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.04); flex-shrink: 0; }
 .ai-mockup-traffic { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
 .ai-mockup-traffic span { width: 11px; height: 11px; border-radius: 50%; }
@@ -105,18 +105,16 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-mockup-urlbar-text { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: .2px; }
 .ai-mockup-engine { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: .5px; flex-shrink: 0; white-space: nowrap; }
 .ai-mockup-engine-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; transition: background .5s; }
-.ai-frame { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; gap: 18px; opacity: 0; position: absolute; top: 48px; left: 0; right: 0; bottom: 44px; transition: opacity .6s ease; pointer-events: none; overflow: hidden; }
-.ai-frame.active { opacity: 1; pointer-events: auto; position: relative; }
 .ai-mockup-body-wrap { flex: 1; min-height: 0; position: relative; overflow: hidden; }
 .ai-frame { position: absolute; inset: 0; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; opacity: 0; transition: opacity .6s ease; pointer-events: none; overflow-y: auto; }
+.ai-frame.active { opacity: 1; pointer-events: auto; }
 /* Scene-specific */
 .px-searchbar { background: rgba(255,255,255,.07); border: 0.5px solid rgba(255,255,255,.13); border-radius: 8px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.mockup-caption { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--gold-700); line-height: 1.2; letter-spacing: -.3px; flex-shrink: 0; padding-bottom: 18px; }
+.mockup-caption { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--gold-700); line-height: 1.2; letter-spacing: -.3px; flex-shrink: 0; padding-bottom: 18px; transition: opacity .4s ease; }
 .px-search-icon { font-size: 13px; opacity: .5; }
 .px-search-query { font-size: 13px; color: rgba(255,255,255,.7); }
 .px-answer-header { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
 .px-pulse { width: 6px; height: 6px; border-radius: 50%; background: #20B8CD; animation: pulse 2s infinite; flex-shrink: 0; }
-.px-answer-lead { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; flex-shrink: 0; }
 .px-answer-body { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.85; flex: 1; }
 .px-result-chip { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1); border-radius: 6px; padding: 3px 9px; font-size: 12px; color: rgba(255,255,255,.55); font-weight: 500; margin-bottom: 4px; }
 .px-competitor { color: rgba(147,197,253,.9); font-weight: 600; }
@@ -143,7 +141,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-mockup-footer-note { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.15); }
 
 /* ── Scene 2: Source review ── */
-.s2-breadcrumb { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.s2-breadcrumb { display: flex; align-items: center; gap: 5px; flex-shrink: 0; margin-bottom: -4px; }
 .s2-crumb { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.25); letter-spacing: .5px; }
 .s2-crumb-sep { color: rgba(255,255,255,.15); font-size: 11px; }
 .s2-crumb-active { color: #00AF87; }
@@ -171,12 +169,12 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .s2-review-date { font-family: var(--font-mono); font-size: 10px; color: #aaa; margin-left: auto; }
 .s2-review-title { font-size: 13px; font-weight: 600; color: #1a1a1a; }
 .s2-review-body { font-size: 13px; color: #444; line-height: 1.7; }
-.s2-highlight { background: rgba(239,68,68,.12); color: #b91c1c; border-radius: 3px; padding: 1px 4px; font-style: normal; }
+.s2-highlight { background: rgba(239,68,68,.18); color: #991b1b; border-radius: 3px; padding: 1px 4px; font-style: normal; }
 
 .s2-review-age { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; background: rgba(239,68,68,.06); border-radius: 8px; font-size: 12px; color: #666; line-height: 1.5; flex-shrink: 0; }
 .s2-review-age strong { color: #b91c1c; }
 .s2-age-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; flex-shrink: 0; margin-top: 3px; }
-.s2-annotation { margin-top: auto; }
+.s2-annotation { flex-shrink: 0; }
 .hero-for-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.12); border: 0.5px solid rgba(196,144,58,.45); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-600); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 28px; width: fit-content; }
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-500); animation: pulse 2.5s ease-in-out infinite; }
 .hero-headline { font-family: var(--font-display); font-size: 58px; font-weight: 500; line-height: 1.08; letter-spacing: -.5px; color: var(--navy-900); margin-bottom: 24px; }
@@ -665,6 +663,9 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 /* ==========================================
    RESPONSIVE
    ========================================== */
+@media (max-width: 1200px) {
+  .mockup-caption { font-size: 21px; }
+}
 @media (max-width: 960px) {
   .hero { flex-direction: column; gap: 0; min-height: auto; padding: 64px 28px 48px; }
   .hero-left { flex: none; }
