@@ -85,47 +85,50 @@
   </div>
 
   <div class="hero-right">
-    <div class="ai-card-wrap">
-      <div class="ai-card-label">What AI is saying right now</div>
-      <div class="ai-card-stack">
+    <div class="ai-mockup">
 
-        <div class="ai-card active">
-          <div class="ai-card-engine">
-            <span class="ai-engine-dot" style="background:#20B8CD"></span>
-            Perplexity
-          </div>
-          <div class="ai-card-query">"Are the rooms quiet at The Moorland Lodge?"</div>
-          <div class="ai-card-response">"Guest reviews consistently mention corridor noise on the upper floor, drawn from TripAdvisor reviews spanning 2021–2023."</div>
-          <div class="ai-card-source">Citing: TripAdvisor · March 2022</div>
+      <div class="ai-mockup-chrome">
+        <div class="ai-mockup-traffic">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="ai-mockup-engine">
+          <span class="ai-mockup-engine-dot" style="background:#20B8CD;"></span>
+          Perplexity
+        </div>
+      </div>
+
+      <div class="ai-mockup-body">
+
+        <div class="ai-mockup-query">
+          <div class="ai-mockup-query-label">Guest searched</div>
+          <div class="ai-mockup-query-text">"Are the rooms quiet at The Moorland Lodge?"</div>
         </div>
 
-        <div class="ai-card">
-          <div class="ai-card-engine">
-            <span class="ai-engine-dot" style="background:#10A37F"></span>
-            ChatGPT
+        <div class="ai-mockup-response">
+          <div class="ai-mockup-response-label">
+            <span class="ai-mockup-response-pulse"></span>
+            AI Response
           </div>
-          <div class="ai-card-query">"Is the breakfast good at The Moorland Lodge?"</div>
-          <div class="ai-card-response">"Breakfast receives mixed feedback — guests note limited hot options and early closing times, particularly during off-peak periods."</div>
-          <div class="ai-card-source">Citing: Booking.com · January 2023</div>
+          <p class="ai-mockup-response-text">Guest reviews <mark class="ai-highlight">consistently mention corridor noise on the upper floor</mark>. Multiple sources from 2021–2023 note a recurring complaint about thin walls and late-night disturbance in rooms along the top corridor.</p>
         </div>
 
-        <div class="ai-card">
-          <div class="ai-card-engine">
-            <span class="ai-engine-dot" style="background:#4285F4"></span>
-            Gemini
+        <div class="ai-mockup-sources">
+          <div class="ai-mockup-sources-label">Sources cited</div>
+          <div class="ai-mockup-sources-row">
+            <span class="ai-source-chip">TripAdvisor</span>
+            <span class="ai-source-chip">Booking.com</span>
+            <span class="ai-source-chip">Google Reviews</span>
           </div>
-          <div class="ai-card-query">"Who is The Moorland Lodge best suited for?"</div>
-          <div class="ai-card-response">"The property is frequently described as a quiet countryside retreat for couples. Families with young children are not commonly mentioned in guest reviews."</div>
-          <div class="ai-card-source">Citing: Google Reviews · 2022</div>
+        </div>
+
+        <div class="ai-mockup-annotation">
+          <div class="ai-annotation-eyebrow">cpulze finding</div>
+          <div class="ai-annotation-text">A single 2022 TripAdvisor review is the dominant source shaping this response — and it is appearing in AI answers to guest queries about this property across all three engines.</div>
         </div>
 
       </div>
-      <div class="ai-card-dots">
-        <span class="ai-dot active"></span>
-        <span class="ai-dot"></span>
-        <span class="ai-dot"></span>
-      </div>
-      <div class="ai-card-disclaimer">Illustrative example — not a real property</div>
+
+      <div class="ai-mockup-footer">Illustrative example — not a real property</div>
     </div>
   </div>
 
@@ -730,25 +733,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-(function() {
-  const cards = document.querySelectorAll('.ai-card');
-  const dots = document.querySelectorAll('.ai-dot');
-  if (!cards.length) return;
-  let current = 0;
-  function goTo(n) {
-    cards[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = n;
-    cards[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { clearInterval(timer); goTo(i); timer = setInterval(next, 5000); }));
-  function next() { goTo((current + 1) % cards.length); }
-  let timer = setInterval(next, 5000);
-})();
-</script>
 
 <script>
 (function() {
