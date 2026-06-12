@@ -90,10 +90,10 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 /* ==========================================
    HERO — SPLIT LAYOUT
    ========================================== */
-.hero { background: var(--navy-900); background-image: radial-gradient(ellipse at 20% 60%, rgba(42,78,122,.5) 0%, transparent 60%); padding: 100px 48px 96px; display: flex; align-items: center; justify-content: flex-start; gap: 72px; min-height: 580px; }
-.hero-left { flex: 0 0 480px; }
-.hero-right { flex: 1; min-width: 440px; max-width: 580px; display: flex; align-items: stretch; }
-.ai-mockup { width: 100%; background: rgba(8,18,34,.85); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; backdrop-filter: blur(20px); box-shadow: 0 40px 100px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08); }
+.hero { background: var(--navy-900); background-image: radial-gradient(ellipse at 20% 60%, rgba(42,78,122,.5) 0%, transparent 60%); padding: 80px 48px 80px; display: flex; align-items: center; justify-content: flex-start; gap: 64px; min-height: 600px; }
+.hero-left { flex: 0 0 460px; }
+.hero-right { flex: 1; align-self: stretch; display: flex; min-width: 0; padding: 0; }
+.ai-mockup { flex: 1; background: rgba(8,16,30,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08); }
 .ai-mockup-chrome { padding: 12px 16px; border-bottom: 0.5px solid rgba(255,255,255,.08); display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.04); flex-shrink: 0; }
 .ai-mockup-traffic { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
 .ai-mockup-traffic span { width: 11px; height: 11px; border-radius: 50%; }
@@ -105,8 +105,19 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-mockup-engine { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: .5px; flex-shrink: 0; white-space: nowrap; }
 .ai-mockup-engine-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; transition: background .5s; }
 .ai-frame { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; gap: 18px; opacity: 0; position: absolute; top: 48px; left: 0; right: 0; bottom: 44px; transition: opacity .6s ease; pointer-events: none; overflow: hidden; }
-.ai-frame.active { opacity: 1; pointer-events: auto; }
-.ai-mockup-body-wrap { position: relative; flex: 1; overflow: hidden; }
+.ai-frame.active { opacity: 1; pointer-events: auto; position: relative; }
+.ai-mockup-body-wrap { flex: 1; min-height: 0; position: relative; overflow: hidden; }
+.ai-frame { position: absolute; inset: 0; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; opacity: 0; transition: opacity .6s ease; pointer-events: none; overflow-y: auto; }
+/* Scene-specific */
+.px-searchbar { background: rgba(255,255,255,.07); border: 0.5px solid rgba(255,255,255,.13); border-radius: 8px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.px-search-icon { font-size: 13px; opacity: .5; }
+.px-search-query { font-size: 13px; color: rgba(255,255,255,.7); }
+.px-answer-header { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+.px-pulse { width: 6px; height: 6px; border-radius: 50%; background: #20B8CD; animation: pulse 2s infinite; flex-shrink: 0; }
+.px-answer-body { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.8; flex: 1; }
+.px-result-chip { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1); border-radius: 6px; padding: 3px 9px; font-size: 12px; color: rgba(255,255,255,.55); font-weight: 500; margin-bottom: 4px; }
+.px-competitor { color: rgba(147,197,253,.9); font-weight: 600; }
+.px-your-hotel { color: rgba(255,255,255,.9); font-weight: 600; }
 .ai-mockup-query { background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.09); border-radius: 10px; padding: 13px 16px; }
 .ai-mockup-query-label { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
 .ai-mockup-query-text { font-size: 13px; color: rgba(255,255,255,.65); font-style: italic; line-height: 1.5; }

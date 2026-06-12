@@ -88,12 +88,8 @@
     <div class="ai-mockup">
 
       <div class="ai-mockup-chrome">
-        <div class="ai-mockup-traffic">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="ai-mockup-urlbar">
-          <span class="ai-mockup-urlbar-text" id="mockup-url">perplexity.ai</span>
-        </div>
+        <div class="ai-mockup-traffic"><span></span><span></span><span></span></div>
+        <div class="ai-mockup-urlbar"><span class="ai-mockup-urlbar-text" id="mockup-url">perplexity.ai</span></div>
         <div class="ai-mockup-engine">
           <span class="ai-mockup-engine-dot" id="mockup-dot" style="background:#20B8CD;"></span>
           <span id="mockup-engine-name">Perplexity</span>
@@ -101,64 +97,38 @@
       </div>
 
       <div class="ai-mockup-body-wrap">
-      <!-- Frame 1: Perplexity — corridor noise, single review posing as a pattern -->
-      <div class="ai-mockup-body ai-frame active" id="frame-1">
-        <div class="ai-mockup-query">
-          <div class="ai-mockup-query-label">Guest searched</div>
-          <div class="ai-mockup-query-text">"Are the rooms quiet at The Moorland Lodge?"</div>
-        </div>
-        <div class="ai-mockup-response">
-          <div class="ai-mockup-response-label">
-            <span class="ai-mockup-response-pulse"></span>
-            AI Response
-          </div>
-          <p class="ai-mockup-response-text">Based on guest reviews, <mark class="ai-highlight">rooms on the upper floor have a recurring noise issue</mark> — corridor sounds and thin walls are cited across multiple sources. Guests sensitive to noise may want to request a lower floor.</p>
-        </div>
-        <div class="ai-mockup-sources">
-          <div class="ai-mockup-sources-label">Sources cited</div>
-          <div class="ai-mockup-sources-row">
-            <span class="ai-source-chip">TripAdvisor</span>
-            <span class="ai-source-chip">Booking.com</span>
-            <span class="ai-source-chip">Google Reviews</span>
-          </div>
-        </div>
-        <div class="ai-mockup-annotation">
-          <div class="ai-annotation-eyebrow">cpulze finding</div>
-          <div class="ai-annotation-text">AI says "multiple sources" — our scan traces this to a <strong>single 2022 TripAdvisor review</strong> that has been amplified across all three engines. One guest's voice is presenting as a pattern.</div>
-        </div>
-      </div>
 
-      <!-- Frame 2: ChatGPT — wrong guest profile -->
-      <div class="ai-mockup-body ai-frame" id="frame-2">
-        <div class="ai-mockup-query">
-          <div class="ai-mockup-query-label">Guest searched</div>
-          <div class="ai-mockup-query-text">"Is The Moorland Lodge good for a romantic weekend?"</div>
-        </div>
-        <div class="ai-mockup-response">
-          <div class="ai-mockup-response-label">
-            <span class="ai-mockup-response-pulse" style="background:#10A37F;box-shadow:0 0 0 0 rgba(16,163,127,.4);"></span>
-            AI Response
+        <!-- Scene 1: Guest searches — competitor wins, your hotel carries a caveat -->
+        <div class="ai-frame active" id="frame-1">
+          <div class="px-searchbar">
+            <span class="px-search-icon">⌕</span>
+            <span class="px-search-query">best boutique hotel Lake District romantic weekend</span>
           </div>
-          <p class="ai-mockup-response-text">The Moorland Lodge is <mark class="ai-highlight">primarily mentioned in the context of family stays and walking groups</mark>. Romantic weekend reviews are less common, though the setting has scenic appeal. Couples seeking dedicated romantic amenities may find other options better suited.</p>
-        </div>
-        <div class="ai-mockup-sources">
-          <div class="ai-mockup-sources-label">Sources cited</div>
-          <div class="ai-mockup-sources-row">
-            <span class="ai-source-chip">TripAdvisor</span>
-            <span class="ai-source-chip">Lonely Planet forum</span>
+          <div class="px-answer-header"><span class="px-pulse"></span> Answer</div>
+          <div class="px-answer-body">
+            For a romantic Lake District weekend, <span class="px-competitor">Langdale Chase Hotel</span> is consistently recommended for couples — lakeside setting, spa, and strong recent reviews. <span class="px-competitor">The Gilpin Hotel</span> also appears frequently for a quiet, indulgent escape.<br><br>
+            <span class="px-your-hotel">The Moorland Lodge</span> offers hillside views and a characterful setting. <mark class="ai-highlight">Some recent reviews mention noise from upper-floor corridors</mark>, which may be worth considering for a quiet romantic stay.
+          </div>
+          <div>
+            <div class="ai-mockup-sources-label">Sources</div>
+            <div class="ai-mockup-sources-row">
+              <span class="ai-source-chip">TripAdvisor</span>
+              <span class="ai-source-chip">Booking.com</span>
+              <span class="ai-source-chip">Which? Travel</span>
+              <span class="ai-source-chip">Condé Nast Traveller</span>
+            </div>
+          </div>
+          <div class="ai-mockup-annotation">
+            <div class="ai-annotation-eyebrow">cpulze finding</div>
+            <div class="ai-annotation-text">Your hotel is in this response — but you're third, carrying a noise caveat your competitors don't have. This response is live right now, every time a guest searches.</div>
           </div>
         </div>
-        <div class="ai-mockup-annotation">
-          <div class="ai-annotation-eyebrow">cpulze finding</div>
-          <div class="ai-annotation-text">The property hosts couples regularly — but an <strong>older OTA listing and forum thread</strong> have anchored AI to a family/walking audience. Guests searching for romance are being redirected before they reach your website.</div>
-        </div>
-      </div>
+
       </div><!-- /ai-mockup-body-wrap -->
 
       <div class="ai-mockup-footer-bar">
         <div class="ai-mockup-dots">
           <span class="ai-mockup-dot active" data-frame="1"></span>
-          <span class="ai-mockup-dot" data-frame="2"></span>
         </div>
         <div class="ai-mockup-footer-note">Illustrative example — not a real property</div>
       </div>
@@ -768,32 +738,7 @@
   </div>
 </footer>
 
-<script>
-(function() {
-  const frames = document.querySelectorAll('.ai-frame');
-  const dots = document.querySelectorAll('.ai-mockup-dot');
-  if (!frames.length) return;
-  const engines = [
-    { name: 'Perplexity', url: 'perplexity.ai', color: '#20B8CD' },
-    { name: 'ChatGPT',    url: 'chatgpt.com',   color: '#10A37F' }
-  ];
-  let current = 0;
-  function goTo(n) {
-    frames[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = n;
-    frames[current].classList.add('active');
-    dots[current].classList.add('active');
-    const e = engines[current];
-    document.getElementById('mockup-engine-name').textContent = e.name;
-    document.getElementById('mockup-url').textContent = e.url;
-    document.getElementById('mockup-dot').style.background = e.color;
-  }
-  dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); goTo(i); timer = setInterval(next, 6000); }));
-  function next() { goTo((current + 1) % frames.length); }
-  let timer = setInterval(next, 6000);
-})();
-</script>
+<!-- scene rotation wired after all frames are built -->
 
 <script>
 (function() {
