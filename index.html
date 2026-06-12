@@ -177,12 +177,77 @@
           </div>
         </div>
 
+        <!-- Scene 3: cpulze report — 8 themes with severity -->
+        <div class="ai-frame" id="frame-3">
+          <div class="s3-header">
+            <div class="s3-hotel">The Moorland Lodge <span class="s3-hotel-tag">AI Narrative Report</span></div>
+            <div class="s3-meta">3 engines scanned · June 2025 · 47 sources indexed</div>
+          </div>
+
+          <div class="s3-themes">
+            <div class="s3-row s3-row-issue">
+              <span class="s3-dot s3-issue"></span>
+              <span class="s3-name">Noise &amp; Quiet</span>
+              <span class="s3-finding">Caveat in 3 of 3 AI responses</span>
+              <span class="s3-badge s3-badge-issue">Issue</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-monitor"></span>
+              <span class="s3-name">Room Quality</span>
+              <span class="s3-finding">Dated décor mentioned in 2 sources</span>
+              <span class="s3-badge s3-badge-monitor">Monitor</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-monitor"></span>
+              <span class="s3-name">Value Perception</span>
+              <span class="s3-finding">Described as 'reasonable' — not competitive</span>
+              <span class="s3-badge s3-badge-monitor">Monitor</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-strong"></span>
+              <span class="s3-name">Location &amp; Views</span>
+              <span class="s3-finding">Hillside setting praised across all engines</span>
+              <span class="s3-badge s3-badge-strong">Strong</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-strong"></span>
+              <span class="s3-name">Service &amp; Staff</span>
+              <span class="s3-finding">Warm and attentive — cited in 5 sources</span>
+              <span class="s3-badge s3-badge-strong">Strong</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-strong"></span>
+              <span class="s3-name">Food &amp; Dining</span>
+              <span class="s3-finding">Breakfast praised; dinner footprint neutral</span>
+              <span class="s3-badge s3-badge-strong">Strong</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-strong"></span>
+              <span class="s3-name">Cleanliness</span>
+              <span class="s3-finding">No negative signals in any source</span>
+              <span class="s3-badge s3-badge-strong">Strong</span>
+            </div>
+            <div class="s3-row">
+              <span class="s3-dot s3-strong"></span>
+              <span class="s3-name">Check-in &amp; Arrival</span>
+              <span class="s3-finding">Smooth experience, consistently well reviewed</span>
+              <span class="s3-badge s3-badge-strong">Strong</span>
+            </div>
+          </div>
+
+          <div class="ai-mockup-annotation">
+            <div class="ai-annotation-eyebrow">⚑ cpulze finding</div>
+            <div class="ai-annotation-text"><strong>1 issue, 2 to monitor</strong> across 8 themes. The noise caveat is live in AI responses now — the others are early signals worth watching before they compound.</div>
+          </div>
+        </div>
+
       </div><!-- /ai-mockup-body-wrap -->
 
       <div class="ai-mockup-footer-bar">
         <div class="ai-mockup-dots">
           <span class="ai-mockup-dot active" data-frame="1"></span>
           <span class="ai-mockup-dot" data-frame="2"></span>
+          <span class="ai-mockup-dot" data-frame="3"></span>
         </div>
         <div class="ai-mockup-footer-note">Illustrative property names — findings reflect real AI behaviour</div>
       </div>
@@ -808,6 +873,7 @@
   const scenes = [
     { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity', caption: 'Your hotel has an AI reputation. You didn\'t write it.' },
     { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor', caption: 'One sentence. Three years old. Shaping your AI narrative today.' },
+    { url: 'app.cpulze.com', dotColor: '#C4903A', engine: 'cpulze', caption: 'Eight themes. One is costing you bookings right now.' },
   ];
 
   let current = 0;
