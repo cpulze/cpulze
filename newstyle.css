@@ -90,9 +90,23 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 /* ==========================================
    HERO — SPLIT LAYOUT
    ========================================== */
-.hero { background: var(--navy-900); background-image: radial-gradient(ellipse at 20% 60%, rgba(42,78,122,.5) 0%, transparent 60%); padding: 100px 48px 96px; display: flex; align-items: center; min-height: 580px; }
-.hero-left { max-width: 700px; }
-.hero-right { display: none; }
+.hero { background: var(--navy-900); background-image: radial-gradient(ellipse at 20% 60%, rgba(42,78,122,.5) 0%, transparent 60%); padding: 100px 48px 96px; display: flex; align-items: center; justify-content: space-between; gap: 64px; min-height: 580px; }
+.hero-left { flex: 0 1 560px; }
+.hero-right { flex: 0 0 380px; display: flex; justify-content: flex-end; align-items: center; }
+.ai-card-wrap { width: 360px; }
+.ai-card-label { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: rgba(255,255,255,.3); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 14px; }
+.ai-card-stack { position: relative; height: 260px; }
+.ai-card { position: absolute; top: 0; left: 0; right: 0; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 26px 28px; opacity: 0; transform: translateY(10px); transition: opacity .7s ease, transform .7s ease; backdrop-filter: blur(8px); }
+.ai-card.active { opacity: 1; transform: translateY(0); }
+.ai-card-engine { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: rgba(255,255,255,.45); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+.ai-engine-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.ai-card-query { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.5; margin-bottom: 14px; font-style: italic; }
+.ai-card-response { font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.65; margin-bottom: 18px; }
+.ai-card-source { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: .3px; border-top: 0.5px solid rgba(255,255,255,.08); padding-top: 12px; }
+.ai-card-dots { display: flex; gap: 6px; margin-top: 16px; align-items: center; }
+.ai-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.2); transition: background .4s; cursor: pointer; }
+.ai-dot.active { background: var(--gold-400); width: 16px; border-radius: 3px; }
+.ai-card-disclaimer { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.18); letter-spacing: .3px; margin-top: 12px; }
 .hero-for-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.15); border: 0.5px solid rgba(196,144,58,.35); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-300); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 28px; width: fit-content; }
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-400); animation: pulse 2.5s ease-in-out infinite; }
 .hero-headline { font-family: var(--font-display); font-size: 62px; font-weight: 500; line-height: 1.08; letter-spacing: -.5px; color: var(--white); margin-bottom: 24px; }
@@ -582,9 +596,9 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
    RESPONSIVE
    ========================================== */
 @media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left  { padding: 56px 28px 40px; }
-  .hero-right { padding: 32px 28px 56px; border-left: none; border-top: 1px solid var(--border); }
+  .hero { flex-direction: column; gap: 0; min-height: auto; padding: 64px 28px 48px; }
+  .hero-left { flex: none; }
+  .hero-right { display: none; }
   .hero-headline { font-size: 46px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
