@@ -114,7 +114,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .px-search-query { font-size: 13px; color: rgba(255,255,255,.7); }
 .px-answer-header { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
 .px-pulse { width: 6px; height: 6px; border-radius: 50%; background: #20B8CD; animation: pulse 2s infinite; flex-shrink: 0; }
-.px-answer-body { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.8; flex: 1; }
+.px-answer-lead { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; flex-shrink: 0; }
+.px-answer-body { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.85; flex: 1; }
 .px-result-chip { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.1); border-radius: 6px; padding: 3px 9px; font-size: 12px; color: rgba(255,255,255,.55); font-weight: 500; margin-bottom: 4px; }
 .px-competitor { color: rgba(147,197,253,.9); font-weight: 600; }
 .px-your-hotel { color: rgba(255,255,255,.9); font-weight: 600; }
