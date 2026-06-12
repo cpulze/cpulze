@@ -35,6 +35,7 @@
   --gold-400: #d4a84a;
   --gold-500: #c4903a;
   --gold-600: #a67530;
+  --gold-700: #7c5010;
   --gold-bg:  #fdf5e6;
 
   --text:      #15100b;
@@ -110,7 +111,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-frame { position: absolute; inset: 0; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; opacity: 0; transition: opacity .6s ease; pointer-events: none; overflow-y: auto; }
 /* Scene-specific */
 .px-searchbar { background: rgba(255,255,255,.07); border: 0.5px solid rgba(255,255,255,.13); border-radius: 8px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.mockup-caption { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--gold-600); line-height: 1.2; letter-spacing: -.3px; flex-shrink: 0; padding-bottom: 18px; }
+.mockup-caption { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--gold-700); line-height: 1.2; letter-spacing: -.3px; flex-shrink: 0; padding-bottom: 18px; }
 .px-search-icon { font-size: 13px; opacity: .5; }
 .px-search-query { font-size: 13px; color: rgba(255,255,255,.7); }
 .px-answer-header { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
