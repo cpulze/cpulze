@@ -123,11 +123,70 @@
           </div>
         </div>
 
+        <!-- Scene 2: The source — one old review driving the caveat -->
+        <div class="ai-frame" id="frame-2">
+          <div class="s2-breadcrumb">
+            <span class="s2-crumb">AI response</span>
+            <span class="s2-crumb-sep">›</span>
+            <span class="s2-crumb">Noise caveat</span>
+            <span class="s2-crumb-sep">›</span>
+            <span class="s2-crumb s2-crumb-active">Source identified</span>
+          </div>
+
+          <div class="s2-mobile-wrap">
+            <div class="s2-mobile-chrome">
+              <div class="s2-mobile-bar">
+                <span class="s2-mobile-url">tripadvisor.com · The Moorland Lodge · Reviews</span>
+              </div>
+            </div>
+            <div class="s2-mobile-body">
+              <div class="s2-hotel-row">
+                <span class="s2-hotel-name">The Moorland Lodge</span>
+                <div class="s2-ta-rating">
+                  <span class="s2-ta-bubble filled"></span>
+                  <span class="s2-ta-bubble filled"></span>
+                  <span class="s2-ta-bubble filled"></span>
+                  <span class="s2-ta-bubble half"></span>
+                  <span class="s2-ta-bubble"></span>
+                  <span class="s2-ta-score">3.5</span>
+                </div>
+              </div>
+
+              <div class="s2-review-card">
+                <div class="s2-review-meta">
+                  <div class="s2-review-stars">
+                    <span class="s2-star filled">●</span>
+                    <span class="s2-star filled">●</span>
+                    <span class="s2-star filled">●</span>
+                    <span class="s2-star">●</span>
+                    <span class="s2-star">●</span>
+                  </div>
+                  <span class="s2-reviewer">GuestFromManchester</span>
+                  <span class="s2-review-date">Oct 2022</span>
+                </div>
+                <div class="s2-review-title">"Beautiful views, but sleep was a problem"</div>
+                <div class="s2-review-body">Room was charming and the fell views were stunning at sunrise. <mark class="s2-highlight">We were in room 12, directly above the service corridor — could hear staff movement from around 6am.</mark> Staff were apologetic at checkout. Would return but would ask for a different room.</div>
+              </div>
+
+              <div class="s2-review-age">
+                <span class="s2-age-dot"></span>
+                <span>This review is <strong>3 years old</strong> — and still the top-ranked noise mention for your property.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-mockup-annotation s2-annotation">
+            <div class="ai-annotation-eyebrow">⚑ cpulze finding</div>
+            <div class="ai-annotation-text"><strong>One review. One sentence.</strong> Written in October 2022 — this is the source Perplexity surfaces when a guest asks about noise at your hotel.</div>
+          </div>
+        </div>
+
       </div><!-- /ai-mockup-body-wrap -->
 
       <div class="ai-mockup-footer-bar">
         <div class="ai-mockup-dots">
           <span class="ai-mockup-dot active" data-frame="1"></span>
+          <span class="ai-mockup-dot" data-frame="2"></span>
         </div>
         <div class="ai-mockup-footer-note">Illustrative property names — findings reflect real AI behaviour</div>
       </div>
@@ -745,6 +804,47 @@
   const appBase = (h === 'stage.cpulze.com' || h === 'www.stage.cpulze.com' || h === 'app.stage.cpulze.com')
     ? 'https://app.stage.cpulze.com'
     : 'https://app.cpulze.com';
+})();
+</script>
+
+<script>
+(function() {
+  const scenes = [
+    { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity' },
+    { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor' },
+  ];
+
+  let current = 0;
+  let timer;
+
+  function goTo(idx) {
+    current = idx;
+    const scene = scenes[idx];
+
+    document.querySelectorAll('.ai-frame').forEach((f, i) => {
+      f.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.ai-mockup-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+
+    const urlEl = document.getElementById('mockup-url');
+    const dotEl = document.getElementById('mockup-dot');
+    const nameEl = document.getElementById('mockup-engine-name');
+    if (urlEl) urlEl.textContent = scene.url;
+    if (dotEl) dotEl.style.background = scene.dotColor;
+    if (nameEl) nameEl.textContent = scene.engine;
+
+    clearInterval(timer);
+    timer = setInterval(() => goTo((current + 1) % scenes.length), 5000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.ai-mockup-dot').forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i));
+    });
+    timer = setInterval(() => goTo((current + 1) % scenes.length), 5000);
+  });
 })();
 </script>
 
