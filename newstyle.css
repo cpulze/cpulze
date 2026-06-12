@@ -110,7 +110,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .ai-frame.active { opacity: 1; pointer-events: auto; }
 /* Scene-specific */
 .px-searchbar { background: rgba(255,255,255,.07); border: 0.5px solid rgba(255,255,255,.13); border-radius: 8px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.mockup-caption { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--gold-700); line-height: 1.2; letter-spacing: -.3px; flex-shrink: 0; padding-bottom: 18px; transition: opacity .4s ease; }
+.mockup-caption { font-family: var(--font-display); font-size: 31px; font-weight: 500; color: var(--gold-700); line-height: 1.2; letter-spacing: -.4px; flex-shrink: 0; padding-bottom: 18px; transition: opacity .4s ease; }
 .px-search-icon { font-size: 13px; opacity: .5; }
 .px-search-query { font-size: 13px; color: rgba(255,255,255,.7); }
 .px-answer-header { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
@@ -664,7 +664,7 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
    RESPONSIVE
    ========================================== */
 @media (max-width: 1200px) {
-  .mockup-caption { font-size: 21px; }
+  .mockup-caption { font-size: 25px; }
 }
 @media (max-width: 960px) {
   .hero { flex-direction: column; gap: 0; min-height: auto; padding: 64px 28px 48px; }
