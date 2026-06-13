@@ -177,92 +177,184 @@
           </div>
         </div>
 
-        <!-- Scene 3: Severity report — 4 themes -->
+        <!-- Scene 3: Severity report — scored themes with bars -->
         <div class="ai-frame" id="frame-3">
           <div class="s3-header">
             <div class="s3-hotel">The Moorland Lodge <span class="s3-hotel-tag">AI Narrative Report</span></div>
             <div class="s3-meta">3 engines scanned · June 2025 · 47 sources indexed</div>
           </div>
 
+          <div class="s3-score-row">
+            <div class="s3-score-box">
+              <span class="s3-score-num">62</span><span class="s3-score-denom">/100</span>
+              <span class="s3-score-label">AI Health Score</span>
+            </div>
+            <div class="s3-score-legend">
+              <span class="s3-leg-item s3-leg-issue">● Issue</span>
+              <span class="s3-leg-item s3-leg-monitor">● Monitor</span>
+              <span class="s3-leg-item s3-leg-strong">● Strong</span>
+            </div>
+          </div>
+
           <div class="s3-themes">
             <div class="s3-row s3-row-issue">
-              <span class="s3-dot s3-issue"></span>
-              <span class="s3-name">Noise &amp; Quiet</span>
-              <span class="s3-finding">Caveat present in 3 of 3 AI responses</span>
-              <span class="s3-badge s3-badge-issue">Issue</span>
+              <div class="s3-icon-box" style="background:rgba(239,68,68,.15);color:#fca5a5;">〜</div>
+              <div class="s3-row-body">
+                <div class="s3-row-top">
+                  <span class="s3-name">Noise &amp; Quiet</span>
+                  <span class="s3-badge s3-badge-issue">Issue</span>
+                </div>
+                <div class="s3-bar-row">
+                  <div class="s3-bar-track"><div class="s3-bar-fill" style="width:85%;background:#ef4444;"></div></div>
+                  <span class="s3-pct" style="color:#fca5a5;">85%</span>
+                </div>
+                <div class="s3-row-note">85% of AI responses include a noise caveat</div>
+              </div>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-monitor"></span>
-              <span class="s3-name">Room Quality</span>
-              <span class="s3-finding">Dated décor mentioned in 2 sources</span>
-              <span class="s3-badge s3-badge-monitor">Monitor</span>
+
+            <div class="s3-row s3-row-monitor">
+              <div class="s3-icon-box" style="background:rgba(245,158,11,.15);color:#fcd34d;">▭</div>
+              <div class="s3-row-body">
+                <div class="s3-row-top">
+                  <span class="s3-name">Room Quality</span>
+                  <span class="s3-badge s3-badge-monitor">Monitor</span>
+                </div>
+                <div class="s3-bar-row">
+                  <div class="s3-bar-track"><div class="s3-bar-fill" style="width:40%;background:#f59e0b;"></div></div>
+                  <span class="s3-pct" style="color:#fcd34d;">40%</span>
+                </div>
+                <div class="s3-row-note">Dated décor mentioned in 2 of 5 sources</div>
+              </div>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-strong"></span>
-              <span class="s3-name">Location &amp; Views</span>
-              <span class="s3-finding">Hillside setting praised across all engines</span>
-              <span class="s3-badge s3-badge-strong">Strong</span>
+
+            <div class="s3-row s3-row-strong">
+              <div class="s3-icon-box" style="background:rgba(34,197,94,.12);color:#86efac;">◉</div>
+              <div class="s3-row-body">
+                <div class="s3-row-top">
+                  <span class="s3-name">Location &amp; Views</span>
+                  <span class="s3-badge s3-badge-strong">Strong</span>
+                </div>
+                <div class="s3-bar-row">
+                  <div class="s3-bar-track"><div class="s3-bar-fill" style="width:92%;background:#22c55e;"></div></div>
+                  <span class="s3-pct" style="color:#86efac;">92%</span>
+                </div>
+                <div class="s3-row-note">Hillside setting praised across all engines</div>
+              </div>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-strong"></span>
-              <span class="s3-name">Service &amp; Staff</span>
-              <span class="s3-finding">Warm and attentive — cited in 5 sources</span>
-              <span class="s3-badge s3-badge-strong">Strong</span>
+
+            <div class="s3-row s3-row-strong">
+              <div class="s3-icon-box" style="background:rgba(34,197,94,.12);color:#86efac;">✦</div>
+              <div class="s3-row-body">
+                <div class="s3-row-top">
+                  <span class="s3-name">Service &amp; Staff</span>
+                  <span class="s3-badge s3-badge-strong">Strong</span>
+                </div>
+                <div class="s3-bar-row">
+                  <div class="s3-bar-track"><div class="s3-bar-fill" style="width:78%;background:#22c55e;"></div></div>
+                  <span class="s3-pct" style="color:#86efac;">78%</span>
+                </div>
+                <div class="s3-row-note">Warm and attentive — cited in 5 sources</div>
+              </div>
             </div>
           </div>
 
           <div class="ai-mockup-annotation">
             <div class="ai-annotation-eyebrow">⚑ cpulze finding</div>
-            <div class="ai-annotation-text"><strong>1 issue, 1 to monitor</strong> across themes reviewed. The noise caveat is live in AI responses now — and it's the first thing guests searching for quiet hotels see.</div>
+            <div class="ai-annotation-text"><strong>85% of AI responses</strong> include the noise caveat. Every guest asking for a quiet hotel sees this before reaching your website.</div>
           </div>
         </div>
 
-        <!-- Scene 4: Fix tracker — status of each correction -->
+        <!-- Scene 4: Fix tracker — card-style with progress and timestamps -->
         <div class="ai-frame s4-frame" id="frame-4">
           <div class="s4-header">
             <div class="s4-hotel">The Moorland Lodge <span class="s4-hotel-tag">Fix Tracker</span></div>
-            <div class="s4-progress-strip">
-              <span class="s4-prog-item s4-prog-done"><span class="s4-prog-dot"></span>1 actioned</span>
-              <span class="s4-prog-item s4-prog-active"><span class="s4-prog-dot"></span>1 in progress</span>
-              <span class="s4-prog-item s4-prog-watch"><span class="s4-prog-dot"></span>2 monitoring</span>
+            <div class="s4-stats-row">
+              <div class="s4-stat s4-stat-active">
+                <span class="s4-stat-num">1</span>
+                <span class="s4-stat-lbl">In Progress</span>
+              </div>
+              <div class="s4-stat s4-stat-done">
+                <span class="s4-stat-num">1</span>
+                <span class="s4-stat-lbl">Actioned</span>
+              </div>
+              <div class="s4-stat s4-stat-watch">
+                <span class="s4-stat-num">2</span>
+                <span class="s4-stat-lbl">Monitoring</span>
+              </div>
             </div>
           </div>
 
           <div class="s4-items">
-            <div class="s4-item s4-item-active">
-              <div class="s4-item-top">
-                <span class="s4-item-theme">Noise &amp; Quiet</span>
-                <span class="s4-status s4-status-progress"><span class="s4-pulse"></span>In Progress</span>
+            <div class="s4-card s4-card-active">
+              <div class="s4-card-top">
+                <div class="s4-card-left">
+                  <span class="s4-icon s4-icon-progress">⟳</span>
+                  <div>
+                    <div class="s4-card-theme">Noise &amp; Quiet</div>
+                    <div class="s4-card-action">Management response submitted to TripAdvisor · awaiting AI refresh</div>
+                  </div>
+                </div>
+                <span class="s4-pill s4-pill-progress"><span class="s4-pulse"></span>In Progress</span>
               </div>
-              <div class="s4-item-action">Management response submitted to TripAdvisor review · Monitoring AI refresh cycle</div>
-              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-60"></div></div>
+              <div class="s4-progress-row">
+                <div class="s4-track"><div class="s4-fill" style="width:60%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+                <span class="s4-pct" style="color:#fcd34d;">60%</span>
+              </div>
+              <div class="s4-card-time">Updated 2 days ago</div>
             </div>
 
-            <div class="s4-item">
-              <div class="s4-item-top">
-                <span class="s4-item-theme">Room Quality</span>
-                <span class="s4-status s4-status-done">Actioned</span>
+            <div class="s4-card s4-card-done">
+              <div class="s4-card-top">
+                <div class="s4-card-left">
+                  <span class="s4-icon s4-icon-done">✓</span>
+                  <div>
+                    <div class="s4-card-theme">Room Quality</div>
+                    <div class="s4-card-action">Renovation detail published to 3 listing sources</div>
+                  </div>
+                </div>
+                <span class="s4-pill s4-pill-done">Actioned</span>
               </div>
-              <div class="s4-item-action">Renovation detail added to 3 listing sources and hotel website</div>
-              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-100"></div></div>
+              <div class="s4-progress-row">
+                <div class="s4-track"><div class="s4-fill" style="width:100%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+                <span class="s4-pct" style="color:#86efac;">100%</span>
+              </div>
+              <div class="s4-card-time">Completed 5 days ago</div>
             </div>
 
-            <div class="s4-item">
-              <div class="s4-item-top">
-                <span class="s4-item-theme">Location &amp; Views</span>
-                <span class="s4-status s4-status-watch">Monitoring</span>
+            <div class="s4-card">
+              <div class="s4-card-top">
+                <div class="s4-card-left">
+                  <span class="s4-icon s4-icon-watch">◉</span>
+                  <div>
+                    <div class="s4-card-theme">Location &amp; Views</div>
+                    <div class="s4-card-action">Positive — no intervention required · score stable</div>
+                  </div>
+                </div>
+                <span class="s4-pill s4-pill-watch">Monitoring</span>
               </div>
-              <div class="s4-item-action">Positive signals stable — no intervention required</div>
-              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-stable"></div></div>
+              <div class="s4-progress-row">
+                <div class="s4-track"><div class="s4-fill" style="width:92%;background:rgba(96,165,250,.4);"></div></div>
+                <span class="s4-pct" style="color:rgba(96,165,250,.7);">92%</span>
+              </div>
+              <div class="s4-card-time">Last checked today</div>
             </div>
 
-            <div class="s4-item">
-              <div class="s4-item-top">
-                <span class="s4-item-theme">Service &amp; Staff</span>
-                <span class="s4-status s4-status-watch">Monitoring</span>
+            <div class="s4-card">
+              <div class="s4-card-top">
+                <div class="s4-card-left">
+                  <span class="s4-icon s4-icon-watch">◉</span>
+                  <div>
+                    <div class="s4-card-theme">Service &amp; Staff</div>
+                    <div class="s4-card-action">Positive — no intervention required · score stable</div>
+                  </div>
+                </div>
+                <span class="s4-pill s4-pill-watch">Monitoring</span>
               </div>
-              <div class="s4-item-action">Positive signals stable — no intervention required</div>
-              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-stable"></div></div>
+              <div class="s4-progress-row">
+                <div class="s4-track"><div class="s4-fill" style="width:78%;background:rgba(96,165,250,.4);"></div></div>
+                <span class="s4-pct" style="color:rgba(96,165,250,.7);">78%</span>
+              </div>
+              <div class="s4-card-time">Last checked today</div>
             </div>
           </div>
 
