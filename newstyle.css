@@ -199,6 +199,36 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .s3-badge-monitor { background: rgba(245,158,11,.15); color: #fcd34d; }
 .s3-badge-strong { background: rgba(34,197,94,.1); color: #86efac; }
 
+/* ── Scene 4: Fix tracker ── */
+.s4-frame { background: rgba(18,12,6,.96); }
+.s4-header { flex-shrink: 0; padding-bottom: 12px; border-bottom: 0.5px solid rgba(255,255,255,.07); }
+.s4-hotel { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.s4-hotel-tag { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #60a5fa; background: rgba(96,165,250,.1); border: 0.5px solid rgba(96,165,250,.25); border-radius: 4px; padding: 2px 7px; }
+.s4-progress-strip { display: flex; gap: 16px; }
+.s4-prog-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .3px; }
+.s4-prog-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.s4-prog-done { color: #86efac; } .s4-prog-done .s4-prog-dot { background: #22c55e; }
+.s4-prog-active { color: #fcd34d; } .s4-prog-active .s4-prog-dot { background: #f59e0b; animation: pulse 2s infinite; }
+.s4-prog-watch { color: rgba(255,255,255,.35); } .s4-prog-watch .s4-prog-dot { background: rgba(255,255,255,.25); }
+
+.s4-items { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.s4-item { background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.06); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 5px; }
+.s4-item-active { background: rgba(245,158,11,.05); border-color: rgba(245,158,11,.15); }
+.s4-item-top { display: flex; align-items: center; justify-content: space-between; }
+.s4-item-theme { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.85); }
+.s4-item-action { font-size: 11px; color: rgba(255,255,255,.38); line-height: 1.5; }
+.s4-status { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px; }
+.s4-status-progress { background: rgba(245,158,11,.15); color: #fcd34d; }
+.s4-status-done { background: rgba(34,197,94,.12); color: #86efac; }
+.s4-status-watch { background: rgba(255,255,255,.06); color: rgba(255,255,255,.35); }
+.s4-pulse { width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; animation: pulse 1.5s infinite; flex-shrink: 0; }
+
+.s4-item-bar { height: 3px; background: rgba(255,255,255,.06); border-radius: 2px; overflow: hidden; }
+.s4-bar-fill { height: 100%; border-radius: 2px; }
+.s4-bar-60 { width: 60%; background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.s4-bar-100 { width: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); }
+.s4-bar-stable { width: 100%; background: rgba(255,255,255,.12); }
+
 .hero-for-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.12); border: 0.5px solid rgba(196,144,58,.45); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-600); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 28px; width: fit-content; }
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-500); animation: pulse 2.5s ease-in-out infinite; }
 .hero-headline { font-family: var(--font-display); font-size: 58px; font-weight: 500; line-height: 1.08; letter-spacing: -.5px; color: var(--navy-900); margin-bottom: 24px; }

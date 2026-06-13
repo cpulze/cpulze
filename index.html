@@ -177,7 +177,7 @@
           </div>
         </div>
 
-        <!-- Scene 3: cpulze report — 8 themes with severity -->
+        <!-- Scene 3: Severity report — 4 themes -->
         <div class="ai-frame" id="frame-3">
           <div class="s3-header">
             <div class="s3-hotel">The Moorland Lodge <span class="s3-hotel-tag">AI Narrative Report</span></div>
@@ -188,19 +188,13 @@
             <div class="s3-row s3-row-issue">
               <span class="s3-dot s3-issue"></span>
               <span class="s3-name">Noise &amp; Quiet</span>
-              <span class="s3-finding">Caveat in 3 of 3 AI responses</span>
+              <span class="s3-finding">Caveat present in 3 of 3 AI responses</span>
               <span class="s3-badge s3-badge-issue">Issue</span>
             </div>
             <div class="s3-row">
               <span class="s3-dot s3-monitor"></span>
               <span class="s3-name">Room Quality</span>
               <span class="s3-finding">Dated décor mentioned in 2 sources</span>
-              <span class="s3-badge s3-badge-monitor">Monitor</span>
-            </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-monitor"></span>
-              <span class="s3-name">Value Perception</span>
-              <span class="s3-finding">Described as 'reasonable' — not competitive</span>
               <span class="s3-badge s3-badge-monitor">Monitor</span>
             </div>
             <div class="s3-row">
@@ -215,29 +209,66 @@
               <span class="s3-finding">Warm and attentive — cited in 5 sources</span>
               <span class="s3-badge s3-badge-strong">Strong</span>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-strong"></span>
-              <span class="s3-name">Food &amp; Dining</span>
-              <span class="s3-finding">Breakfast praised; dinner footprint neutral</span>
-              <span class="s3-badge s3-badge-strong">Strong</span>
+          </div>
+
+          <div class="ai-mockup-annotation">
+            <div class="ai-annotation-eyebrow">⚑ cpulze finding</div>
+            <div class="ai-annotation-text"><strong>1 issue, 1 to monitor</strong> across themes reviewed. The noise caveat is live in AI responses now — and it's the first thing guests searching for quiet hotels see.</div>
+          </div>
+        </div>
+
+        <!-- Scene 4: Fix tracker — status of each correction -->
+        <div class="ai-frame s4-frame" id="frame-4">
+          <div class="s4-header">
+            <div class="s4-hotel">The Moorland Lodge <span class="s4-hotel-tag">Fix Tracker</span></div>
+            <div class="s4-progress-strip">
+              <span class="s4-prog-item s4-prog-done"><span class="s4-prog-dot"></span>1 actioned</span>
+              <span class="s4-prog-item s4-prog-active"><span class="s4-prog-dot"></span>1 in progress</span>
+              <span class="s4-prog-item s4-prog-watch"><span class="s4-prog-dot"></span>2 monitoring</span>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-strong"></span>
-              <span class="s3-name">Cleanliness</span>
-              <span class="s3-finding">No negative signals in any source</span>
-              <span class="s3-badge s3-badge-strong">Strong</span>
+          </div>
+
+          <div class="s4-items">
+            <div class="s4-item s4-item-active">
+              <div class="s4-item-top">
+                <span class="s4-item-theme">Noise &amp; Quiet</span>
+                <span class="s4-status s4-status-progress"><span class="s4-pulse"></span>In Progress</span>
+              </div>
+              <div class="s4-item-action">Management response submitted to TripAdvisor review · Monitoring AI refresh cycle</div>
+              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-60"></div></div>
             </div>
-            <div class="s3-row">
-              <span class="s3-dot s3-strong"></span>
-              <span class="s3-name">Check-in &amp; Arrival</span>
-              <span class="s3-finding">Smooth experience, consistently well reviewed</span>
-              <span class="s3-badge s3-badge-strong">Strong</span>
+
+            <div class="s4-item">
+              <div class="s4-item-top">
+                <span class="s4-item-theme">Room Quality</span>
+                <span class="s4-status s4-status-done">Actioned</span>
+              </div>
+              <div class="s4-item-action">Renovation detail added to 3 listing sources and hotel website</div>
+              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-100"></div></div>
+            </div>
+
+            <div class="s4-item">
+              <div class="s4-item-top">
+                <span class="s4-item-theme">Location &amp; Views</span>
+                <span class="s4-status s4-status-watch">Monitoring</span>
+              </div>
+              <div class="s4-item-action">Positive signals stable — no intervention required</div>
+              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-stable"></div></div>
+            </div>
+
+            <div class="s4-item">
+              <div class="s4-item-top">
+                <span class="s4-item-theme">Service &amp; Staff</span>
+                <span class="s4-status s4-status-watch">Monitoring</span>
+              </div>
+              <div class="s4-item-action">Positive signals stable — no intervention required</div>
+              <div class="s4-item-bar"><div class="s4-bar-fill s4-bar-stable"></div></div>
             </div>
           </div>
 
           <div class="ai-mockup-annotation">
             <div class="ai-annotation-eyebrow">⚑ cpulze finding</div>
-            <div class="ai-annotation-text"><strong>1 issue, 2 to monitor</strong> across 8 themes. The noise caveat is live in AI responses now — the others are early signals worth watching before they compound.</div>
+            <div class="ai-annotation-text"><strong>Fix in motion.</strong> The management response is live — cpulze is tracking whether Perplexity updates its answer at next refresh.</div>
           </div>
         </div>
 
@@ -248,6 +279,7 @@
           <span class="ai-mockup-dot active" data-frame="1"></span>
           <span class="ai-mockup-dot" data-frame="2"></span>
           <span class="ai-mockup-dot" data-frame="3"></span>
+          <span class="ai-mockup-dot" data-frame="4"></span>
         </div>
         <div class="ai-mockup-footer-note">Illustrative property names — findings reflect real AI behaviour</div>
       </div>
@@ -873,7 +905,8 @@
   const scenes = [
     { url: 'perplexity.ai', dotColor: '#20B8CD', engine: 'Perplexity', caption: 'Your hotel has an AI reputation. You didn\'t write it.' },
     { url: 'tripadvisor.com', dotColor: '#00AF87', engine: 'TripAdvisor', caption: 'One sentence. Three years old. Shaping your AI narrative today.' },
-    { url: 'app.cpulze.com', dotColor: '#C4903A', engine: 'cpulze', caption: 'Eight themes. One is costing you bookings right now.' },
+    { url: 'app.cpulze.com', dotColor: '#C4903A', engine: 'cpulze', caption: 'What AI is saying about your hotel, theme by theme.' },
+    { url: 'app.cpulze.com', dotColor: '#C4903A', engine: 'cpulze', caption: 'From signal to fix — tracked in one place.' },
   ];
 
   let current = 0;
