@@ -8,12 +8,13 @@
    ===================================================== */
 
 
-/* ─── HERO 40:60 SPLIT ──────────────────────────────── */
-.hero          { gap: 48px; }
-.hero-left     { flex: 2 0 0; min-width: 0; }
-.hero-right    { flex: 3 0 0; min-width: 0; }
+/* ─── HERO LAYOUT ───────────────────────────────────── */
+.hero          { gap: 56px; padding: 72px 56px; }
+.hero-left     { flex: 5 0 0; min-width: 0; }
+.hero-right    { flex: 5 0 0; min-width: 0; }
 .hero-headline { font-size: 48px; }
 .hero-headline em { color: var(--gold-700); font-style: italic; }
+.hero-sub      { max-width: 100%; }
 
 /* ─── 8-THEME CARD FONT BOOST ──────────────────────── */
 .step-card .step-title {
