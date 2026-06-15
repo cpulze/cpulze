@@ -493,12 +493,13 @@
   font-family: var(--font-mono);
   font-size: 10px;
   color: rgba(255,255,255,.55);
-  background: rgba(7,17,31,.72);
+  background: rgba(7,17,31,.85);
   backdrop-filter: blur(4px);
   padding: 7px 14px;
   border-bottom: 1px solid rgba(255,255,255,.07);
   line-height: 1.5;
 }
+.ai-frame { padding-top: 38px !important; }
 
 /* ─── NAV DROPDOWN ──────────────────────────────────── */
 .nav-dropdown-item { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.07); border-radius: 0; padding: 14px 14px; }
