@@ -155,29 +155,29 @@
   align-items: center;
 }
 .v2-signal-node {
-  background: var(--cream-100);
-  border: 1px solid var(--border);
+  background: var(--navy-900);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 12px;
   padding: 20px 22px;
   text-align: center;
 }
 .v2-signal-node.danger {
-  background: rgba(185,28,28,.05);
-  border-color: rgba(185,28,28,.2);
+  background: var(--navy-900);
+  border-color: rgba(239,68,68,.25);
 }
 .v2-signal-node-title {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: rgba(255,255,255,.9);
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
-.v2-signal-node.danger .v2-signal-node-title { color: #b91c1c; }
+.v2-signal-node.danger .v2-signal-node-title { color: #fca5a5; }
 .v2-signal-node-sub {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: rgba(255,255,255,.4);
   line-height: 1.55;
 }
 .v2-signal-arrow {
