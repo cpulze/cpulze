@@ -13,6 +13,7 @@
 .hero-left     { flex: 2 0 0; min-width: 0; }
 .hero-right    { flex: 3 0 0; min-width: 0; }
 .hero-headline { font-size: 48px; }
+.hero-headline em { color: var(--gold-700); font-style: italic; }
 
 /* ─── 8-THEME CARD FONT BOOST ──────────────────────── */
 .step-card .step-title {
