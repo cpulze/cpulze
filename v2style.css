@@ -23,9 +23,9 @@
 /* ─── MINI MIRROR ───────────────────────────────────── */
 .v2-mirror {
   padding: 100px 0;
-  background: #c8e8f0;
-  border-top: 1px solid #a8d4e0;
-  border-bottom: 1px solid #a8d4e0;
+  background: var(--cream-100);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .v2-mirror-inner {
   max-width: 1200px;
@@ -42,10 +42,10 @@
 
 .v2-mirror-sim {
   background: var(--white);
-  border: 1px solid #a8d4e0;
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 12px 48px rgba(0,90,120,.12);
+  box-shadow: 0 12px 48px rgba(0,0,0,.08);
 }
 .v2-mirror-chrome {
   display: flex;
