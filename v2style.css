@@ -483,6 +483,183 @@
 }
 
 
+/* ─── SCENE 3: AI FINDINGS REPORT ──────────────────── */
+.s3r-header {
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.s3r-hotel {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.s3r-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--gold-500);
+  background: rgba(196,144,58,.12);
+  border: 1px solid rgba(196,144,58,.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.s3r-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .03em;
+}
+.s3r-finding {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.s3r-finding:last-child { margin-bottom: 0; }
+.s3r-finding-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(239,68,68,.7);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.s3r-finding-quote {
+  font-size: 13px;
+  color: rgba(255,255,255,.82);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.s3r-finding-source {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.s3r-source-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(239,68,68,.6);
+  flex-shrink: 0;
+}
+
+/* ─── SCENE 4: COMPETITIVE INTELLIGENCE ─────────────── */
+.s4ci-header {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.s4ci-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.s4ci-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--gold-500);
+  background: rgba(196,144,58,.12);
+  border: 1px solid rgba(196,144,58,.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.s4ci-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .03em;
+}
+.s4ci-table { margin-bottom: 14px; }
+.s4ci-col-head {
+  display: grid;
+  grid-template-columns: 1fr 80px 110px;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding: 0 4px;
+}
+.s4ci-th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.s4ci-th.yours { color: var(--gold-500); }
+.s4ci-th.theirs { color: rgba(255,255,255,.3); }
+.s4ci-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 110px;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 4px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.s4ci-row:last-child { border-bottom: none; }
+.s4ci-theme {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.7);
+}
+.s4ci-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.s4ci-badge.strong  { background: rgba(34,197,94,.12);  color: #86efac; }
+.s4ci-badge.issue   { background: rgba(239,68,68,.12);  color: #fca5a5; }
+.s4ci-badge.monitor { background: rgba(245,158,11,.12); color: #fcd34d; }
+.s4ci-insight {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.s4ci-insight-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
 /* ─── RESPONSIVE ────────────────────────────────────── */
 @media (max-width: 1024px) {
   .v2-signal-flow { grid-template-columns: 1fr; gap: 0; }
