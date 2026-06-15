@@ -8,6 +8,10 @@
    ===================================================== */
 
 
+/* ─── HERO 40:60 SPLIT ──────────────────────────────── */
+.hero-left  { flex: 2 0 0; min-width: 0; }
+.hero-right { flex: 3 0 0; min-width: 0; }
+
 /* ─── 8-THEME CARD FONT BOOST ──────────────────────── */
 .step-card .step-title {
   font-size: 17px;
