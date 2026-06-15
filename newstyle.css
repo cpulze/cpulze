@@ -328,6 +328,50 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 .meth-stat-val { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--text); }
 .meth-stat-val em { font-style: normal; color: var(--gold-500); }
 
+/* ── Source stack (how-ai-decides) ── */
+.src-stack { display: flex; flex-direction: column; gap: 8px; }
+.src-chip { display: flex; align-items: center; gap: 12px; background: var(--cream-50); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; }
+.src-chip-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.src-chip-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.src-chip-age { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+.src-note { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); letter-spacing: .3px; }
+
+/* ── Blind spots stat column ── */
+.blind-stat-col { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+.blind-stat-card { padding: 24px 28px; background: var(--cream-50); border: 1px solid var(--border); border-radius: 12px; }
+.blind-stat-num { font-family: var(--font-display); font-size: 52px; font-weight: 500; color: var(--text); line-height: 1; margin-bottom: 8px; }
+.blind-stat-num em { color: var(--gold-500); font-style: normal; }
+.blind-stat-label { font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+
+/* ── How it works two-column ── */
+.how-two-col { display: grid; grid-template-columns: 45fr 55fr; gap: 80px; align-items: start; }
+.how-two-col .section-header-left { margin-bottom: 0; }
+.how-two-col .how-flow { margin-top: 0; max-width: none; }
+
+/* ── Delivery / promise card (report preview, services, faq) ── */
+.promise-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 28px 20px; box-shadow: 0 8px 32px rgba(0,0,0,.05); }
+.promise-card-title { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-500); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.promise-card-title::before { content: ''; width: 16px; height: 1px; background: var(--gold-400); }
+.promise-item { display: flex; align-items: flex-start; gap: 12px; padding: 13px 0; border-bottom: 0.5px solid var(--border); }
+.promise-item:last-child { border-bottom: none; padding-bottom: 4px; }
+.promise-icon { font-size: 14px; color: var(--gold-500); flex-shrink: 0; margin-top: 2px; }
+.promise-text { font-size: 14px; color: var(--text-mid); line-height: 1.55; }
+.promise-text strong { color: var(--text); font-weight: 600; }
+
+/* ── FAQ contact card ── */
+.faq-contact-card { background: var(--navy-900, #08101e); border-radius: 14px; padding: 32px; }
+.faq-contact-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-400); margin-bottom: 16px; }
+.faq-contact-hed { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: rgba(255,255,255,.9); line-height: 1.2; margin-bottom: 12px; }
+.faq-contact-body { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: 24px; }
+.faq-contact-cta { display: inline-block; font-size: 14px; font-weight: 600; color: var(--gold-400); border: 1px solid rgba(196,144,58,.35); border-radius: 8px; padding: 12px 20px; text-decoration: none; transition: border-color .2s, color .2s; }
+.faq-contact-cta:hover { color: var(--gold-300); border-color: rgba(196,144,58,.6); }
+
+/* Responsive: stack two-col layouts on tablet */
+@media (max-width: 960px) {
+  .section-two-col, .how-two-col, .meth-header-two-col { grid-template-columns: 1fr; gap: 40px; }
+  .section-two-col.col-55-45 { grid-template-columns: 1fr; }
+}
+
 /* ==========================================
    REPORT MOCKUP
    ========================================== */
