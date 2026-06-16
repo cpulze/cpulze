@@ -483,6 +483,24 @@
 }
 
 
+/* ─── MOCKUP DOT NAV — bigger hit area ──────────────── */
+.ai-mockup-dots { gap: 10px; }
+.ai-mockup-dot {
+  width: 10px;
+  height: 10px;
+  position: relative;
+}
+.ai-mockup-dot.active { width: 24px; }
+.ai-mockup-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+}
+
 /* ─── MOCKUP DISCLAIMER OVERLAY ─────────────────────── */
 .ai-mockup-disclaimer {
   position: absolute;
