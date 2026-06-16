@@ -380,13 +380,13 @@
   color: var(--text);
   line-height: 1.35;
   margin-bottom: 16px;
-  flex: 1;
 }
 .v2-offering-desc {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.75;
   margin-bottom: 24px;
+  flex: 1;
 }
 .v2-offering-cta {
   font-family: var(--font-body);
