@@ -19,8 +19,8 @@ export default async function handler(req, res) {
   }
 
   const host = req.headers['x-forwarded-host'] || req.headers.host || '';
-  const isStaging = host.includes('stage') || host.includes('localhost') || host.includes('vercel.app');
-  const turnstileSecret = isStaging ? '1x0000000000000000000000000000000AA' : process.env.TURNSTILE_SECRET_KEY;
+  const isProd = host === 'cpulze.com';
+  const turnstileSecret = isProd ? process.env.TURNSTILE_SECRET_KEY : '1x0000000000000000000000000000000AA';
 
   const cfVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',

@@ -620,10 +620,10 @@
           <script>
             window._turnstileToken = null;
             window.onloadTurnstile = function() {
-              const isStaging = location.hostname.includes('stage') || location.hostname.includes('localhost') || location.hostname.includes('vercel.app');
+              const isProd = location.hostname === 'cpulze.com';
               window.turnstile.render('#turnstile-widget', {
-                sitekey: isStaging ? '1x00000000000000000000AA' : '0x4AAAAAAC8M6t3_D7YZ3740',
-                appearance: isStaging ? 'execute' : 'interaction-only',
+                sitekey: isProd ? '0x4AAAAAAC8M6t3_D7YZ3740' : '1x00000000000000000000AA',
+                appearance: isProd ? 'interaction-only' : 'execute',
                 callback: function(token) { window._turnstileToken = token; }
               });
             };
