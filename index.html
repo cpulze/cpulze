@@ -710,15 +710,14 @@
 
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script>
-window.addEventListener('load', function() {
-  Calendly.initBadgeWidget({
-    url: 'https://calendly.com/ovais-cpulze/30min',
-    text: 'Book a Call',
-    color: '#c4903a',
-    textColor: '#07111f',
-    branding: false
-  });
-});
+(function() {
+  var btn = document.createElement('a');
+  btn.id = 'cpulze-cal-btn';
+  btn.href = 'javascript:void(0)';
+  btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V21a1 1 0 01-1 1A18 18 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>Book a discovery call';
+  btn.onclick = function() { Calendly.initPopupWidget({ url: 'https://calendly.com/ovais-cpulze/30min' }); return false; };
+  document.body.appendChild(btn);
+})();
 </script>
 </body>
 </html>
