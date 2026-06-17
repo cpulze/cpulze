@@ -514,6 +514,8 @@
 /* ─── BUTTON CONSISTENCY — gold bg, dark navy text ──── */
 .btn-nav       { color: var(--navy-900) !important; }
 .btn-hero-cta  { color: var(--navy-900) !important; }
+.btn-scan      { background: var(--gold-500) !important; color: var(--navy-900) !important; }
+.btn-scan:hover { background: var(--gold-600) !important; }
 
 
 /* ─── MOCKUP DOT NAV — bigger hit area ──────────────── */
