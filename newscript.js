@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const turnstileToken = window._turnstileToken || document.querySelector('[name="cf-turnstile-response"]')?.value;
 
+      if (!turnstileToken) {
+        this.textContent = 'Security check not ready — please wait a moment';
+        this.style.backgroundColor = '#c0392b';
+        setTimeout(() => {
+          this.textContent = originalText;
+          this.style.backgroundColor = '';
+          this.disabled = false;
+        }, 3000);
+        return;
+      }
+
       try {
         const response = await fetch('/api/scan-signup', {
           method: 'POST',
