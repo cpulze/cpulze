@@ -621,9 +621,9 @@
             window._turnstileToken = null;
             window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
             (function() {
-              const isStaging = location.hostname.includes('stage.cpulze.com') || location.hostname.includes('stage2.cpulze.com');
+              const isStaging = location.hostname.includes('stage') || location.hostname.includes('localhost') || location.hostname.includes('vercel.app');
               const w = document.getElementById('turnstile-widget');
-              w.setAttribute('data-sitekey', isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740');
+              w.setAttribute('data-sitekey', isStaging ? '1x00000000000000000000AA' : '0x4AAAAAAC8M6t3_D7YZ3740');
               w.setAttribute('data-appearance', isStaging ? 'execute' : 'interaction-only');
             })();
           </script>

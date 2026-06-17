@@ -18,10 +18,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Security token missing' });
   }
 
+  const host = req.headers['x-forwarded-host'] || req.headers.host || '';
+  const isStaging = host.includes('stage') || host.includes('localhost') || host.includes('vercel.app');
+  const turnstileSecret = isStaging ? '1x0000000000000000000000000000000AA' : process.env.TURNSTILE_SECRET_KEY;
+
   const cfVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}`
+    body: `secret=${turnstileSecret}&response=${turnstileToken}`
   });
   const cfData = await cfVerify.json();
   if (!cfData.success) {
