@@ -18,7 +18,7 @@
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <link rel="stylesheet" href="newstyle.css">
 <link rel="stylesheet" href="v2style.css">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstile" async defer></script>
 <script src="newscript.js" defer></script>
 <script type="application/ld+json">
 {
@@ -616,16 +616,17 @@
             <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
             <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
           </div>
-          <div id="turnstile-widget" class="cf-turnstile" data-theme="light" data-callback="cpulzeOnTurnstile"></div>
+          <div id="turnstile-widget"></div>
           <script>
             window._turnstileToken = null;
-            window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
-            (function() {
+            window.onloadTurnstile = function() {
               const isStaging = location.hostname.includes('stage') || location.hostname.includes('localhost') || location.hostname.includes('vercel.app');
-              const w = document.getElementById('turnstile-widget');
-              w.setAttribute('data-sitekey', isStaging ? '1x00000000000000000000AA' : '0x4AAAAAAC8M6t3_D7YZ3740');
-              w.setAttribute('data-appearance', isStaging ? 'execute' : 'interaction-only');
-            })();
+              window.turnstile.render('#turnstile-widget', {
+                sitekey: isStaging ? '1x00000000000000000000AA' : '0x4AAAAAAC8M6t3_D7YZ3740',
+                appearance: isStaging ? 'execute' : 'interaction-only',
+                callback: function(token) { window._turnstileToken = token; }
+              });
+            };
           </script>
           <button class="btn-scan" id="scanBtn">Run your free scan →</button>
         </div>
