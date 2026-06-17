@@ -616,16 +616,23 @@
             <input type="email" id="hotel-email" placeholder="Your email — report delivered here">
             <input type="text" id="website-url" style="display:none;" tabindex="-1" autocomplete="off">
           </div>
-          <div id="turnstile-widget" class="cf-turnstile" data-theme="light" data-callback="cpulzeOnTurnstile"></div>
+          <div id="turnstile-widget"></div>
           <script>
             window._turnstileToken = null;
             window.cpulzeOnTurnstile = function(token) { window._turnstileToken = token; };
-            (function() {
+            function renderTurnstile() {
+              if (!window.turnstile) {
+                setTimeout(renderTurnstile, 100);
+                return;
+              }
               const isStaging = location.hostname.includes('stage.cpulze.com') || location.hostname.includes('stage2.cpulze.com');
-              const w = document.getElementById('turnstile-widget');
-              w.setAttribute('data-sitekey', isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740');
-              w.setAttribute('data-appearance', isStaging ? 'execute' : 'interaction-only');
-            })();
+              window.turnstile.render('#turnstile-widget', {
+                sitekey: isStaging ? '0x4AAAAAADE--QSE8pI6S7Ko' : '0x4AAAAAAC8M6t3_D7YZ3740',
+                appearance: isStaging ? 'execute' : 'interaction-only',
+                callback: window.cpulzeOnTurnstile
+              });
+            }
+            document.addEventListener('DOMContentLoaded', renderTurnstile);
           </script>
           <button class="btn-scan" id="scanBtn">Run your free scan →</button>
         </div>
