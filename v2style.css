@@ -483,6 +483,20 @@
 }
 
 
+/* ─── NAV FREE SCAN BUTTON — dark text ──────────────── */
+.btn-nav { color: var(--navy-900) !important; }
+
+/* ─── CALENDLY BADGE WIDGET OVERRIDES ───────────────── */
+.calendly-badge-widget .calendly-badge-content {
+  border-radius: 8px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  letter-spacing: -0.01em !important;
+  padding: 12px 22px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25) !important;
+}
+
 /* ─── MOCKUP DOT NAV — bigger hit area ──────────────── */
 .ai-mockup-dots { gap: 10px; }
 .ai-mockup-dot {
