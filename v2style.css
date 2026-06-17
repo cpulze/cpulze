@@ -511,8 +511,9 @@
 }
 #cpulze-cal-btn:active { transform: translateY(-1px); }
 
-/* ─── NAV FREE SCAN BUTTON — dark text ──────────────── */
-.btn-nav { color: var(--navy-900) !important; }
+/* ─── BUTTON CONSISTENCY — gold bg, dark navy text ──── */
+.btn-nav       { color: var(--navy-900) !important; }
+.btn-hero-cta  { color: var(--navy-900) !important; }
 
 
 /* ─── MOCKUP DOT NAV — bigger hit area ──────────────── */
