@@ -20,14 +20,17 @@
 <link rel="stylesheet" href="v2style.css">
 <script>
   window._turnstileToken = null;
-  window.onloadTurnstile = function() {
-    var isProd = location.hostname === 'cpulze.com';
-    window.turnstile.render('#turnstile-widget', {
-      sitekey: isProd ? '0x4AAAAAAC8M6t3_D7YZ3740' : '1x00000000000000000000AA',
-      appearance: isProd ? 'interaction-only' : 'execute',
-      callback: function(token) { window._turnstileToken = token; }
-    });
-  };
+  if (location.hostname === 'cpulze.com') {
+    window.onloadTurnstile = function() {
+      window.turnstile.render('#turnstile-widget', {
+        sitekey: '0x4AAAAAAC8M6t3_D7YZ3740',
+        appearance: 'interaction-only',
+        callback: function(token) { window._turnstileToken = token; }
+      });
+    };
+  } else {
+    window._turnstileToken = 'staging-bypass';
+  }
 </script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstile" async defer></script>
 <script src="newscript.js" defer></script>

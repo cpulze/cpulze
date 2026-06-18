@@ -20,17 +20,18 @@ export default async function handler(req, res) {
 
   const host = req.headers['x-forwarded-host'] || req.headers.host || '';
   const isProd = host === 'cpulze.com';
-  const turnstileSecret = isProd ? process.env.TURNSTILE_SECRET_KEY : '1x0000000000000000000000000000000AA';
 
-  const cfVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `secret=${turnstileSecret}&response=${turnstileToken}`
-  });
-  const cfData = await cfVerify.json();
-  if (!cfData.success) {
-    console.error('Turnstile failed:', JSON.stringify(cfData));
-    return res.status(403).json({ error: 'Failed security challenge' });
+  if (isProd || turnstileToken !== 'staging-bypass') {
+    const cfVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}`
+    });
+    const cfData = await cfVerify.json();
+    if (!cfData.success) {
+      console.error('Turnstile failed:', JSON.stringify(cfData));
+      return res.status(403).json({ error: 'Failed security challenge' });
+    }
   }
 
   const SUPABASE_URL = process.env.SUPABASE_URL;
