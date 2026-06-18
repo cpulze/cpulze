@@ -52,14 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const data = await response.json();
         if (response.ok) {
-          this.textContent = data.is_new_user
-            ? '✓ Check your inbox — click the link to start your scan'
-            : '✓ Scan running — check your inbox';
+          this.textContent = '✓ Request received — check your inbox';
           this.style.backgroundColor = '#2a7a50';
-        } else if (data.error === 'account_exists') {
-          throw new Error('You already have an account — sign in to run another scan.');
+        } else if (data.error === 'rate_limit_24h') {
+          throw new Error('You\'ve submitted 3 scans in the last 24 hours. Please try again tomorrow.');
         } else if (data.error === 'scan_limit_reached') {
-          throw new Error('You\'ve used all 5 free scans. Sign in to continue.');
+          throw new Error('You\'ve used all 5 free scans. Email ovais@cpulze.com to continue.');
         } else {
           throw new Error(data.error || 'Something went wrong. Please try again.');
         }
