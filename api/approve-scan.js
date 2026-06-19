@@ -61,13 +61,14 @@ export default async function handler(req, res) {
         'X-Webhook-Secret': process.env.WEBHOOK_SECRET
       },
       body: JSON.stringify({
-        scan_id:     scan.scan_id,
-        email:       scan.email,
-        hotel_name:  scan.hotel_name,
-        location:    scan.location,
-        tier:        scan.tier || 'free',
-        user_id:     scan.user_id,
-        is_new_user: scan.is_new_user ?? false
+        scan_id:          scan.scan_id,
+        email:            scan.email,
+        hotel_name:       scan.hotel_name,
+        location:         scan.location,
+        tier:             scan.tier || 'free',
+        user_id:          scan.user_id,
+        is_new_user:      scan.is_new_user ?? false,
+        mark_sent_token:  scan.mark_sent_token || ''
       })
     });
   } catch (err) {

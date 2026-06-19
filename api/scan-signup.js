@@ -152,8 +152,16 @@ export default async function handler(req, res) {
     })
   });
 
-  // Generate HMAC approval token
-  const token      = createHmac('sha256', process.env.APPROVAL_SECRET || 'fallback-secret').update(scanId).digest('hex');
+  // Generate HMAC tokens
+  const secret         = process.env.APPROVAL_SECRET || 'fallback-secret';
+  const token          = createHmac('sha256', secret).update(scanId).digest('hex');
+  const markSentToken  = createHmac('sha256', secret).update(`sent:${scanId}`).digest('hex');
+
+  await fetch(`${SUPABASE_URL}/rest/v1/scans?scan_id=eq.${encodeURIComponent(scanId)}`, {
+    method: 'PATCH',
+    headers: { ...sbHeaders, 'Prefer': 'return=minimal' },
+    body: JSON.stringify({ mark_sent_token: markSentToken })
+  });
   const origin     = isProd ? 'https://cpulze.com' : `https://${host}`;
   const approvalUrl = `${origin}/api/approve-scan?scan_id=${encodeURIComponent(scanId)}&token=${encodeURIComponent(token)}`;
 
