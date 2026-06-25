@@ -815,9 +815,9 @@
 /* ─── PDF REPORT TEASER (main page) ─────────────────── */
 .v2-report-teaser {
   background:
-    radial-gradient(ellipse 70% 80% at 80% 50%, rgba(16,185,129,.10) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 80% at 80% 50%, rgba(225,29,72,.10) 0%, transparent 65%),
     radial-gradient(ellipse 50% 60% at 10% 80%, rgba(12,28,48,.7) 0%, transparent 70%),
-    linear-gradient(145deg, #0c1c30 0%, #0d2618 45%, #081a10 100%);
+    linear-gradient(145deg, #0c1c30 0%, #1c0d12 45%, #130810 100%);
   padding: 88px 0;
   position: relative;
   overflow: hidden;
@@ -846,7 +846,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent 0%, #10b981 30%, #6ee7b7 60%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #e11d48 30%, #fda4af 60%, transparent 100%);
 }
 
 /* Dot grid texture */
@@ -878,7 +878,7 @@
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: #fda4af;
   display: block;
   margin-bottom: 16px;
 }
@@ -913,12 +913,12 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: #10b981;
+  color: #e11d48;
   font-weight: 600;
 }
 .v2-report-teaser-cta {
   display: inline-block;
-  background: #10b981;
+  background: #e11d48;
   color: #fff;
   font-family: var(--font-body);
   font-size: 15px;
@@ -928,19 +928,19 @@
   text-decoration: none;
   transition: background .18s;
 }
-.v2-report-teaser-cta:hover { background: #0d9668; }
+.v2-report-teaser-cta:hover { background: #be123c; }
 
 /* PDF cover mockup */
 .v2-report-cover-wrap { display: flex; justify-content: center; }
 .v2-report-cover {
-  background: linear-gradient(160deg, #1a3d2e 0%, #0f2a1e 100%);
-  border: 1px solid rgba(16,185,129,.15);
+  background: linear-gradient(160deg, #3d1a22 0%, #2a0f18 100%);
+  border: 1px solid rgba(225,29,72,.15);
   border-radius: 14px;
   padding: 40px 36px 36px;
   width: 260px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 60px rgba(16,185,129,.08);
+  box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 60px rgba(225,29,72,.08);
   position: relative;
   overflow: hidden;
 }
@@ -949,14 +949,14 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: #10b981;
+  background: #e11d48;
 }
 .v2-report-cover-eyebrow {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: #fda4af;
   margin-bottom: 24px;
 }
 .v2-report-cover-title {
@@ -970,7 +970,7 @@
 .v2-report-cover-rule {
   width: 32px;
   height: 2px;
-  background: #10b981;
+  background: #e11d48;
   margin-bottom: 20px;
 }
 .v2-report-cover-sub {
@@ -986,7 +986,7 @@
   font-weight: 500;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: #10b981;
+  color: #e11d48;
 }
 
 @media (max-width: 900px) {
