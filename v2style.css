@@ -217,8 +217,6 @@
 /* ─── PROOF SNAPSHOTS ───────────────────────────────── */
 .v2-proof {
   padding: 100px 0;
-  background: var(--navy-900);
-  border-bottom: none;
 }
 .v2-proof-inner {
   max-width: 1200px;
@@ -811,6 +809,81 @@
   .v2-founder-inner { padding: 0 24px; }
 }
 
+
+/* ─── EIGHT THEMES — DARK NAVY OVERRIDE ─────────────── */
+.section.navy-theme {
+  background: var(--navy-900);
+  position: relative;
+}
+.section.navy-theme::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196,144,58,.45) 30%, rgba(196,144,58,.6) 50%, rgba(196,144,58,.45) 70%, transparent 100%);
+}
+.navy-theme .section-tag   { color: var(--gold-300); }
+.navy-theme .section-title { color: var(--white); }
+.navy-theme .section-title em { color: var(--gold-300); }
+.navy-theme .section-desc  { color: rgba(255,255,255,.55); }
+
+.navy-theme .meth-stats-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: none;
+}
+.navy-theme .meth-stats-title { color: var(--gold-300); }
+.navy-theme .meth-stats-title::before { background: var(--gold-400); }
+.navy-theme .meth-stat-row   { border-bottom-color: rgba(255,255,255,.07); }
+.navy-theme .meth-stat-label { color: rgba(255,255,255,.5); }
+.navy-theme .meth-stat-val   { color: var(--white); }
+.navy-theme .meth-stat-val em { color: var(--gold-300); }
+
+.navy-theme .step-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-top: 2px solid rgba(196,144,58,.25);
+}
+.navy-theme .step-card:hover {
+  background: rgba(255,255,255,.07);
+  border-top-color: rgba(196,144,58,.55);
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.navy-theme .step-title { color: var(--white); }
+.navy-theme .step-desc  { color: rgba(255,255,255,.55); }
+
+/* ─── REAL FINDINGS — LIGHT CREAM (matches HOW WE WORK) */
+.v2-proof {
+  background: var(--cream-50);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.v2-proof-tag { color: var(--gold-600); }
+.v2-proof-hed { color: var(--navy-900); }
+
+.v2-proof-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,.05);
+}
+.v2-proof-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.v2-proof-finding { color: var(--text-mid); }
+.v2-proof-verbatim {
+  background: var(--cream-100);
+  border-left: 3px solid var(--gold-400);
+  border-radius: 0 6px 6px 0;
+  color: var(--navy-700);
+  font-style: italic;
+}
+.v2-proof-source { color: var(--text-muted); }
 
 /* ─── PDF REPORT TEASER (main page) ─────────────────── */
 .v2-report-teaser {
