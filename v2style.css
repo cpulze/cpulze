@@ -885,6 +885,42 @@
 }
 .v2-proof-source { color: var(--text-muted); }
 
+.v2-proof-query {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.v2-proof-why {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.v2-proof-intervention {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  background: var(--cream-100);
+  border-left: 3px solid var(--gold-500);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+.v2-proof-intervention-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  display: inline-block;
+  margin-bottom: 4px;
+  margin-right: 6px;
+}
+
 /* ─── PDF REPORT TEASER (main page) ─────────────────── */
 .v2-report-teaser {
   background:
