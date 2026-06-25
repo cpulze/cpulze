@@ -804,9 +804,39 @@
   .v2-proof-inner,
   .v2-insights-inner,
   .v2-offerings-header,
-  .v2-offerings-grid { padding: 0 24px; }
-  .v2-signal-flow { padding: 0 24px; }
-  .v2-founder-inner { padding: 0 24px; }
+  .v2-offerings-grid { padding: 0 20px; }
+  .v2-signal-flow { padding: 0 20px; }
+  .v2-founder-inner { padding: 0 20px; }
+
+  /* Founder */
+  .v2-founder-quote { font-size: 20px; line-height: 1.65; }
+  .v2-founder { padding: 64px 0; }
+
+  /* Proof cards */
+  .v2-proof { padding: 64px 0; }
+  .v2-proof-hed { font-size: 28px; }
+  .v2-proof-card { padding: 24px 20px; }
+
+  /* Insights */
+  .v2-insights { padding: 64px 0; }
+  .v2-insights-hed { font-size: 28px; }
+
+  /* Report teaser */
+  .v2-report-teaser { padding: 56px 0; }
+  .v2-report-teaser-inner { flex-direction: column; gap: 32px; padding: 0 20px; }
+  .v2-report-cover-wrap { display: none; }
+  .v2-report-teaser-hed { font-size: 32px; }
+  .v2-report-teaser-text { max-width: 100%; }
+
+  /* Floating call button — collapse to compact */
+  #cpulze-cal-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 13px;
+    gap: 7px;
+    border-radius: 8px;
+  }
 }
 
 

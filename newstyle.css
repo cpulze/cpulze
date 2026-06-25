@@ -85,7 +85,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .service-price { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--gold-400); line-height: 1; margin-bottom: 12px; }
 .nav-signin { font-size: 14px; color: rgba(255,255,255,.55); text-decoration: none; font-weight: 500; border: 0.5px solid rgba(255,255,255,.2); padding: 8px 16px; border-radius: 6px; transition: all .2s; }
 .nav-signin:hover { color: var(--white); border-color: rgba(255,255,255,.4); }
-.btn-nav { font-family: var(--font-body); font-size: 14px; font-weight: 600; background: var(--gold-500); color: var(--white); padding: 10px 20px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; transition: background .2s; }
+.btn-nav { font-family: var(--font-body); font-size: 14px; font-weight: 600; background: var(--gold-500); color: var(--white); padding: 10px 20px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; transition: background .2s; white-space: nowrap; }
 .btn-nav:hover { background: var(--gold-600); }
 
 /* ==========================================
@@ -832,17 +832,36 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .pricing-grid { grid-template-columns: 1fr; max-width: 460px; }
 }
 @media (max-width: 640px) {
-  .hero-headline { font-size: 38px; }
+  /* Nav */
+  .nav-right .nav-link { display: none; }
+  .btn-nav { padding: 9px 14px; font-size: 13px; white-space: nowrap; }
+  .nav-inner { padding: 0 20px; }
+
+  /* Hero */
+  .hero { padding: 48px 20px 40px; }
+  .hero-headline { font-size: 36px; line-height: 1.15; }
+  .hero-sub { font-size: 15px; }
+  .hero-for-pill { align-items: flex-start; font-size: 11px; }
+  .hero-pill-dot { margin-top: 4px; flex-shrink: 0; }
+  .btn-hero-cta { width: 100%; text-align: center; justify-content: center; }
+
+  /* Proof strip */
   .hero-proof { flex-direction: column; gap: 16px; }
   .proof-strip-inner { flex-wrap: wrap; gap: 20px; }
   .proof-stat { border-right: none; flex: 0 0 40%; }
+
+  /* Sections */
   .steps-grid { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
-  .section-title { font-size: 32px; }
-  .cta-headline { font-size: 34px; }
+  .section-title { font-size: 28px; }
+  .section-desc { font-size: 15px; }
+  .cta-headline { font-size: 30px; }
+
+  /* Tabs */
   .tab-nav { flex-direction: column; }
   .tab-btn { border-right: none; border-bottom: 1px solid var(--border); }
-  .nav-right .nav-link { display: none; }
+
+  /* Dashboard */
   .d-onboard-card { padding: 32px 22px; }
   .d-onboard-title { font-size: 28px; }
   .d-header-inner { flex-direction: column; align-items: flex-start; }
