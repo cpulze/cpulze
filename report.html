@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Narrative Gap — Free Report · cpulze</title>
+<meta name="description" content="Patterns from 41 hotel scans — what AI says about independent hotels, what owners don't know, and what determines who gets the booking.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="newstyle.css">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--navy-950); color: var(--white); font-family: var(--font-body); min-height: 100vh; }
+
+/* ── NAV ─────────────────────────────────────────────── */
+.rp-nav {
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.rp-nav-logo { height: 44px; width: auto; display: block; }
+.rp-nav-back {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255,255,255,.4);
+  text-decoration: none;
+  letter-spacing: .05em;
+}
+.rp-nav-back:hover { color: rgba(255,255,255,.7); }
+
+/* ── HERO ─────────────────────────────────────────────── */
+.rp-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* ── COVER MOCKUP ─────────────────────────────────────── */
+.rp-cover-wrap { position: sticky; top: 40px; }
+.rp-cover {
+  background: var(--navy-800);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 48px 44px 44px;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  box-shadow: 0 40px 100px rgba(0,0,0,.5);
+  position: relative;
+  overflow: hidden;
+}
+.rp-cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--gold-400);
+}
+.rp-cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  margin-bottom: 32px;
+}
+.rp-cover-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.0;
+  margin-bottom: 24px;
+}
+.rp-cover-rule {
+  width: 40px;
+  height: 2px;
+  background: var(--gold-400);
+  margin-bottom: 24px;
+}
+.rp-cover-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.45);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 40px;
+}
+.rp-cover-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.rp-cover-brand {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+.rp-cover-pages {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,.25);
+  margin-left: auto;
+}
+
+/* ── FORM PANEL ──────────────────────────────────────── */
+.rp-form-panel {}
+.rp-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  display: block;
+  margin-bottom: 16px;
+}
+.rp-hed {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.rp-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+/* What's inside */
+.rp-inside-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 12px;
+}
+.rp-bullets {
+  list-style: none;
+  margin-bottom: 40px;
+}
+.rp-bullets li {
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+  padding: 11px 0 11px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  line-height: 1.55;
+}
+.rp-bullets li:last-child { border-bottom: none; }
+.rp-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold-400);
+  font-weight: 600;
+}
+
+/* Gate form */
+.rp-form {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 32px;
+}
+.rp-form-hed {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.rp-form-note {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+}
+.rp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.rp-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.rp-field input {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--white);
+  outline: none;
+  transition: border-color .18s;
+  width: 100%;
+}
+.rp-field input::placeholder { color: rgba(255,255,255,.25); }
+.rp-field input:focus { border-color: var(--gold-400); }
+.rp-submit {
+  width: 100%;
+  background: var(--gold-400);
+  color: var(--navy-900);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background .18s;
+}
+.rp-submit:hover { background: var(--gold-300); }
+.rp-submit:disabled { opacity: .55; cursor: not-allowed; }
+.rp-trust {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,.28);
+  margin-top: 14px;
+}
+
+/* Success state */
+.rp-success {
+  display: none;
+  text-align: center;
+  padding: 24px 0;
+}
+.rp-success-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+.rp-success-hed {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.rp-success-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.65;
+}
+
+/* Error */
+.rp-error {
+  display: none;
+  font-size: 13px;
+  color: #fca5a5;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── SOCIAL PROOF STRIP ──────────────────────────────── */
+.rp-proof {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 40px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.rp-proof-stat { text-align: center; flex: 1; }
+.rp-proof-num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--gold-300);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.rp-proof-label {
+  font-size: 12px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.5;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.rp-footer {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.rp-footer-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,.2);
+}
+.rp-footer-links { display: flex; gap: 20px; }
+.rp-footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,.3);
+  text-decoration: none;
+}
+.rp-footer-links a:hover { color: rgba(255,255,255,.6); }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .rp-hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 48px 24px 64px;
+  }
+  .rp-cover-wrap { display: none; }
+  .rp-nav { padding: 16px 24px; }
+  .rp-proof { flex-wrap: wrap; gap: 24px; padding: 32px 24px; }
+  .rp-footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .rp-footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="rp-nav">
+  <a href="/"><img src="/assets/logo-white.svg" alt="cpulze" class="rp-nav-logo"></a>
+  <a href="/" class="rp-nav-back">← Back to cpulze.com</a>
+</nav>
+
+<!-- MAIN -->
+<main class="rp-hero">
+
+  <!-- LEFT: PDF cover mockup -->
+  <div class="rp-cover-wrap">
+    <div class="rp-cover">
+      <div class="rp-cover-eyebrow">Industry Report · cpulze · 2026</div>
+      <div class="rp-cover-title">The AI<br>Narrative<br>Gap</div>
+      <div class="rp-cover-rule"></div>
+      <div class="rp-cover-sub">What 41 hotel scans reveal about how AI describes independent hotels — and what owners can do about it</div>
+      <div class="rp-cover-meta">
+        <div class="rp-cover-brand">cpulze</div>
+        <div class="rp-cover-pages">Free · 2026 edition</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form panel -->
+  <div class="rp-form-panel">
+    <span class="rp-tag">Free Industry Report</span>
+    <h1 class="rp-hed">The AI Narrative Gap</h1>
+    <p class="rp-sub">Patterns from 41 hotel scans — what AI says, what owners don't know, and what determines who gets the booking.</p>
+
+    <div class="rp-inside-label">What's inside</div>
+    <ul class="rp-bullets">
+      <li>The 5 narrative themes that cost independent hotels the most bookings</li>
+      <li>Why star ratings have near-zero correlation with AI positioning</li>
+      <li>The gap between open search and sceptical search — for the same hotel</li>
+      <li>Which platforms AI engines weight most heavily in 2026</li>
+      <li>What "AI narrative risk" looks like in practice — with real verbatim examples</li>
+    </ul>
+
+    <div class="rp-form" id="rp-form-wrap">
+      <div class="rp-form-hed">Get the report</div>
+      <div class="rp-form-note">Sent to your inbox. One email. No sequences.</div>
+
+      <form id="reportForm" novalidate>
+        <div class="rp-field">
+          <label for="rp-name">First name</label>
+          <input type="text" id="rp-name" name="name" placeholder="Your first name" autocomplete="given-name" required>
+        </div>
+        <div class="rp-field">
+          <label for="rp-email">Email address</label>
+          <input type="email" id="rp-email" name="email" placeholder="Where should we send it?" autocomplete="email" required>
+        </div>
+        <div class="rp-field">
+          <label for="rp-property">Hotel or property name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input type="text" id="rp-property" name="property" placeholder="Helps us personalise future insights">
+        </div>
+
+        <button type="submit" class="rp-submit" id="rp-submit-btn">Send me the report →</button>
+        <div class="rp-trust">No spam · No sequences · One email with the PDF</div>
+        <div class="rp-error" id="rp-error">Something went wrong. Email us directly at <a href="mailto:ovais@cpulze.com" style="color:#fca5a5;">ovais@cpulze.com</a></div>
+      </form>
+
+      <div class="rp-success" id="rp-success">
+        <div class="rp-success-icon">✓</div>
+        <div class="rp-success-hed">Report on its way</div>
+        <div class="rp-success-sub">Check your inbox — we'll send it within a few hours.<br>If it doesn't arrive, email <a href="mailto:ovais@cpulze.com" style="color:rgba(255,255,255,.6);">ovais@cpulze.com</a> directly.</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- SOCIAL PROOF STRIP -->
+<div class="rp-proof">
+  <div class="rp-proof-stat">
+    <div class="rp-proof-num">41</div>
+    <div class="rp-proof-label">hotel scans<br>analysed</div>
+  </div>
+  <div class="rp-proof-stat">
+    <div class="rp-proof-num">3</div>
+    <div class="rp-proof-label">AI engines<br>per scan</div>
+  </div>
+  <div class="rp-proof-stat">
+    <div class="rp-proof-num">8</div>
+    <div class="rp-proof-label">narrative themes<br>tracked</div>
+  </div>
+  <div class="rp-proof-stat">
+    <div class="rp-proof-num">47+</div>
+    <div class="rp-proof-label">sources indexed<br>per scan</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="rp-footer">
+  <span class="rp-footer-text">cpulze · © 2026</span>
+  <div class="rp-footer-links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:ovais@cpulze.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const form   = document.getElementById('reportForm');
+  const btn    = document.getElementById('rp-submit-btn');
+  const errEl  = document.getElementById('rp-error');
+  const succEl = document.getElementById('rp-success');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.style.display = 'none';
+
+    const name     = document.getElementById('rp-name').value.trim();
+    const email    = document.getElementById('rp-email').value.trim();
+    const property = document.getElementById('rp-property').value.trim();
+
+    if (!name || !email) return;
+
+    btn.disabled   = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/report-lead', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, property }),
+      });
+
+      if (!res.ok) throw new Error('Server error');
+
+      form.style.display        = 'none';
+      document.querySelector('.rp-form-hed').style.display  = 'none';
+      document.querySelector('.rp-form-note').style.display = 'none';
+      succEl.style.display = 'block';
+    } catch (err) {
+      errEl.style.display  = 'block';
+      btn.disabled         = false;
+      btn.textContent      = 'Send me the report →';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
