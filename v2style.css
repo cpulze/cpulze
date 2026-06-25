@@ -814,9 +814,53 @@
 
 /* ─── PDF REPORT TEASER (main page) ─────────────────── */
 .v2-report-teaser {
-  background: #0d2618;
+  background:
+    radial-gradient(ellipse 70% 80% at 80% 50%, rgba(16,185,129,.10) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(12,28,48,.7) 0%, transparent 70%),
+    linear-gradient(145deg, #0c1c30 0%, #0d2618 45%, #081a10 100%);
   padding: 88px 0;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Watermark "41" */
+.v2-report-teaser::before {
+  content: '41';
+  position: absolute;
+  top: 50%;
+  left: 48px;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 320px;
+  font-weight: 600;
+  color: rgba(255,255,255,.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* Top accent border */
+.v2-report-teaser::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #10b981 30%, #6ee7b7 60%, transparent 100%);
+}
+
+/* Dot grid texture */
+.v2-report-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,.4) 40%, transparent 80%);
+  -webkit-mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,.4) 40%, transparent 80%);
+}
+
 .v2-report-teaser-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -825,6 +869,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .v2-report-teaser-tag {
   font-family: var(--font-mono);
@@ -887,14 +933,14 @@
 /* PDF cover mockup */
 .v2-report-cover-wrap { display: flex; justify-content: center; }
 .v2-report-cover {
-  background: #14332a;
-  border: 1px solid rgba(255,255,255,.07);
+  background: linear-gradient(160deg, #1a3d2e 0%, #0f2a1e 100%);
+  border: 1px solid rgba(16,185,129,.15);
   border-radius: 14px;
   padding: 40px 36px 36px;
   width: 260px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 32px 80px rgba(0,0,0,.45);
+  box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 60px rgba(16,185,129,.08);
   position: relative;
   overflow: hidden;
 }
