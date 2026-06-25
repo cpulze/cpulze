@@ -1,6 +1,7 @@
 const STAGING_HOSTS = [
   'app.stage.cpulze.com',
   'stage.cpulze.com',
+  'stage2.cpulze.com',
 ]
 
 function isStaging(hostname) {

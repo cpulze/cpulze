@@ -13,6 +13,10 @@
     {
       "source": "/ownervoice/:slug",
       "destination": "/ownervoice/index.html"
+    },
+    {
+      "source": "/report",
+      "destination": "/report.html"
     }
   ]
 }
