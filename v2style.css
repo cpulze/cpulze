@@ -951,3 +951,20 @@
   .v2-report-teaser-inner { padding: 0 24px; }
   .v2-report-teaser-hed { font-size: 34px; }
 }
+
+/* ─── SCAN CTA CALENDLY LINK ────────────────────────── */
+.cta-or-divider {
+  font-size: 13px;
+  color: rgba(255,255,255,.3);
+  text-align: center;
+  margin: 16px 0 12px;
+}
+.cta-calendly-link {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  transition: color .18s;
+}
+.cta-calendly-link:hover { color: rgba(255,255,255,.9); }
