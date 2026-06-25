@@ -828,8 +828,15 @@
   .v2-report-teaser-hed { font-size: 32px; }
   .v2-report-teaser-text { max-width: 100%; }
 
-  /* Floating call button — hide on mobile, drawer CTA serves this */
-  #cpulze-cal-btn { display: none !important; }
+  /* Floating call button — compact on mobile */
+  #cpulze-cal-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 11px 16px;
+    font-size: 13px;
+    gap: 7px;
+    border-radius: 50px;
+  }
 }
 
 
