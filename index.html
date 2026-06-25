@@ -70,9 +70,47 @@
       </div>
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#scan" class="btn-nav">Free scan →</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <div class="mobile-nav-header">
+    <img src="/assets/logo-white.svg" alt="cpulze" style="height:44px;width:auto;">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#how" class="mobile-nav-link">How it works</a>
+    <div class="mobile-nav-divider"></div>
+    <div class="mobile-nav-section-label">Services</div>
+    <a href="#scan" class="mobile-nav-link mobile-nav-link-sub">AI Narrative Scan <span class="mobile-nav-badge">FREE</span></a>
+    <a href="#services" class="mobile-nav-link mobile-nav-link-sub">Recommendations Report</a>
+    <a href="#services" class="mobile-nav-link mobile-nav-link-sub">Narrative Correction</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+  </div>
+  <a href="#scan" class="mobile-nav-cta">Run your free scan →</a>
+</div>
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+<script>
+(function() {
+  var btn = document.getElementById('navHamburger');
+  var drawer = document.getElementById('mobileNavDrawer');
+  var overlay = document.getElementById('mobileNavOverlay');
+  var close = document.getElementById('mobileNavClose');
+  function open() { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function shut() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  drawer.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(function(a) { a.addEventListener('click', shut); });
+})();
+</script>
 
 <!-- HERO -->
 <section class="hero">
