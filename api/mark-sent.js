@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   const { scan_id, token } = req.query || {};
   if (!scan_id || !token) return res.status(400).send('Missing parameters.');
 
-  const adminToken = process.env.MARK_SENT_SECRET;
+  const adminToken = process.env.APPROVAL_SECRET;
   if (!adminToken || token !== adminToken) return res.status(401).send('Invalid link.');
 
   const SUPABASE_URL = process.env.SUPABASE_URL;
