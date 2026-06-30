@@ -15,10 +15,6 @@
       "destination": "/ownervoice/index.html"
     },
     {
-      "source": "/report",
-      "destination": "/report.html"
-    },
-    {
       "source": "/strategy",
       "destination": "/strategy/index.html"
     }
