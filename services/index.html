@@ -96,52 +96,17 @@ body { font-family:var(--font-body); background:var(--cream-50); color:var(--tex
 /* ─── VISUAL BLOCKS ─── */
 .svc-visual { margin:0 0 48px; }
 
-/* AI MIRROR — split panel */
-.mirror-wrap {
-  display:grid;
-  grid-template-columns:1fr 1fr;
+/* AI MIRROR — image */
+.mirror-img-wrap {
   border:1px solid var(--border);
   border-radius:14px;
   overflow:hidden;
+  line-height:0;
 }
-.mirror-side { padding:28px 24px; }
-.mirror-yours { background:#fff; border-right:1px solid var(--border); }
-.mirror-ai { background:var(--navy-900); }
-.mirror-side-label {
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--text-muted);
-  margin-bottom:16px;
-}
-.mirror-ai .mirror-side-label { color:rgba(255,255,255,.3); }
-.mirror-quote {
-  font-family:var(--font-display);
-  font-size:19px;
-  font-style:italic;
-  line-height:1.55;
-  color:var(--text);
-  margin-bottom:16px;
-}
-.mirror-ai .mirror-quote { color:rgba(255,255,255,.85); }
-.mirror-source {
-  font-family:var(--font-mono);
-  font-size:10px;
-  color:var(--text-muted);
-  letter-spacing:.04em;
-}
-.mirror-ai .mirror-source { color:var(--gold-400); }
-.mirror-dot {
-  display:inline-block;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#e05a3a;
-  margin-right:5px;
-  vertical-align:middle;
-  position:relative;
-  top:-1px;
+.mirror-img {
+  width:100%;
+  height:auto;
+  display:block;
 }
 
 /* OWNER VOICE — before / after */
@@ -371,8 +336,6 @@ body { font-family:var(--font-body); background:var(--cream-50); color:var(--tex
 }
 
 @media(max-width:520px) {
-  .mirror-wrap { grid-template-columns:1fr; }
-  .mirror-yours { border-right:none; border-bottom:1px solid var(--border); }
   .voice-wrap { grid-template-columns:1fr; }
   .voice-before { border-right:none; border-bottom:1px solid var(--border); }
   .voice-divider { padding:14px 0; border-right:none; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -411,17 +374,8 @@ body { font-family:var(--font-body); background:var(--cream-50); color:var(--tex
     <p class="svc-desc">Before a guest reads a review, before they visit your website, AI engines have already formed a view of your property. Most independent hotel owners don't know what that view is, or what's shaping it. AI Mirror gives you the complete picture — delivered as a single, clear report after our first conversation.</p>
 
     <div class="svc-visual">
-      <div class="mirror-wrap">
-        <div class="mirror-side mirror-yours">
-          <div class="mirror-side-label">Your hotel's story</div>
-          <div class="mirror-quote">"Award-winning service. Beautifully restored. Highly personal."</div>
-          <div class="mirror-source">Your website · your marketing</div>
-        </div>
-        <div class="mirror-side mirror-ai">
-          <div class="mirror-side-label">What AI says first</div>
-          <div class="mirror-quote"><span class="mirror-dot"></span>"Noise from the corridor. Staff seemed rushed. Overpriced for what it is."</div>
-          <div class="mirror-source">A 2021 review · still being cited today</div>
-        </div>
+      <div class="mirror-img-wrap">
+        <img src="/assets/ai-mirror.png" alt="AI Mirror — your hotel's story on the left, what AI says first on the right" class="mirror-img" width="1550" height="842">
       </div>
     </div>
 
