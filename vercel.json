@@ -15,6 +15,10 @@
       "destination": "/ownervoice/index.html"
     },
     {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
       "source": "/strategy",
       "destination": "/strategy/index.html"
     }
