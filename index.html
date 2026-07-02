@@ -612,7 +612,7 @@
 })();
 </script>
 
-<!-- INSIGHT FEED — dark section with intelligence snippets -->
+<!-- INSIGHT FEED — dark section, image-led reel of 5 findings -->
 <section class="v2-insights">
   <div class="v2-insights-inner">
     <span class="v2-insights-tag">PATTERNS WE'RE SEEING</span>
@@ -624,50 +624,100 @@
         <span class="v2-insights-data-num">76</span><span class="v2-insights-data-label">findings documented</span>
       </div>
     </div>
+  </div>
 
-    <!-- Hero stat card -->
-    <div class="v2-insight-card v2-insight-card--hero">
-      <div class="v2-insight-stat">83%</div>
-      <div class="v2-insight-body">
-        <div class="v2-insight-theme">The AI Misrepresentation Gap</div>
-        <!-- TODO: illustrated visual pending — /assets/insight-gap.png -->
-        <div class="v2-insight-text">83% of independent hotels are misrepresented in AI search — their public narrative shaped by invisible review signals, not their official marketing or star rating.</div>
+  <div class="v2-insights-reel" id="insightsReel">
+    <div class="v2-insight-slide">
+      <div class="v2-insight-slide-inner">
+        <div class="v2-insight-slide-head">
+          <span class="v2-insight-slide-stat">83%</span>
+          <span class="v2-insight-slide-theme">The AI Misrepresentation Gap</span>
+        </div>
+        <div class="v2-insight-slide-visual">
+          <!-- TODO: illustrated visual pending — /assets/insight-gap.png -->
+        </div>
+        <p class="v2-insight-slide-text">83% of independent hotels are misrepresented in AI search — their public narrative shaped by invisible review signals, not their official marketing or star rating.</p>
       </div>
     </div>
-
-    <!-- 2-col grid -->
-    <div class="v2-insights-grid">
-      <div class="v2-insight-card">
-        <div class="v2-insight-stat">85%</div>
-        <div class="v2-insight-theme">Single-Source Query Dominance</div>
-        <!-- TODO: illustrated visual pending — /assets/insight-single-source.png -->
-        <div class="v2-insight-text">One outlier review from years ago can drive up to 85% of the AI's response caveat.</div>
+    <div class="v2-insight-slide">
+      <div class="v2-insight-slide-inner">
+        <div class="v2-insight-slide-head">
+          <span class="v2-insight-slide-stat">85%</span>
+          <span class="v2-insight-slide-theme">Single-Source Query Dominance</span>
+        </div>
+        <div class="v2-insight-slide-visual">
+          <!-- TODO: illustrated visual pending — /assets/insight-single-source.png -->
+        </div>
+        <p class="v2-insight-slide-text">One outlier review from years ago can drive up to 85% of the AI's response caveat.</p>
       </div>
-      <div class="v2-insight-card">
-        <div class="v2-insight-stat">80%</div>
-        <div class="v2-insight-theme">Star Rating Vs Structural Reality</div>
-        <div class="v2-insight-visual">
+    </div>
+    <div class="v2-insight-slide">
+      <div class="v2-insight-slide-inner">
+        <div class="v2-insight-slide-head">
+          <span class="v2-insight-slide-stat">80%</span>
+          <span class="v2-insight-slide-theme">Star Rating Vs Structural Reality</span>
+        </div>
+        <div class="v2-insight-slide-visual">
           <img src="/assets/insight-structural.png" alt="Five stars on one side, a crossed-out elevator icon overtaking the rating on the other" width="1818" height="366">
         </div>
-        <div class="v2-insight-text">A missing elevator outweighs five gold stars 80% of the time.</div>
-      </div>
-      <div class="v2-insight-card">
-        <div class="v2-insight-stat">25%</div>
-        <div class="v2-insight-theme">The Staff Stickiness Anchor</div>
-        <!-- TODO: illustrated visual pending — /assets/insight-staff.png -->
-        <div class="v2-insight-text">In 1 of every 4 scans, staff attitude persists as the top narrative risk long after physical issues are fixed.</div>
-      </div>
-      <div class="v2-insight-card">
-        <div class="v2-insight-stat">3×</div>
-        <div class="v2-insight-theme">The Low-Volume Vulnerability</div>
-        <!-- TODO: illustrated visual pending — /assets/insight-low-volume.png -->
-        <div class="v2-insight-text">Under 50 reviews, one vivid quote hits three times harder — with no volume to dilute the signal.</div>
+        <p class="v2-insight-slide-text">A missing elevator outweighs five gold stars 80% of the time.</p>
       </div>
     </div>
+    <div class="v2-insight-slide">
+      <div class="v2-insight-slide-inner">
+        <div class="v2-insight-slide-head">
+          <span class="v2-insight-slide-stat">25%</span>
+          <span class="v2-insight-slide-theme">The Staff Stickiness Anchor</span>
+        </div>
+        <div class="v2-insight-slide-visual">
+          <!-- TODO: illustrated visual pending — /assets/insight-staff.png -->
+        </div>
+        <p class="v2-insight-slide-text">In 1 of every 4 scans, staff attitude persists as the top narrative risk long after physical issues are fixed.</p>
+      </div>
+    </div>
+    <div class="v2-insight-slide">
+      <div class="v2-insight-slide-inner">
+        <div class="v2-insight-slide-head">
+          <span class="v2-insight-slide-stat">3×</span>
+          <span class="v2-insight-slide-theme">The Low-Volume Vulnerability</span>
+        </div>
+        <div class="v2-insight-slide-visual">
+          <!-- TODO: illustrated visual pending — /assets/insight-low-volume.png -->
+        </div>
+        <p class="v2-insight-slide-text">Under 50 reviews, one vivid quote hits three times harder — with no volume to dilute the signal.</p>
+      </div>
+    </div>
+  </div>
 
+  <div class="v2-insights-dots" id="insightsDots" aria-hidden="true">
+    <span class="v2-insights-dot is-active"></span>
+    <span class="v2-insights-dot"></span>
+    <span class="v2-insights-dot"></span>
+    <span class="v2-insights-dot"></span>
+    <span class="v2-insights-dot"></span>
+  </div>
+
+  <div class="v2-insights-inner">
     <div class="v2-insight-note">Patterns observed across cpulze scan data · independent, boutique and luxury properties · UK, EU &amp; US</div>
   </div>
 </section>
+<script>
+(function() {
+  var reel = document.getElementById('insightsReel');
+  var dots = document.querySelectorAll('#insightsDots .v2-insights-dot');
+  if (!reel || !dots.length) return;
+  var slides = reel.querySelectorAll('.v2-insight-slide');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var i = Array.prototype.indexOf.call(slides, entry.target);
+        dots.forEach(function(d, di) { d.classList.toggle('is-active', di === i); });
+      }
+    });
+  }, { root: reel, threshold: 0.6 });
+  slides.forEach(function(s) { observer.observe(s); });
+})();
+</script>
 
 <section class="v2-founder">
   <div class="v2-founder-inner">
