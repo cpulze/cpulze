@@ -535,6 +535,126 @@
   color: rgba(255,255,255,.55);
   line-height: 1.7;
 }
+
+/* ─── Insight card micro-visuals ────────────────────── */
+.v2-insight-visual {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 4px 0 16px;
+}
+
+/* Hero: owner narrative ≠ AI narrative */
+.v2-gap-visual { gap: 14px; }
+.v2-gap-bubble {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.v2-gap-bubble--owner { background: var(--gold-400); color: var(--navy-950); }
+.v2-gap-bubble--ai {
+  background: rgba(255,255,255,.05);
+  border: 1px dashed rgba(255,255,255,.3);
+  color: rgba(255,255,255,.55);
+}
+.v2-gap-neq {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+
+/* 85%: one loud quote drowns the small ones */
+.v2-quote-visual { gap: 5px; align-items: flex-end; }
+.v2-quote-mini {
+  width: 11px;
+  height: auto;
+  fill: rgba(255,255,255,.25);
+  flex-shrink: 0;
+}
+.v2-quote-mini:nth-child(2) { transform: translateY(3px); }
+.v2-quote-dominant {
+  width: 40px;
+  height: auto;
+  fill: var(--gold-300);
+  margin-left: 6px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 14px rgba(196,144,58,.4));
+}
+
+/* 80%: star rating struck through, structural fact wins */
+.v2-star-visual { gap: 10px; }
+.v2-star-row {
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.3);
+}
+.v2-star-row::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 50%;
+  height: 2px;
+  background: var(--gold-400);
+  transform: rotate(-6deg);
+}
+.v2-visual-arrow { color: var(--gold-300); font-size: 15px; flex-shrink: 0; }
+.v2-fact-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--navy-950);
+  background: var(--gold-400);
+  border-radius: 5px;
+  padding: 6px 9px;
+  white-space: nowrap;
+}
+
+/* 25%: 1 of 4 scans, staff attitude persists */
+.v2-dot-visual { gap: 8px; }
+.v2-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  flex-shrink: 0;
+}
+.v2-dot--active {
+  width: 16px;
+  height: 16px;
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 4px rgba(196,144,58,.16);
+}
+
+/* 3×: low review volume amplifies risk */
+.v2-mult-visual { gap: 10px; align-items: flex-end; }
+.v2-mult-bar {
+  width: 20px;
+  border-radius: 3px 3px 0 0;
+}
+.v2-mult-bar--base { height: 14px; background: rgba(255,255,255,.18); }
+.v2-mult-bar--risk { height: 42px; background: var(--gold-400); }
+.v2-mult-x {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+
 .v2-insight-note {
   margin-top: 28px;
   font-family: var(--font-mono);

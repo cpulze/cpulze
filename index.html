@@ -630,7 +630,12 @@
       <div class="v2-insight-stat">83%</div>
       <div class="v2-insight-body">
         <div class="v2-insight-theme">The AI Misrepresentation Gap</div>
-        <div class="v2-insight-text">83% of independent hotels are currently misrepresented in AI search results by guest reviews the owner is unaware are being cited. For most properties, their public narrative is controlled by invisible signals — not their official marketing or star rating.</div>
+        <div class="v2-insight-visual v2-gap-visual" aria-hidden="true">
+          <div class="v2-gap-bubble v2-gap-bubble--owner">★</div>
+          <span class="v2-gap-neq">≠</span>
+          <div class="v2-gap-bubble v2-gap-bubble--ai">!</div>
+        </div>
+        <div class="v2-insight-text">83% of independent hotels are misrepresented in AI search — their public narrative shaped by invisible review signals, not their official marketing or star rating.</div>
       </div>
     </div>
 
@@ -639,22 +644,44 @@
       <div class="v2-insight-card">
         <div class="v2-insight-stat">85%</div>
         <div class="v2-insight-theme">Single-Source Query Dominance</div>
-        <div class="v2-insight-text">For high-intent queries, a single outlier review from years ago can drive up to 85% of the AI's response caveat. One 2022 complaint about a service corridor becomes the definitive noise warning for every guest researching that attribute.</div>
+        <div class="v2-insight-visual v2-quote-visual" aria-hidden="true">
+          <svg class="v2-quote-mini" viewBox="0 0 24 20"><path d="M6 0C2.7 0 0 2.7 0 6v5.3C0 14.9 2.4 17.3 6 17.3v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H6V0zm12 0c-3.3 0-6 2.7-6 6v5.3c0 3.6 2.4 6 6 6v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H18V0z"/></svg>
+          <svg class="v2-quote-mini" viewBox="0 0 24 20"><path d="M6 0C2.7 0 0 2.7 0 6v5.3C0 14.9 2.4 17.3 6 17.3v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H6V0zm12 0c-3.3 0-6 2.7-6 6v5.3c0 3.6 2.4 6 6 6v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H18V0z"/></svg>
+          <svg class="v2-quote-mini" viewBox="0 0 24 20"><path d="M6 0C2.7 0 0 2.7 0 6v5.3C0 14.9 2.4 17.3 6 17.3v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H6V0zm12 0c-3.3 0-6 2.7-6 6v5.3c0 3.6 2.4 6 6 6v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H18V0z"/></svg>
+          <svg class="v2-quote-dominant" viewBox="0 0 24 20"><path d="M6 0C2.7 0 0 2.7 0 6v5.3C0 14.9 2.4 17.3 6 17.3v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H6V0zm12 0c-3.3 0-6 2.7-6 6v5.3c0 3.6 2.4 6 6 6v-3.3c-1.5 0-2.7-1.2-2.7-2.7V8.7H18V0z"/></svg>
+        </div>
+        <div class="v2-insight-text">One outlier review from years ago can drive up to 85% of the AI's response caveat.</div>
       </div>
       <div class="v2-insight-card">
         <div class="v2-insight-stat">80%</div>
         <div class="v2-insight-theme">Structural Reality vs. Star Rating</div>
-        <div class="v2-insight-text">An AI property narrative is 80% more likely to be defined by structural operational facts than its official star rating. AI acts as a digital auditor — immutable facts like a missing elevator or a water supply failure outweigh any luxury label.</div>
+        <div class="v2-insight-visual v2-star-visual" aria-hidden="true">
+          <span class="v2-star-row">★★★★★</span>
+          <span class="v2-visual-arrow">→</span>
+          <span class="v2-fact-chip">structural fact</span>
+        </div>
+        <div class="v2-insight-text">AI acts as a digital auditor — a missing elevator outweighs any luxury star rating 80% of the time.</div>
       </div>
       <div class="v2-insight-card">
         <div class="v2-insight-stat">25%</div>
         <div class="v2-insight-theme">The Staff Stickiness Anchor</div>
-        <div class="v2-insight-text">In 25% of all scans, Staff Attitude was the primary narrative risk — persisting as a deterrent even after physical issues were resolved. AI reads patterns of dismissive staff as a systemic cultural trait, not an isolated incident.</div>
+        <div class="v2-insight-visual v2-dot-visual" aria-hidden="true">
+          <span class="v2-dot v2-dot--active"></span>
+          <span class="v2-dot"></span>
+          <span class="v2-dot"></span>
+          <span class="v2-dot"></span>
+        </div>
+        <div class="v2-insight-text">In 1 of every 4 scans, staff attitude persists as the top narrative risk long after physical issues are fixed.</div>
       </div>
       <div class="v2-insight-card">
         <div class="v2-insight-stat">3×</div>
         <div class="v2-insight-theme">The Low-Volume Vulnerability</div>
-        <div class="v2-insight-text">Properties with fewer than 50 reviews face 3× higher risk of single-source narrative dominance. Without volume to dilute the signal, one vivid quote from 2020 permanently defines how Perplexity, Gemini, and ChatGPT describe a boutique hotel in 2026.</div>
+        <div class="v2-insight-visual v2-mult-visual" aria-hidden="true">
+          <div class="v2-mult-bar v2-mult-bar--base"></div>
+          <span class="v2-mult-x">×3</span>
+          <div class="v2-mult-bar v2-mult-bar--risk"></div>
+        </div>
+        <div class="v2-insight-text">Under 50 reviews, one vivid quote hits three times harder — with no volume to dilute the signal.</div>
       </div>
     </div>
 
