@@ -906,6 +906,9 @@
   /* Insights */
   .v2-insights { padding: 64px 0; }
   .v2-insights-hed { font-size: 28px; }
+  .v2-insight-slide { padding: 0 20px; }
+  .v2-insight-slide-head { flex-direction: column; gap: 6px; }
+  .v2-insight-slide-visual { min-height: 200px; }
 
   /* Report teaser */
   .v2-report-teaser { padding: 56px 0; }
