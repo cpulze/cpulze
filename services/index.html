@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — cpulze</title>
+<meta name="description" content="AI narrative management for independent hotels. AI Mirror, Owner Voice, Who's Winning, Keep Vigil — a personal service from scan to lasting narrative shift.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@font-face { font-family:'Cormorant Garamond'; src:url('/fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Cormorant Garamond'; src:url('/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Cormorant Garamond'; src:url('/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Cormorant Garamond'; src:url('/fonts/cormorant-garamond-v21-latin-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Cormorant Garamond'; src:url('/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'DM Sans'; src:url('/fonts/dm-sans-v17-latin-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'DM Sans'; src:url('/fonts/dm-sans-v17-latin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'DM Sans'; src:url('/fonts/dm-sans-v17-latin-600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'DM Sans'; src:url('/fonts/dm-sans-v17-latin-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'DM Mono'; src:url('/fonts/dm-mono-v16-latin-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'DM Mono'; src:url('/fonts/dm-mono-v16-latin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+
+:root {
+  --navy-900:#0c1c30; --navy-800:#102540; --navy-700:#163355;
+  --cream-50:#faf7f3; --cream-100:#f3ede4;
+  --gold-400:#d4a84a; --gold-500:#b8882e; --gold-700:#7c5010;
+  --text:#15100b; --text-mid:#3a2e22; --text-muted:#7a6e60;
+  --border:#e0d8cc;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-mono:'DM Mono',monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font-body); background:var(--cream-50); color:var(--text); line-height:1.6; }
+
+/* NAV */
+.svc-nav { background:var(--navy-900); border-bottom:1px solid rgba(255,255,255,.08); padding:0 32px; height:64px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+.svc-nav-logo img { height:44px; width:auto; display:block; }
+.svc-nav-back { font-family:var(--font-mono); font-size:12px; color:rgba(255,255,255,.5); text-decoration:none; letter-spacing:.04em; transition:color .2s; }
+.svc-nav-back:hover { color:var(--gold-400); }
+
+/* PAGE HEADER */
+.svc-hero { background:var(--navy-900); padding:80px 32px 72px; text-align:center; }
+.svc-hero-tag { font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; color:var(--gold-400); text-transform:uppercase; margin-bottom:20px; }
+.svc-hero-title { font-family:var(--font-display); font-size:clamp(42px,6vw,68px); font-weight:600; color:#fff; line-height:1.1; margin-bottom:20px; }
+.svc-hero-title em { font-style:italic; color:var(--gold-400); }
+.svc-hero-sub { font-size:17px; color:rgba(255,255,255,.55); max-width:520px; margin:0 auto 36px; line-height:1.7; }
+.svc-hero-nav { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.svc-hero-nav a { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:rgba(255,255,255,.5); text-decoration:none; padding:6px 14px; border:1px solid rgba(255,255,255,.12); border-radius:20px; transition:all .2s; }
+.svc-hero-nav a:hover { color:var(--gold-400); border-color:var(--gold-400); }
+
+/* SERVICE SECTIONS */
+.svc-section { padding:88px 32px; }
+.svc-section.alt { background:var(--cream-100); }
+.svc-section.dark { background:var(--navy-900); color:#fff; }
+.svc-inner { max-width:760px; margin:0 auto; }
+.svc-tag { font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-500); margin-bottom:20px; display:block; }
+.svc-section.dark .svc-tag { color:var(--gold-400); }
+.svc-question { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:600; line-height:1.2; color:var(--text); margin-bottom:24px; }
+.svc-section.dark .svc-question { color:#fff; }
+.svc-desc { font-size:17px; line-height:1.75; color:var(--text-mid); margin-bottom:40px; }
+.svc-section.dark .svc-desc { color:rgba(255,255,255,.6); }
+.svc-receive { margin-bottom:40px; }
+.svc-receive-label { font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:16px; }
+.svc-section.dark .svc-receive-label { color:rgba(255,255,255,.35); }
+.svc-receive-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.svc-receive-list li { display:flex; align-items:flex-start; gap:12px; font-size:16px; color:var(--text-mid); line-height:1.5; }
+.svc-section.dark .svc-receive-list li { color:rgba(255,255,255,.7); }
+.svc-receive-list li::before { content:'—'; font-family:var(--font-mono); color:var(--gold-500); flex-shrink:0; margin-top:1px; }
+.svc-section.dark .svc-receive-list li::before { color:var(--gold-400); }
+.svc-cta { display:inline-block; font-size:15px; font-weight:600; color:var(--navy-900); background:var(--gold-400); padding:12px 24px; border-radius:8px; text-decoration:none; transition:background .2s; margin-bottom:20px; }
+.svc-cta:hover { background:var(--gold-500); }
+.svc-section.dark .svc-cta { color:var(--navy-900); }
+.svc-note { font-size:13px; color:var(--text-muted); font-style:italic; margin-top:4px; }
+.svc-section.dark .svc-note { color:rgba(255,255,255,.35); }
+.svc-divider { width:40px; height:2px; background:var(--gold-400); opacity:.3; margin:0 auto; }
+
+/* BUNDLE */
+.svc-bundle { background:var(--navy-800); border-top:1px solid rgba(255,255,255,.08); padding:88px 32px; text-align:center; }
+.svc-bundle-inner { max-width:600px; margin:0 auto; }
+.svc-bundle-tag { font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; color:var(--gold-400); text-transform:uppercase; margin-bottom:20px; display:block; }
+.svc-bundle-title { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:600; color:#fff; line-height:1.2; margin-bottom:16px; }
+.svc-bundle-sub { font-size:16px; color:rgba(255,255,255,.5); margin-bottom:36px; line-height:1.7; }
+.svc-bundle-cta { display:inline-block; font-size:15px; font-weight:600; color:var(--navy-900); background:var(--gold-400); padding:14px 28px; border-radius:8px; text-decoration:none; transition:background .2s; cursor:pointer; border:none; font-family:var(--font-body); }
+.svc-bundle-cta:hover { background:var(--gold-500); }
+
+/* FOOTER */
+.svc-footer { background:var(--navy-900); border-top:1px solid rgba(255,255,255,.06); padding:32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.svc-footer-copy { font-size:13px; color:rgba(255,255,255,.3); font-family:var(--font-mono); }
+.svc-footer-link { font-size:13px; color:rgba(255,255,255,.35); text-decoration:none; font-family:var(--font-mono); }
+.svc-footer-link:hover { color:var(--gold-400); }
+
+/* ─── VISUAL BLOCKS ─── */
+.svc-visual { margin:0 0 48px; }
+
+/* AI MIRROR — image */
+.mirror-img-wrap {
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  line-height:0;
+}
+.mirror-img {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+
+/* KEEP VIGIL — monitoring timeline + alert */
+.vigil-wrap {
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:28px 24px;
+  background:#fff;
+}
+.vigil-header {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:28px;
+}
+.vigil-timeline {
+  display:flex;
+  align-items:flex-start;
+  margin-bottom:28px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.vigil-stop {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  flex-shrink:0;
+  min-width:52px;
+}
+.vigil-dot {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:2px solid;
+  flex-shrink:0;
+  margin-bottom:8px;
+}
+.vigil-dot--clear { border-color:var(--border); background:var(--cream-50); }
+.vigil-dot--alert { border-color:#e05a3a; background:#e05a3a; }
+.vigil-connector {
+  flex:1;
+  height:2px;
+  background:var(--border);
+  align-self:flex-start;
+  margin-top:4px;
+  min-width:32px;
+}
+.vigil-connector--alert { background:#e05a3a; }
+.vigil-month-label {
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-muted);
+  margin-bottom:3px;
+  letter-spacing:.04em;
+}
+.vigil-status {
+  font-size:11px;
+  color:var(--text-muted);
+}
+.vigil-status--alert { color:#c04a2c; font-weight:600; }
+.vigil-alert-card {
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  background:#fff8f5;
+  border:1px solid rgba(224,90,58,.2);
+  border-radius:10px;
+  padding:16px 18px;
+}
+.vigil-alert-icon {
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#e05a3a;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-family:var(--font-mono);
+  margin-top:1px;
+}
+.vigil-alert-title {
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#c04a2c;
+  margin-bottom:5px;
+}
+.vigil-alert-desc {
+  font-size:14px;
+  color:var(--text-mid);
+  line-height:1.5;
+}
+.vigil-alert-time {
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-muted);
+  margin-top:8px;
+  letter-spacing:.04em;
+}
+
+@media(max-width:640px) {
+  .svc-nav { padding:0 20px; }
+  .svc-hero { padding:56px 20px 52px; }
+  .svc-section { padding:64px 20px; }
+  .svc-bundle { padding:64px 20px; }
+  .svc-footer { padding:24px 20px; flex-direction:column; align-items:flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="svc-nav">
+  <a href="/" class="svc-nav-logo"><img src="/assets/logo-white.svg" alt="cpulze"></a>
+  <a href="/" class="svc-nav-back">← cpulze.com</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="svc-hero">
+  <div class="svc-hero-tag">Our Services</div>
+  <h1 class="svc-hero-title">Your hotel's AI narrative,<br><em>managed.</em></h1>
+  <p class="svc-hero-sub">Four services, one through-line — from understanding what AI says about your property to ensuring it stays accurate as your hotel evolves.</p>
+  <nav class="svc-hero-nav">
+    <a href="#ai-mirror">AI Mirror</a>
+    <a href="#owner-voice">Owner Voice</a>
+    <a href="#whos-winning">Who's Winning</a>
+    <a href="#keep-vigil">Keep Vigil</a>
+  </nav>
+</header>
+
+<!-- AI MIRROR -->
+<section class="svc-section" id="ai-mirror">
+  <div class="svc-inner">
+    <span class="svc-tag">AI Mirror</span>
+    <h2 class="svc-question">What is AI actually saying about your hotel — and why?</h2>
+    <p class="svc-desc">Before a guest reads a review, before they visit your website, AI engines have already formed a view of your property. Most independent hotel owners don't know what that view is, or what's shaping it. AI Mirror gives you the complete picture — delivered as a single, clear report after our first conversation.</p>
+
+    <div class="svc-visual">
+      <div class="mirror-img-wrap">
+        <img src="/assets/ai-mirror.png" alt="AI Mirror — your hotel's story on the left, what AI says first on the right" class="mirror-img" width="1550" height="842">
+      </div>
+    </div>
+
+    <div class="svc-receive">
+      <div class="svc-receive-label">What you receive</div>
+      <ul class="svc-receive-list">
+        <li>Your Narrative Risk Score — a single measure of where your AI narrative stands today</li>
+        <li>What AI says about your property in its own words, across the moments that matter most to guests</li>
+        <li>A clear breakdown of what is shaping the narrative and where the risk is concentrated</li>
+        <li>An executive summary with the findings that matter most, in plain language</li>
+      </ul>
+    </div>
+    <a href="mailto:info@cpulze.com" class="svc-cta">Talk to us about AI Mirror →</a>
+    <p class="svc-note">Most clients follow AI Mirror with Owner Voice.</p>
+  </div>
+</section>
+
+<div class="svc-divider"></div>
+
+<!-- OWNER VOICE -->
+<section class="svc-section alt" id="owner-voice">
+  <div class="svc-inner">
+    <span class="svc-tag">Owner Voice</span>
+    <h2 class="svc-question">You know the problem. How do you fix it — and keep it fixed?</h2>
+    <p class="svc-desc">Knowing what AI says is the start. What matters is changing it — and making sure it stays changed as your hotel evolves. A recommendations report tells you exactly what to address and in what order. We then build and maintain your Narrative Ledger — a living record of what is actually true about your property — updated monthly. As your hotel changes, your narrative changes with it.</p>
+
+    <div class="svc-visual">
+      <div class="mirror-img-wrap">
+        <img src="/assets/owner-voice.png" alt="Owner Voice — narrative unmanaged on the left, owner voice applied on the right" class="mirror-img" width="1094" height="603">
+      </div>
+    </div>
+
+    <div class="svc-receive">
+      <div class="svc-receive-label">What you receive</div>
+      <ul class="svc-receive-list">
+        <li>A prioritised recommendations report with clear, sequenced next steps</li>
+        <li>Your Narrative Ledger — maintained monthly as your property and its story evolve</li>
+        <li>Regular updates that keep your property's narrative current and accurate</li>
+        <li>A narrative review at month twelve to measure the shift</li>
+      </ul>
+    </div>
+    <a href="mailto:info@cpulze.com" class="svc-cta">Talk to us about Owner Voice →</a>
+    <p class="svc-note">Owner Voice is an annual engagement. Most clients treat it as their ongoing AI narrative relationship.</p>
+  </div>
+</section>
+
+<div class="svc-divider"></div>
+
+<!-- WHO'S WINNING -->
+<section class="svc-section dark" id="whos-winning">
+  <div class="svc-inner">
+    <span class="svc-tag">Who's Winning</span>
+    <h2 class="svc-question">Why is the hotel down the road being cited — and you aren't?</h2>
+    <p class="svc-desc">The AI narrative gap isn't just about what is said about your hotel. It is about how that compares to the hotels a guest considers alongside yours. We run the same diagnostic on two of your closest competitors and place the results next to yours — theme by theme. Where they are winning the AI narrative, where you are, and what is actually driving the difference.</p>
+
+    <div class="svc-visual">
+      <div class="mirror-img-wrap">
+        <img src="/assets/whos-winning.png" alt="Who's Winning — three hotels equal on the street, one cited first by AI on the right" class="mirror-img" width="1096" height="606">
+      </div>
+    </div>
+
+    <div class="svc-receive">
+      <div class="svc-receive-label">What you receive</div>
+      <ul class="svc-receive-list">
+        <li>Your AI narrative position shown alongside two direct competitors</li>
+        <li>A side-by-side comparison across every major theme guests ask about</li>
+        <li>Where competitors are being surfaced to guests — and you are not</li>
+        <li>An opportunity map: where you can close ground, and where competitors are exposed</li>
+      </ul>
+    </div>
+    <a href="mailto:info@cpulze.com" class="svc-cta">Talk to us about Who's Winning →</a>
+    <p class="svc-note">Available as a one-time diagnostic or as a bi-annual engagement.</p>
+  </div>
+</section>
+
+<div class="svc-divider"></div>
+
+<!-- KEEP VIGIL -->
+<section class="svc-section" id="keep-vigil">
+  <div class="svc-inner">
+    <span class="svc-tag">Keep Vigil</span>
+    <h2 class="svc-question">Will you know when something changes?</h2>
+    <p class="svc-desc">An AI narrative is not static. A cluster of new reviews, a shift in how a competitor is described, a change in how an engine weighs a particular source — these move quietly. Most hotel owners only notice when a guest mentions it. Keep Vigil monitors your AI narrative continuously and tells you when something shifts, what changed, and what is driving it.</p>
+
+    <div class="svc-visual">
+      <div class="vigil-wrap">
+        <div class="vigil-header">Narrative monitoring — monthly</div>
+        <div class="vigil-timeline">
+          <div class="vigil-stop">
+            <div class="vigil-dot vigil-dot--clear"></div>
+            <div class="vigil-month-label">Jan</div>
+            <div class="vigil-status">Clear</div>
+          </div>
+          <div class="vigil-connector"></div>
+          <div class="vigil-stop">
+            <div class="vigil-dot vigil-dot--clear"></div>
+            <div class="vigil-month-label">Feb</div>
+            <div class="vigil-status">Clear</div>
+          </div>
+          <div class="vigil-connector"></div>
+          <div class="vigil-stop">
+            <div class="vigil-dot vigil-dot--clear"></div>
+            <div class="vigil-month-label">Mar</div>
+            <div class="vigil-status">Clear</div>
+          </div>
+          <div class="vigil-connector vigil-connector--alert"></div>
+          <div class="vigil-stop">
+            <div class="vigil-dot vigil-dot--alert"></div>
+            <div class="vigil-month-label">Apr</div>
+            <div class="vigil-status vigil-status--alert">Shift</div>
+          </div>
+        </div>
+        <div class="vigil-alert-card">
+          <div class="vigil-alert-icon">!</div>
+          <div>
+            <div class="vigil-alert-title">Narrative alert</div>
+            <div class="vigil-alert-desc">A shift was detected in how your hotel is described. Monthly report sent with what changed and why.</div>
+            <div class="vigil-alert-time">April · 09:14</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-receive">
+      <div class="svc-receive-label">What you receive</div>
+      <ul class="svc-receive-list">
+        <li>A monthly narrative shift report for your property</li>
+        <li>Real-time alerts when your narrative shifts</li>
+        <li>A quarterly trend summary showing the direction of travel over time</li>
+        <li>A permanent alert log — every shift, when it happened, what drove it</li>
+      </ul>
+    </div>
+    <a href="mailto:info@cpulze.com" class="svc-cta">Talk to us about Keep Vigil →</a>
+    <p class="svc-note">Keep Vigil is an annual engagement. It pairs naturally with Owner Voice.</p>
+  </div>
+</section>
+
+<!-- ALL-IN-ONE BUNDLE -->
+<section class="svc-bundle">
+  <div class="svc-bundle-inner">
+    <span class="svc-bundle-tag">Annual Retainer</span>
+    <h2 class="svc-bundle-title">Want all four working together?</h2>
+    <p class="svc-bundle-sub">For hotels that want complete AI narrative management — AI Mirror diagnostics, Owner Voice, competitive monitoring and Keep Vigil — as a single, coordinated engagement. One annual relationship. One invoice. Quarterly reviews.</p>
+    <button class="svc-bundle-cta" onclick="Calendly.initPopupWidget({url:'https://calendly.com/ovais-cpulze/30min'});return false;">Book a discovery call →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="svc-footer">
+  <span class="svc-footer-copy">© 2026 cpulze</span>
+  <a href="mailto:info@cpulze.com" class="svc-footer-link">info@cpulze.com</a>
+</footer>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+</body>
+</html>
