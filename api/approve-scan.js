@@ -76,6 +76,71 @@ export default async function handler(req, res) {
     return res.status(500).send('Scan approved but failed to start. Check n8n.');
   }
 
+  // Also kick off the freeform variant — same hotel, its own scan_id, no separate approval needed
+  try {
+    const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const alnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const now2  = new Date();
+    const dt2   = now2.getFullYear() +
+      String(now2.getMonth() + 1).padStart(2, '0') +
+      String(now2.getDate()).padStart(2, '0') +
+      String(now2.getHours()).padStart(2, '0') +
+      String(now2.getMinutes()).padStart(2, '0') +
+      String(now2.getSeconds()).padStart(2, '0') +
+      String(now2.getMilliseconds()).padStart(3, '0');
+    const rand2 = (set, n) => Array.from({ length: n }, () => set[Math.floor(Math.random() * set.length)]).join('');
+    const scanIdFreeform = alpha[Math.floor(Math.random() * alpha.length)] + dt2 + alpha[Math.floor(Math.random() * alpha.length)] + rand2(alnum, 3);
+
+    const markSentTokenFreeform = createHmac('sha256', process.env.APPROVAL_SECRET || 'fallback-secret')
+      .update(`sent:${scanIdFreeform}`)
+      .digest('hex');
+
+    await fetch(`${SUPABASE_URL}/rest/v1/scans`, {
+      method: 'POST',
+      headers: { ...sbHeaders, 'Prefer': 'return=minimal' },
+      body: JSON.stringify({
+        scan_id:         scanIdFreeform,
+        email:           scan.email,
+        hotel_name:      scan.hotel_name,
+        location:        scan.location,
+        tier:            scan.tier || 'free',
+        model:           scan.model || 'perplexity',
+        status:          'approved',
+        user_id:         scan.user_id,
+        is_new_user:     scan.is_new_user ?? false,
+        mark_sent_token: markSentTokenFreeform,
+        themes_found:    0,
+        themes_shown:    0,
+        themes_gated:    0,
+        gate_teaser:     ''
+      })
+    });
+
+    const freeformWebhookUrl = process.env.N8N_WEBHOOK_URL_FREEFORM;
+    if (freeformWebhookUrl) {
+      await fetch(freeformWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Webhook-Secret': process.env.WEBHOOK_SECRET
+        },
+        body: JSON.stringify({
+          scan_id:         scanIdFreeform,
+          email:           scan.email,
+          hotel_name:      scan.hotel_name,
+          location:        scan.location,
+          tier:            scan.tier || 'free',
+          user_id:         scan.user_id,
+          is_new_user:     scan.is_new_user ?? false,
+          mark_sent_token: markSentTokenFreeform
+        })
+      });
+    }
+  } catch (err) {
+    console.error('freeform scan trigger error:', err);
+    // don't fail the primary approval if the freeform run doesn't start
+  }
+
   return res.status(200).send(html(scan.hotel_name, 'started'));
 }
 
