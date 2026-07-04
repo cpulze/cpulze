@@ -108,7 +108,6 @@ export default async function handler(req, res) {
         status:          'approved',
         user_id:         scan.user_id,
         is_new_user:     scan.is_new_user ?? false,
-        mark_sent_token: markSentTokenFreeform,
         themes_found:    0,
         themes_shown:    0,
         themes_gated:    0,
