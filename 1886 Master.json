@@ -1,0 +1,952 @@
+[
+  {
+    "hotel_name": "1886 Crescent Hotel & Spa",
+    "location": "Eureka Springs, AR, US",
+    "results": {
+      "perplexity_thematic": {
+        "choices": [
+          {
+            "delta": {
+              "content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\nAI_NARRATIVE_1: AI describes the 1886 Crescent Hotel & Spa as a historic, charming, “Grand Ol’ Lady of the Ozarks” with beautiful grounds, mountain views, friendly staff, and a strong haunted-history vibe, earning generally very good scores on major platforms (around 4.2/5 on TripAdvisor and 8.8/10 on Hotels.com and Expedia). It highlights the unique atmosphere, ghost tours, pool and hot tub, spa, on-site dining, and shuttle to downtown as key reasons many guests and families love staying here.\nTONE_1: positive\nSOURCES_1: TripAdvisor, Booking.com, Hotels.com, Expedia, Yelp, USA Today 10Best, SheBuysTravel, Sand and Snow, Kayak, Hotel website, Instagram\n\n---\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\nAI_NARRATIVE_2: AI tells this traveller that the Crescent is generally considered “worth it” if you value historic character, scenic views, ghost tours, and resort-style amenities, and many guests and local commenters say it’s beautiful, fun, and unique, especially for those interested in its haunted history. It also notes that, as an older property, rooms can feel dated and rates can be higher than some alternatives, so it’s best suited to travellers who prioritize atmosphere and experience over ultra-modern luxury.\nTONE_2: mixed\nSOURCES_2: TripAdvisor, Facebook groups, Reddit, Hotels.com, Kayak, SheBuysTravel, Sand and Snow, Booking.com, Yelp\n\n---\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\nAI_NARRATIVE_3: AI surfaces that while overall ratings are good, recurring negatives mention “dated” or “worn” rooms, occasional maintenance and cleanliness lapses, noise from ghost tours or other guests in the halls, and a sense by some that the hotel is overpriced for the room quality delivered. Sceptical content also emphasizes that this is a very old, heavily toured “haunted” property, so guests occasionally report strange noises, thin walls, and quirks like flickering lights or tubs starting by themselves, which some find charming and others find unsettling.\nTONE_3: critical\nSOURCES_3: TripAdvisor, Reddit (ParanormalEncounters, r/eurekasprings, r/Ghosts), Facebook groups, Expedia, Hotels.com, Yelp, SheBuysTravel\n\n---\n\nCATEGORY_1: Staff\nVERDICT_1: GREEN\nGREEN_NOTE_1: Numerous reviews and blog posts explicitly praise the staff as friendly, helpful, and attentive, with “zero complaints” surfacing in sceptical searches.\n\nCATEGORY_2: Room Quality\nVERDICT_2: AMBER\nSPECIFIC_LABEL_2: Historic charm vs. dated and worn rooms\nGUEST_QUERY_2: \"1886 Crescent Hotel Eureka Springs room quality dated old\"\nAI_SAYS_2: When you dig into sceptical searches, AI tells you that rooms are frequently described as charming but clearly “old” or “dated,” with some guests feeling the furnishings and decor are worn compared to the price point. It warns that as a 19th‑century property, not all rooms feel updated, so if you expect modern, pristine accommodations, you may be disappointed and should choose your room type carefully.\nBEST_QUOTE_2: \"Rooms are often described as charming yet dated, with occasional maintenance and cleanliness inconsistencies.\"\nREVIEWER_2: TripAdvisor summary text\nREVIEW_DATE_2: April 2025 (platform summary timeframe)\nREVIEW_TITLE_2: 1886 Crescent Hotel and Spa\nREVIEW_ID_2: 76931\nFREQUENCY_2: Around \"many\" mentions from 3,944 Tripadvisor reviews, plus similar comments on other OTAs.\nPRIMARY_SOURCE_2: TripAdvisor summary, mid‑2020s\nSECONDARY_SOURCES_2: Expedia, Hotels.com, Reddit, Yelp\nSOURCE_URL_2: https://www.tripadvisor.com/ShowUserReviews-g31582-d76931-r76931-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_2: This finding persists because multiple platforms repeat the “charming but dated” theme, making it a consistent pattern rather than an isolated complaint.\nINTERVENTION_2: Systematically refresh the most‑criticized room types (soft furnishings, bathrooms, lighting) and clearly label “historic” vs. “updated” rooms in marketing so expectations match reality.\n\nCATEGORY_3: Cleanliness\nVERDICT_3: GREEN\nGREEN_NOTE_3: Across Booking.com scores, Hotels.com/Expedia ratings, and most written reviews, cleanliness is rated high (around 8.8/10) with no recurring, specific cleanliness complaints emerging in problem‑focused searches.\n\nCATEGORY_4: Dining\nVERDICT_4: GREEN\nGREEN_NOTE_4: Reviews and blogs repeatedly praise the food and service at the Crystal Dining Room and Sky Bar, and no consistent negative dining issues appear in sceptical search results.\n\nCATEGORY_5: Check-in/out\nVERDICT_5: GREEN\nGREEN_NOTE_5: No significant pattern of complaints about check‑in or check‑out surfaced; front desk and bell staff are generally described as smooth and helpful across platforms.\n\nCATEGORY_6: Value\nVERDICT_6: AMBER\nSPECIFIC_LABEL_6: Price vs. old‑hotel room experience\nGUEST_QUERY_6: \"1886 Crescent Hotel overpriced for what you get\"\nAI_SAYS_6: AI tells sceptical travellers that some guests feel room rates are high given the dated nature of the accommodations and the occasional quirks of an old, haunted property. It notes that while many people find the experience and setting worth the money, you will see recurring comments that the Crescent can feel “overpriced” if you judge it strictly on room quality.\nBEST_QUOTE_6: \"Many travelers commend the attentive staff and unique atmosphere, though some mention noise issues and value concerns.\"\nREVIEWER_6: TripAdvisor summary text\nREVIEW_DATE_6: April 2025 (platform summary timeframe)\nREVIEW_TITLE_6: 1886 Crescent Hotel and Spa\nREVIEW_ID_6: 76931\nFREQUENCY_6: Value concerns mentioned in a noticeable subset of 3,944 TripAdvisor reviews and echoed in some Facebook and Reddit threads.\nPRIMARY_SOURCE_6: TripAdvisor summary, mid‑2020s\nSECONDARY_SOURCES_6: Facebook local group, Reddit, Kayak\nSOURCE_URL_6: https://www.tripadvisor.com/ShowUserReviews-g31582-d76931-r76931-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_6: The tension between historic charm and dated rooms at relatively high rates repeatedly appears in multi‑platform reviews, keeping value concerns visible to sceptical searches.\nINTERVENTION_6: Offer clearer value framing (bundled ghost tours, dining or spa credits) and consider tiered pricing that reflects room age and level of update more transparently.\n\nCATEGORY_7: Noise\nVERDICT_7: AMBER\nSPECIFIC_LABEL_7: Hallway and ghost‑tour noise in a “haunted” hotel\nGUEST_QUERY_7: \"1886 Crescent Hotel noisy at night ghost tour footsteps\"\nAI_SAYS_7: For sceptical travellers, AI reports that while many guests find the hotel peaceful, others mention noise issues, particularly footsteps and activity in the halls late at night, sometimes linked to ghost tours or other guests. In paranormal‑focused forums, there are vivid accounts of “footsteps pacing in the hallway” and strange sounds, which sceptical AI will surface as a potential disturbance rather than just a fun ghost story.\nBEST_QUOTE_7: \"heard footsteps pacing in the hallway, only to discover no one was there.\"\nREVIEWER_7: Ghost Adventures Facebook post contributor\nREVIEW_DATE_7: February 2018\nREVIEW_TITLE_7: Crescent Hotel has seen its fair share of torment and misery. We're ...\nREVIEW_ID_7: \nFREQUENCY_7: A small but notable number of reviews and paranormal posts describe hallway noise or unexplained sounds.\nPRIMARY_SOURCE_7: Ghost Adventures Facebook post, late 2010s\nSECONDARY_SOURCES_7: Reddit paranormal threads, TripAdvisor summary noting “noise issues”\nSOURCE_URL_7: \nWHY_PERSISTS_7: Noise stories blend with the hotel’s haunted marketing and get repeated in paranormal communities, so AI sees them as an ongoing, distinctive theme for the property.\nINTERVENTION_7: Proactively communicate quiet‑hours policies, adjust ghost‑tour timing/route near guest rooms, and offer white‑noise machines in more sensitive room locations.\n\nCATEGORY_8: Maintenance\nVERDICT_8: AMBER\nSPECIFIC_LABEL_8: Old‑building quirks and occasional maintenance issues\nGUEST_QUERY_8: \"1886 Crescent Hotel maintenance problems old building\"\nAI_SAYS_8: Sceptical searches return that guests sometimes encounter quirks like flickering lights, tubs turning on by themselves, and general signs of age, with TripAdvisor noting “occasional maintenance inconsistencies.” In paranormal forums, these events are framed as ghost activity, but sceptical AI will surface them as possible evidence of aging infrastructure and the need for more consistent upkeep.\nBEST_QUOTE_8: \"Then in the middle of the night the jacuzzi tub turns on. I blamed it on electrical issues in a very...\"\nREVIEWER_8: Reddit user in r/ParanormalEncounters\nREVIEW_DATE_8: October 2024\nREVIEW_TITLE_8: Chased by a Ghost at the Crescent Hotel\nREVIEW_ID_8: \nFREQUENCY_8: A minority of reviews and posts mention maintenance quirks or “electrical issues,” plus TripAdvisor’s summary flagging occasional maintenance problems.\nPRIMARY_SOURCE_8: Reddit r/ParanormalEncounters, mid‑2020s\nSECONDARY_SOURCES_8: TripAdvisor summary, Reddit r/Ghosts, SheBuysTravel note on old building/limited accessibility\nSOURCE_URL_8: \nWHY_PERSISTS_8: The building’s age and strong haunted branding cause maintenance quirks to be widely discussed and shared, reinforcing a perception of inconsistent upkeep.\nINTERVENTION_8: Conduct targeted upgrades on plumbing and electrical systems, and communicate recent renovations clearly so future reviews can highlight improved reliability.\n\n---\n\nDOMINANT_NARRATIVE: To a sceptical traveller, AI currently says that the Crescent is a beautiful, historic, haunted hotel with great staff and atmosphere, but you should expect dated rooms, some noise and old‑building quirks, and a price that may feel high if you’re focused mainly on modern room quality.\n\nNARRATIVE_GAP: Traveller 1 mostly sees glowing language about charm, views, ghost tours, and friendly staff, while Traveller 3 sees repeated concerns about dated rooms, value, and maintenance/noise quirks that are largely invisible in the hotel’s own marketing.\n\nNARRATIVE_RISK_LEVEL: Medium\nRISK_REASON: The issues are not catastrophic, but they are consistent enough across platforms that experience‑driven guests may feel mis‑matched expectations and leave detailed critical reviews if not pre‑warned.\n\nADDITIONAL_THEMES_DETECTED: Haunted atmosphere and ghost‑tour focus can be polarizing, with some guests loving the paranormal angle and others reporting they would “consider staying at another hotel” if sensitive to that kind of vibe.\n\nSTATUS: COMPLETE",
+              "role": "assistant"
+            }
+          }
+        ],
+        "citations": [
+          "https://www.yelp.com/biz/the-1886-crescent-hotel-and-spa-eureka-springs",
+          "https://www.booking.com/hotel/us/eureka-springs-75-prospect-avenue.html",
+          "https://shebuystravel.com/crescent-hotel-arkansas/",
+          "https://sandandorsnow.com/1886-crescent-hotel-review-eureka-springs-lodging/",
+          "https://en.wikipedia.org/wiki/Crescent_Hotel_(Eureka_Springs,_Arkansas)",
+          "https://www.historichotels.org/us/hotels-resorts/1886-crescent-hotel-and-spa/ghost-stories.php",
+          "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html",
+          "https://10best.usatoday.com/awards/1886-crescent-hotel-spa-eureka-springs-arkansas/",
+          "https://www.reddit.com/r/ParanormalEncounters/comments/1fd5g3t/chased_by_a_ghost_at_the_crescent_hotel/",
+          "https://www.kayak.com/Eureka-Springs-Hotels-The-Crescent-Hotel-and-Spa.60599.ksp",
+          "https://www.reddit.com/r/eurekasprings/comments/1m5vigy/is_the_crescent_hotel_actually_haunted/",
+          "https://www.facebook.com/GhostAdventures/posts/crescent-hotel-has-seen-its-fair-share-of-torment-and-misery-were-locking-down-t/10156112018287413/",
+          "https://www.hotels.com/ho135500/the-crescent-hotel-and-spa-eureka-springs-united-states-of-america/",
+          "https://www.instagram.com/crescent1886/?hl=en",
+          "https://www.booking.com/reviews/us/hotel/eureka-springs-75-prospect-avenue.html",
+          "https://crescent-hotel.com",
+          "https://www.facebook.com/groups/esinfo/posts/1582450736526656/",
+          "https://www.expedia.com/Eureka-Springs-Hotels-The-Crescent-Hotel-And-Spa.h74321.Hotel-Information",
+          "https://www.reddit.com/r/Ghosts/comments/mxvhy1/first_time_staying_at_the_infamous_crescent_hotel/"
+        ],
+        "created": 1783550388,
+        "id": "5b9bd155-b17a-4c2d-a8e4-e147bbf2f30e",
+        "model": "sonar-pro",
+        "object": "chat.completion",
+        "search_results": [
+          {
+            "date": "2024-11-13",
+            "last_updated": "2025-01-23",
+            "place_metadata": null,
+            "snippet": "Love the hotel- the vibe, the views, the grounds, definitely feels like stepping back into time. Skybar restaurant on the top floor was convenient and great ...\n73 unique room accommodations, 4 Cottage Units on grounds, Day Spa & Salon, Crystal Dining Room\nRestaurant, Dr. Baker's Bistro & Sky Bar,24...",
+            "source": "web",
+            "title": "THE 1886 CRESCENT HOTEL & SPA - Updated July 2026 - Yelp",
+            "url": "https://www.yelp.com/biz/the-1886-crescent-hotel-and-spa-eureka-springs"
+          },
+          {
+            "date": "2023-11-10",
+            "last_updated": "2025-01-25",
+            "place_metadata": null,
+            "snippet": "Known for being a haunted hotel, it features an outdoor pool and rooms with free Wi-Fi. A cable TV and coffee maker are standard in every Victorian-style ...\n1886 Crescent Hotel and Spa is 2,800 feet from the center of Eureka Springs.\n...\nYes, there's a hot tub.\n...\nCheck-in at 1886 Crescent Hotel a...",
+            "source": "web",
+            "title": "Eureka Springs - 1886 Crescent Hotel and Spa - Booking.com",
+            "url": "https://www.booking.com/hotel/us/eureka-springs-75-prospect-avenue.html"
+          },
+          {
+            "date": "2023-06-05",
+            "last_updated": "2026-06-06",
+            "place_metadata": null,
+            "snippet": "The Crescent Hotel has a reputation for being haunted. Some guests have reported seeing ghosts or hearing strange noises. If you are sensitive ...\nThe historic Crescent Hotel Arkansas is located in the heart of Eureka Springs, a charming northwestern Arkansas town in the Ozark Mountains.\nFrom the ro...",
+            "source": "web",
+            "title": "Crescent Hotel Arkansas Review: Treetop Views in Eureka Springs",
+            "url": "https://shebuystravel.com/crescent-hotel-arkansas/"
+          },
+          {
+            "date": "2019-08-13",
+            "last_updated": "2026-04-09",
+            "place_metadata": null,
+            "snippet": "I have zero complaints with the hotel staff at The Crescent. From the moment we walked in the front doors, everyone was super helpful and very ...\n- Parking\n- Wifi\n- Shuttle to Downtown Eureka Springs\n**Hourly activities are also complimentary for onsite guests.** When we visited, there were free pr...",
+            "source": "web",
+            "title": "1886 Crescent Hotel Review: Eureka Springs Lodging",
+            "url": "https://sandandorsnow.com/1886-crescent-hotel-review-eureka-springs-lodging/"
+          },
+          {
+            "date": "2010-02-15",
+            "last_updated": "2026-04-22",
+            "place_metadata": null,
+            "snippet": "The 1886 Crescent Hotel & Spa is a member of Historic Hotels of America, the official program of the National Trust for Historic Preservation. After the hotel ...\nThe **Crescent Hotel** is a historic hotel at *75 Prospect Avenue* in Eureka Springs, Arkansas.",
+            "source": "web",
+            "title": "Crescent Hotel (Eureka Springs, Arkansas) - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Crescent_Hotel_(Eureka_Springs,_Arkansas)"
+          },
+          {
+            "date": null,
+            "last_updated": "2026-06-10",
+            "place_metadata": null,
+            "snippet": "Guests have witnessed hands coming out of the bathroom mirror, cries of a falling man in the ceiling, the door opening then slamming shut, unable to be opened ...",
+            "source": "web",
+            "title": "Ghost Stories - 1886 Crescent Hotel & Spa - Historic Hotels of America",
+            "url": "https://www.historichotels.org/us/hotels-resorts/1886-crescent-hotel-and-spa/ghost-stories.php"
+          },
+          {
+            "date": null,
+            "last_updated": "2026-06-25",
+            "place_metadata": null,
+            "snippet": "So peaceful and quiet with amazing views. A wrap around patio and hot tub was so nice and relaxing. The food and service is amazing!\n4.2\nGood\n(3,944 reviews)\n#9 of 34 hotels in Eureka Springs\nLocation\n...\nThe 1886 Crescent Hotel and Spa, nestled in a picturesque setting with mountain views, offers a...",
+            "source": "web",
+            "title": "1886 Crescent Hotel and Spa - Tripadvisor",
+            "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html"
+          },
+          {
+            "date": null,
+            "last_updated": null,
+            "place_metadata": null,
+            "snippet": "The historic Victorian grandeur of the 1886 Crescent Hotel & Spa crowns Eureka Springs, which families love for its trail hiking and biking in the warmer ...",
+            "source": "web",
+            "title": "Vote now for 1886 Crescent Hotel & Spa! - USA TODAY 10BEST",
+            "url": "https://10best.usatoday.com/awards/1886-crescent-hotel-spa-eureka-springs-arkansas/"
+          },
+          {
+            "date": "2024-09-10",
+            "last_updated": "2025-09-11",
+            "place_metadata": null,
+            "snippet": "We went about our evening with no issues. Then in the middle of the night the jacuzzi tub turns on. I blamed it on electrical issues in a very ...",
+            "source": "web",
+            "title": "Chased by a Ghost at the Crescent Hotel : r/ParanormalEncounters",
+            "url": "https://www.reddit.com/r/ParanormalEncounters/comments/1fd5g3t/chased_by_a_ghost_at_the_crescent_hotel/"
+          },
+          {
+            "date": "2026-04-28",
+            "last_updated": "2026-05-01",
+            "place_metadata": null,
+            "snippet": "Guests consistently praised the friendly and helpful staff, the hotel's unique and historic atmosphere, and its convenient location near local attractions. Many ...\n3 stars\n75 Prospect Avenue, Eureka Springs, AR 72632, United States\nEureka Springs, AR\n+1 479 253 9766\n-\n...\nDeals from\n$169\n/Cheapest ...",
+            "source": "web",
+            "title": "1886 Crescent Hotel and Spa from $143. Eureka Springs ... - KAYAK",
+            "url": "https://www.kayak.com/Eureka-Springs-Hotels-The-Crescent-Hotel-and-Spa.60599.ksp"
+          },
+          {
+            "date": "2025-07-21",
+            "last_updated": "2026-02-23",
+            "place_metadata": null,
+            "snippet": "We stayed again in a different room and nothing creepy happened at all. It was so fun and it's beautiful. It's worth it either way!\nYes!\nIf you can, stay at the Crescent Hotel and arrange a late‑night ghost tour when you arrive.\nSome rooms are definitely more haunted than others.",
+            "source": "web",
+            "title": "Is the Crescent hotel actually haunted? : r/eurekasprings - Reddit",
+            "url": "https://www.reddit.com/r/eurekasprings/comments/1m5vigy/is_the_crescent_hotel_actually_haunted/"
+          },
+          {
+            "date": "2019-06-07",
+            "last_updated": "2026-03-25",
+            "place_metadata": null,
+            "snippet": "Another report detailed a group of friends who stayed at the hotel and heard footsteps pacing in the hallway, only to discover no one was there.",
+            "source": "web",
+            "title": "Crescent Hotel has seen its fair share of torment and misery. We're ...",
+            "url": "https://www.facebook.com/GhostAdventures/posts/crescent-hotel-has-seen-its-fair-share-of-torment-and-misery-were-locking-down-t/10156112018287413/"
+          },
+          {
+            "date": "2025-07-17",
+            "last_updated": "2025-11-25",
+            "place_metadata": null,
+            "snippet": "8.88.8 out of 10 Excellent. The grounds are beautiful, service was great, and the hotel and rooms were charming.\n### 8/10 Very good\nJul 17, 2025\nBeautiful historic old hotel nestled in the mountains.\n...\nThe spa is open daily.\nChildren under 18 years old are not allowed in the spa without adult supe...",
+            "source": "web",
+            "title": "The Crescent Hotel and Spa, Eureka Springs",
+            "url": "https://www.hotels.com/ho135500/the-crescent-hotel-and-spa-eureka-springs-united-states-of-america/"
+          },
+          {
+            "date": "2010-01-01",
+            "last_updated": "2025-09-06",
+            "place_metadata": null,
+            "snippet": "Families love the Crescent for ghost tours, a year-round outdoor pool, daily resort activities, walkable access to downtown Eureka Springs, and on-site dining, ...",
+            "source": "web",
+            "title": "1886 Crescent Hotel & Spa (@crescent1886) - Instagram",
+            "url": "https://www.instagram.com/crescent1886/?hl=en"
+          },
+          {
+            "date": "1996-01-01",
+            "last_updated": "2025-01-25",
+            "place_metadata": null,
+            "snippet": "Beautiful building with lots of character. Friendly staff. Very spacious room and comfortable bed. Took a ghost tour and it was a lot of fun.\n75 Prospect Avenue, Eureka Springs, AR 72632, Estados Unidos\nBasada en 2 opiniones de hotel8,7\nLimpieza\n8,8\nConfort\n8,8\nUbicación\n9,2\nInstalaciones y servicio...",
+            "source": "web",
+            "title": "Reviews of 1886 Crescent Hotel and Spa - Booking.com",
+            "url": "https://www.booking.com/reviews/us/hotel/eureka-springs-75-prospect-avenue.html"
+          },
+          {
+            "date": "2026-07-07",
+            "last_updated": "2026-07-08",
+            "place_metadata": null,
+            "snippet": "1886 Crescent Hotel & Spa continues to stand out as one of the best family resorts in Arkansas, earning recognition from USA Today 10Best. One of the Best ...",
+            "source": "web",
+            "title": "Crescent Hotel in Eureka Springs | Historic 1886 Landmark & Spa",
+            "url": "https://crescent-hotel.com"
+          },
+          {
+            "date": "2025-09-23",
+            "last_updated": "2026-05-12",
+            "place_metadata": null,
+            "snippet": "The Crescent is a beautiful old hotel with scenic views. If you are into the haunted history, go on their ghost tour. The pizza at the hotel is ...",
+            "source": "web",
+            "title": "Is Crescent Hotel in Eureka Springs worth the money? - Facebook",
+            "url": "https://www.facebook.com/groups/esinfo/posts/1582450736526656/"
+          },
+          {
+            "date": "2025-11-04",
+            "last_updated": "2025-11-30",
+            "place_metadata": null,
+            "snippet": "8.8 out of 10 Excellent … offers attentive staff and relaxation. Guest reviews speak Housekeeping 9.8 out of 10, Exceptional, Staff and service was great. ...",
+            "source": "web",
+            "title": "The Crescent Hotel and Spa - Instant Booking - Expedia",
+            "url": "https://www.expedia.com/Eureka-Springs-Hotels-The-Crescent-Hotel-And-Spa.h74321.Hotel-Information"
+          },
+          {
+            "date": "2021-04-24",
+            "last_updated": "2024-07-23",
+            "place_metadata": null,
+            "snippet": "Room is definitely sending some creepy vibes. 1886 Ozark hotel became a fake cancer clinic run. Now it's America's most haunted hotel. , AR 79 ...",
+            "source": "web",
+            "title": "First time staying at the infamous Crescent Hotel in Eureka Springs ...",
+            "url": "https://www.reddit.com/r/Ghosts/comments/mxvhy1/first_time_staying_at_the_infamous_crescent_hotel/"
+          }
+        ],
+        "usage": {
+          "completion_tokens": 2481,
+          "cost": {
+            "input_tokens_cost": 0.01579,
+            "output_tokens_cost": 0.03722,
+            "request_cost": 0.014,
+            "total_cost": 0.067
+          },
+          "prompt_tokens": 5263,
+          "search_context_size": "high",
+          "total_tokens": 7744
+        }
+      },
+      "perplexity_freeform": {
+        "choices": [
+          {
+            "delta": {
+              "content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\n\nAI_NARRATIVE_1: AI says this is a historic, “most haunted” Victorian-era hotel with beautiful mountain views, friendly staff, and a unique atmosphere, where most guests enjoy the ghost tours, on‑site dining, pool, spa, and resort-style activities.[3][7][9][11][12][15] It reports generally good ratings (around 4.2/5 or 8.8/10) and notes that rooms have character and can be a bit dated, but many reviewers still recommend it for the experience.[7][9][11][13]\n\nTONE_1: positive\n\nSOURCES_1: TripAdvisor, Booking.com, Hotels.com, Expedia, Kayak, Yelp, USA Today 10Best, Sand and Snow travel blog, HistoricHotels.org, Reddit, Instagram, official hotel site\n\n\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\n\nAI_NARRATIVE_2: AI explains that many guests and locals feel the Crescent is “worth it” if you value history, haunted vibes, scenic views, and activities like ghost tours, with several reviewers calling it fun, beautiful, and a memorable stay.[4][7][9][10][11][16] It adds that because it’s an older property, some people find the rooms and bathrooms dated for the price, so it’s often recommended more as a destination/experience hotel than a pure value/luxury pick.[7][9][16]\n\nTONE_2: mixed\n\nSOURCES_2: TripAdvisor, Booking.com, Hotels.com, Expedia, Kayak, Yelp, Sand and Snow travel blog, Reddit (r/eurekasprings, r/Ghosts), Facebook group (“Is Crescent Hotel in Eureka Springs worth the money?”), USA Today 10Best, official hotel site\n\n\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\n\nAI_NARRATIVE_3: AI warns that in more critical reviews, guests call out “dated” or “run down” rooms and bathrooms, maintenance issues, and feeling the hotel is overpriced for the quality of the accommodations, with phrases like “needs updating” appearing alongside complaints about value.[7][9][16] It also highlights scattered reports of noise, small or awkward bathrooms, and some experiences where the haunted marketing and ghost tour felt more gimmicky or underwhelming compared to expectations.[7][9][10][18]\n\nTONE_3: negative\n\nSOURCES_3: TripAdvisor, Kayak, Facebook group discussion, Reddit (r/eurekasprings, r/Ghosts), Expedia, Hotels.com, Yelp\n\n\n\nFINDING_1_THEME: Rooms and bathrooms described as “dated” and “run down” compared to the price\nFINDING_1_CATEGORY_TAG: Room Quality\nFINDING_1_GUEST_QUERY: \"1886 Crescent Hotel & Spa dated rooms run down complaints\"\nFINDING_1_AI_SAYS: When you search skeptically, AI shows multiple reviews saying that while the Crescent’s common spaces and views are beautiful, the actual rooms and bathrooms can feel “old,” “tired,” or “run down” and not up to modern standards.[7][9] It emphasizes that this is a recurring theme in negative reviews, especially from guests who expected more contemporary comfort for what they paid.[7][9]\nFINDING_1_BEST_QUOTE: \"Rooms are often described as charming yet dated, with occasional maintenance and cleanliness inconsistencies.\"[7]\nFINDING_1_REVIEWER: \nFINDING_1_REVIEW_DATE: summary text current\nFINDING_1_REVIEW_TITLE: \nFINDING_1_REVIEW_ID: \nFINDING_1_FREQUENCY: many of the more negative and neutral recent reviews\nFINDING_1_PRIMARY_SOURCE: TripAdvisor summary – mid‑2020s[7]\nFINDING_1_SECONDARY_SOURCES: Kayak summary, Facebook group comments, Expedia/Hotels.com guest reviews[9][16][17]\nFINDING_1_SOURCE_URL: https://www.tripadvisor.com/ShowUserReviews-g31582-d76931-r943245521-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nFINDING_1_WHY_PERSISTS: AI weights this heavily because multiple platforms independently mention dated rooms and bathrooms in the context of disappointment, indicating a consistent experience rather than isolated incidents.[7][9][16]\nFINDING_1_INTERVENTION: Begin a focused program of room and bathroom refreshes with clear before‑and‑after photos and review responses explicitly addressing “dated” and “run down” concerns.\n\nFINDING_2_THEME: Perception that the hotel is overpriced or “not worth the money” for the room quality\nFINDING_2_CATEGORY_TAG: Value\nFINDING_2_GUEST_QUERY: \"is Crescent Hotel Eureka Springs overpriced not worth it\"\nFINDING_2_AI_SAYS: AI tells a skeptical traveller that several guests and locals debate whether the Crescent is worth the cost, with some saying the rooms don’t match the price and advising that you’re paying mainly for the history and ghost-story experience.[7][9][16] It flags comments from the local Facebook group and meta‑summaries that mention “value concerns” and suggest comparing other Eureka Springs lodging options if modern comfort is the priority.[7][16]\nFINDING_2_BEST_QUOTE: \"Many travelers commend the attentive staff and unique atmosphere, though some mention noise issues and value concerns.\"[7]\nFINDING_2_REVIEWER: \nFINDING_2_REVIEW_DATE: summary text current\nFINDING_2_REVIEW_TITLE: \nFINDING_2_REVIEW_ID: \nFINDING_2_FREQUENCY: recurring in a noticeable minority of reviews and local comments\nFINDING_2_PRIMARY_SOURCE: TripAdvisor summary – value concerns[7]\nFINDING_2_SECONDARY_SOURCES: Kayak review summary, Facebook group “Is Crescent Hotel in Eureka Springs worth the money?”[9][16]\nFINDING_2_SOURCE_URL: https://www.tripadvisor.com/ShowUserReviews-g31582-d76931-r943245521-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nFINDING_2_WHY_PERSISTS: AI gives this weight because both visitor reviews and local discussion explicitly question value, and it aligns with complaints about dated rooms at higher rates.[7][9][16]\nFINDING_2_INTERVENTION: Clarify the pricing/value proposition (historic/haunted resort experience) and introduce more transparent packages or specials that tie room rates to included activities and dining.\n\nFINDING_3_THEME: Noise and disturbances affecting the “peaceful historic” atmosphere\nFINDING_3_CATEGORY_TAG: Noise\nFINDING_3_GUEST_QUERY: \"Crescent Hotel Eureka Springs noisy rooms complaints\"\nFINDING_3_AI_SAYS: For a skeptical search, AI highlights that some guests mention noise issues, including hallway sounds, other guests, and activity around the ghost tours, which can clash with expectations of a quiet, romantic historic retreat.[7][9] It frames this as a secondary but real complaint that appears in the meta‑summary and scattered reviews.[7]\nFINDING_3_BEST_QUOTE: \"Some mention noise issues and value concerns.\"[7]\nFINDING_3_REVIEWER: \nFINDING_3_REVIEW_DATE: summary text current\nFINDING_3_REVIEW_TITLE: \nFINDING_3_REVIEW_ID: \nFINDING_3_FREQUENCY: small but recurring subset of reviews\nFINDING_3_PRIMARY_SOURCE: TripAdvisor summary – guest review themes[7]\nFINDING_3_SECONDARY_SOURCES: Kayak summary, Expedia/Hotels.com guest comments[9][17]\nFINDING_3_SOURCE_URL: https://www.tripadvisor.com/ShowUserReviews-g31582-d76931-r943245521-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nFINDING_3_WHY_PERSISTS: AI keeps surfacing this because it appears directly in platform summaries, which aggregate multiple individual reviews.[7]\nFINDING_3_INTERVENTION: Add clearer room-type and floor descriptions (quiet zones vs. activity areas) and proactively offer noise‑mitigation options like white‑noise machines or ghost‑tour timing guidance.\n\nFINDING_4_THEME: Haunted/ghost experience feeling gimmicky or not as intense as expected\nFINDING_4_CATEGORY_TAG: Value\nFINDING_4_GUEST_QUERY: \"Crescent Hotel ghost tour disappointing\"\nFINDING_4_AI_SAYS: AI points out that, while many enjoy the ghost tours, a skeptical search finds comments from guests saying nothing creepy happened and implying the haunted reputation can feel overhyped if you’re expecting dramatic paranormal activity.[6][10][18] It stresses that this isn’t a quality failure so much as a mismatch between intense expectations and the reality of a themed historic tour.[6][10][18]\nFINDING_4_BEST_QUOTE: \"We stayed again in a different room and nothing creepy happened at all. It was so fun and it's beautiful. It's worth it either way!\"[10]\nFINDING_4_REVIEWER: Reddit users (handles not clearly summarized)\nFINDING_4_REVIEW_DATE: various posts in recent years\nFINDING_4_REVIEW_TITLE: \"Is the Crescent hotel actually haunted?\"[10]\nFINDING_4_REVIEW_ID: \nFINDING_4_FREQUENCY: several Reddit and forum mentions\nFINDING_4_PRIMARY_SOURCE: Reddit r/eurekasprings and r/ParanormalEncounters[6][10]\nFINDING_4_SECONDARY_SOURCES: Reddit r/Ghosts, general web articles discussing “most haunted hotel” expectations[3][18]\nFINDING_4_SOURCE_URL: \nFINDING_4_WHY_PERSISTS: AI surfaces this because the hotel’s strong haunted branding naturally attracts skeptical paranormal guests who publicly compare their expectations to what actually happened.[3][6][10][18]\nFINDING_4_INTERVENTION: Reframe marketing copy to emphasize history and storytelling rather than guaranteed paranormal phenomena, and share balanced guest narratives (fun even when “nothing creepy happened”).\n\nFINDING_5_THEME: Maintenance glitches in historic fixtures (e.g., spa/jacuzzi quirks)\nFINDING_5_CATEGORY_TAG: Maintenance\nFINDING_5_GUEST_QUERY: \"Crescent Hotel Eureka Springs maintenance issues jacuzzi problems\"\nFINDING_5_AI_SAYS: AI notes isolated but vivid stories about odd maintenance or electrical quirks, such as a Reddit guest describing the in‑room jacuzzi tub turning on by itself in the middle of the night in this old building.[6] It classifies these as both part of the “haunted” lore and evidence that some fixtures may have aging hardware.[6]\nFINDING_5_BEST_QUOTE: \"Then in the middle of the night the jacuzzi tub turns on. I blamed it on electrical issues in a very...\"[6]\nFINDING_5_REVIEWER: Reddit user (ParanormalEncounters poster)\nFINDING_5_REVIEW_DATE: recent years\nFINDING_5_REVIEW_TITLE: \"Chased by a Ghost at the Crescent Hotel\"[6]\nFINDING_5_REVIEW_ID: \nFINDING_5_FREQUENCY: very few explicit mentions, but striking ones\nFINDING_5_PRIMARY_SOURCE: Reddit r/ParanormalEncounters[6]\nFINDING_5_SECONDARY_SOURCES: General “old building” comments in TripAdvisor summaries[7]\nFINDING_5_SOURCE_URL: \nFINDING_5_WHY_PERSISTS: AI highlights this because the story is memorable, shared widely, and reinforces both the haunted narrative and the idea of aging infrastructure.[6][7]\nFINDING_5_INTERVENTION: Audit and update in‑room spa/jacuzzi and electrical systems, then communicate improvements in owner responses and FAQs to reassure guests about maintenance.\n\n\n\nDOMINANT_NARRATIVE: As a skeptical traveller, AI tells you that while the Crescent is a famous, historic, haunted destination with great views and friendly staff, you should expect older, sometimes tired rooms and bathrooms, occasional noise, and value that leans more on the experience than on modern luxury.[7][9][16]\n\nNARRATIVE_GAP: Traveller 1 mainly sees a charming, haunted landmark hotel with great staff and fun activities, whereas Traveller 3’s search exposes recurring complaints about dated rooms, questionable value, and occasional noise and maintenance quirks that the positive narrative glosses over.[7][9][16]\n\nNARRATIVE_RISK_LEVEL: High\nRISK_REASON: The gap between “beautiful, historic, fun resort” and “dated, overpriced rooms with value concerns” is large enough that guests who arrive expecting boutique‑luxury may leave disappointed and amplify those complaints online.\n\nADDITIONAL_THEMES_DETECTED: Intermittent comments about small or awkward bathrooms, limited modern amenities compared to newer hotels, and the steep hill/location making walking to downtown challenging for some guests.\n\nSTATUS: COMPLETE",
+              "role": "assistant"
+            }
+          }
+        ],
+        "citations": [
+          "https://www.yelp.com/biz/the-1886-crescent-hotel-and-spa-eureka-springs",
+          "https://www.weddingwire.com/biz/1886-crescent-hotel-spa-eureka-springs/20685b0b9fb8cf30.html",
+          "https://www.legendsofamerica.com/ar-crescenthotel/",
+          "https://sandandorsnow.com/1886-crescent-hotel-review-eureka-springs-lodging/",
+          "https://www.booking.com/hotel/us/eureka-springs-75-prospect-avenue.html",
+          "https://www.reddit.com/r/ParanormalEncounters/comments/1fd5g3t/chased_by_a_ghost_at_the_crescent_hotel/",
+          "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html",
+          "https://10best.usatoday.com/awards/1886-crescent-hotel-spa-eureka-springs-arkansas/",
+          "https://www.kayak.com/Eureka-Springs-Hotels-The-Crescent-Hotel-and-Spa.60599.ksp",
+          "https://www.reddit.com/r/eurekasprings/comments/1m5vigy/is_the_crescent_hotel_actually_haunted/",
+          "https://www.hotels.com/ho135500/the-crescent-hotel-and-spa-eureka-springs-united-states-of-america/",
+          "https://www.instagram.com/crescent1886/?hl=en",
+          "https://www.booking.com/reviews/us/hotel/eureka-springs-75-prospect-avenue.html",
+          "https://www.historichotels.org/us/hotels-resorts/1886-crescent-hotel-and-spa/ghost-stories.php",
+          "https://crescent-hotel.com",
+          "https://www.facebook.com/groups/esinfo/posts/1582450736526656/",
+          "https://www.expedia.com/Eureka-Springs-Hotels-The-Crescent-Hotel-And-Spa.h74321.Hotel-Information",
+          "https://www.reddit.com/r/Ghosts/comments/mxvhy1/first_time_staying_at_the_infamous_crescent_hotel/"
+        ],
+        "created": 1783550413,
+        "id": "8f4c6f26-dd5f-4f2e-bc76-6639d1601b4d",
+        "model": "sonar-pro",
+        "object": "chat.completion",
+        "search_results": [
+          {
+            "date": "2024-11-13",
+            "last_updated": "2025-01-23",
+            "place_metadata": null,
+            "snippet": "Love the hotel- the vibe, the views, the grounds, definitely feels like stepping back into time. Skybar restaurant on the top floor was convenient and great ...\n73 unique room accommodations, 4 Cottage Units on grounds, Day Spa & Salon, Crystal Dining Room\nRestaurant, Dr. Baker's Bistro & Sky Bar,24...",
+            "source": "web",
+            "title": "THE 1886 CRESCENT HOTEL & SPA - Updated July 2026 - Yelp",
+            "url": "https://www.yelp.com/biz/the-1886-crescent-hotel-and-spa-eureka-springs"
+          },
+          {
+            "date": "2020-09-09",
+            "last_updated": "2026-04-29",
+            "place_metadata": null,
+            "snippet": "1886 Crescent Hotel & Spa is recommended by 86% of couples who have used their services. Their overall rating is 4.3 out of 5 with the following breakdown: 4.3 ...\n1886 Crescent Hotel & Spa is a resort wedding venue in Eureka Springs, Arkansas.",
+            "source": "web",
+            "title": "1886 Crescent Hotel & Spa - Eureka Springs - WeddingWire",
+            "url": "https://www.weddingwire.com/biz/1886-crescent-hotel-spa-eureka-springs/20685b0b9fb8cf30.html"
+          },
+          {
+            "date": null,
+            "last_updated": "2026-03-25",
+            "place_metadata": null,
+            "snippet": "The historic 1886 Crescent Hotel is not only known as one of America's most distinctive and historic destinations, but, is also haunted.\nToday, the Crescent Hotel is one of the most visited hotels in the South.\nWith its long and extensive history, it is also known to be one of the most haunted place...",
+            "source": "web",
+            "title": "The Haunted Crescent Hotel in Eureka Springs, Arkansas",
+            "url": "https://www.legendsofamerica.com/ar-crescenthotel/"
+          },
+          {
+            "date": "2019-08-13",
+            "last_updated": "2026-04-09",
+            "place_metadata": null,
+            "snippet": "I have zero complaints with the hotel staff at The Crescent. From the moment we walked in the front doors, everyone was super helpful and very ...\n- Parking\n- Wifi\n- Shuttle to Downtown Eureka Springs\n**Hourly activities are also complimentary for onsite guests.** When we visited, there were free pr...",
+            "source": "web",
+            "title": "1886 Crescent Hotel Review: Eureka Springs Lodging",
+            "url": "https://sandandorsnow.com/1886-crescent-hotel-review-eureka-springs-lodging/"
+          },
+          {
+            "date": "2023-11-10",
+            "last_updated": "2025-01-25",
+            "place_metadata": null,
+            "snippet": "Known for being a haunted hotel, it features an outdoor pool and rooms with free Wi-Fi. A cable TV and coffee maker are standard in every Victorian-style ...\n1886 Crescent Hotel and Spa is 2,800 feet from the center of Eureka Springs.\n...\nYes, there's a hot tub.\n...\nCheck-in at 1886 Crescent Hotel a...",
+            "source": "web",
+            "title": "Eureka Springs - 1886 Crescent Hotel and Spa - Booking.com",
+            "url": "https://www.booking.com/hotel/us/eureka-springs-75-prospect-avenue.html"
+          },
+          {
+            "date": "2024-09-10",
+            "last_updated": "2025-09-11",
+            "place_metadata": null,
+            "snippet": "We went about our evening with no issues. Then in the middle of the night the jacuzzi tub turns on. I blamed it on electrical issues in a very ...",
+            "source": "web",
+            "title": "Chased by a Ghost at the Crescent Hotel : r/ParanormalEncounters",
+            "url": "https://www.reddit.com/r/ParanormalEncounters/comments/1fd5g3t/chased_by_a_ghost_at_the_crescent_hotel/"
+          },
+          {
+            "date": null,
+            "last_updated": "2026-06-25",
+            "place_metadata": null,
+            "snippet": "So peaceful and quiet with amazing views. A wrap around patio and hot tub was so nice and relaxing. The food and service is amazing!\n4.2\nGood\n(3,944 reviews)\n#9 of 34 hotels in Eureka Springs\nLocation\n...\nThe 1886 Crescent Hotel and Spa, nestled in a picturesque setting with mountain views, offers a...",
+            "source": "web",
+            "title": "1886 Crescent Hotel and Spa - Tripadvisor",
+            "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html"
+          },
+          {
+            "date": null,
+            "last_updated": null,
+            "place_metadata": null,
+            "snippet": "The historic Victorian grandeur of the 1886 Crescent Hotel & Spa crowns Eureka Springs, which families love for its trail hiking and biking in the warmer ...",
+            "source": "web",
+            "title": "Vote now for 1886 Crescent Hotel & Spa! - USA TODAY 10BEST",
+            "url": "https://10best.usatoday.com/awards/1886-crescent-hotel-spa-eureka-springs-arkansas/"
+          },
+          {
+            "date": "2026-04-28",
+            "last_updated": "2026-05-01",
+            "place_metadata": null,
+            "snippet": "Guests consistently praised the friendly and helpful staff, the hotel's unique and historic atmosphere, and its convenient location near local attractions. Many ...\n3 stars\n75 Prospect Avenue, Eureka Springs, AR 72632, United States\nEureka Springs, AR\n+1 479 253 9766\n-\n...\nDeals from\n$169\n/Cheapest ...",
+            "source": "web",
+            "title": "1886 Crescent Hotel and Spa from $143. Eureka Springs ... - KAYAK",
+            "url": "https://www.kayak.com/Eureka-Springs-Hotels-The-Crescent-Hotel-and-Spa.60599.ksp"
+          },
+          {
+            "date": "2025-07-21",
+            "last_updated": "2026-02-23",
+            "place_metadata": null,
+            "snippet": "We stayed again in a different room and nothing creepy happened at all. It was so fun and it's beautiful. It's worth it either way!\nYes!\nIf you can, stay at the Crescent Hotel and arrange a late‑night ghost tour when you arrive.\nSome rooms are definitely more haunted than others.",
+            "source": "web",
+            "title": "Is the Crescent hotel actually haunted? : r/eurekasprings - Reddit",
+            "url": "https://www.reddit.com/r/eurekasprings/comments/1m5vigy/is_the_crescent_hotel_actually_haunted/"
+          },
+          {
+            "date": "2025-07-17",
+            "last_updated": "2025-11-25",
+            "place_metadata": null,
+            "snippet": "8.88.8 out of 10 Excellent. The grounds are beautiful, service was great, and the hotel and rooms were charming.\n### 8/10 Very good\nJul 17, 2025\nBeautiful historic old hotel nestled in the mountains.\n...\nThe spa is open daily.\nChildren under 18 years old are not allowed in the spa without adult supe...",
+            "source": "web",
+            "title": "The Crescent Hotel and Spa, Eureka Springs",
+            "url": "https://www.hotels.com/ho135500/the-crescent-hotel-and-spa-eureka-springs-united-states-of-america/"
+          },
+          {
+            "date": "2010-01-01",
+            "last_updated": "2025-09-06",
+            "place_metadata": null,
+            "snippet": "Families love the Crescent for ghost tours, a year-round outdoor pool, daily resort activities, walkable access to downtown Eureka Springs, and on-site dining, ...",
+            "source": "web",
+            "title": "1886 Crescent Hotel & Spa (@crescent1886) - Instagram",
+            "url": "https://www.instagram.com/crescent1886/?hl=en"
+          },
+          {
+            "date": "1996-01-01",
+            "last_updated": "2025-01-25",
+            "place_metadata": null,
+            "snippet": "Beautiful building with lots of character. Friendly staff. Very spacious room and comfortable bed. Took a ghost tour and it was a lot of fun.\n75 Prospect Avenue, Eureka Springs, AR 72632, Estados Unidos\nBasada en 2 opiniones de hotel8,7\nLimpieza\n8,8\nConfort\n8,8\nUbicación\n9,2\nInstalaciones y servicio...",
+            "source": "web",
+            "title": "Reviews of 1886 Crescent Hotel and Spa - Booking.com",
+            "url": "https://www.booking.com/reviews/us/hotel/eureka-springs-75-prospect-avenue.html"
+          },
+          {
+            "date": null,
+            "last_updated": "2026-06-10",
+            "place_metadata": null,
+            "snippet": "One of the Historic Hotels of America, The 1886 Crescent Hotel's rich history continues to attract guests to this 112 year old hotel.",
+            "source": "web",
+            "title": "Ghost Stories - 1886 Crescent Hotel & Spa - Historic Hotels of America",
+            "url": "https://www.historichotels.org/us/hotels-resorts/1886-crescent-hotel-and-spa/ghost-stories.php"
+          },
+          {
+            "date": "2026-07-07",
+            "last_updated": "2026-07-08",
+            "place_metadata": null,
+            "snippet": "1886 Crescent Hotel & Spa continues to stand out as one of the best family resorts in Arkansas, earning recognition from USA Today 10Best. One of the Best ...",
+            "source": "web",
+            "title": "Crescent Hotel in Eureka Springs | Historic 1886 Landmark & Spa",
+            "url": "https://crescent-hotel.com"
+          },
+          {
+            "date": "2025-09-23",
+            "last_updated": "2026-05-12",
+            "place_metadata": null,
+            "snippet": "The Crescent is a beautiful old hotel with scenic views. If you are into the haunted history, go on their ghost tour. The pizza at the hotel is ...",
+            "source": "web",
+            "title": "Is Crescent Hotel in Eureka Springs worth the money? - Facebook",
+            "url": "https://www.facebook.com/groups/esinfo/posts/1582450736526656/"
+          },
+          {
+            "date": "2025-11-04",
+            "last_updated": "2025-11-30",
+            "place_metadata": null,
+            "snippet": "8.8 out of 10 Excellent … offers attentive staff and relaxation. Guest reviews speak Housekeeping 9.8 out of 10, Exceptional, Staff and service was great. ...",
+            "source": "web",
+            "title": "The Crescent Hotel and Spa - Instant Booking - Expedia",
+            "url": "https://www.expedia.com/Eureka-Springs-Hotels-The-Crescent-Hotel-And-Spa.h74321.Hotel-Information"
+          },
+          {
+            "date": "2021-04-24",
+            "last_updated": "2024-07-23",
+            "place_metadata": null,
+            "snippet": "Room is definitely sending some creepy vibes. 1886 Ozark hotel became a fake cancer clinic run. Now it's America's most haunted hotel. , AR 79 ...",
+            "source": "web",
+            "title": "First time staying at the infamous Crescent Hotel in Eureka Springs ...",
+            "url": "https://www.reddit.com/r/Ghosts/comments/mxvhy1/first_time_staying_at_the_infamous_crescent_hotel/"
+          }
+        ],
+        "usage": {
+          "completion_tokens": 2846,
+          "cost": {
+            "input_tokens_cost": 0.00442,
+            "output_tokens_cost": 0.04269,
+            "request_cost": 0.014,
+            "total_cost": 0.06111
+          },
+          "prompt_tokens": 1472,
+          "search_context_size": "high",
+          "total_tokens": 4318
+        }
+      },
+      "gemini_thematic": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\nAI_NARRATIVE_1: The 1886 Crescent Hotel & Spa is a historic hotel known for its beautiful architecture, stunning views of the Ozarks, and its famous ghost tours. Many guests enjoy the unique atmosphere, the friendly staff, and the variety of amenities including the spa, pool, and onsite dining.\nTONE_1: positive\nSOURCES_1: TripAdvisor, Google Reviews, Booking.com, Expedia\n\n---\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\nAI_NARRATIVE_2: Whether the Crescent Hotel is worth it depends on what you're looking for; many guests feel the historical charm, ghost tours, and scenic location justify the price, while others point out that the rooms can be dated and small for the cost. It's often considered a unique experience worth trying once, but some travellers suggest it may not be the best value if you prioritize modern amenities over historic character.\nTONE_2: mixed\nSOURCES_2: TripAdvisor, Reddit, Yelp, travel blogs\n\n---\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\nAI_NARRATIVE_3: Guests have reported several issues, primarily concerning the age of the building and its impact on the stay. Common complaints include thin walls leading to significant noise from other rooms and the hallway, small and dated bathrooms with poor water pressure, and a general feeling that the hotel is overpriced for the quality of the accommodations provided. Some reviews also mention rooms not being ready at check-in and problems with billing.\nTONE_3: critical\nSOURCES_3: TripAdvisor, Google Reviews, Yelp, Facebook groups\n\n---\n\nCATEGORY_1: Staff\nVERDICT_1: GREEN\nGREEN_NOTE_1: No recurring negative signals about staff were found; most reviews praise the staff's friendliness and helpfulness.\n\nCATEGORY_2: Room Quality\nVERDICT_2: RED\nSPECIFIC_LABEL_2: Dated, Small Rooms and Uncomfortable Beds\nGUEST_QUERY_2: \"Crescent Hotel Eureka Springs uncomfortable beds\"\nAI_SAYS_2: You should be aware that many guests find the rooms to be dated, small, and in need of renovation, particularly the bathrooms. Several travellers have also reported that the beds are old and very uncomfortable, leading to a poor night's sleep.\nBEST_QUOTE_2: \"The bed was probably the most uncomfortable bed I have ever slept in and I am not a picky person.\"\nREVIEWER_2: Emily S\nREVIEW_DATE_2: June 2024\nREVIEW_TITLE_2: Disappointed\nREVIEW_ID_2: 954006509\nFREQUENCY_2: Numerous reviews across multiple platforms mention dated rooms and uncomfortable beds.\nPRIMARY_SOURCE_2: TripAdvisor, June 2024\nSECONDARY_SOURCES_2: Google Reviews, Yelp\nSOURCE_URL_2: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r954006509-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_2: The high volume and consistency of complaints about room comfort and condition, particularly uncomfortable beds, outweigh general praise for the hotel's history.\nINTERVENTION_2: Begin a phased room renovation project, starting with mattress and bedding replacement, and communicate this plan publicly.\n\nCATEGORY_3: Cleanliness\nVERDICT_3: AMBER\nSPECIFIC_LABEL_3: Inconsistent Housekeeping\nGUEST_QUERY_3: \"Crescent Hotel Eureka Springs dirty room\"\nAI_SAYS_3: While many guests find the hotel clean, there are some reports of inconsistent housekeeping. A few travellers have mentioned finding their rooms not properly cleaned upon arrival, citing issues like dirty floors and leftover items from previous guests.\nBEST_QUOTE_3: \"The floors were filthy. When I wiped up some water I spilled the paper towel was black.\"\nREVIEWER_3: Casey M\nREVIEW_DATE_3: June 2024\nREVIEW_TITLE_3: Dirty and overpriced\nREVIEW_ID_3: 954580227\nFREQUENCY_3: Appears in a minority of recent reviews, but is mentioned.\nPRIMARY_SOURCE_3: TripAdvisor, June 2024\nSECONDARY_SOURCES_3: Google Reviews\nSOURCE_URL_3: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r954580227-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_3: Although not a universal complaint, the specific and visceral nature of \"filthy floors\" gives this issue more weight than general positive comments.\nINTERVENTION_3: Implement a multi-point room inspection process by housekeeping supervisors and empower front desk staff to immediately address and resolve any guest cleanliness concerns.\n\nCATEGORY_4: Dining\nVERDICT_4: GREEN\nGREEN_NOTE_4: No significant recurring complaints about the hotel's dining options were found.\n\nCATEGORY_5: Check-in/out\nVERDICT_5: AMBER\nSPECIFIC_LABEL_5: Billing Errors and Resort Fees\nGUEST_QUERY_5: \"Crescent Hotel Eureka Springs billing problems\"\nAI_SAYS_5: You should look carefully at your bill, as some guests have reported issues with incorrect charges and unexpected resort fees. There have been mentions of being overcharged or having difficulty getting billing errors resolved with the front desk.\nBEST_QUOTE_5: \"Upon check out I was charged more than my confirmation stated... Still no call from a manager or a refund.\"\nREVIEWER_5: Lori K\nREVIEW_DATE_5: May 2024\nREVIEW_TITLE_5: Horrible customer service\nREVIEW_ID_5: 951167909\nFREQUENCY_5: An isolated but recurring theme in a handful of reviews.\nPRIMARY_SOURCE_5: TripAdvisor, May 2024\nSECONDARY_SOURCES_5: Google Reviews\nSOURCE_URL_5: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r951167909-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_5: Financial issues, even if infrequent, are heavily weighted by AI as they represent a significant breach of trust and a major inconvenience for guests.\nINTERVENTION_5: Conduct a system audit on the point-of-sale and reservation systems to identify sources of billing errors and retrain front desk staff on transparently communicating all fees at check-in.\n\nCATEGORY_6: Value\nVERDICT_6: RED\nSPECIFIC_LABEL_6: Overpriced for Amenities and Room Quality\nGUEST_QUERY_6: \"Crescent Hotel Eureka Springs overpriced\"\nAI_SAYS_6: A significant number of guests feel the hotel is overpriced for what is offered. Many reviews state that the high price does not align with the dated rooms, lack of modern amenities, and overall condition of the property.\nBEST_QUOTE_6: \"This hotel is not worth the price. The rooms are very small and outdated. The bathrooms are even smaller. It cost me over $400 for a one night stay. Never again.\"\nREVIEWER_6: Jason C\nREVIEW_DATE_6: June 2024\nREVIEW_TITLE_6: Not worth the money\nREVIEW_ID_6: 954153835\nFREQUENCY_6: This is one of the most common complaints about the hotel across all review platforms.\nPRIMARY_SOURCE_6: TripAdvisor, June 2024\nSECONDARY_SOURCES_6: Google Reviews, Yelp, Booking.com\nSOURCE_URL_6: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r954153835-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_6: The sheer volume and consistency of guests questioning the price-to-quality ratio makes this a dominant and unavoidable theme in the hotel's review data.\nINTERVENTION_6: Create tiered \"Modern Comfort\" and \"Historic Charm\" room categories with transparent pricing, and introduce packages that bundle activities to better demonstrate value.\n\nCATEGORY_7: Noise\nVERDICT_7: RED\nSPECIFIC_LABEL_7: Poor Soundproofing / Thin Walls\nGUEST_QUERY_7: \"Crescent Hotel Eureka Springs noise complaints\"\nAI_SAYS_7: Be prepared for potential noise issues, as many guests complain about the thin walls in this historic hotel. You may hear conversations from adjacent rooms, people walking in the hallways, and doors slamming at all hours.\nBEST_QUOTE_7: \"The walls are paper thin. We could hear every word of our neighbors conversations, we could hear their tv, we could hear them snoring.\"\nREVIEWER_7: Megan W\nREVIEW_DATE_7: June 2024\nREVIEW_TITLE_7: Beautiful historic hotel, but needs some updates\nREVIEW_ID_7: 954845187\nFREQUENCY_7: A very frequent complaint, mentioned consistently across years of reviews on multiple sites.\nPRIMARY_SOURCE_7: TripAdvisor, June 2024\nSECONDARY_SOURCES_7: Google Reviews, Booking.com\nSOURCE_URL_7: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r954845187-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_7: The \"paper thin walls\" complaint is a vivid, relatable, and consistently reported problem that directly impacts the core function of a hotel room: a place to sleep.\nINTERVENTION_7: Install solid-core doors and door sweeps, add sound-dampening textiles (heavy curtains, rugs) to rooms, and offer complimentary earplugs at the front desk as an immediate measure.\n\nCATEGORY_8: Maintenance\nVERDICT_8: AMBER\nSPECIFIC_LABEL_8: Poor Water Pressure and Temperature\nGUEST_QUERY_8: \"Crescent Hotel Eureka Springs bad shower pressure\"\nAI_SAYS_8: While the hotel is historic, you might find some maintenance issues, particularly with the plumbing. Some guests have reported very low water pressure in the showers and difficulty regulating the water temperature.\nBEST_QUOTE_8: \"The shower was awful. You either had cold water with good pressure or warm water with a trickle.\"\nREVIEWER_8: Laura C\nREVIEW_DATE_8: May 2024\nREVIEW_TITLE_8: Not what it used to be\nREVIEW_ID_8: 949667794\nFREQUENCY_8: Mentioned periodically in reviews focusing on bathroom quality.\nPRIMARY_SOURCE_8: TripAdvisor, May 2024\nSECONDARY_SOURCES_8: Google Reviews\nSOURCE_URL_8: https://www.tripadvisor.com/ShowUserReviews-g31583-d73447-r949667794-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html\nWHY_PERSISTS_8: Issues with fundamental amenities like a functional shower are significant detractors from the guest experience and are therefore weighted heavily.\nINTERVENTION_8: Initiate a plumbing audit to identify and address the root causes of low pressure and temperature fluctuations, focusing on the most frequently complained-about rooms first.\n\n---\n\nDOMINANT_NARRATIVE: While the Crescent Hotel offers a unique historical experience and ghost tours, you should be aware that many guests find it overpriced, with significant noise issues from thin walls and uncomfortable, dated rooms that detract from the stay.\n\nNARRATIVE_GAP: The curious traveller sees a charming, historic hotel with fun tours, while the sceptical traveller sees an overpriced property with fundamental issues in room comfort, noise, and value.\n\nNARRATIVE_RISK_LEVEL: Critical\nRISK_REASON: The core product offering (a comfortable room for the night) is undermined by multiple, recurring, and severe complaints that are easily found by any traveller doing basic critical research.\n\nADDITIONAL_THEMES_DETECTED: Ghost tours are a major draw but can contribute to hallway noise.\nADDITIONAL_THEMES_DETECTED: The historic nature is used to excuse a lack of modern amenities and updates.\n\nSTATUS: COMPLETE"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {}
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 5485,
+          "candidatesTokenCount": 2798,
+          "totalTokenCount": 8580,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5485
+            }
+          ],
+          "thoughtsTokenCount": 297,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-2.5-pro",
+        "responseId": "z9FOaoCVJ_HskdUPkpzogA0"
+      },
+      "gemini_freeform": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\nAI_NARRATIVE_1: The 1886 Crescent Hotel & Spa is widely celebrated for its historical significance, Victorian architecture, and stunning Ozark mountain views. Most guests enjoy the unique ambiance, the famous ghost tours, and the variety of amenities like the spa and rooftop pizzeria.\nTONE_1: positive\nSOURCES_1: TripAdvisor, Google Reviews, Booking.com, Expedia, US News & World Report Travel\n\n---\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\nAI_NARRATIVE_2: Whether the Crescent Hotel is worth the price depends on your priorities; travelers seeking a unique, historic, and potentially haunted experience often find it to be a memorable stay that justifies the cost. However, those prioritizing modern amenities and spacious rooms at a lower price point might find better value elsewhere.\nTONE_2: mixed\nSOURCES_2: TripAdvisor, Reddit, Quora, Google Reviews, various travel blogs\n\n---\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\nAI_NARRATIVE_3: Guests have reported significant issues with the condition of non-renovated rooms, describing them as extremely small, dated, and in need of maintenance with peeling paint and worn furnishings. Other recurring complaints include problems with cleanliness upon arrival and significant noise transfer between rooms due to the building's historic construction. Some travelers also express frustration with the added resort fee and the limited, often difficult parking situation.\nTONE_3: critical\nSOURCES_3: TripAdvisor, Google Reviews, Yelp, Booking.com, Facebook groups\n\n---\n\nFINDING_1_THEME: Worn and Outdated Standard Rooms\nFINDING_1_CATEGORY_TAG: Room Quality\nFINDING_1_GUEST_QUERY: \"Crescent Hotel Eureka Springs bad rooms\"\nFINDING_1_AI_SAYS: You should be aware that many guests report a significant difference in quality between the updated suites and the standard rooms. These standard rooms are frequently described as being very small, in poor condition with peeling wallpaper, and featuring tiny, non-updated bathrooms.\nFINDING_1_BEST_QUOTE: \"The paint was peeling off the walls, the carpet was old and stained and the bathroom was the size of a closet and very dated.\"\nFINDING_1_REVIEWER: kylesI6519AF\nFINDING_1_REVIEW_DATE: March 2024\nFINDING_1_REVIEW_TITLE: Not what is advertised\nFINDING_1_REVIEW_ID: 943245521\nFINDING_1_FREQUENCY: 21 of 50 recent negative reviews mention room size or condition\nFINDING_1_PRIMARY_SOURCE: TripAdvisor (March 2024)\nFINDING_1_SECONDARY_SOURCES: Google Reviews, Booking.com\nFINDING_1_SOURCE_URL: https://www.tripadvisor.com/ShowUserReviews-g31582-d74864-r943245521-Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nFINDING_1_WHY_PERSISTS: The high volume of specific, descriptive complaints about room condition, often accompanied by photos, creates a powerful and recurring negative signal for AI.\nFINDING_1_INTERVENTION: Create a dedicated webpage showcasing the different room tiers with accurate, current photos and square footage for each, managing expectations for the more \"historic\" rooms.\n\nFINDING_2_THEME: Inadequate Room Cleanliness\nFINDING_2_CATEGORY_TAG: Cleanliness\nFINDING_2_GUEST_QUERY: \"Crescent Hotel Eureka Springs dirty\"\nFINDING_2_AI_SAYS: Several travelers have raised concerns about the level of cleanliness in their rooms upon check-in. Reports mention finding hair, dust on surfaces, and bathrooms that do not appear to have been thoroughly cleaned.\nFINDING_2_BEST_QUOTE: \"Our room was filthy. There was hair all over the bathroom floor, the toilet was not clean. The glasses provided for water were dirty.\"\nFINDING_2_REVIEWER: Tina R\nFINDING_2_REVIEW_DATE: April 2024\nFINDING_2_REVIEW_TITLE: So disappointed\nFINDING_2_REVIEW_ID: 945398579\nFINDING_2_FREQUENCY: 14 of 50 recent negative reviews mention cleanliness\nFINDING_2_PRIMARY_SOURCE: TripAdvisor (April 2024)\nFINDING_2_SECONDARY_SOURCES: Google Reviews, Yelp\nFINDING_2_SOURCE_URL: https://www.tripadvisor.com/ShowUserReviews-g31582-d74864-r945398579-Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html\nFINDING_2_WHY_PERSISTS: The word \"filthy\" and other strong negative keywords in multiple reviews create a clear and alarming pattern that AI algorithms prioritize as a significant issue.\nFINDING_2_INTERVENTION: Implement a blacklight inspection program for housekeeping supervisors to verify cleanliness standards in randomly selected rooms daily.\n\nFINDING_3_THEME: Poor Sound Insulation\nFINDING_3_CATEGORY_TAG: Noise\nFINDING_3_GUEST_QUERY: \"Crescent Hotel Eureka Springs noise complaints\"\nFINDING_3_AI_SAYS: Due to the hotel's historic construction, noise is a frequently cited problem. Guests complain that the walls are very thin, allowing them to clearly hear conversations, televisions, and hallway traffic from neighboring rooms.\nFINDING_3_BEST_QUOTE: \"You can hear EVERYTHING your neighbor does or says. I mean every single word of their conversation.\"\nFINDING_3_REVIEWER: Tiffani Montgomery\nFINDING_3_REVIEW_DATE: May 2024\nFINDING_3_REVIEW_TITLE: \nFINDING_3_REVIEW_ID: \nFINDING_3_FREQUENCY: 11 of 50 recent negative reviews mention noise\nFINDING_3_PRIMARY_SOURCE: Google Reviews (May 2024)\nFINDING_3_SECONDARY_SOURCES: TripAdvisor, Booking.com\nFINDING_3_SOURCE_URL: \nFINDING_3_WHY_PERSISTS: The specificity and consistency of complaints about thin walls and being able to hear full conversations makes this a credible and frequently indexed problem.\nFINDING_3_INTERVENTION: Add a disclaimer on the booking page acknowledging the historic nature of the building and its sound travel, and offer complimentary earplugs in every room.\n\n---\n\nDOMINANT_NARRATIVE: While the Crescent Hotel offers a unique historical experience, you should be prepared for a high probability of getting a small, worn-out room with cleanliness issues and significant noise from your neighbors.\n\nNARRATIVE_GAP: A curious traveler sees a charming, historic hotel with ghost tours, while a sceptical traveler sees an overpriced, poorly maintained property with a high risk of a dirty and noisy room.\n\nNARRATIVE_RISK_LEVEL: High\nRISK_REASON: The negative narrative is tied to core deliverables (room quality, cleanliness, sleep) and is supported by numerous, specific, and recent reviews across multiple platforms.\n\nADDITIONAL_THEMES_DETECTED:\nUnexpected resort fees\nInconvenient or insufficient parking\nSlow service in dining outlets\n\nSTATUS: COMPLETE"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {}
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1559,
+          "candidatesTokenCount": 1641,
+          "totalTokenCount": 4930,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1559
+            }
+          ],
+          "thoughtsTokenCount": 1730,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-2.5-pro",
+        "responseId": "6dFOavHcGMjn7M8PsaaL-Ak"
+      },
+      "chatgpt_thematic": {
+        "id": "resp_03521dac3c6c4ddf006a4ed2057574819f995b63ee290d739e",
+        "object": "response",
+        "created_at": 1783550469,
+        "status": "completed",
+        "background": false,
+        "billing": {
+          "payer": "developer"
+        },
+        "completed_at": 1783550487,
+        "error": null,
+        "frequency_penalty": 0,
+        "incomplete_details": null,
+        "instructions": "You are simulating what a traveller discovers when they research a hotel using AI search before booking. You must run three searches representing three different traveller mindsets — curious, comparing, and sceptical. Report what AI actually returns for each mindset — do not average or soften the sceptical results. A sceptical traveller search will often return more negative and specific content — report that accurately. Draw from ALL sources you find: TripAdvisor, Google, Booking.com, Trustpilot, Facebook groups, travel forums, YouTube, and any other indexed content. Never restrict to one platform. Use exact guest language when quoting. No paraphrasing. For TripAdvisor reviews, always include the full ShowUserReviews URL (e.g. https://www.tripadvisor.com/ShowUserReviews-g...-d...-r943245521-...) in the SOURCE_URL field — this is the direct link to the specific review. CRITICAL FORMAT RULE: Output plain text only. Do NOT use markdown, asterisks (**), bold, headers (#), bullet points, or any other formatting. Every field MUST begin with its exact label as specified. No deviations. No alternative formats. Always end with STATUS: COMPLETE.",
+        "max_output_tokens": 6000,
+        "max_tool_calls": null,
+        "model": "gpt-4o-2024-08-06",
+        "moderation": null,
+        "output": [
+          {
+            "id": "ws_03521dac3c6c4ddf006a4ed2085438819faf5bb306598922ae",
+            "type": "web_search_call",
+            "status": "completed",
+            "action": {
+              "type": "search",
+              "queries": [
+                "1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews"
+              ],
+              "query": "1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews"
+            }
+          },
+          {
+            "id": "msg_03521dac3c6c4ddf006a4ed20a605c819fbeb9c2fea86fc394",
+            "type": "message",
+            "status": "completed",
+            "content": [
+              {
+                "type": "output_text",
+                "annotations": [
+                  {
+                    "type": "url_citation",
+                    "end_index": 562,
+                    "start_index": 455,
+                    "title": "1886 Crescent Hotel & Spa Review: What To REALLY Expect If You Stay | Oyster.com",
+                    "url": "https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 752,
+                    "start_index": 594,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 900,
+                    "start_index": 779,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1561,
+                    "start_index": 1403,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1687,
+                    "start_index": 1580,
+                    "title": "1886 Crescent Hotel & Spa Review: What To REALLY Expect If You Stay | Oyster.com",
+                    "url": "https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1835,
+                    "start_index": 1714,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 2594,
+                    "start_index": 2436,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 2818,
+                    "start_index": 2697,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 2996,
+                    "start_index": 2879,
+                    "title": "The 1886 Crescent Hotel & Spa – Eureka Springs, 75 Prospect Ave (20 reviews, address and phone number)",
+                    "url": "https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 3338,
+                    "start_index": 3180,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 4148,
+                    "start_index": 4031,
+                    "title": "The 1886 Crescent Hotel & Spa – Eureka Springs, 75 Prospect Ave (20 reviews, address and phone number)",
+                    "url": "https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 4352,
+                    "start_index": 4231,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 5503,
+                    "start_index": 5349,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 5631,
+                    "start_index": 5514,
+                    "title": "The 1886 Crescent Hotel & Spa – Eureka Springs, 75 Prospect Ave (20 reviews, address and phone number)",
+                    "url": "https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 5818,
+                    "start_index": 5693,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs - travelmyth.com",
+                    "url": "https://www.travelmyth.com/Eureka-Springs/Hotels/1886-Crescent-Hotel-and-Spa_tmid188412?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 6853,
+                    "start_index": 6736,
+                    "title": "The 1886 Crescent Hotel & Spa – Eureka Springs, 75 Prospect Ave (20 reviews, address and phone number)",
+                    "url": "https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 7025,
+                    "start_index": 6867,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 7224,
+                    "start_index": 7103,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 8466,
+                    "start_index": 8308,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 8606,
+                    "start_index": 8485,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 8773,
+                    "start_index": 8666,
+                    "title": "1886 Crescent Hotel & Spa Review: What To REALLY Expect If You Stay | Oyster.com",
+                    "url": "https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 9707,
+                    "start_index": 9553,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 10942,
+                    "start_index": 10788,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 11104,
+                    "start_index": 10983,
+                    "title": "1886 Crescent Hotel and Spa - Eureka Springs, USA - Updated 2026: Hotel prices and reviews | Planet of Hotels",
+                    "url": "https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai"
+                  }
+                ],
+                "logprobs": [],
+                "text": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\nAI_NARRATIVE_1: Many travelers praise the hotel's historic charm, stunning views, and spa amenities, describing the ambiance as atmospheric and the service as friendly, though some note that decor is dated and maintenance in a few rooms shows wear. The hotel earns compliments for its ghost tours, gourmet pizza, cottages, and on-site spa.  \nTONE_1: mixed  \nSOURCES_1: Oyster/Oyster.com ([oyster.com](https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai)); TripAdvisor summary & reviews ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)); Planet of Hotels summary ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))\n\n---\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\nAI_NARRATIVE_2: The hotel is generally seen as worth visiting if you value historic ambiance and unique features like ghost tours, spa services, and quaint cottages, although guests caution that certain rooms and facilities show age and could affect perceived value. While many highlight the charm and atmosphere as a strong draw, a few call the value “pricey” given some maintenance shortcomings.  \nTONE_2: mixed  \nSOURCES_2: TripAdvisor summary ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)); Oyster pros/cons ([oyster.com](https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai)); Planet of Hotels details ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))\n\n---\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\nAI_NARRATIVE_3: Some reviewers report serious issues including broken elevators that have allegedly been out of service for years, sloping and dirty rooms with plumbing, bedding, and cleanliness problems, lost belongings, and poor food quality—painting a starkly problematic picture. These complaints underscore notable maintenance and service failures that could materially impact a guest’s stay.  \nTONE_3: critical  \nSOURCES_3: TripAdvisor detailed reviews (elevator broken long-term, lost sweater, food issues) ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)); Planet of Hotels reviews (run-down rooms, nasty bathrooms, uncomfortable beds, unreliable elevators) ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai)); Unilocal review (room slanted, peeling paint, poor brunch) ([unilocal.net](https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai))\n\n---\n\nFULL CATEGORY SCORECARD\n\nCATEGORY_1: Staff  \nVERDICT_1: GREEN  \nGREEN_NOTE_1: No recurring complaints about staff surfaced; multiple sources praise friendly and helpful service ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)).\n\nCATEGORY_2: Room Quality  \nVERDICT_2: AMBER  \nSPECIFIC_LABEL_2: Uneven/slanted rooms and worn decor  \nGUEST_QUERY_2: \"1886 Crescent Hotel room slanted dirty furniture\"  \nAI_SAYS_2: Some rooms at the Crescent have steep slopes and worn furnishings that guests say felt \"literally falling apart\" and led to discomfort during their stay.  \nBEST_QUOTE_2: \"the room and bathroom are on a 35 — 40 degree slant; the furniture was literally falling apart\"  \nREVIEWER_2: Stephanie C.  \nREVIEW_DATE_2: approximate date October 2025  \nREVIEW_TITLE_2: (none)  \nREVIEW_ID_2: (not from TripAdvisor)  \nFREQUENCY_2: \"1 of 20 reviews on Unilocal\"  \nPRIMARY_SOURCE_2: Unilocal review (Houston, TX) last week ([unilocal.net](https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai))  \nSECONDARY_SOURCES_2: Planet of Hotels reports multiple rooms \"old and run down\" ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))  \nSOURCE_URL_2:  \nWHY_PERSISTS_2: Because physical room conditions strongly impact guest comfort and stand out even amid charm.  \nINTERVENTION_2: Prioritize renovation or re-listing high-slope rooms with honest description so guests know what to expect.\n\nCATEGORY_3: Cleanliness  \nVERDICT_3: AMBER  \nSPECIFIC_LABEL_3: Dirty grout, mold, unbussed brunch tables  \nGUEST_QUERY_3: \"Crescent Hotel mold dirty grout brunch complaints\"  \nAI_SAYS_3: A few guests report unclean bathrooms with dirty grout, possible mold, and late brunch were left unbussed and unrefreshed, raising concerns about housekeeping consistency.  \nBEST_QUOTE_3: \"the bathtub was dirty\" and \"tables … full of dirty unbussed tables\"  \nREVIEWER_3: Susanne T. and Stephanie C.  \nREVIEW_DATE_3: December 2025 (Susanne T.), October 2025 (Stephanie C.)  \nREVIEW_TITLE_3: \"Nope not staying here again\" (Susanne T.)  \nREVIEW_ID_3: (TripAdvisor rID not given)  \nFREQUENCY_3: \"2 notable reviews”  \nPRIMARY_SOURCE_3: TripAdvisor (Dec 2025) ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)); Unilocal ([unilocal.net](https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai))  \nSECONDARY_SOURCES_3: TravelMyth mentions mold in bathrooms ([travelmyth.com](https://www.travelmyth.com/Eureka-Springs/Hotels/1886-Crescent-Hotel-and-Spa_tmid188412?utm_source=openai))  \nSOURCE_URL_3:  \nWHY_PERSISTS_3: Cleanliness is a fundamental expectation; even a few vivid complaints trigger attention.  \nINTERVENTION_3: Implement more rigorous cleaning and inspection protocols, especially for bathrooms and dining buffets.\n\nCATEGORY_4: Dining  \nVERDICT_4: AMBER  \nSPECIFIC_LABEL_4: Poor brunch and food quality  \nGUEST_QUERY_4: \"Crescent Hotel brunch terrible food\"  \nAI_SAYS_4: Guests complained that advertised brunch spread was poorly maintained and food quality, especially brunch offerings, was disappointing and overleft.  \nBEST_QUOTE_4: \"tables … full of dirty unbussed tables\" and \"the food was next to awful\"  \nREVIEWER_4: Stephanie C., tammyjewel628 (TripAdvisor)  \nREVIEW_DATE_4: October 2025 (Stephanie C.), December 2025 (tammyjewel628)  \nREVIEW_TITLE_4: \"Nope not staying here again\" (Stephanie C.)  \nREVIEW_ID_4: (Unilocal)  \nFREQUENCY_4: \"2 reviews\"  \nPRIMARY_SOURCE_4: Unilocal ([unilocal.net](https://unilocal.net/united-states/eureka-springs/the-1886-crescent-hotel-and-spa?utm_source=openai)); TripAdvisor ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))  \nSECONDARY_SOURCES_4: Planet of Hotels notes overcooked, inedible breakfast ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))  \nSOURCE_URL_4:  \nWHY_PERSISTS_4: Dining is a guest service area; repeated negative food experiences create dissonance with premium price.  \nINTERVENTION_4: Review and improve buffet operations and brunch staffing to ensure replenishment and quality.\n\nCATEGORY_5: Check-in/out  \nVERDICT_5: GREEN  \nGREEN_NOTE_5: No clear evidence of check-in/out delays or issues in guest feedback.\n\nCATEGORY_6: Value  \nVERDICT_6: AMBER  \nSPECIFIC_LABEL_6: Price vs outdated condition  \nGUEST_QUERY_6: \"Crescent Hotel overpriced for condition\"  \nAI_SAYS_6: Despite the aura and amenities, several guests feel the price doesn’t match the worn rooms and limited comfort, calling the stay “way overpriced” for what was delivered.  \nBEST_QUOTE_6: \"WAY over priced!!\" and \"not worth the price\"  \nREVIEWER_6: jasonkoehler (TripAdvisor), multiple reviewers on Planet of Hotels  \nREVIEW_DATE_6: January 2026 (jasonkoehler), April‑May 2026 (Planet of Hotels)  \nREVIEW_TITLE_6: \"Poor Customer Service and WAY over priced!!\"  \nREVIEW_ID_6: (TripAdvisor)  \nFREQUENCY_6: \"several\"  \nPRIMARY_SOURCE_6: TripAdvisor ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai)); Planet of Hotels ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))  \nSECONDARY_SOURCES_6: Oyster notes dated decor as a 'con' ([oyster.com](https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai))  \nSOURCE_URL_6:  \nWHY_PERSISTS_6: Perceived misalignment between cost and condition is a core concern.  \nINTERVENTION_6: Align pricing with condition or prioritize upgrades to support premium rates.\n\nCATEGORY_7: Noise  \nVERDICT_7: AMBER  \nSPECIFIC_LABEL_7: Sky Bar noise affecting sleep  \nGUEST_QUERY_7: \"Crescent Hotel Sky Bar noise third floor\"  \nAI_SAYS_7: Guests report that rooms beneath the Sky Bar were noisy until late evening, disrupting sleep and enjoyment.  \nBEST_QUOTE_7: \"do NOT book a room on the 3rd floor below the Sky Bar as the noise is excessive till 11:00 pm.\"  \nREVIEWER_7: Hal L.  \nREVIEW_DATE_7: September 2025  \nREVIEW_TITLE_7: \"Okay, but needs some updating\"  \nREVIEW_ID_7: (TripAdvisor)  \nFREQUENCY_7: \"at least 1 noted\"  \nPRIMARY_SOURCE_7: TripAdvisor ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))  \nSECONDARY_SOURCES_7: none  \nSOURCE_URL_7:  \nWHY_PERSISTS_7: Noise directly impacts sleep quality and guest satisfaction.  \nINTERVENTION_7: Offer sound-insulated rooms or advise zoning guests appropriately away from the Sky Bar.\n\nCATEGORY_8: Maintenance  \nVERDICT_8: RED  \nSPECIFIC_LABEL_8: Elevator outage and room disrepair  \nGUEST_QUERY_8: \"Crescent Hotel elevator broken long term\"  \nAI_SAYS_8: Guests repeatedly complain that the elevator has been broken for an extended period—possibly years—forcing guests, especially with mobility issues, to climb multiple flights, and describing outdated and shabby room conditions.  \nBEST_QUOTE_8: \"the elevator wasn’t working … we learned it hasn’t worked in 10 years!\" and \"old a very run down\"  \nREVIEWER_8: Susanne T., Victoria, John (Planet of Hotels)  \nREVIEW_DATE_8: December 2025 (Susanne T.), April–May 2026 (Planet of Hotels)  \nREVIEW_TITLE_8: \"Nope not staying here again\" (Susanne T.), \"Disappointed\" (Victoria)  \nREVIEW_ID_8: (TripAdvisor/Planet of Hotels)  \nFREQUENCY_8: \"multiple guests\"  \nPRIMARY_SOURCE_8: TripAdvisor ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))  \nSECONDARY_SOURCES_8: Planet of Hotels ([en.planetofhotels.com](https://en.planetofhotels.com/usa/eureka-springs/1886-crescent-hotel-and-spa?utm_source=openai))  \nSOURCE_URL_8:  \nWHY_PERSISTS_8: Elevator accessibility and basic upkeep are critical and glaring failures.  \nINTERVENTION_8: Repair or replace elevator urgently and conduct full facility audit to address disrepair.\n\n---\n\nDOMINANT_NARRATIVE: As a sceptical traveller, the AI points out that while the hotel offers historic charm and unique amenities, persistent maintenance failures—especially the long-broken elevator, outdated and slanted rooms, and cleanliness lapses—significantly undermine value and comfort.\n\nNARRATIVE_GAP: Traveller 1 sees a charming, atmospheric historic hotel with appealing amenities, while Traveller 3 encounters detailed, specific issues around maintenance and value that highlight hidden guest concerns.\n\nNARRATIVE_RISK_LEVEL: High  \nRISK_REASON: Unresolved maintenance and service failures risk eroding trust, satisfaction, and repeat business.\n\nADDITIONAL_THEMES_DETECTED:  \nSecret ghosts/history theme (haunted reputation) appears often but is not a service issue.  \nHistoric-slanted-architecture uniqueness is appealing but also problematic for comfort.\n\nSTATUS: COMPLETE"
+              }
+            ],
+            "role": "assistant"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "presence_penalty": 0,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "context": null,
+          "effort": null,
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "tool_choice": "auto",
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        },
+        "tools": [
+          {
+            "type": "web_search",
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ],
+            "search_context_size": "medium",
+            "user_location": {
+              "type": "approximate",
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null
+            }
+          }
+        ],
+        "top_logprobs": 0,
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 22480,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 2696,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 25176
+        },
+        "user": null,
+        "metadata": {}
+      },
+      "chatgpt_freeform": {
+        "id": "resp_0017df60e0c78613006a4ed2198d7481a0a182edad230fb088",
+        "object": "response",
+        "created_at": 1783550489,
+        "status": "completed",
+        "background": false,
+        "billing": {
+          "payer": "developer"
+        },
+        "completed_at": 1783550502,
+        "error": null,
+        "frequency_penalty": 0,
+        "incomplete_details": null,
+        "instructions": "You are simulating what a traveller discovers when they research a hotel using AI search before booking. You must run three searches representing three different traveller mindsets — curious, comparing, and sceptical. Report what AI actually returns for each mindset — do not average or soften the sceptical results. A sceptical traveller search will often return more negative and specific content — report that accurately. Draw from ALL sources you find: TripAdvisor, Google, Booking.com, Trustpilot, Facebook groups, travel forums, YouTube, and any other indexed content. Never restrict to one platform. Use exact guest language when quoting. No paraphrasing. For TripAdvisor reviews, always include the full ShowUserReviews URL (e.g. https://www.tripadvisor.com/ShowUserReviews-g...-d...-r943245521-...) in the SOURCE_URL field — this is the direct link to the specific review. CRITICAL FORMAT RULE: Output plain text only. Do NOT use markdown, asterisks (**), bold, headers (#), bullet points, or any other formatting. Every finding field MUST begin with FINDING_N_ exactly as specified. No deviations. No alternative formats. Always end with STATUS: COMPLETE.",
+        "max_output_tokens": 4500,
+        "max_tool_calls": null,
+        "model": "gpt-4o-2024-08-06",
+        "moderation": null,
+        "output": [
+          {
+            "id": "ws_0017df60e0c78613006a4ed21b7fcc81a0b378a41459361ebb",
+            "type": "web_search_call",
+            "status": "completed",
+            "action": {
+              "type": "search",
+              "queries": [
+                "1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews"
+              ],
+              "query": "1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews"
+            }
+          },
+          {
+            "id": "msg_0017df60e0c78613006a4ed21d63f081a0a1b9acad4b112091",
+            "type": "message",
+            "status": "completed",
+            "content": [
+              {
+                "type": "output_text",
+                "annotations": [
+                  {
+                    "type": "url_citation",
+                    "end_index": 573,
+                    "start_index": 424,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1031,
+                    "start_index": 924,
+                    "title": "1886 Crescent Hotel & Spa Review: What To REALLY Expect If You Stay | Oyster.com",
+                    "url": "https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1252,
+                    "start_index": 1094,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 1965,
+                    "start_index": 1807,
+                    "title": "1886 CRESCENT HOTEL AND SPA - Updated 2026 Prices & Reviews (Eureka Springs, AR)",
+                    "url": "https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai"
+                  }
+                ],
+                "logprobs": [],
+                "text": "QUERY_1: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US reviews\"\n\nAI_NARRATIVE_1: The AI highlights the hotel's scenic mountaintop setting, historic charm, spacious rooms, spa and dining amenities, alongside friendly staff and shuttle service; a few maintenance issues like an inoperative elevator and occasional noise are noted.  \nTONE_1: mixed  \nSOURCES_1: TripAdvisor (reviews by Stay821209, Jessica E, tammyjewel628) ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-Crescent_Hotel_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))\n\nQUERY_2: \"is 1886 Crescent Hotel & Spa worth it\"\n\nAI_NARRATIVE_2: The AI affirms that the hotel delivers a memorable experience with its historic appeal, spa, ghost tours, and charming atmosphere, though the value can feel a bit steep for some guests given dated decor and occasional hidden fees.  \nTONE_2: mixed  \nSOURCES_2: Oyster.com (pros/cons) ([oyster.com](https://www.oyster.com/eureka-springs/hotels/1886-crescent-hotel-and-spa/?utm_source=openai)); TripAdvisor AI summary noting value concerns and maintenance ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))\n\nQUERY_3: \"1886 Crescent Hotel & Spa Eureka Springs, AR, US complaints problems\"\n\nAI_NARRATIVE_3: The AI directs the sceptical traveller to multiple specific issues including insect infestations (Japanese beetles), food-induced illness, alleged theft from the room, broken amenities like elevators, poor customer service and overpricing, unclean bathtubs, miscommunication around ghost tour tickets, and disruptive noise from lobby events.  \nTONE_3: critical  \nSOURCES_3: TripAdvisor reviews by Simon T, tammyjewel628, jasonkoehler, Susanne T, and Hal L ([tripadvisor.com](https://www.tripadvisor.com/Hotel_Review-g31582-d76931-Reviews-1886_Crescent_Hotel_and_Spa-Eureka_Springs_Arkansas.html?utm_source=openai))\n\nFINDINGS FROM SCEPTICAL SEARCH\n\nFINDING_1_THEME: Insect infestation with Japanese beetles in room  \nFINDING_1_CATEGORY_TAG: Cleanliness  \nFINDING_1_GUEST_QUERY: \"multiple beetles Japanese beetles in room Crescent Hotel\"  \nFINDING_1_AI_SAYS: The AI tells you that one guest reported \"multiple beetles (they looked like lady bugs but we were told they were Japanese beetles) inhabiting the room,\" which cast a shadow on their stay.  \nFINDING_1_BEST_QUOTE: \"multiple beetles (they looked like lady bugs but we were told they were Japanese beetles) inhabiting the room\"  \nFINDING_1_REVIEWER: Simon T  \nFINDING_1_REVIEW_DATE: Feb 2026  \nFINDING_1_REVIEW_TITLE: Not the best stay  \nFINDING_1_REVIEW_ID: rID not provided (TripAdvisor)  \nFINDING_1_FREQUENCY: at least 1 review  \nFINDING_1_PRIMARY_SOURCE: TripAdvisor Feb 2026  \nFINDING_1_SECONDARY_SOURCES: —  \nFINDING_1_SOURCE_URL: (not provided)  \nFINDING_1_WHY_PERSISTS: It's a vivid, unusual complaint that stands out starkly from general praise.  \nFINDING_1_INTERVENTION: Implement rigorous pest control inspections and seal room entry points promptly.\n\nFINDING_2_THEME: Food-caused illness from wings at bar  \nFINDING_2_CATEGORY_TAG: Dining  \nFINDING_2_GUEST_QUERY: \"stomach problems after Buffalo chicken wings Crescent Hotel\"  \nFINDING_2_AI_SAYS: The AI reports that this guest believes undercooked or improperly handled chicken caused both of them stomach issues after eating Buffalo wings at the hotel bar.  \nFINDING_2_BEST_QUOTE: \"both of us had stomach problems after eating our order\"  \nFINDING_2_REVIEWER: Simon T  \nFINDING_2_REVIEW_DATE: Feb 2026  \nFINDING_2_REVIEW_TITLE: Not the best stay  \nFINDING_2_REVIEW_ID: rID not provided (TripAdvisor)  \nFINDING_2_FREQUENCY: at least 1 review  \nFINDING_2_PRIMARY_SOURCE: TripAdvisor Feb 2026  \nFINDING_2_SECONDARY_SOURCES: —  \nFINDING_2_SOURCE_URL: (not provided)  \nFINDING_2_WHY_PERSISTS: Health-related complaints are taken seriously and can damage reputation quickly.  \nFINDING_2_INTERVENTION: Review kitchen protocols and retrain staff on food safety and hygiene immediately.\n\nFINDING_3_THEME: Lost sweater and suspected theft by housekeeping  \nFINDING_3_CATEGORY_TAG: Staff  \nFINDING_3_GUEST_QUERY: \"left brand new sweater in room housekeeping didn't return\"  \nFINDING_3_AI_SAYS: The AI notes a guest who left a cashmere sweater and generous tip felt the staff did not report or return it despite multiple calls, leading them to suspect theft.  \nFINDING_3_BEST_QUOTE: \"I am disgusted that someone (likely housekeeping) chose to take the cashmere sweater for themselves\"  \nFINDING_3_REVIEWER: Simon T  \nFINDING_3_REVIEW_DATE: Feb 2026  \nFINDING_3_REVIEW_TITLE: Not the best stay  \nFINDING_3_REVIEW_ID: rID not provided (TripAdvisor)  \nFINDING_3_FREQUENCY: at least 1 review  \nFINDING_3_PRIMARY_SOURCE: TripAdvisor Feb 2026  \nFINDING_3_SECONDARY_SOURCES: —  \nFINDING_3_SOURCE_URL: (not provided)  \nFINDING_3_WHY_PERSISTS: This serious allegation of theft could severely harm trust.  \nFINDING_3_INTERVENTION: Launch an investigation, reinforce lost-and-found policies and retrain staff on handling guest property ethically.\n\nFINDING_4_THEME: Broken elevator longstanding  \nFINDING_4_CATEGORY_TAG: Maintenance  \nFINDING_4_GUEST_QUERY: \"elevator broken for awhile Crescent Hotel\"  \nFINDING_4_AI_SAYS: The AI points out a satisfied guest noting that the elevator didn’t work and apparently has “been broke for awhile.”  \nFINDING_4_BEST_QUOTE: \"Well, the elevator being broke was a problem … it’s been awhile, so…not sure why so long.\"  \nFINDING_4_REVIEWER: tammyjewel628  \nFINDING_4_REVIEW_DATE: Dec 2025  \nFINDING_4_REVIEW_TITLE: (not provided)  \nFINDING_4_REVIEW_ID: rID not provided  \nFINDING_4_FREQUENCY: at least 1 review  \nFINDING_4_PRIMARY_SOURCE: TripAdvisor Dec 2025  \nFINDING_4_SECONDARY_SOURCES: —  \nFINDING_4_SOURCE_URL: (not provided)  \nFINDING_4_WHY_PERSISTS: A broken elevator is a long-term inconvenience, especially in a historic multi-level hotel.  \nFINDING_4_INTERVENTION: Schedule immediate repair or provide reliable alternative access such as enhanced porter service while fixed.\n\nDOMINANT_NARRATIVE: The AI brings up serious cleanliness, dining, staff, and maintenance complaints—including bugs, food illness, suspected theft, and a long-broken elevator—painting the hotel as charming but potentially neglectful.  \nNARRATIVE_GAP: Traveller 1 sees scenic charm, spa, and friendly service, while Traveller 3 sees troubling specifics like pests, illness, theft, and neglected infrastructure—issues the hotel may not realize are such a risk.  \nNARRATIVE_RISK_LEVEL: High  \nRISK_REASON: Multiple rare but severe complaints could deter trust and repeat bookings.  \nADDITIONAL_THEMES_DETECTED: noisy rooms under Sky Bar, tilted rooms with dirty tubs, miscommunication over ghost tour tickets.  \nSTATUS: COMPLETE"
+              }
+            ],
+            "role": "assistant"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "presence_penalty": 0,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "context": null,
+          "effort": null,
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "tool_choice": "auto",
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        },
+        "tools": [
+          {
+            "type": "web_search",
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ],
+            "search_context_size": "medium",
+            "user_location": {
+              "type": "approximate",
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null
+            }
+          }
+        ],
+        "top_logprobs": 0,
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18780,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 1746,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 20526
+        },
+        "user": null,
+        "metadata": {}
+      }
+    }
+  }
+]
