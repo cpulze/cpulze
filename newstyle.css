@@ -260,8 +260,9 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .hero-proof-item p { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); }
 .hero-early-access { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); margin: 0; line-height: 1.6; display: flex; flex-wrap: wrap; gap: 6px 8px; }
 .hero-early-access span:not(:last-child)::after { content: '·'; margin-left: 8px; color: rgba(12,28,48,.25); }
-.btn-hero-cta { display: inline-block; font-family: var(--font-body); font-size: 17px; font-weight: 700; background: var(--gold-500); color: var(--white); padding: 18px 44px; border-radius: 8px; text-decoration: none; transition: background .2s; margin-bottom: 36px; }
+.btn-hero-cta { display: inline-block; font-family: var(--font-body); font-size: 17px; font-weight: 700; background: var(--gold-500); color: var(--white); padding: 18px 44px; border-radius: 8px; text-decoration: none; transition: background .2s; margin-bottom: 14px; }
 .btn-hero-cta:hover { background: var(--gold-600); }
+.hero-cta-secondary { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); margin: 0 0 28px; }
 
 /* Form (right side) */
 .hero-form-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
@@ -274,7 +275,8 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 .form-step-2.visible { display: flex; }
 .btn-scan { width: 100%; margin-top: 10px; font-family: var(--font-body); font-size: 16px; font-weight: 600; background: var(--navy-800); color: var(--white); border: none; border-radius: 7px; height: 52px; cursor: pointer; transition: all .2s; }
 .btn-scan:hover { background: var(--navy-700); }
-.form-trust { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-family: var(--font-mono); }
+.form-cta-secondary { font-size: 12px; color: var(--text-muted); text-align: center; font-family: var(--font-mono); margin: 10px 0 0; }
+.form-trust { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-family: var(--font-mono); }
 .form-trust span + span::before { content: '·'; margin-right: 10px; color: var(--cream-300); }
 
 /* ==========================================
