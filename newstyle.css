@@ -260,8 +260,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .hero-proof-item p { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); }
 .hero-early-access { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); margin: 0; line-height: 1.6; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 8px; }
 .hero-early-access span:not(:last-child)::after { content: '·'; margin-left: 8px; color: rgba(12,28,48,.25); }
-.hero-cta-block { text-align: center; }
-.btn-hero-cta { display: inline-block; font-family: var(--font-body); font-size: 17px; font-weight: 700; background: var(--gold-500); color: var(--white); padding: 18px 44px; border-radius: 8px; text-decoration: none; transition: background .2s; margin-bottom: 14px; }
+.hero-cta-block { text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px 28px; box-shadow: 0 12px 40px rgba(0,0,0,.06); }
+.btn-hero-cta { display: block; width: 100%; box-sizing: border-box; text-align: center; font-family: var(--font-body); font-size: 17px; font-weight: 700; background: var(--gold-500); color: var(--white); padding: 18px 44px; border-radius: 8px; text-decoration: none; transition: background .2s; margin-bottom: 14px; }
 .btn-hero-cta:hover { background: var(--gold-600); }
 .hero-cta-secondary { font-family: var(--font-display); font-style: italic; font-size: 16px; font-weight: 500; color: rgba(12,28,48,.55); margin: 0 0 28px; }
 
