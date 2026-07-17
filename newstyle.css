@@ -259,7 +259,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .hero-proof-item span { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 500; color: var(--gold-500); line-height: 1; margin-bottom: 4px; }
 .hero-proof-item p { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); }
 .hero-early-access { font-size: 13px; color: rgba(12,28,48,.45); font-family: var(--font-mono); margin: 0; line-height: 1.6; display: flex; flex-wrap: wrap; gap: 6px 8px; }
-.hero-early-access span + span::before { content: '·'; margin-right: 6px; color: rgba(12,28,48,.25); }
+.hero-early-access span:not(:last-child)::after { content: '·'; margin-left: 8px; color: rgba(12,28,48,.25); }
 .btn-hero-cta { display: inline-block; font-family: var(--font-body); font-size: 17px; font-weight: 700; background: var(--gold-500); color: var(--white); padding: 18px 44px; border-radius: 8px; text-decoration: none; transition: background .2s; margin-bottom: 36px; }
 .btn-hero-cta:hover { background: var(--gold-600); }
 
