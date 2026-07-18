@@ -215,6 +215,30 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .btn-hero-cta:hover { background: var(--gold-600); }
 .hero-cta-secondary { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--navy-900); margin: 0 0 20px; }
 
+/* ── Approach section — methodology intro, right after hero ── */
+.approach-section { padding: 120px 0; }
+.approach-grid { display: flex; gap: 100px; align-items: flex-start; }
+.approach-intro { flex: 0 0 380px; }
+.approach-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0 0 36px; }
+
+.approach-lead { border-left: 2px solid var(--gold-400); padding-left: 20px; margin-bottom: 36px; }
+.approach-lead-title { font-family: var(--font-display); font-style: italic; font-size: 20px; font-weight: 600; color: var(--navy-900); margin: 0 0 8px; }
+.approach-lead-text { font-size: 14px; color: rgba(12,28,48,.55); line-height: 1.6; margin: 0; max-width: 300px; }
+
+.approach-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--navy-900); text-decoration: none; border-bottom: 1px solid rgba(12,28,48,.25); padding-bottom: 3px; }
+.approach-cta span { display: inline-block; transition: transform .2s; }
+.approach-cta:hover { color: var(--gold-600); border-color: var(--gold-500); }
+.approach-cta:hover span { transform: translateX(3px); }
+
+.approach-rail { flex: 1; min-width: 0; }
+.approach-step { display: flex; gap: 32px; padding: 32px 0; border-bottom: 0.5px solid rgba(12,28,48,.1); }
+.approach-step:first-child { padding-top: 0; }
+.approach-step:last-child { border-bottom: none; padding-bottom: 0; }
+.approach-step-num { flex-shrink: 0; width: 64px; font-family: var(--font-display); font-size: 42px; font-weight: 500; color: rgba(196,144,58,.35); line-height: 1; }
+.approach-step-body { flex: 1; min-width: 0; padding-top: 4px; }
+.approach-step-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy-900); margin: 0 0 8px; }
+.approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
+
 /* Form (right side) */
 .hero-form-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
 .scan-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 40px rgba(0,0,0,.06); }
@@ -888,6 +912,11 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .hero-left { flex: none; }
   .hero-right { display: none; }
   .hero-headline { font-size: 46px; }
+  .approach-section { padding: 72px 0; }
+  .approach-grid { flex-direction: column; gap: 48px; }
+  .approach-intro { flex: none; max-width: 480px; }
+  .approach-step-num { width: 48px; font-size: 32px; }
+  .approach-step { gap: 20px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
