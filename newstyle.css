@@ -231,12 +231,12 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-cta:hover span { transform: translateX(3px); }
 
 .approach-rail { flex: 1; min-width: 0; }
-.approach-step { display: flex; gap: 32px; padding: 32px 0; border-bottom: 0.5px solid rgba(12,28,48,.1); }
-.approach-step:first-child { padding-top: 0; }
-.approach-step:last-child { border-bottom: none; padding-bottom: 0; }
-.approach-step-num { flex-shrink: 0; width: 64px; font-family: var(--font-display); font-size: 42px; font-weight: 500; color: rgba(196,144,58,.35); line-height: 1; }
-.approach-step-body { flex: 1; min-width: 0; padding-top: 4px; }
+.approach-step { display: flex; width: 100%; gap: 28px; align-items: flex-start; }
+.approach-step-badge { flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--gold-400); background: var(--cream-50); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--gold-600); }
+.approach-step-connector { width: 48px; padding: 6px 0; text-align: center; font-size: 15px; line-height: 1; color: var(--gold-400); }
+.approach-step-body { flex: 1; min-width: 0; padding-top: 6px; }
 .approach-step-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy-900); margin: 0 0 8px; }
+.approach-step-name em { font-style: italic; color: var(--gold-600); }
 .approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
 
 /* Form (right side) */
@@ -915,8 +915,9 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .approach-section { padding: 72px 0; }
   .approach-grid { flex-direction: column; gap: 48px; }
   .approach-intro { flex: none; max-width: 480px; }
-  .approach-step-num { width: 48px; font-size: 32px; }
   .approach-step { gap: 20px; }
+  .approach-step-badge, .approach-step-connector { width: 40px; }
+  .approach-step-badge { width: 40px; height: 40px; font-size: 15px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
