@@ -256,6 +256,24 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .why-matters-quote { font-family: var(--font-display); font-style: italic; font-size: 21px; font-weight: 500; color: rgba(12,28,48,.62); line-height: 1.45; margin: 0 0 14px; }
 .why-matters-caption { font-family: var(--font-mono); font-size: 11px; color: rgba(12,28,48,.4); letter-spacing: .3px; line-height: 1.5; margin: 0; text-transform: uppercase; }
 
+/* ── Services overview — four offerings, one system ── */
+.services-intro { max-width: 620px; margin: 0 auto 64px; text-align: center; }
+.services-intro .section-tag { justify-content: center; }
+.services-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0 auto; }
+
+.services-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px 56px; }
+.service-card { border-top: 2px solid rgba(12,28,48,.14); padding-top: 28px; }
+.service-card--feature { background: var(--cream-100); border-top: 2px solid var(--gold-400); padding: 28px 28px 32px; }
+.service-card-label { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-600); margin-bottom: 10px; }
+.service-card-hook { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--navy-900); margin: 0 0 12px; line-height: 1.25; }
+.service-card-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.7; margin: 0; max-width: 380px; }
+
+.services-cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
+.btn-services-cta { display: inline-block; font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--navy-900); border: 1.5px solid var(--navy-900); padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: all .2s; }
+.btn-services-cta:hover { background: var(--navy-900); color: var(--white); }
+.services-secondary-link { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: rgba(12,28,48,.55); text-decoration: none; border-bottom: 1px solid rgba(12,28,48,.25); padding-bottom: 2px; }
+.services-secondary-link:hover { color: var(--gold-600); border-color: var(--gold-500); }
+
 /* Form (right side) */
 .hero-form-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
 .scan-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 40px rgba(0,0,0,.06); }
@@ -938,6 +956,8 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .why-matters { padding: 64px 0; }
   .why-matters-grid { flex-direction: column; gap: 36px; align-items: flex-start; }
   .why-matters-evidence { flex: none; border-top: 1px solid rgba(12,28,48,.1); padding-top: 32px; width: 100%; }
+  .services-grid { grid-template-columns: 1fr; gap: 40px; }
+  .services-cta-row { flex-direction: column; gap: 16px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
