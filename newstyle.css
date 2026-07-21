@@ -256,23 +256,32 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .why-matters-quote { font-family: var(--font-display); font-style: italic; font-size: 21px; font-weight: 500; color: rgba(12,28,48,.62); line-height: 1.45; margin: 0 0 14px; }
 .why-matters-caption { font-family: var(--font-mono); font-size: 11px; color: rgba(12,28,48,.4); letter-spacing: .3px; line-height: 1.5; margin: 0; text-transform: uppercase; }
 
-/* ── Services overview — four offerings, one system ── */
-.services-intro { max-width: 620px; margin: 0 auto 64px; text-align: center; }
-.services-intro .section-tag { justify-content: center; }
-.services-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0 auto; }
+/* ── Services overview — anchor card + ledger list ── */
+.services-intro { max-width: 560px; margin: 0 0 64px; }
+.services-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0; }
 
-.services-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px 56px; }
-.service-card { border-top: 2px solid rgba(12,28,48,.14); padding-top: 28px; }
-.service-card--feature { background: var(--cream-100); border-top: 2px solid var(--gold-400); padding: 28px 28px 32px; }
-.service-card-label { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-600); margin-bottom: 10px; }
+.services-grid { display: flex; gap: 64px; align-items: stretch; }
+.service-card-label { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-600); }
 .service-card-hook { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--navy-900); margin: 0 0 12px; line-height: 1.25; }
-.service-card-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.7; margin: 0; max-width: 380px; }
+.service-card-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.7; margin: 0; max-width: 360px; }
 
-.services-cta-row { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
+.service-card--feature { flex: 1.05; display: flex; flex-direction: column; background: var(--cream-100); border-top: 2px solid var(--gold-400); padding: 40px 40px 44px; }
+.service-card--feature .service-card-label { margin-bottom: 14px; }
+.service-card--feature .service-card-hook { font-size: 29px; margin-bottom: 16px; }
+.service-card--feature .service-card-text { max-width: 340px; }
+
+.services-list { flex: 0.95; display: flex; flex-direction: column; }
+.services-list .service-card { flex: 1; border-top: 1px solid rgba(12,28,48,.12); padding: 26px 0; display: flex; flex-direction: column; justify-content: center; }
+.services-list .service-card:first-child { padding-top: 0; }
+.service-card-meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.service-card-meta .service-card-label { margin-bottom: 0; }
+.service-card-index { font-family: var(--font-display); font-size: 13px; color: rgba(12,28,48,.32); letter-spacing: .3px; }
+
+.services-cta-row { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 56px; }
 .btn-services-cta { display: inline-block; font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--navy-900); border: 1.5px solid var(--navy-900); padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: all .2s; }
 .btn-services-cta:hover { background: var(--navy-900); color: var(--white); }
-.services-secondary-link { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: rgba(12,28,48,.55); text-decoration: none; border-bottom: 1px solid rgba(12,28,48,.25); padding-bottom: 2px; }
-.services-secondary-link:hover { color: var(--gold-600); border-color: var(--gold-500); }
+.services-secondary-link { font-family: var(--font-body); font-size: 13px; color: rgba(12,28,48,.4); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(12,28,48,.2); }
+.services-secondary-link:hover { color: var(--gold-600); text-decoration-color: var(--gold-500); }
 
 /* Form (right side) */
 .hero-form-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
@@ -956,8 +965,8 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .why-matters { padding: 64px 0; }
   .why-matters-grid { flex-direction: column; gap: 36px; align-items: flex-start; }
   .why-matters-evidence { flex: none; border-top: 1px solid rgba(12,28,48,.1); padding-top: 32px; width: 100%; }
-  .services-grid { grid-template-columns: 1fr; gap: 40px; }
-  .services-cta-row { flex-direction: column; gap: 16px; }
+  .services-grid { flex-direction: column; gap: 8px; }
+  .service-card--feature { padding: 32px 28px 36px; margin-bottom: 8px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
