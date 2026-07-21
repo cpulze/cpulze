@@ -257,8 +257,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .why-matters-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 72px; align-items: start; }
 
 .why-matters-thesis { max-width: 540px; }
-.why-matters-lead { font-size: 19px; font-weight: 500; color: rgba(255,255,255,.78); line-height: 1.6; margin: 0 0 20px; }
-.why-matters-body { font-size: 15.5px; color: rgba(255,255,255,.55); line-height: 1.75; margin: 0 0 36px; }
+.why-matters-lead { font-size: 19px; font-weight: 500; color: rgba(255,255,255,.78); line-height: 1.6; margin: 0 0 36px; }
 .why-matters-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 3px; }
 .why-matters-cta span { display: inline-block; transition: transform .2s; }
 .why-matters-cta:hover { color: var(--gold-300); border-color: var(--gold-300); }
