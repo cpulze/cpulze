@@ -240,7 +240,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
 
 /* ── Why it matters — bridge section, lighter than approach ── */
-.why-matters { padding: 96px 0; }
+.why-matters { padding: 96px 0; background: var(--gold-bg); position: relative; }
+.why-matters::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(196,144,58,.35) 30%, rgba(196,144,58,.5) 50%, rgba(196,144,58,.35) 70%, transparent 100%); }
 .why-matters-grid { display: flex; gap: 90px; align-items: center; }
 .why-matters-copy { flex: 1 1 auto; max-width: 560px; }
 .why-matters-subhead { font-size: 18px; font-weight: 500; color: rgba(12,28,48,.68); line-height: 1.6; margin: 18px 0 16px; }
