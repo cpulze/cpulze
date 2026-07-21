@@ -218,17 +218,22 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 /* ── Approach section — methodology intro, right after hero ── */
 .approach-section { padding: 120px 0; }
 .approach-grid { display: flex; gap: 100px; align-items: stretch; }
-.approach-intro { flex: 0 0 380px; background: rgba(196,144,58,.055); padding: 40px 32px 44px; }
-.approach-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0 0 36px; }
+.approach-intro { flex: 0 0 380px; background: var(--navy-900); padding: 40px 32px 44px; }
+.approach-subhead { font-size: 17px; color: rgba(255,255,255,.62); line-height: 1.6; margin: 0 0 36px; }
 
-.approach-lead { border-left: 2px solid var(--gold-400); background: rgba(196,144,58,.07); padding: 20px 22px; margin: 0 0 8px; }
-.approach-lead-title { font-family: var(--font-display); font-style: italic; font-size: 20px; font-weight: 600; color: var(--navy-900); margin: 0 0 8px; }
-.approach-lead-text { font-size: 14px; color: rgba(12,28,48,.55); line-height: 1.6; margin: 0; max-width: 300px; }
+.approach-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.15); border: 0.5px solid rgba(212,168,74,.4); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-300); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 24px; width: fit-content; }
+.approach-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-400); flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
+.approach-intro .section-title { color: var(--white); }
+.approach-intro .section-title em { color: var(--gold-300); }
 
-.approach-cta-row { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(196,144,58,.22); }
-.approach-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--navy-900); text-decoration: none; border-bottom: 1px solid rgba(12,28,48,.25); padding-bottom: 3px; }
+.approach-lead { border-left: 2px solid var(--gold-400); background: rgba(255,255,255,.06); padding: 20px 22px; margin: 0 0 8px; }
+.approach-lead-title { font-family: var(--font-display); font-style: italic; font-size: 20px; font-weight: 600; color: var(--white); margin: 0 0 8px; }
+.approach-lead-text { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.6; margin: 0; max-width: 300px; }
+
+.approach-cta-row { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(212,168,74,.25); }
+.approach-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 3px; }
 .approach-cta span { display: inline-block; transition: transform .2s; }
-.approach-cta:hover { color: var(--gold-600); border-color: var(--gold-500); }
+.approach-cta:hover { color: var(--gold-300); border-color: var(--gold-300); }
 .approach-cta:hover span { transform: translateX(3px); }
 
 .approach-rail { flex: 1; min-width: 0; padding: 40px 0 0 56px; position: relative; }
@@ -238,7 +243,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-step:last-child { padding-bottom: 0; }
 .approach-step:not(:first-child)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, rgba(196,144,58,.32) 0%, rgba(12,28,48,.08) 55%, transparent 85%); }
 .approach-step-meta { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
-.approach-step-index { font-family: var(--font-display); font-size: 13px; color: rgba(124,80,16,.45); letter-spacing: .3px; }
+.approach-step-index { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--gold-600); letter-spacing: .3px; }
 .approach-step-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy-900); margin: 0; }
 .approach-step-name em { font-style: italic; color: var(--gold-600); }
 .approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
