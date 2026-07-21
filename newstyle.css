@@ -239,6 +239,22 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-step-name em { font-style: italic; color: var(--gold-600); }
 .approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
 
+/* ── Why it matters — bridge section, lighter than approach ── */
+.why-matters { padding: 96px 0; }
+.why-matters-grid { display: flex; gap: 90px; align-items: center; }
+.why-matters-copy { flex: 1 1 auto; max-width: 560px; }
+.why-matters-subhead { font-size: 18px; font-weight: 500; color: rgba(12,28,48,.68); line-height: 1.6; margin: 18px 0 16px; }
+.why-matters-body { font-size: 15px; color: rgba(12,28,48,.55); line-height: 1.7; margin: 0 0 32px; max-width: 460px; }
+.why-matters-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--navy-900); text-decoration: none; border-bottom: 1px solid rgba(12,28,48,.25); padding-bottom: 3px; }
+.why-matters-cta span { display: inline-block; transition: transform .2s; }
+.why-matters-cta:hover { color: var(--gold-600); border-color: var(--gold-500); }
+.why-matters-cta:hover span { transform: translateX(3px); }
+
+.why-matters-evidence { flex: 0 0 300px; }
+.why-matters-quote-mark { font-family: var(--font-display); font-size: 64px; font-weight: 600; color: rgba(196,144,58,.28); line-height: 1; margin: 0 0 4px; }
+.why-matters-quote { font-family: var(--font-display); font-style: italic; font-size: 21px; font-weight: 500; color: rgba(12,28,48,.62); line-height: 1.45; margin: 0 0 14px; }
+.why-matters-caption { font-family: var(--font-mono); font-size: 11px; color: rgba(12,28,48,.4); letter-spacing: .3px; line-height: 1.5; margin: 0; text-transform: uppercase; }
+
 /* Form (right side) */
 .hero-form-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
 .scan-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 40px rgba(0,0,0,.06); }
@@ -918,6 +934,9 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .approach-step { gap: 20px; }
   .approach-step-badge, .approach-step-connector { width: 40px; }
   .approach-step-badge { width: 40px; height: 40px; font-size: 15px; }
+  .why-matters { padding: 64px 0; }
+  .why-matters-grid { flex-direction: column; gap: 36px; align-items: flex-start; }
+  .why-matters-evidence { flex: none; border-top: 1px solid rgba(12,28,48,.1); padding-top: 32px; width: 100%; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
