@@ -217,8 +217,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 
 /* ── Approach section — methodology intro, right after hero ── */
 .approach-section { padding: 120px 0; }
-.approach-grid { display: flex; gap: 100px; align-items: stretch; }
-.approach-intro { flex: 0 0 380px; background: var(--navy-900); padding: 40px 32px 44px; }
+.approach-grid { display: flex; gap: 100px; align-items: flex-start; }
+.approach-intro { flex: 0 0 380px; background: rgba(12,28,48,.85); border-radius: 10px; padding: 44px 32px 48px; }
 .approach-subhead { font-size: 17px; color: rgba(255,255,255,.62); line-height: 1.6; margin: 0 0 36px; }
 
 .approach-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,144,58,.15); border: 0.5px solid rgba(212,168,74,.4); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--gold-300); letter-spacing: .5px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 24px; width: fit-content; }
@@ -226,7 +226,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-intro .section-title { color: var(--white); }
 .approach-intro .section-title em { color: var(--gold-300); }
 
-.approach-lead { border-left: 2px solid var(--gold-400); background: rgba(255,255,255,.06); padding: 20px 22px; margin: 0 0 8px; }
+.approach-lead { border-left: 2px solid var(--gold-400); padding-left: 20px; margin: 0 0 8px; }
 .approach-lead-title { font-family: var(--font-display); font-style: italic; font-size: 20px; font-weight: 600; color: var(--white); margin: 0 0 8px; }
 .approach-lead-text { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.6; margin: 0; max-width: 300px; }
 
