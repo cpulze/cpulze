@@ -230,12 +230,13 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .approach-cta:hover { color: var(--gold-600); border-color: var(--gold-500); }
 .approach-cta:hover span { transform: translateX(3px); }
 
-.approach-rail { flex: 1; min-width: 0; }
-.approach-step { display: flex; width: 100%; gap: 28px; align-items: flex-start; }
-.approach-step-badge { flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--gold-400); background: var(--cream-50); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--gold-600); }
-.approach-step-connector { width: 48px; padding: 6px 0; text-align: center; font-size: 15px; line-height: 1; color: var(--gold-400); }
-.approach-step-body { flex: 1; min-width: 0; padding-top: 6px; }
-.approach-step-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy-900); margin: 0 0 8px; }
+.approach-rail { flex: 1; min-width: 0; border-left: 1px solid rgba(12,28,48,.12); padding-left: 56px; }
+.approach-step { border-top: 1px solid rgba(12,28,48,.12); padding: 26px 0; }
+.approach-step:first-child { border-top: none; padding-top: 0; }
+.approach-step:last-child { padding-bottom: 0; }
+.approach-step-meta { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+.approach-step-index { font-family: var(--font-display); font-size: 13px; color: rgba(12,28,48,.32); letter-spacing: .3px; }
+.approach-step-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy-900); margin: 0; }
 .approach-step-name em { font-style: italic; color: var(--gold-600); }
 .approach-step-text { font-size: 15px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; max-width: 420px; }
 
@@ -959,9 +960,7 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .approach-section { padding: 72px 0; }
   .approach-grid { flex-direction: column; gap: 48px; }
   .approach-intro { flex: none; max-width: 480px; }
-  .approach-step { gap: 20px; }
-  .approach-step-badge, .approach-step-connector { width: 40px; }
-  .approach-step-badge { width: 40px; height: 40px; font-size: 15px; }
+  .approach-rail { border-left: none; padding-left: 0; }
   .why-matters { padding: 64px 0; }
   .why-matters-grid { flex-direction: column; gap: 36px; align-items: flex-start; }
   .why-matters-evidence { flex: none; border-top: 1px solid rgba(12,28,48,.1); padding-top: 32px; width: 100%; }
