@@ -251,8 +251,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 
 /* ── Why it matters — bridge section, lighter than approach ── */
 .why-matters { padding: 112px 0; background: var(--navy-950); border-bottom: 1px solid rgba(255,255,255,.06); }
-.why-matters .section-tag { color: var(--gold-400); }
-.why-matters .section-tag::before { background: var(--gold-400); }
+.why-matters .section-tag { color: var(--gold-400); font-size: 13px; }
+.why-matters .section-tag::before { background: var(--gold-400); width: 24px; }
 .why-matters .section-title { color: var(--white); font-size: 40px; max-width: 520px; }
 .why-matters-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 72px; align-items: start; }
 
