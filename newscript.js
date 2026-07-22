@@ -118,6 +118,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 6. What hotels see — thread scroll-reveal
+  const threadSequences = document.querySelectorAll('.thread-sequence');
+  if (threadSequences.length) {
+    if ('IntersectionObserver' in window) {
+      const threadObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      threadSequences.forEach(el => threadObserver.observe(el));
+    } else {
+      threadSequences.forEach(el => el.classList.add('is-visible'));
+    }
+  }
+
 });
 
 // 5. Ledger UI (called from inline HTML)
