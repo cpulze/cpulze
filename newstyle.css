@@ -494,9 +494,9 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 .who-for .section-title { font-size: 32px; margin-bottom: 18px; }
 .who-for-lead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; }
 
-.who-for-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(12,28,48,.14); }
+.who-for-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(12,28,48,.14); }
 
-.who-for-col { padding: 40px 48px; border-left: 1px solid rgba(12,28,48,.1); }
+.who-for-col { padding: 40px 64px; border-left: 1px solid rgba(12,28,48,.1); }
 .who-for-col:first-child { padding-left: 0; border-left: none; }
 .who-for-col:last-child { padding-right: 0; }
 
