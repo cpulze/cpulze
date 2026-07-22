@@ -334,14 +334,29 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 .form-trust span + span::before { content: '·'; margin-right: 10px; color: var(--cream-300); }
 
 /* ==========================================
-   PROOF STRIP
+   PROOF GALLERY — a preview of the work, not a results strip
    ========================================== */
-.proof-strip { background: var(--navy-950); padding: 28px 0; border-bottom: 0.5px solid rgba(255,255,255,.06); }
-.proof-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: center; gap: 0; }
-.proof-stat { flex: 1; text-align: center; padding: 0 24px; border-right: 0.5px solid rgba(255,255,255,.08); }
-.proof-stat:last-child { border-right: none; }
-.proof-stat-num { font-family: var(--font-display); font-size: 36px; font-weight: 500; color: var(--gold-300); line-height: 1; margin-bottom: 4px; }
-.proof-stat-label { font-size: 13px; color: rgba(255,255,255,.4); font-family: var(--font-mono); letter-spacing: .3px; }
+.proof-gallery-intro { max-width: 580px; margin: 0 0 64px; }
+.proof-gallery-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.6; margin: 0; }
+
+.proof-modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+
+.proof-module { border-top: 1px solid rgba(12,28,48,.14); padding-top: 26px; }
+.proof-module-num { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--gold-600); letter-spacing: 1px; margin-bottom: 14px; }
+.proof-module-title { font-family: var(--font-display); font-size: 23px; font-weight: 600; color: var(--navy-900); margin: 0 0 14px; line-height: 1.25; }
+.proof-module-text { font-size: 14.5px; color: rgba(12,28,48,.6); line-height: 1.7; margin: 0 0 22px; }
+
+.proof-module-outcomes { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.proof-module-outcomes li { position: relative; padding-left: 20px; font-size: 13px; color: rgba(12,28,48,.62); line-height: 1.6; }
+.proof-module-outcomes li::before { content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 1px; background: var(--gold-500); }
+
+.proof-module-excerpt { border-top: 1px solid rgba(12,28,48,.1); padding-top: 18px; margin: 0 0 24px; }
+.proof-module-excerpt-label { display: block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: rgba(12,28,48,.38); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.proof-module-excerpt-text { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15.5px; color: rgba(12,28,48,.68); line-height: 1.5; margin: 0; }
+
+.proof-module-artifacts-label { display: block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: rgba(12,28,48,.38); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.proof-module-artifacts-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.proof-module-artifacts-list span { font-family: var(--font-mono); font-size: 10.5px; color: var(--gold-700); border: 1px solid rgba(196,144,58,.4); border-radius: 1px; padding: 4px 8px; letter-spacing: .3px; }
 
 /* ==========================================
    SHARED SECTION STYLES
@@ -1033,8 +1048,7 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 
   /* Proof strip */
   .hero-proof { flex-direction: column; gap: 16px; }
-  .proof-strip-inner { flex-wrap: wrap; gap: 20px; }
-  .proof-stat { border-right: none; flex: 0 0 40%; }
+  .proof-modules { grid-template-columns: 1fr; gap: 40px; }
 
   /* Sections */
   .steps-grid { grid-template-columns: 1fr; }
