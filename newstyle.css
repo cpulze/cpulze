@@ -291,13 +291,13 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 
 .services-panel-num { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--gold-600); letter-spacing: 1.5px; margin-bottom: 16px; }
 .services-panel-title { font-family: var(--font-display); font-size: 34px; font-weight: 600; color: var(--navy-900); margin: 0 0 18px; line-height: 1.15; }
-.services-panel-text { font-size: 16px; color: rgba(12,28,48,.62); line-height: 1.75; margin: 0 0 32px; max-width: 540px; }
+.services-panel-text { font-size: 16px; color: rgba(12,28,48,.62); line-height: 1.75; margin: 0 0 32px; max-width: 660px; }
 
-.services-panel-outcomes { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-direction: column; gap: 15px; max-width: 540px; }
+.services-panel-outcomes { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-direction: column; gap: 15px; max-width: 660px; }
 .services-panel-outcomes li { position: relative; padding-left: 24px; font-size: 14.5px; color: rgba(12,28,48,.68); line-height: 1.6; }
 .services-panel-outcomes li::before { content: ''; position: absolute; left: 0; top: 9px; width: 12px; height: 1px; background: var(--gold-500); }
 
-.services-artifacts { border-top: 1px solid rgba(12,28,48,.1); padding-top: 22px; max-width: 540px; }
+.services-artifacts { border-top: 1px solid rgba(12,28,48,.1); padding-top: 22px; max-width: 660px; }
 .services-artifacts-label { display: block; font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; color: rgba(12,28,48,.4); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 13px; }
 .services-artifacts-list { display: flex; flex-wrap: wrap; gap: 10px; }
 .services-artifacts-list span { font-family: var(--font-mono); font-size: 11px; color: var(--gold-700); border: 1px solid rgba(196,144,58,.4); border-radius: 1px; padding: 4px 9px; letter-spacing: .4px; background: none; }
@@ -341,7 +341,7 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 
 .thread-artifact {
   position: relative;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 0 100px 100px;
   opacity: 0;
   transform: translateY(26px);
@@ -355,7 +355,7 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 
 .thread-artifact:last-child { margin-bottom: 0; }
 .thread-artifact--right { margin-left: 190px; }
-.thread-artifact--wide { margin-left: 100px; max-width: 780px; }
+.thread-artifact--wide { margin-left: 100px; max-width: 940px; }
 
 .thread-artifact-dot {
   position: absolute;
