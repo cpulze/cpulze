@@ -320,7 +320,7 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 /* ==========================================
    WHAT HOTELS SEE — one issue traced through four working artifacts
    ========================================== */
-.thread-section { padding: 130px 0; }
+.thread-section { padding: 130px 0; background: var(--gold-bg); }
 .thread-intro { max-width: 620px; margin: 0 0 88px; }
 .thread-subhead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; }
 
