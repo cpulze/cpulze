@@ -487,6 +487,29 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 }
 
 /* ==========================================
+   WHO IT'S FOR — a quiet qualification, not a story
+   ========================================== */
+.who-for { padding: 128px 0; }
+.who-for-intro { max-width: 700px; margin: 0 0 80px; }
+.who-for .section-title { font-size: 32px; margin-bottom: 18px; }
+.who-for-lead { font-size: 17px; color: rgba(12,28,48,.6); line-height: 1.65; margin: 0; }
+
+.who-for-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(12,28,48,.14); }
+
+.who-for-col { padding: 40px 48px; border-left: 1px solid rgba(12,28,48,.1); }
+.who-for-col:first-child { padding-left: 0; border-left: none; }
+.who-for-col:last-child { padding-right: 0; }
+
+.who-for-col-label {
+  display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold-700); margin-bottom: 26px;
+}
+
+.who-for-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 19px; }
+.who-for-list li { position: relative; padding-left: 20px; font-size: 14.5px; color: rgba(12,28,48,.68); line-height: 1.55; }
+.who-for-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 1px; background: var(--gold-500); }
+
+/* ==========================================
    SHARED SECTION STYLES
    ========================================== */
 .section { padding: 100px 0; border-bottom: 1px solid var(--border); }
@@ -1155,6 +1178,11 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .thread-artifact, .thread-artifact--right, .thread-artifact--wide { margin-left: 64px; max-width: 100%; }
   .thread-artifact--left .thread-artifact-dot, .thread-artifact--wide .thread-artifact-dot, .thread-artifact--right .thread-artifact-dot { left: -40px; }
   .thread-artifact-dot::after, .thread-artifact--right .thread-artifact-dot::after { width: 18px; }
+  .who-for { padding: 88px 0; }
+  .who-for-intro { margin-bottom: 56px; }
+  .who-for-grid { grid-template-columns: 1fr; }
+  .who-for-col { padding: 32px 0; border-left: none; border-top: 1px solid rgba(12,28,48,.1); }
+  .who-for-col:first-child { padding-top: 0; border-top: none; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .case-study-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
