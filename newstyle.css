@@ -281,18 +281,18 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(12,28,48,.97); ba
 .services-system { display: grid; grid-template-columns: 300px 1fr; gap: 88px; align-items: start; }
 
 .services-index { display: flex; flex-direction: column; border-top: 1px solid rgba(12,28,48,.13); }
-.services-index-item { display: block; width: 100%; background: none; border: none; border-bottom: 1px solid rgba(12,28,48,.13); border-left: 1px solid transparent; margin: 0; font: inherit; text-align: left; cursor: pointer; padding: 24px 6px 24px 22px; outline: none; transition: border-color .3s ease; }
+.services-index-item { display: block; width: 100%; background: none; border: none; border-bottom: 1px solid rgba(12,28,48,.13); border-left: 2px solid transparent; margin: 0; font: inherit; text-align: left; cursor: pointer; padding: 24px 6px 24px 22px; outline: none; transition: border-color .3s ease; }
 .services-index-item:focus-visible { outline: 1px solid rgba(196,144,58,.6); outline-offset: -2px; }
-.services-index-num { display: block; font-family: var(--font-mono); font-size: 11px; color: rgba(12,28,48,.32); letter-spacing: 1px; margin-bottom: 8px; transition: color .3s ease, letter-spacing .3s ease; }
-.services-index-name { display: block; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: rgba(12,28,48,.38); line-height: 1.25; transition: color .3s ease; }
-.services-index-tagline { display: block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: rgba(12,28,48,.28); letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; transition: color .3s ease; }
+.services-index-num { display: block; font-family: var(--font-mono); font-size: 11px; color: rgba(12,28,48,.32); letter-spacing: 1px; margin-bottom: 8px; transition: color .3s ease, letter-spacing .3s ease, font-size .3s ease; }
+.services-index-name { display: block; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: rgba(12,28,48,.34); line-height: 1.25; transition: color .3s ease; }
+.services-index-tagline { display: block; font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; color: rgba(12,28,48,.22); letter-spacing: .6px; text-transform: uppercase; margin-top: 5px; transition: color .3s ease; }
 
 .services-index-item:hover .services-index-name { color: rgba(12,28,48,.6); }
 
-.services-index-item.active { border-left-color: var(--gold-500); }
-.services-index-item.active .services-index-num { color: var(--gold-600); font-weight: 700; letter-spacing: 1.5px; }
+.services-index-item.active { border-left-color: var(--gold-600); }
+.services-index-item.active .services-index-num { color: var(--gold-600); font-weight: 700; font-size: 12.5px; letter-spacing: 1.5px; }
 .services-index-item.active .services-index-name { color: var(--navy-900); }
-.services-index-item.active .services-index-tagline { color: rgba(12,28,48,.42); }
+.services-index-item.active .services-index-tagline { color: rgba(12,28,48,.34); }
 
 .services-detail { min-height: 400px; position: relative; }
 .services-panel { display: none; }
@@ -1003,8 +1003,8 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
   .why-matters-proof { padding: 32px 28px 30px; }
   .services-system { grid-template-columns: 1fr; gap: 40px; }
   .services-index { flex-direction: row; flex-wrap: wrap; border-top: none; border-bottom: 1px solid rgba(12,28,48,.14); }
-  .services-index-item { width: auto; flex: 1 1 45%; border-left: none; border-bottom: 1px solid rgba(12,28,48,.14); border-top: 1px solid transparent; padding: 18px 16px; }
-  .services-index-item.active { border-left-color: transparent; border-top-color: var(--gold-500); }
+  .services-index-item { width: auto; flex: 1 1 45%; border-left: none; border-bottom: 1px solid rgba(12,28,48,.14); border-top: 2px solid transparent; padding: 18px 16px; }
+  .services-index-item.active { border-left-color: transparent; border-top-color: var(--gold-600); }
   .services-panel-title { font-size: 28px; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
