@@ -341,7 +341,6 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 
 .thread-artifact {
   position: relative;
-  max-width: 720px;
   margin: 0 0 100px 100px;
   opacity: 0;
   transform: translateY(26px);
@@ -355,7 +354,7 @@ input:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(196,144,
 
 .thread-artifact:last-child { margin-bottom: 0; }
 .thread-artifact--right { margin-left: 190px; }
-.thread-artifact--wide { margin-left: 100px; max-width: 940px; }
+.thread-artifact--wide { margin-left: 100px; }
 
 .thread-artifact-dot {
   position: absolute;
