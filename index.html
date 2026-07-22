@@ -262,49 +262,121 @@
   </div>
 </section>
 
-<!-- SERVICES OVERVIEW — four offerings, one system -->
+<!-- SERVICES — master-detail advisory system -->
 <section class="section services-overview" id="services-overview">
   <div class="container">
 
     <div class="services-intro">
       <span class="section-tag">Services</span>
-      <h2 class="section-title">Four services, one system.</h2>
-      <p class="services-subhead">cpulze helps independent hotels understand the narrative, strengthen the record, compare the field, and stay current as the story moves.</p>
+      <h2 class="section-title">Four ways to shape the narrative</h2>
+      <p class="services-subhead">Connected interventions for hotels that need their AI narrative to become clearer, stronger, and more defensible.</p>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card service-card--feature">
-        <span class="service-card-label">AI Mirror</span>
-        <h3 class="service-card-hook">See what AI is saying now.</h3>
-        <p class="service-card-text">A clear readout of how your hotel is being described across major AI systems, with the themes most likely shaping first impressions.</p>
+    <div class="services-system">
+
+      <div class="services-index">
+        <button class="services-index-item active" type="button" data-service-target="service-panel-mirror" aria-selected="true">
+          <span class="services-index-num">01</span>
+          <span class="services-index-name">AI Mirror</span>
+          <span class="services-index-tagline">The diagnostic view</span>
+        </button>
+        <button class="services-index-item" type="button" data-service-target="service-panel-voice" aria-selected="false">
+          <span class="services-index-num">02</span>
+          <span class="services-index-name">Owner Voice</span>
+          <span class="services-index-tagline">The authored record</span>
+        </button>
+        <button class="services-index-item" type="button" data-service-target="service-panel-winning" aria-selected="false">
+          <span class="services-index-num">03</span>
+          <span class="services-index-name">Who's Winning</span>
+          <span class="services-index-tagline">The competitive lens</span>
+        </button>
+        <button class="services-index-item" type="button" data-service-target="service-panel-vigil" aria-selected="false">
+          <span class="services-index-num">04</span>
+          <span class="services-index-name">Keep Vigil</span>
+          <span class="services-index-tagline">The ongoing watch</span>
+        </button>
       </div>
 
-      <div class="services-list">
-        <div class="service-card">
-          <div class="service-card-meta">
-            <span class="service-card-index">01</span>
-            <span class="service-card-label">Owner Voice</span>
+      <div class="services-detail">
+
+        <div class="services-panel active" id="service-panel-mirror">
+          <span class="services-panel-num">01</span>
+          <h3 class="services-panel-title">AI Mirror</h3>
+          <p class="services-panel-text">A diagnostic view of what AI currently believes about your hotel, and why. It reveals the patterns, blind spots, and outdated impressions shaping perception before a guest ever reaches your site.</p>
+          <ul class="services-panel-outcomes">
+            <li>Shows what is influencing AI answers about the property.</li>
+            <li>Highlights where the current picture is incomplete or out of date.</li>
+            <li>Reveals where perception no longer matches the hotel on the ground.</li>
+          </ul>
+          <div class="services-artifacts">
+            <span class="services-artifacts-label">Artifact cues</span>
+            <div class="services-artifacts-list">
+              <span>Narrative Snapshot</span>
+              <span>Evidence Inventory</span>
+              <span>AI Perception Map</span>
+            </div>
           </div>
-          <h3 class="service-card-hook">Record what is true now.</h3>
-          <p class="service-card-text">A structured owner-led record of updates, corrections, and current context — so your property's current reality has a place to enter the narrative.</p>
         </div>
-        <div class="service-card">
-          <div class="service-card-meta">
-            <span class="service-card-index">02</span>
-            <span class="service-card-label">Who's Winning</span>
+
+        <div class="services-panel" id="service-panel-voice">
+          <span class="services-panel-num">02</span>
+          <h3 class="services-panel-title">Owner Voice</h3>
+          <p class="services-panel-text">We shape the version of the hotel that should be easier for the market to understand and repeat. The goal is a clearer, more authoritative narrative that better reflects the property today.</p>
+          <ul class="services-panel-outcomes">
+            <li>Clarifies the positioning and language the hotel should stand behind.</li>
+            <li>Strengthens the material the market can draw from.</li>
+            <li>Aligns leadership voice with the narrative guests and partners encounter.</li>
+          </ul>
+          <div class="services-artifacts">
+            <span class="services-artifacts-label">Artifact cues</span>
+            <div class="services-artifacts-list">
+              <span>Positioning Framework</span>
+              <span>Source Pack</span>
+              <span>Editorial Narrative</span>
+            </div>
           </div>
-          <h3 class="service-card-hook">See where competitors are ahead.</h3>
-          <p class="service-card-text">A comparative view of how nearby hotels are being described, so you can spot where their narrative is clearer, stronger, or more current than yours.</p>
         </div>
-        <div class="service-card">
-          <div class="service-card-meta">
-            <span class="service-card-index">03</span>
-            <span class="service-card-label">Keep Vigil</span>
+
+        <div class="services-panel" id="service-panel-winning">
+          <span class="services-panel-num">03</span>
+          <h3 class="services-panel-title">Who's Winning</h3>
+          <p class="services-panel-text">A view of how your hotel is framed against nearby competitors and comparable properties. It reveals where others are appearing clearer, stronger, or more current — and where your advantage can be sharpened.</p>
+          <ul class="services-panel-outcomes">
+            <li>Compares narrative visibility across the competitive set.</li>
+            <li>Shows where competitors are more current or more convincingly represented.</li>
+            <li>Identifies openings to differentiate the property more clearly.</li>
+          </ul>
+          <div class="services-artifacts">
+            <span class="services-artifacts-label">Artifact cues</span>
+            <div class="services-artifacts-list">
+              <span>Competitive Narrative Scan</span>
+              <span>Visibility Comparison</span>
+              <span>Advantage Brief</span>
+            </div>
           </div>
-          <h3 class="service-card-hook">Track what shifts over time.</h3>
-          <p class="service-card-text">Ongoing monitoring of how your hotel is being described, so you can respond when the narrative starts to move again.</p>
         </div>
+
+        <div class="services-panel" id="service-panel-vigil">
+          <span class="services-panel-num">04</span>
+          <h3 class="services-panel-title">Keep Vigil</h3>
+          <p class="services-panel-text">An ongoing advisory layer that tracks drift, contradiction, and outdated signals over time. It helps keep the hotel's AI narrative current, coherent, and harder to misrepresent.</p>
+          <ul class="services-panel-outcomes">
+            <li>Monitors for meaningful shifts in how the property is described.</li>
+            <li>Flags stale or commercially unhelpful signals early.</li>
+            <li>Supports timely correction before weak information settles in.</li>
+          </ul>
+          <div class="services-artifacts">
+            <span class="services-artifacts-label">Artifact cues</span>
+            <div class="services-artifacts-list">
+              <span>Monitoring Cadence</span>
+              <span>Signal Alerts</span>
+              <span>Narrative Watchlist</span>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
 
     <div class="services-cta-row">

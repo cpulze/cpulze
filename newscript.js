@@ -104,6 +104,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 5. Services — master-detail index
+  const serviceItems = document.querySelectorAll('.services-index-item');
+  if (serviceItems.length) {
+    serviceItems.forEach(item => {
+      item.addEventListener('click', function () {
+        serviceItems.forEach(i => { i.classList.remove('active'); i.setAttribute('aria-selected', 'false'); });
+        document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+        document.getElementById(this.getAttribute('data-service-target')).classList.add('active');
+      });
+    });
+  }
+
 });
 
 // 5. Ledger UI (called from inline HTML)
