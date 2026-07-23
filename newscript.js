@@ -31,41 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
       this.textContent = 'Submitting…';
       this.disabled = true;
 
-      const turnstileToken = window._turnstileToken || document.querySelector('[name="cf-turnstile-response"]')?.value;
-
-      if (!turnstileToken) {
-        this.textContent = 'Security check not ready — please wait a moment';
-        this.style.backgroundColor = '#c0392b';
-        setTimeout(() => {
-          this.textContent = originalText;
-          this.style.backgroundColor = '';
-          this.disabled = false;
-        }, 3000);
-        return;
-      }
-
       try {
         const response = await fetch('/api/scan-signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ hotel_name: n, location: l, email: em, turnstileToken })
+          body: JSON.stringify({ hotel_name: n, location: l, email: em })
         });
         const data = await response.json();
         if (response.ok) {
           this.textContent = '✓ Request received — check your inbox';
           this.style.backgroundColor = '#2a7a50';
-        } else if (data.error === 'rate_limit_24h') {
-          throw new Error('You\'ve submitted 3 scans in the last 24 hours. Please try again tomorrow.');
-        } else if (data.error === 'scan_limit_reached') {
-          throw new Error('You\'ve used all 5 free scans. Email ovais@cpulze.com to continue.');
         } else {
           throw new Error(data.error || 'Something went wrong. Please try again.');
         }
       } catch (err) {
         this.textContent = err.message;
         this.style.backgroundColor = '#c0392b';
-        window._turnstileToken = null;
-        if (window.turnstile) window.turnstile.reset('#turnstile-widget');
         setTimeout(() => {
           this.textContent = originalText;
           this.style.backgroundColor = '';
