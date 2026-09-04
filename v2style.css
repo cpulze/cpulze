@@ -326,6 +326,29 @@
 .v2-founder-name { color: var(--text); font-weight: 500; }
 
 
+/* ─── AI RESPONSES NOTE — one quiet small-print block ── */
+.ai-note-section { padding: 56px 40px 64px; background: var(--cream-50); }
+.ai-note { max-width: 680px; margin: 0 auto; text-align: center; padding-top: 40px; border-top: 1px solid var(--border); }
+.ai-note-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(12,28,48,.45); margin-bottom: 14px;
+}
+.ai-note-label::before, .ai-note-label::after { content: ''; width: 16px; height: 1px; background: rgba(196,144,58,.5); }
+.ai-note-text { font-size: 14px; line-height: 1.7; color: rgba(12,28,48,.5); }
+
+/* Quiet cross-reference links used near AI-generated claims elsewhere on the page */
+.section-note-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase;
+  color: rgba(12,28,48,.4); text-decoration: none; transition: color .2s;
+}
+.section-note-link::before { content: ''; width: 16px; height: 1px; background: rgba(196,144,58,.5); }
+.section-note-link:hover { color: var(--gold-600); }
+.why-matters .section-note-link { color: rgba(255,255,255,.45); }
+.why-matters .section-note-link:hover { color: var(--gold-400); }
+
+
 /* ─── OFFERINGS AS QUESTIONS ────────────────────────── */
 .v2-offerings {
   padding: 100px 0;
