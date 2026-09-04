@@ -873,8 +873,8 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 .legal-page ul { list-style: none; margin-bottom: 16px; }
 .legal-page ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-mid); }
 .legal-page ul li::before { content: ''; position: absolute; left: 0; top: 12px; width: 10px; height: 1px; background: var(--gold-500); }
-.legal-page a { color: var(--gold-600); text-decoration: underline; text-underline-offset: 2px; }
-.legal-page a:hover { color: var(--gold-700); }
+.legal-page main a { color: var(--gold-600); text-decoration: underline; text-underline-offset: 2px; }
+.legal-page main a:hover { color: var(--gold-700); }
 .legal-page strong { color: var(--text); font-weight: 600; }
 
 .legal-page .highlight-box { background: var(--gold-bg); border-left: 2px solid var(--gold-500); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
