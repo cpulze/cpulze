@@ -859,6 +859,54 @@ footer { background: var(--navy-950); border-top: 0.5px solid rgba(255,255,255,.
 .footer-links a:hover { color: rgba(255,255,255,.7); }
 
 /* ==========================================
+   LEGAL PAGES (privacy, terms)
+   ========================================== */
+.legal-page main { max-width: 820px; margin: 0 auto; padding: 72px 40px 120px; }
+.legal-page .doc-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--gold-500); letter-spacing: 1.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.legal-page .doc-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold-400); }
+.legal-page h1 { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--text); line-height: 1.15; margin-bottom: 16px; }
+.legal-page .doc-meta { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); letter-spacing: .3px; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+.legal-page .doc-intro { font-size: 18px; color: var(--text-mid); line-height: 1.7; margin-bottom: 32px; }
+.legal-page h2 { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--text); margin: 48px 0 16px; }
+.legal-page h3 { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-mid); text-transform: uppercase; letter-spacing: .4px; margin: 28px 0 12px; }
+.legal-page p { color: var(--text-mid); margin-bottom: 16px; }
+.legal-page ul { list-style: none; margin-bottom: 16px; }
+.legal-page ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-mid); }
+.legal-page ul li::before { content: ''; position: absolute; left: 0; top: 12px; width: 10px; height: 1px; background: var(--gold-500); }
+.legal-page a { color: var(--gold-600); text-decoration: underline; text-underline-offset: 2px; }
+.legal-page a:hover { color: var(--gold-700); }
+.legal-page strong { color: var(--text); font-weight: 600; }
+
+.legal-page .highlight-box { background: var(--gold-bg); border-left: 2px solid var(--gold-500); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+.legal-page .highlight-box h3 { margin-top: 0; }
+.legal-page .highlight-box ul { margin-bottom: 0; }
+
+.legal-page .warning-box { background: var(--cream-100); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin: 24px 0; }
+.legal-page .warning-box p { margin-bottom: 0; font-size: 15px; }
+
+.legal-page .table-wrap { overflow-x: auto; margin: 20px 0 32px; }
+.legal-page table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.legal-page th, .legal-page td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.legal-page th { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); }
+.legal-page td { color: var(--text-mid); }
+.legal-page tr:last-child td { border-bottom: none; }
+
+.legal-page .contact-box { background: var(--navy-900); border-radius: 10px; padding: 32px 36px; margin: 40px 0; }
+.legal-page .contact-box h3 { color: var(--white); margin-top: 0; text-transform: none; font-size: 18px; font-family: var(--font-display); font-weight: 500; letter-spacing: 0; }
+.legal-page .contact-box p { color: rgba(255,255,255,.6); }
+.legal-page .contact-box a { color: var(--gold-300); }
+.legal-page .contact-detail { display: block; color: var(--gold-300); font-family: var(--font-mono); font-size: 14px; margin-top: 6px; }
+
+.legal-page .doc-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .legal-page main { padding: 48px 20px 80px; }
+  .legal-page h1 { font-size: 32px; }
+  .legal-page table { font-size: 13px; }
+  .legal-page th, .legal-page td { padding: 10px 8px; }
+}
+
+/* ==========================================
    AUTH PAGES (login, scan-confirmed)
    ========================================== */
 .auth-page { min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center; padding: 40px 24px; background: var(--navy-900); }
