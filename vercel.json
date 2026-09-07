@@ -1,18 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "app.cpulze.com" }],
-      "destination": "/dashboard/index.html"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "app.stage.cpulze.com" }],
-      "destination": "/dashboard/index.html"
-    },
-    {
-      "source": "/ownervoice/:slug",
-      "destination": "/ownervoice/index.html"
-    }
-  ]
-}
+{}
