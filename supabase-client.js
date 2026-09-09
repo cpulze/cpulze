@@ -2,10 +2,8 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 export const APP_BASE = (() => {
   const h = location.hostname;
-  if (h === 'app.stage.cpulze.com')   return 'https://app.stage.cpulze.com';
-  if (h === 'app.cpulze.com')         return 'https://app.cpulze.com';
   if (h === 'localhost' || h === '127.0.0.1') return `http://${location.host}`;
-  return `https://${location.host}`;  // Vercel preview URLs
+  return `https://${location.host}`;
 })();
 
 const SUPABASE_URL = 'https://buqauvcbsazzrstolsnx.supabase.co';
